@@ -1,0 +1,54 @@
+@charset "utf-8";
+@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+
+
+/* 초기화 */
+html {overflow-y:scroll}
+body {margin:0;padding:0;font-size:0.75em;font-family:'Noto Sans KR', 'Malgun Gothic', dotum, sans-serif;background:#fff}
+html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
+h1, h2, h3, h4, h5, h6 {font-size:1em;font-family:'Noto Sans KR', 'Malgun Gothic', dotum, sans-serif}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
+
+ul, dl,dt,dd {margin:0;padding:0;list-style:none}
+legend {position:absolute;margin:0;padding:0;font-size:0;line-height:0;text-indent:-9999em;overflow:hidden}
+label, input, button, select, img {vertical-align:middle;font-size:1em}
+input, button {margin:0;padding:0;font-family:'Noto Sans KR', 'Malgun Gothic', dotum, sans-serif;font-size:1em}
+input[type="submit"]{cursor:pointer}
+button {cursor:pointer}
+
+textarea, select {font-family:'Noto Sans KR', 'Malgun Gothic', dotum, sans-serif;font-size:1em}
+select {margin:0}
+p {margin:0;padding:0;word-break:break-all}
+hr {display:none}
+pre {white-space: pre-line; font-size:1em;font-family:'Noto Sans KR', 'Malgun Gothic', dotum, sans-serif}
+a {color:#000;text-decoration:none}
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+
+img {
+	max-width: 100%;
+	height: auto;
+	width: auto\9; /* ie8 */
+}
+
+table{width: 100%;
+border-spacing: 0;
+border-collapse: collapse;
+display:table;
+}
+tbody {
+display: table-row-group;
+vertical-align: middle;
+border-color: inherit;
+}
+tr {
+display: table-row;
+vertical-align: inherit;
+border-color: inherit;
+}

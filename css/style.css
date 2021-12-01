@@ -1,0 +1,53 @@
+.header {
+    margin : 0 auto;
+    max-width: 1800px;
+    width:100%;
+    display:flex;
+    font-size:20px;
+    font-weight: bolder;
+    background-color: rgb(99, 98, 98);
+    color : white;
+
+}
+.header .logo {
+    width : 30%;
+    height: 70px;
+}
+.header .nav {
+    width : 50%;
+    margin : 0 auto;
+}
+.header .nav >ul {
+    display : flex;
+    margin : 10px 0;
+}
+
+.header .nav > ul > li {
+    width: 100%;
+    height: 50px;
+    margin : 5px 20px;
+    line-height: 40px;
+    text-align: center;
+    color : white;
+}
+
+.header .right-header {
+    width : 20%;
+    display: flex;
+    font-size:15px;
+    margin : 10px 0;
+}
+.header .right-header .donation{
+    height : 50px;
+    margin : 5px 20px;
+    line-height: 40px;
+    text-align: center;
+    width: 50%;
+}
+.header .right-header .login{
+    height : 50px;
+    margin : 5px 20px;
+    line-height: 40px;
+    text-align: center;
+    width: 50%;
+}
