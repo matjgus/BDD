@@ -47,48 +47,36 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
             prevEl: ".swiper-button-prev",
           },
         });
-
-        var swiper = new Swiper(".mySwiper2", {
-            spaceBetween: 300,
-            centeredSlides: true,
-            autoplay: {
-              delay: 2500,
-              disableOnInteraction: false,
-            },
-            pagination: {
-              el: ".swiper-pagination",
-              clickable: true,
-            },
-            navigation: {
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-            },
-          });
     </script>
+
 
     <div class="wrap">
         <div class="story-title">
             <h1>사연</h1>
         </div>
-        <div class="swiper mySwiper" >
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                  <img src="img\banner1.png">
-              </div>
-              <div class="swiper-slide">
-                <img src="img\banner2.png">
-              </div>
-              <div class="swiper-slide">
-                  <img src="img\banner3.png"></div>
-              
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+        <div class="story-content">
+            사연넣는곳
         </div>
     </div>
+    <div class="wrap">
+        <div class="support-status">
+            <div class="status-box">
+                <div>월 누적 헌혈증서 수</div>
+                <div>연간 누적 헌혈증서 수</div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="participating-companies-title">
+            <h1>참여기업</h1>
+        </div>
 
-    <!-- 나중에 푸터 추가
+        <div class="participating-companies">
+            <div>참여기업</div>
+            
+        </div>
+    </div>
+    
       <div id="footers"></div>  
-    -->
+ 
 </body>
