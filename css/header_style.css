@@ -7,7 +7,8 @@
     font-weight: bolder;
     background-color: rgb(99, 98, 98);
     color : white;
-
+    z-index: 0;
+    
 }
 .header .logo {
     width : 30%;
@@ -25,8 +26,8 @@
 .header .nav > ul > li {
     width: 100%;
     height: 50px;
-    margin : 5px 20px;
-    line-height: 40px;
+    margin : 8px 20px;
+    line-height: 50px;
     text-align: center;
     color : white;
 }
@@ -44,6 +45,25 @@
     text-align: center;
     width: 50%;
 }
+
+.donation >a {
+	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	background-color:#ededed;
+	border-radius:15px;
+	display:inline-block;
+	cursor:pointer;
+	font-family:Arial;
+    margin: 6px;
+	padding:5px 5px;
+}
+.donation >a:hover {
+	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	background-color:#bab1ba;
+}
+.donation >a:active {
+	position:relative;
+	top:1px;
+}
 .header .right-header .login{
     height : 50px;
     margin : 5px 20px;
@@ -51,3 +71,4 @@
     text-align: center;
     width: 50%;
 }
+
