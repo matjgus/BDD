@@ -10,6 +10,11 @@
     z-index: 0;
     
 }
+.wrap {
+    margin : 0 auto;
+    max-width: 1800px;
+    width:100%;
+}
 .header .logo {
     width : 30%;
     height: 70px;

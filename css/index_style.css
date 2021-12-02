@@ -36,3 +36,15 @@ width: 100%;
 height: 100%;
 object-fit: cover;
 }
+.wrap .story-title {
+    width : 90%;
+    height: 100px;
+    text-align: center;
+    margin:10px auto;
+    border:solid 1px black;
+    line-height: 90px;
+}
+
+.wrap .story-title > h1 {
+    font-size: 50px;
+}
