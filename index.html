@@ -9,7 +9,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
 
 <body>
     <div id="headers"></div>
-    
+    <div class="wrap">
     <div class="swiper mySwiper" >
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -26,29 +26,30 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
     </div>
+</div>
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   
     <!-- Initialize Swiper -->
     <script>
-        var swiper = new Swiper(".mySwiper", {
-          spaceBetween: 300,
-          centeredSlides: true,
-          autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-        });
+        var memberCountConTxt= 296842;
+        
+        $({ val : 0 }).animate({ val : memberCountConTxt }, {
+         duration: 1000,
+        step: function() {
+          var num = numberWithCommas(Math.floor(this.val));
+          $(".memberCountCon").text(num);
+        },
+        complete: function() {
+          var num = numberWithCommas(Math.floor(this.val));
+          $(".memberCountCon").text(num);
+        }
+      });
+      
+      function numberWithCommas(x) {
+          return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
     </script>
-
 
     <div class="wrap">
         <div class="story-title">
@@ -61,8 +62,26 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
     <div class="wrap">
         <div class="support-status">
             <div class="status-box">
-                <div>월 누적 헌혈증서 수</div>
-                <div>연간 누적 헌혈증서 수</div>
+                <div>
+                    <p>
+                        <span>이번달 월 헌혈증서 수 : </span>
+                        <span class="memberCountCon"></span>
+
+                         </p>
+                    <p>
+                        <span>누적 헌혈증서 수 :</span>
+                        <span class="memberCountCon"></span>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <span>기증받은 사람 수 : </span>
+                        <span class="memberCountCon"></span>
+                    </p>
+                    <p>
+                        <span> 총 기증받은 양 : </span>
+                        <span class="memberCountCon"></span>
+                    </div>
             </div>
         </div>
     </div>
