@@ -4,7 +4,7 @@
 }
 .swiper {
     width: 100%;
-    height: 800px;
+    height: 1300px;
   }
 .swiper.img{
     width : 100%;
@@ -37,14 +37,47 @@ height: 100%;
 object-fit: cover;
 }
 .wrap .story-title {
-    width : 90%;
+    width : 100%;
     height: 100px;
     text-align: center;
     margin:10px auto;
     border:solid 1px black;
     line-height: 90px;
 }
-
+.wrap .story-content{
+    height: 500px;
+}
 .wrap .story-title > h1 {
     font-size: 50px;
+}
+
+.wrap .story-content {
+    background-color: rgb(153, 173, 190);
+}
+
+.wrap .support-status{
+}
+.wrap .support-status .status-box {
+    display: flex;
+    justify-content: center;
+}
+
+.wrap .support-status .status-box > div{
+    width : 40%;
+    height: 300px;
+    margin : 40px 30px;
+    background-color:rgb(205, 216, 57);
+} 
+.wrap .participating-companies{
+   height: 400px;
+   background-color: beige;
+
+}
+.wrap .participating-companies-title {
+    margin :20px 0;
+}
+.wrap .participating-companies-title > h1{
+    font-size: 50px;
+    text-align: center;
+    
 }
