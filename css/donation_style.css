@@ -1,0 +1,37 @@
+
+
+.donation-link-btn {
+    background-color: rgb(214, 214, 214);
+    height: 120px;
+    width: 60%;
+    max-width: 1000px;
+    margin: 30px auto;
+    display: flex;
+}
+
+.donation-link-01 {
+    background-color: rgb(252, 151, 168);
+    color: white;
+    width: 33.3%;
+    height: 100%;
+    line-height: 120px;
+    font-size: 25px;
+    box-shadow: 0px 0px 15px rgb(241 128 175 / 75%);
+}
+.donation-link-02 {
+    background-color: rgb(214, 214, 214);
+    color: black;
+    width:33.3%;
+    height: 100%;
+    line-height: 120px;
+    font-size: 25px;
+}
+
+.donation-link-03 {
+    background-color: rgb(214, 214, 214);
+    color: black;
+    width:33.3%;
+    height: 100%;
+    line-height: 120px;
+    font-size: 25px;
+}
