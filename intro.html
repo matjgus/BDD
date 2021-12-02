@@ -14,25 +14,42 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
         display: flex;
     }
     .say-img > img{
-        width: 400px;
+        width: 500px;
     }
-    .say-text{
-
+    .say-img > p{
+        text-align: center;
+        font-size: 20px;
+    }
+    .say-text > h2{
+        font-size: 40px;
+        padding: 50px 10px;
+    }
+    .say-text > p{
+        font-size: 20px;
+        padding: 15px 10px;
+    }
+    .intro-icon{
+        text-align: center;
+    }
+    .intro-icon > i{
+        padding: 20px 10px;
+        font-size: 40px;
+        color: rgb(133, 125, 125);
     }
 
 </style>
 <body>
     <div id="headers"></div>
-<div>
+<div class="wrap">
     <div>
         배너
     </div>
     <div class="intro">
-        <ul>
+        <ul style="border: 1px solid red">
             <li>
                 <div class="say-img">
                     <img src="./img/representative.jpg">
-                    <p>헌혈 증서 기증 사이트 개발자 마서현</p>
+                    <p>헌혈 증서 기증 사이트 개발자 김세현</p>
                 </div>
             </li>
             <li>
@@ -47,9 +64,20 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
                         <br> 어린이들과 가족들에게 건강과 희망을 주도록 최선의 노력을 다하겠습니다.
                     </p>
                 </div>
+                <div class="say-text">
+                    <p>약력 약력 약력 약력 약력 약력 약력 약력 약력 약력  <br>
+                        약력 약력 약력 약력 약력 약력 약력 약력 약력 약력  <br>
+                        약력 약력 약력 약력 약력 약력 약력 약력 약력 약력  <br></p>
+                </div>
                 
             </li>
         </ul>
+        <div class="intro-icon">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-twitter-square"></i>
+        </div>
     </div>
 
 </div>
