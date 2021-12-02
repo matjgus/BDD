@@ -1,3 +1,5 @@
+
+
 .header {
     margin : 0 auto;
     max-width: 1800px;
@@ -8,8 +10,9 @@
     background-color: rgb(99, 98, 98);
     color : white;
     z-index: 0;
-    
 }
+
+
 .wrap {
     margin : 0 auto;
     max-width: 1800px;
