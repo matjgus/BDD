@@ -1,0 +1,43 @@
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript"></script>
+<link rel="stylesheet" href="../css/login_style.css" />
+<script>
+$(document).ready( function()  {
+$("#headers").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
+$("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+});
+</script>
+
+<body>
+    <div id="headers"></div>
+    <div class="login-wrap">
+        <div class="login-box">
+            <h2>통합 로그인</h2>
+            <div class="login">
+                <form action="">
+                    <ul>
+                        <li><input type='text' placeholder="아이디"></li>
+                        <li><input type='password' placeholder="패스워드"></li>
+                        <li class = 'btn'>
+                            <button>로그인</button>
+                        </li>
+                    </ul>
+                    <div class="opt-box">
+                        <span>
+                            <input type="checkbox" id = "rem "><label for='rem'>로그인 기억하기</label>
+                        </span>
+                        <span>
+                                <a href="$none">아이디 찾기</a>
+                                <a href="$none">비밀번호 찾기</a>
+                        </span>
+                    </div>
+
+                    <div class= "join-btn">
+                        <a href="/web/10/page/signup.html">회원가입하기</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="footers"></div>
+</body>

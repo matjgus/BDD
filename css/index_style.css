@@ -41,7 +41,6 @@ object-fit: cover;
     height: 100px;
     text-align: center;
     margin:10px auto;
-    border:solid 1px black;
     line-height: 90px;
 }
 .wrap .story-content{
@@ -55,11 +54,23 @@ object-fit: cover;
     background-color: rgb(153, 173, 190);
 }
 
-.wrap .support-status{
+.wrap .support-status .status-box > div > p{
+    font-size : 30px;
+    font-weight: bolder;
+    height: 50%;
+    line-height: 150px;
+    border: 1px solid black;
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+    padding : 0 10px;
+    font-weight: 400;
 }
+
 .wrap .support-status .status-box {
     display: flex;
     justify-content: center;
+    background-color: antiquewhite;
 }
 
 .wrap .support-status .status-box > div{
@@ -80,4 +91,7 @@ object-fit: cover;
     font-size: 50px;
     text-align: center;
     
+}
+.memberCountCon{
+    font-weight: bold;
 }
