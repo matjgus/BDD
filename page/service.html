@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/service_style.css" />
 <link rel="stylesheet" href="../css/donation_style.css" />  
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
@@ -10,13 +11,28 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
 
 <style>
     .faq-board{
-        margin: 200px;
+        margin: 50px;
         padding: 50px;
         border: 1px solid black;
     }
     .faq-board > h1{
         font-size: 30px;
-        letter-spacing: 1px;
+        letter-spacing: 7px;
+        padding: 10px;
+    }
+    .faq-board > ul > li{
+        font-size: 20px;
+        padding: 10px;
+    }
+    .board-btn{
+        width: 20%;
+        text-align: center;
+        line-height: 50px; 
+        text-align: center;
+        border-radius: 20px;
+        margin: 30px auto;
+        font-size: 20px;
+        border: 1px solid black;
     }
 </style>
 
@@ -48,8 +64,11 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
                 </li>
             </ul>
         </div>
-        
+        <div class="board-btn">
+            <a href="./service_board.html">1:1 문의하기</a>
+        </div>
     </div>
+
 
       <div id="footers"></div>  
 
