@@ -1,6 +1,6 @@
 
 .donation-link-btn {
-    height: 120px;
+    height: 90px;
     width: 60%;
     max-width: 1000px;
     margin: 100px auto;
@@ -8,19 +8,23 @@
     cursor: pointer;
 }
 
+.donation-wrap {
+    margin: 0 auto;
+}
+
 .donation-link-btn li a {
     width: 100%;
-    height: 120px;
+    height: 90px;
     display: block;
 }
 
 .donation-link-selected {
-    background-color: rgb(252, 151, 168);
+    background-color: rgb(255, 164, 178);
     color: white;
     width: 33.3%;
     height: 100%;
-    line-height: 120px;
-    font-size: 35px;
+    line-height: 90px;
+    font-size: 30px;
     box-shadow: 0px 0px 15px rgb(241 128 175 / 75%);
     text-align: center;
     font-weight: 500;
@@ -31,8 +35,8 @@
     color: black;
     width:33.3%;
     height: 100%;
-    line-height: 120px;
-    font-size: 35px;
+    line-height: 90px;
+    font-size: 30px;
     text-align: center;
     font-weight: 400;
 }
@@ -49,7 +53,7 @@
     font-size: 70px;
     font-weight: 500;
     font-family: 'MaruBuriLight';
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     
 }
 
@@ -60,8 +64,12 @@
     justify-content: center;
 }
 
+.blood-donation-info div img {
+    height: 350px;
+}
+
 .blood-donation-info div{
-    width: 23%;
+    width: 33%;
 }
 
 .blood-donation-info p {
@@ -75,18 +83,30 @@
 
 .qna {
     display: flex;
+    flex-direction: column;
     align-items: center;
     
 }
 
 .qna p {
-    font-size: 25px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.qna li p {
+    font-size: 30px;
     font-weight: 600;
 }
 
+.qna img {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
 .qna li {
-    margin: 0 10px 0 10px;
-    width: 25%;
+    margin: 10px 0 0 0;
+    width: 80%;
+    height: 50px;
 }
 
 
