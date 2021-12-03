@@ -41,8 +41,8 @@
     text-align: center;
     flex-direction: column;
     display: flex;
-    width: 50%;
     margin: 0 auto;
+    width: 90%;
 }
 
 .wrap-blood-donation p {
@@ -50,16 +50,18 @@
     font-weight: 500;
     font-family: 'MaruBuriLight';
     margin-bottom: 40px;
+    
 }
 
 .blood-donation-info {
     display: flex;
     height: 300px;
     align-items: center;
+    justify-content: center;
 }
 
 .blood-donation-info div{
-    width: 50%;
+    width: 23%;
 }
 
 .blood-donation-info p {
@@ -67,7 +69,25 @@
     line-height: 30px;
 }
 
+.wrap-qna {
+    margin-top: 100px;
+}
 
+.qna {
+    display: flex;
+    align-items: center;
+    
+}
+
+.qna p {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.qna li {
+    margin: 0 10px 0 10px;
+    width: 25%;
+}
 
 
 
