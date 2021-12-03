@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/intro_style.css" /> 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">   
 $(document).ready( function() {
@@ -5,19 +6,34 @@ $("#headers").load("./header.html");  // 원하는 파일 경로를 삽입하면
 $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
 });
 </script>
-<link rel="stylesheet" href="../css/intro_style.css" />
+
 <body>
     <div id="headers"></div>
-<div class="wrap">
-    <div>
-        배너
+
+    <div class="swiper mySwiper" style="height: 450px;">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+              <img src="..\img\banner1.jpg">
+          </div>
+          <div class="swiper-slide">
+            <img src="..\img\banner2.jpg">
+          </div>
+          <div class="swiper-slide">
+              <img src="..\img\banner3.jpg">
+          </div>
     </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+<div class="wrap">
     <div class="intro">
-        <ul style="border: 1px solid red">
+        <ul>
             <li>
                 <div class="say-img">
-                    <img src="./img/KSH.png">
-                    <p>헌혈 증서 기증 사이트 개발자 김세현</p>
+                    <img src="../img/representative.jpg">
+                    <p>헌혈 증서 기증 사이트 개발자</p>
                 </div>
             </li>
             <li>
@@ -51,3 +67,22 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
 </div>
 
 </body>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 300,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+</script>
+      <div id="footers"></div>  
