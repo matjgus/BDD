@@ -34,7 +34,7 @@
 
 
 .header .logo {
-    width : 30%;
+    width : 6%;
     height: 100%;
 }
 .header .nav {
@@ -58,20 +58,22 @@
 .header .right-header {
     width : 20%;
     display: flex;
-    font-size:15px;
-    margin : 10px 0;
+    font-size:20px;
+    margin : 5px 20px;
+    line-height: 30px;
+    text-align: center;
 }
 .header .right-header .donation{
     height : 50px;
     margin : 5px 20px;
-    line-height: 40px;
     text-align: center;
     width: 50%;
 }
 
+
 .donation >a {
 	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
-	background-color:#ededed;
+	background-color:#cfcece;
 	border-radius:15px;
 	display:inline-block;
 	cursor:pointer;
@@ -93,6 +95,24 @@
     line-height: 40px;
     text-align: center;
     width: 50%;
+}
+.login >a {
+	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	background-color:#ededed;
+	border-radius:15px;
+	display:inline-block;
+	cursor:pointer;
+	font-family:Arial;
+    margin: 6px;
+	padding:5px 5px;
+}
+.login >a:hover {
+	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	background-color:#bab1ba;
+}
+.login >a:active {
+	position:relative;
+	top:1px;
 }
 
 .bottom_box div{
