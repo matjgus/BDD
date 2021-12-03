@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="../css/donation_style.css" />  
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+   
+$(document).ready( function() {
+$("#headers").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
+$("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+});
+</script>
+
+<style>
+
+</style>
+
+<body>
+    <div id="headers"></div>
+    <div style="margin: 300px;">
+        <table>
+            <tr>
+                <th>문의 유형</th>
+                <td>문의하세요</td>
+            </tr>
+            <tr>
+                <th>문의 제목</th>
+            </tr>
+        </table>
+    </div>
+
+      <div id="footers"></div>  
+
+</body>
