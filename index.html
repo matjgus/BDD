@@ -5,7 +5,7 @@ $("#headers").load("./header.html");  // 원하는 파일 경로를 삽입하면
 $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
 });
 </script>
-
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <body>
     <div id="headers"></div>
@@ -27,9 +27,9 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
 
     </div>
     <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
   
-    <!-- Initialize Swiper -->
+    <!--숫자 올라가는 JS-->
     <script>
         var memberCountConTxt= 296842;
         
@@ -49,17 +49,33 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
           return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       }
     </script>
-
+    
+    </div>
     <div class="wrap">
         <div class="story-title">
             <h1>사연</h1>
         </div>
-        <div class="story-content">
-            
-        </div>
     </div>
+    <!-- Swiper -->
+    <div class="swiper mySwiper02">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 4</div>
+          <div class="swiper-slide">Slide 5</div>
+          <div class="swiper-slide">Slide 6</div>
+          <div class="swiper-slide">Slide 7</div>
+          <div class="swiper-slide">Slide 8</div>
+          <div class="swiper-slide">Slide 9</div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
     <div class="wrap">
         <div class="support-status">
+            <div class="donation-title">
+                <h1>후원</h1>
+            </div>
             <div class="status-box">
                 <div>
                     <p>
@@ -90,16 +106,26 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
         </div>
 
         <div class="participating-companies">
-            <div>참여기업</div>
-            
+            <div class="swiper mySwiper03">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide swiper-slide3">Slide 1</div>
+                  <div class="swiper-slide swiper-slide3">Slide 2</div>
+                  <div class="swiper-slide swiper-slide3">Slide 3</div>
+                  <div class="swiper-slide swiper-slide3">Slide 4</div>
+                  <div class="swiper-slide swiper-slide3">Slide 5</div>
+                  <div class="swiper-slide swiper-slide3">Slide 6</div>
+                  <div class="swiper-slide swiper-slide3">Slide 7</div>
+                  <div class="swiper-slide swiper-slide3">Slide 8</div>
+                  <div class="swiper-slide swiper-slide3">Slide 9</div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
         </div>
+        
     </div>
-    
       <div id="footers"></div>  
- 
 </body>
-<script>
-    var swiper = new Swiper(".mySwiper", {
+<script> var swiper = new Swiper(".mySwiper", {
         spaceBetween: 30,
         centeredSlides: true,
         autoplay: {
@@ -116,4 +142,33 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
         },
       });
   </script>
+  
+  <script>
+    var swiper = new Swiper(".mySwiper02", {
+      slidesPerView: 4,
+      spaceBetween: 50,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      }
+    });
+  </script>
 
+  <script>
+    var swiper = new Swiper(".mySwiper03", {
+      slidesPerView: 6,
+      spaceBetween: 50,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      }
+    });
+  </script>

@@ -58,16 +58,8 @@
 
 
 <script>
-    window.onscroll = scroll();
-    function scroll(){
-        if(document.body.scrollTop > 60 || document.body.scrollTop>60){
-            document.getElementById('navbar').style.color='white';
-        }else{
-            document.getElementById('navbar').style.color='black';
-        }
-    }
+    AOS.init();
 </script>
-
 <script>
     var lastScrollTop = 0, delta = 15;
 
@@ -85,5 +77,4 @@
         }
         lastScrollTop = scrollTop;
     });
-    AOS.init();
 </script>
