@@ -1,0 +1,105 @@
+.mySwiper{
+    margin-top: 0px;
+    
+}
+.swiper {
+    margin : 0 auto;
+    width: 100%;
+    height: 1500px;
+    
+  }
+.swiper.img{
+    width : 100%;
+    height : 100%;
+}
+.swipers{
+    margin : 0 auto;
+    width: 100%;
+    height: 500px;
+}
+.swiper-slide {
+text-align: center;
+font-size: 18px;
+background: #fff;
+
+/* Center slide text vertically */
+display: -webkit-box;
+display: -ms-flexbox;
+display: -webkit-flex;
+display: flex;
+-webkit-box-pack: center;
+-ms-flex-pack: center;
+-webkit-justify-content: center;
+justify-content: center;
+-webkit-box-align: center;
+-ms-flex-align: center;
+-webkit-align-items: center;
+align-items: center;
+}
+
+.swiper-slide img {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.wrap .story-title {
+    width : 100%;
+    height: 100px;
+    text-align: center;
+    margin:10px auto;
+    line-height: 90px;
+}
+.wrap .story-content{
+    height: 500px;
+}
+.wrap .story-title > h1 {
+    font-size: 50px;
+}
+.story-content{
+    background-color: rgb(153, 173, 190);
+}
+
+.wrap .support-status .status-box > div > p{
+    font-size : 30px;
+    font-weight: bolder;
+    height: 50%;
+    line-height: 150px;
+    
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+    padding : 0 10px;
+    font-weight: 400;
+}
+
+.wrap .support-status .status-box {
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+
+.wrap .support-status .status-box > div{
+    width : 40%;
+    height: 300px;
+    margin : 40px 30px;
+    background-color:rgb(205, 216, 57);
+    border-radius: 15%;
+    border: 1px solid silver;
+} 
+.wrap .participating-companies{
+   height: 400px;
+   background-color: beige;
+
+}
+.wrap .participating-companies-title {
+    margin :20px 0;
+}
+.wrap .participating-companies-title > h1{
+    font-size: 50px;
+    text-align: center;
+    
+}
+.memberCountCon{
+    font-weight: bold;
+}
