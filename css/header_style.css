@@ -1,17 +1,22 @@
-
-
 .header {
-    margin : 0 auto;
-    max-width: 1800px;
-    width:100%;
     display:flex;
     font-size:20px;
     font-weight: bolder;
-    background-color: rgb(99, 98, 98);
     color : white;
-    z-index: 0;
+    z-index: 100;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    margin : 0 auto;
+    max-width: 1800px;
+    width:100%;
 }
-
 
 .wrap {
     margin : 0 auto;
@@ -19,9 +24,18 @@
     width:100%;
     
 }
+.header{
+    position:fixed;
+    left:50%;width:100%;
+    padding:10px 0;
+    text-align:center;
+    transform:translate(-50%);
+    transition:all .3s}
+
+
 .header .logo {
     width : 30%;
-    height: 70px;
+    height: 100%;
 }
 .header .nav {
     width : 50%;

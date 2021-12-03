@@ -9,24 +9,23 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
 
 <body>
     <div id="headers"></div>
-    <div class="wrap">
-    <div class="swiper mySwiper" >
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-              <img src="img\banner1.png">
-          </div>
-          <div class="swiper-slide">
-            <img src="img\banner2.png">
-          </div>
-          <div class="swiper-slide">
-              <img src="img\banner3.png"></div>
-          
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper mySwiper" >
+            <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="img\banner1.png">
+            </div>
+            <div class="swiper-slide">
+                <img src="img\banner2.png">
+            </div>
+            <div class="swiper-slide">
+                <img src="img\banner3.png"></div>
+            
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+
     </div>
-</div>
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   
@@ -56,7 +55,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
             <h1>사연</h1>
         </div>
         <div class="story-content">
-            사연넣는곳
+            
         </div>
     </div>
     <div class="wrap">
@@ -99,3 +98,22 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
       <div id="footers"></div>  
  
 </body>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+  </script>
+
