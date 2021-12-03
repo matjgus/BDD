@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../css/set.css" >
     <link rel="stylesheet" href="../css/header_style.css" >
     <link rel="stylesheet" href="../css/index_style.css" >
-    <link rel="stylesheet" href="../css/donation_style.css" >
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" >
@@ -16,7 +15,8 @@
 </head >
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <body>
-    <div class="header" >
+    <div class="wrap">
+    <div class="header" id="navbar">
         <h1 class="logo">
             <a href="../index.html">
                 <img src="../img/Logo.png " style="width:100%; height:86px">
@@ -28,7 +28,7 @@
                     <a href="../intro.html">소개</a>
                 </li>
                 <li>
-                    <a href="./donation.html">후원</a>
+                    <a href="../page/donation.html">후원</a>
                 </li>
                 <li>
                     <a href="../index.html">고객센터</a>
@@ -37,13 +37,53 @@
         </div>
         <div class="right-header">
             <div class="donation">
-                <a href="../index.html">후원하기</a>
+                <a href="../page/donation.html">후원하기</a>
             </div>
             <div class="login">
-                <a href="../index.html">.<i class="far fa-user">></i></a>
+                <a href="/page/login.html">.<i class="far fa-user">></i></a>
             </div>
         </div>
     </div>
-
+</div>
 </body>
 </html>
+<script>
+    $(document).ready(function () {
+        $(".m_menu").click(function () {
+            $(".nav").toggleClass("active");
+        }
+        );
+    });
+</script>
+
+
+<script>
+    window.onscroll = scroll();
+    function scroll(){
+        if(document.body.scrollTop > 60 || document.body.scrollTop>60){
+            document.getElementById('navbar').style.color='white';
+        }else{
+            document.getElementById('navbar').style.color='black';
+        }
+    }
+</script>
+
+<script>
+    var lastScrollTop = 0, delta = 15;
+
+    $(window).scroll(function(){
+        var scrollTop = $(this).scrollTop() /* 스크롤바 수직 위치를 가져옵니다, 괄호 안에 값(value)이 있을 경우 스크롤바의 수직 위치를 정합니다. */
+        // Math.abs: 주어진 숫자의 절대값을 반환(return)합니다.
+        if(Math.abs(lastScrollTop - scrollTop) <= delta) // 스크롤 값을 받아서 ~
+        return; // ~ 리턴
+    
+        if ((scrollTop > lastScrollTop) && (lastScrollTop>0)) {
+            /* 화면에 나오지 않을 때, top값은 요소가 보이지 않을 정도로 사용해야함 */
+            $(".header").css("top","-110px");
+        } else {
+            $(".header").css("top","0px");
+        }
+        lastScrollTop = scrollTop;
+    });
+    AOS.init();
+</script>
