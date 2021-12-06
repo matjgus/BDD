@@ -1,0 +1,48 @@
+.faq-board{
+    margin: 50px;
+    padding: 50px;
+    border: 1px solid black;
+}
+.faq-board > h1{
+    font-size: 30px;
+    letter-spacing: 7px;
+    padding: 10px;
+}
+.board-btn{
+    width: 20%;
+    text-align: center;
+    line-height: 50px; 
+    text-align: center;
+    border-radius: 20px;
+    margin: 30px auto;
+    font-size: 20px;
+    border: 1px solid black;
+}
+
+input[id*="answer"]{ display: none; }
+input[id*="answer"] + label {
+    display:block;
+    cursor:pointer;
+    position:relative;
+}
+input[id*="answer"] + label em{
+    position:absolute;
+    top: 50%;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    display: inline-block;
+    background:url('../img/arrow.png') 0 0 no-repeat;
+}
+input[id*="answer"] + label + div{
+    max-height: 0;
+    transition: all .35s;
+    overflow: hidden;
+}
+input[id*="answer"] + label + div p{
+    display:inline-block;
+    padding: 20px;
+}
+input[id*="answer"]:checked + label + div {max-height:100px;}
+input[id*="answer"]:checked + label em {background-position:0 -30px;}   
