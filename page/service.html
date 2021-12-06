@@ -10,30 +10,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
 </script>
 
 <style>
-    .faq-board{
-        margin: 50px;
-        padding: 50px;
-        border: 1px solid black;
-    }
-    .faq-board > h1{
-        font-size: 30px;
-        letter-spacing: 7px;
-        padding: 10px;
-    }
-    .faq-board > ul > li{
-        font-size: 20px;
-        padding: 10px;
-    }
-    .board-btn{
-        width: 20%;
-        text-align: center;
-        line-height: 50px; 
-        text-align: center;
-        border-radius: 20px;
-        margin: 30px auto;
-        font-size: 20px;
-        border: 1px solid black;
-    }
+
 </style>
 
 <body>
@@ -41,28 +18,32 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
     <div class="wrap">
         <div class=faq-board>
             <h1>FAQ</h1>
-            <ul>
-                <li>
-                    <i class="fab fa-quora"></i>
-                    <a href="">나의 후원 내역을 확인하고 싶어요</a>
-                </li>
-                <li>
-                    <i class="fab fa-quora"></i>
-                    <a href="">연말정산 시, 소득공제 혜택을 받을 수 있나요?</a>
-                </li>
-                <li>
-                    <i class="fab fa-quora"></i>
-                    <a href="">헌혈증 기부증서, 자원봉사 확인서 온라인 발급/출력</a>
-                </li>
-                <li>
-                    <i class="fab fa-quora"></i>
-                    <a href="">환아를 지정하여 후원할 수 있나요?</a>
-                </li>
-                <li>
-                    <i class="fab fa-quora"></i>
-                    <a href="">재단은 투명하게 운영되고 있나요?</a>
-                </li>
-            </ul>
+            <div class="accordion">
+                <input type="checkbox" id="answer01">
+                <label for="answer01">나의 후원 내역을 확인하고 싶어요<em></em></label>
+                <div><p>나의 후원 내역을 확인하고 싶어요</p></div>
+            </div>
+            <div class="accordion">
+                <input type="checkbox" id="answer02">
+                <label for="answer02">연말정산 시, 소득공제 혜택을 받을 수 있나요?<em></em></label>
+                <div><p>나의 후원 내역을 확인하고 싶어요</p></div>
+            </div>
+            <div class="accordion">
+                <input type="checkbox" id="answer03">
+                <label for="answer03">헌혈증 기부증서, 자원봉사 확인서 온라인 발급/출력<em></em></label>
+                <div><p>나의 후원 내역을 확인하고 싶어요</p></div>
+            </div>
+            <div class="accordion">
+                <input type="checkbox" id="answer04">
+                <label for="answer04">환아를 지정하여 후원할 수 있나요?<em></em></label>
+                <div><p>나의 후원 내역을 확인하고 싶어요</p></div>
+            </div>
+            <div class="accordion">
+                <input type="checkbox" id="answer04">
+                <label for="answer04">재단은 투명하게 운영되고 있나요?<em></em></label>
+                <div><p>나의 후원 내역을 확인하고 싶어요</p></div>
+            </div>
+
         </div>
         <div class="board-btn">
             <a href="./service_board.html">1:1 문의하기</a>
