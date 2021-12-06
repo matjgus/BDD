@@ -1,29 +1,43 @@
+.service-wrap {
+    margin : 200px auto;
+    max-width: 1800px;
+    width:100%;
+    
+}
 .faq-board{
     margin: 50px;
     padding: 50px;
     border: 1px solid black;
 }
 .faq-board > h1{
-    font-size: 30px;
-    letter-spacing: 7px;
-    padding: 10px;
+    font-size: 50px;
+    letter-spacing: 10px;
+    padding: 20px ;
 }
-.board-btn{
+.board-page-btn{
     width: 20%;
     text-align: center;
-    line-height: 50px; 
+    line-height: 60px; 
     text-align: center;
-    border-radius: 20px;
-    margin: 30px auto;
-    font-size: 20px;
-    border: 1px solid black;
+    border-radius: 25px;
+    margin: 50px auto;
+    border: 1.2px solid black;
+    font-size: 30px;
 }
 
 input[id*="answer"]{ display: none; }
 input[id*="answer"] + label {
+    font-size: 35px;
     display:block;
+    padding: 10px;
+    border-bottom: 1px solid rgb(214, 213, 213);
+    font-weight: 600;
     cursor:pointer;
     position:relative;
+}
+input[id*="answer"] + label i{
+    padding: 0 20px;
+    color:rgb(134, 134, 134);
 }
 input[id*="answer"] + label em{
     position:absolute;
@@ -37,12 +51,13 @@ input[id*="answer"] + label em{
 }
 input[id*="answer"] + label + div{
     max-height: 0;
-    transition: all .35s;
+    transition: all 1s;
     overflow: hidden;
+    font-size: 23px;
 }
 input[id*="answer"] + label + div p{
     display:inline-block;
-    padding: 20px;
+    padding: 30px 80px;
 }
-input[id*="answer"]:checked + label + div {max-height:100px;}
+input[id*="answer"]:checked + label + div {max-height:500px;}
 input[id*="answer"]:checked + label em {background-position:0 -30px;}   

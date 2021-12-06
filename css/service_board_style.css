@@ -1,0 +1,29 @@
+.board{
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    align-items: center;
+    font-size: 25px;
+    padding: 50px;
+}
+.board > h1{
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 7px;
+    margin: 40px 0px;
+}
+.write-form{
+    padding-right: 10%;
+}
+.board-ctg{
+    display: flex;
+    padding: 10px 0px;
+    text-align: center;
+}
+.board-ctg .board-name{width: 20%;}
+.board-ctg .board-data {width: 80%;}
+.board-ctg .board-data input{width: 100%;}
+.board-ctg .board-data textarea{width: 100%;height: 500px;}
+
+.board-btn{margin-top:30px; text-align: center;}
+.board-btn a{ border: 1.5px solid rgb(160, 156, 156); padding: 10px 20px; margin: 0px 20px;}
