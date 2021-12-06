@@ -21,9 +21,17 @@
 
 input[id*="answer"]{ display: none; }
 input[id*="answer"] + label {
+    font-size: 23px;
     display:block;
+    padding: 10px;
+    border-bottom: 1px solid rgb(214, 213, 213);
+    font-weight: 600;
     cursor:pointer;
     position:relative;
+}
+input[id*="answer"] + label i{
+    padding: 0 20px;
+    color:rgb(134, 134, 134);
 }
 input[id*="answer"] + label em{
     position:absolute;
@@ -37,12 +45,13 @@ input[id*="answer"] + label em{
 }
 input[id*="answer"] + label + div{
     max-height: 0;
-    transition: all .35s;
+    transition: all 1s;
     overflow: hidden;
+    font-size: 17px;
 }
 input[id*="answer"] + label + div p{
     display:inline-block;
     padding: 20px;
 }
-input[id*="answer"]:checked + label + div {max-height:100px;}
+input[id*="answer"]:checked + label + div {max-height:500px;}
 input[id*="answer"]:checked + label em {background-position:0 -30px;}   
