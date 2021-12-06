@@ -51,10 +51,9 @@
 
 .wrap-blood-donation p {
     font-size: 70px;
-    font-weight: 500;
+    font-weight: 600;
     font-family: 'MaruBuriLight';
     margin-bottom: 30px;
-    
 }
 
 .blood-donation-info {
@@ -110,4 +109,34 @@
 }
 
 
+.wrap-donation-guide {
+    width: 100%;
+    max-width: 1800px;
+    margin: 20px 0 30px 0;
+    text-align: center;
+    background-color: rgb(236, 235, 255);
+    height: 400px;
+}
 
+.wrap-donation-guide p {
+    font-size: 70px;
+    font-weight: 600;
+    font-family: 'MaruBuriLight';
+    margin-bottom: 30px;
+}
+
+.donation-guide-box {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.donation-guide-box div {
+    width: 20%;
+    height: 65%;
+}
+
+.donation-guide-box div img {
+    margin-left: 5%;
+    margin-right: 5%;
+}
