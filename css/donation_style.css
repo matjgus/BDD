@@ -46,7 +46,7 @@
     flex-direction: column;
     display: flex;
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
 }
 
 .wrap-blood-donation p {
@@ -67,7 +67,7 @@
 }
 
 .blood-donation-info div{
-    width: 33%;
+    width: 35%;
     height: 300px;
     align-items: center;
 }
@@ -79,10 +79,13 @@
 }
 
 .wrap-qna {
+    border: 1px dotted rgb(116, 115, 115);
     margin-top: 50px;
+    padding: 30px;
 }
 
 .qna {
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,7 +117,7 @@
 
 .wrap-donation-guide {
     width: 100%;
-    max-width: 1800px;
+    max-width: 2400px;
     margin: 0 auto;
     text-align: center;
     background-color: rgb(236, 235, 255);
