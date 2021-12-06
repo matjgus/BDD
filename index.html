@@ -2,24 +2,37 @@
 <script type="text/javascript">   
 $(document).ready( function() {
 $("#headers").load("./page/header.html");  // 원하는 파일 경로를 삽입하면 된다
-$("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+$("#footers").load("./page/footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
 });
 </script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <body>
     <div id="headers"></div>
-        <div class="swiper mySwiper" >
-            <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="img\banner1.jpg">
+  <section>
+    <div class="swiper mySwiper" >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide banner1">
+              <div >
+                <h1> [ 베 : 풀다 ] </h1>
+                <p> 힘듬에 상처받지 않도록 </p>
+                <p> 나누어서 행복하도록 </p>
+              </div>
             </div>
-            <div class="swiper-slide">
-                <img src="img\banner2.jpg">
+            <div class="swiper-slide banner2">
+              <div>
+              <h1> [ Wake _ up ] </h1>
+              <p> 잠들어 있는 헌혈증 </p>
+              <p> 깨울 시간 </p>
+              </div>
             </div>
-            <div class="swiper-slide">
-                <img src="img\banner3.jpg"></div>
-            
+            <div class="swiper-slide banner3">
+              <div>
+              <h1> [느: 루]</h1>
+              <p> 몰아치지 아니하고 </p>
+              <p>  오래도록 늘 </p>
+              </div>
+            </div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -29,26 +42,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
     <!-- Swiper JS -->
     
   
-    <!--숫자 올라가는 JS-->
-    <script>
-        var memberCountConTxt= 296842;
-        
-        $({ val : 0 }).animate({ val : memberCountConTxt }, {
-         duration: 1000,
-        step: function() {
-          var num = numberWithCommas(Math.floor(this.val));
-          $(".memberCountCon").text(num);
-        },
-        complete: function() {
-          var num = numberWithCommas(Math.floor(this.val));
-          $(".memberCountCon").text(num);
-        }
-      });
-      
-      function numberWithCommas(x) {
-          return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      }
-    </script>
+    
     
     </div>
     <div class="wrap">
@@ -120,12 +114,17 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
         </div>
         <div class="swiper-pagination"></div>
       </div>
+
+
+  </section>
+  <section>
+    <div class = "support-status-wrap">
     <div class="wrap">
         <div class="support-status">
             <div class="donation-title">
                 <h1>후원</h1>
             </div>
-            <div class="status-box">
+            <div class="status-box" >
                 <div>
                     <p>
                         <span>이번달 월 헌혈증서 수 : </span>
@@ -149,6 +148,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
             </div>
         </div>
     </div>
+  </div>
     <div class="wrap">
         <div class="participating-companies-title">
             <h1>참여기업</h1>
@@ -209,7 +209,9 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
         
     </div>
       <div id="footers"></div>  
+  </section>
 </body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script> var swiper = new Swiper(".mySwiper", {
         spaceBetween: 30,
         centeredSlides: true,
@@ -257,3 +259,23 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
       }
     });
   </script>
+  <!--숫자 올라가는 JS-->
+  <script>
+    var memberCountConTxt= 296842;
+    
+    $({ val : 0 }).animate({ val : memberCountConTxt }, {
+     duration: 1000,
+    step: function() {
+      var num = numberWithCommas(Math.floor(this.val));
+      $(".memberCountCon").text(num);
+    },
+    complete: function() {
+      var num = numberWithCommas(Math.floor(this.val));
+      $(".memberCountCon").text(num);
+    }
+  });
+  
+  function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+</script>

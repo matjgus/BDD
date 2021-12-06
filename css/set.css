@@ -1,12 +1,14 @@
 @charset "utf-8";
 @import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
-
+@font-face {
+    src : url("../fonts/BMJUA_ttf.ttf");
+}
 
 /* 초기화 */
 html {overflow-y:scroll}
-body {margin:0;padding:0;font-size:0.75em;font-family:'Noto Sans KR', 'Malgun Gothic', dotum, sans-serif;background:#fff}
+body {margin:0;padding:0;font-size:0.75em;font-family:"jua", sans-serif;background:#fff}
 html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
-h1, h2, h3, h4, h5, h6 {font-size:1em;font-family:'Noto Sans KR', 'Malgun Gothic', dotum, sans-serif}
+h1, h2, h3, h4, h5, h6 {font-size:1em;font-family:"jua", dotum, sans-serif}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
 
 ul, dl,dt,dd {margin:0;padding:0;list-style:none}
@@ -16,12 +18,12 @@ input, button {margin:0;padding:0;font-family:'Noto Sans KR', 'Malgun Gothic', d
 input[type="submit"]{cursor:pointer}
 button {cursor:pointer}
 
-textarea, select {font-family:'Noto Sans KR', 'Malgun Gothic', dotum, sans-serif;font-size:1em}
+textarea, select {font-family:"jua", dotum, sans-serif;font-size:1em}
 select {margin:0}
 p {margin:0;padding:0;word-break:break-all}
 hr {display:none}
 pre {white-space: pre-line; font-size:1em;font-family:'Noto Sans KR', 'Malgun Gothic', dotum, sans-serif}
-a {color:#000;text-decoration:none}
+a {text-decoration:none;  color : black;}
 
 *, :after, :before {
     -webkit-box-sizing: border-box;
