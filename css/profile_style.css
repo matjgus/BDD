@@ -1,35 +1,37 @@
 .container{
     margin : 50px auto;
-    max-width: 500px;
-    
+    max-width: 700px;
+   
 }
-.login-box h2{
+.container h2{
     text-align: center;
     font-size : 40px;
     margin-bottom : 20px;
 }
-input[type='text']{width: 100%; height: 40px;}
 
-input[type='password']{width: 100%; height: 40px;}
-
-.login-box{
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
-    margin:30px auto;
-    height: 800px;
-    margin-top : 300px;
+.container .join_wrap{
+    border: 1px solid silver;
+    padding: 30px 50px;
 }
-.login-box button{width:100%; height: 50px; background: #000; color: #fff; border:0;}
-.login-box li{margin-bottom: 10px;}
+.container .join_wrap p{
+    padding: 0 15px; width: 15%; height: 40px;margin : 10px 15px ;  border-radius: 15px;
+    line-height: 40px; border : 1px solid silver; text-align: center; background-color: silver ;
+}
+input[type='text']{width: 80%; height: 40px;
+margin : 10px 0 ; border-radius: 10px;
+padding-left: 10px;
+}
 
-.login-box .opt-box {overflow: hidden; margin : 20px 0;}
-.login-box .opt-box span{float: left;}
-.login-box .opt-box span a{display : inline-block; padding: 0 10px;}
-.login-box .opt-box span:first-child{float: left;}
-.login-box .opt-box span:last-child{float: right;}
+input[type='password']{padding-left: 10px; width: 80%; height: 40px;margin : 10px 0 ;  border-radius: 15px;}
 
-.join-btn { margin : 20px 0; }
+.join-btn { 
+    margin : 20px 0; 
+    width: 100%;
+    display : flex;
+    justify-content: center;
+    
+}
 .join-btn a{
     display: block; border: 1px solid #ccc; line-height: 50px; text-align: center;
-    border-radius: 30px;}
+    width : 30%;
+    border-radius: 50px;margin: 0 5px;}

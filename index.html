@@ -154,7 +154,10 @@ $("#footers").load("./page/footer.html");  // 추가 인클루드를 원할 경�
         <div class="participating-companies-title">
             <h1>참여기업</h1>
         </div>
-
+    </div>
+    <div class="participating-companies-box">
+    <div class="wrap">
+   
         <div class="participating-companies">
             <div class="swiper mySwiper03">
                 <div class="swiper-wrapper">
@@ -204,10 +207,11 @@ $("#footers").load("./page/footer.html");  // 추가 인클루드를 원할 경�
                         </div>
                       </div>
                 </div>
-                <div class="swiper-pagination"></div>
+                
               </div>
         </div>
-        
+      </div>
+      </div>
     </div>
       <div id="footers"></div>  
   </section>
@@ -250,10 +254,6 @@ $("#footers").load("./page/footer.html");  // 추가 인클루드를 원할 경�
     var swiper = new Swiper(".mySwiper03", {
       slidesPerView: 6,
       spaceBetween: 50,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-      },
       autoplay: {
         delay: 3000,
         disableOnInteraction: false,
