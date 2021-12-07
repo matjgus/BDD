@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../css/service_style.css" />
-<link rel="stylesheet" href="../css/donation_style.css" />  
+<link rel="stylesheet" href="../css/service_board_style.css" />  
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
    
@@ -9,39 +9,12 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
 });
 </script>
 
-<style>
-.board{
-    width: 100%;
-    max-width: 1500px;
-    margin: 0 auto;
-    align-items: center;
-    font-size: 17px;
-    padding: 50px;
-}
-.write-form{
-    padding-right: 10%;
-}
-
-.board-ctg{
-    display: flex;
-    padding: 10px 0;
-    text-align: center;
-}
-.board-ctg .board-name{width: 20%;}
-.board-ctg .board-data {width: 80%;}
-.board-ctg .board-data input{width: 100%;}
-.board-ctg .board-data textarea{width: 100%;height: 500px;}
-
-.board-btn{text-align: center;}
-.board-btn a{ border: 1px solid black; padding: 10px 20px;}
-
-</style>
-
 <body>
 
     <div id="headers"></div>
-    <div class="wrap">
+    <div class="service-wrap">
         <div class="board">
+            <h1>1:1문의</h1>
             <div class="write-form">
                 <ul>
                     <li class="board-ctg">
@@ -54,7 +27,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
                     </li>
                     <li class="board-ctg">
                         <div class="board-name"><h4>첨부파일</h4></div>
-                        <div class="board-data" style="font-size: 15px;"><input type="file"></div>
+                        <div class="board-data" style="font-size: 20px;"><input type="file"></div>
                     </li>
                 </ul>
         </div>
