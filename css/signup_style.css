@@ -177,4 +177,8 @@
 }
 #layer.active .dimlayer{
     display: block;
+}ㅈ
+a:hover {
+    color :rgb(27, 111, 194);
+    cursor: pointer;
 }
