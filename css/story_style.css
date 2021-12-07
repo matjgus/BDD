@@ -93,3 +93,120 @@
     width: 1200px;
     height: 800px;
 }
+
+.terms-info {
+    margin-top: 20px;
+    width: 350px;
+    height: 100px;
+    background-color: rgb(255, 128, 128);
+    border-radius: 10px;
+    border: none;
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}
+
+.terms-check-box {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.membership-btn {
+    margin-top: 20px;
+    width: 600px;
+    height: 56px;
+    background: black;
+    border: none;
+    color:white;
+    font-size: 18px;
+}
+
+.h {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+
+
+.bg-layer {
+    position: fixed;
+    background: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1098;
+    display: none;
+}
+
+.pop-layer {
+    position: fixed;
+    width: 30%;
+    height: 20%;
+    background: #ccc;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1099;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+.layer-title {
+    height: 100px;
+    background: black;
+    margin-bottom: 0;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+}
+
+.layer-main {
+    margin-top: 0;
+    height: 90%;
+    background: white;
+}
+
+.text-box {
+height: 92%;
+width: 92%;
+border: 1px solid silver;
+overflow-y: auto;
+padding: 10px;
+text-align: center;
+color: #222;
+margin-top: 2%;
+margin-left: 4%;
+margin-bottom: 4%;
+margin-right: 4%;
+}
+
+#layer.active .pop-layer {display: block;}
+#layer.active .bg-layer {display: block;}
+
+.membership-info {
+    height: 50px; 
+    width: 190px; 
+    margin-bottom: 5px; 
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(201, 201, 201);
+    margin-top: 5px;
+    text-align: center;
+}
+
+.send-info-btn {
+    margin-top: 30px;
+    height: 40px;
+    width: 150px;
+    border: none;
+    color: white;
+    background-color: black;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
