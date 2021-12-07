@@ -107,7 +107,8 @@
 }
 
 .donation >a {
-	background:linear-gradient(to bottom, #32b611 5%, #5eeb3b 100%);
+
+	background:linear-gradient(to bottom, #484A46 5%, #484A46 100%);
 	background-color:#cfcece;
 	border-radius:15px;
 	display:inline-block;
