@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../css/donation_style.css" />
+
 <link rel="stylesheet" href="../css/sponsorship_style.css" />  
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
@@ -24,7 +24,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
             <img src="..\img\banner2.jpg">
           </div>
           <div class="swiper-slide">
-              <img src="..\img\banner3.jpg">
+              <img src="..\img\banner4.jpg">
           </div>
     </div>
         <div class="swiper-button-next"></div>
@@ -41,76 +41,72 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
     </div>
 
     <div class="story-wrap">
+
       <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
+        <div class="img-box">
+          <img src="../img/story2.jpg">
+        </div>
+        <div class="content-box">
+          <p class="story-p">123</p>
+        </div>
       </div>
+
       <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
+        <div class="img-box">
+          <img src="../img/story2.jpg">
+        </div>
+        <div class="content-box">
+          <p class="story-p">123</p>
+        </div>
       </div>
+
       <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
+        <div class="img-box">
+          <img src="../img/story2.jpg">
+        </div>
+        <div class="content-box">
+          <p class="story-p">123</p>
+        </div>
       </div>
+
       <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
+        <div class="img-box">
+          <img src="../img/story2.jpg">
+        </div>
+        <div class="content-box">
+          <p class="story-p">123</p>
+        </div>
       </div>
+
       <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
+        <div class="img-box">
+          <img src="../img/story2.jpg">
+        </div>
+        <div class="content-box">
+          <p class="story-p">123</p>
+        </div>
       </div>
+
       <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
+        <div class="img-box">
+          <img src="../img/story2.jpg">
+        </div>
+        <div class="content-box">
+          <p class="story-p">123</p>
+        </div>
       </div>
+
       <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
-      </div>
-      <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
-      </div>
-      <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
-      </div>
-      <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
-      </div>
-      <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
-      </div>
-      <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
-      </div>
-      <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
-      </div>
-      <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
-      </div>
-      <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
-      </div>
-      <div class="story-box">
-        <img src="../img/story2.jpg">
-        <p class="story-p">123</p>
+        <div class="img-box">
+          <img src="../img/story2.jpg">
+        </div>
+        <div class="content-box">
+          <p class="story-p">123</p>
+        </div>
       </div>
 
     </div>
-    <a href="#" id="load">더 보기</a>
-    <div class="up-scroll">
-      1
-    </div>
+    <a href="#" id="load"><p class="load-more">더보기</p></a>
 
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -151,7 +147,18 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
             },
           });
         
-    
+          $(function(){
+            $(".story-box").slice(0, 4).show(); // 최초 10개 선택
+            $("#load").click(function(e){ // Load More를 위한 클릭 이벤트e
+            e.preventDefault();
+            $("div:hidden").slice(0, 3).show(); // 숨김 설정된 다음 10개를 선택하여 표시
+            if($("div:hidden").length == 0){ // 숨겨진 DIV가 있는지 체크
+            //alert("더 이상 항목이 없습니다"); // 더 이상 로드할 항목이 없는 경우 경고
+            }
+            });
+            });
+
+            
 
     </script>
 
