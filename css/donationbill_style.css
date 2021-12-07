@@ -1,0 +1,43 @@
+.donation-bill{
+    height: 35vh;
+    padding :40px 30%;
+
+}
+.donation-bill > div{
+    background-color: whitesmoke;
+}
+.donation-bill  > div > h1{
+    font-size : 25px;
+    text-align: left;
+    line-height: 110px;
+    width: 70%;
+}
+.donation-bill  > div > a {
+    font-size : 20px;
+    margin : 40px 0;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 10%;
+    width: 25%;
+    color : white;
+    border : 700;
+    background-color: rgb(0, 0, 0);
+}
+
+.donation-bill > div{
+    height: 30%;
+    display : flex;
+    justify-content: space-between;
+    border : 1px solid rgb(224, 223, 223);
+    padding : 0 1vw;
+}
+
+.donation-bill .button-box{
+    display : flex;
+    justify-content: center;
+}
+.donation-bill .explanation > p{
+    font-size : 15px;
+    font-weight: 600;
+    line-height: 30px;
+}

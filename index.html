@@ -124,11 +124,12 @@ $("#footers").load("./page/footer.html");  // 추가 인클루드를 원할 경�
             <div class="donation-title">
                 <h1>후원</h1>
             </div>
+            
             <div class="status-box" >
-                <div>
+   <div>
                     <p>
                         <span>이번달 월 헌혈증서 수 : </span>
-                        <span class="memberCountCon"></span>
+                        <span class="memberCountCon">10</span>
 
                          </p>
                     <p>
@@ -153,7 +154,10 @@ $("#footers").load("./page/footer.html");  // 추가 인클루드를 원할 경�
         <div class="participating-companies-title">
             <h1>참여기업</h1>
         </div>
-
+    </div>
+    <div class="participating-companies-box">
+    <div class="wrap">
+   
         <div class="participating-companies">
             <div class="swiper mySwiper03">
                 <div class="swiper-wrapper">
@@ -203,10 +207,11 @@ $("#footers").load("./page/footer.html");  // 추가 인클루드를 원할 경�
                         </div>
                       </div>
                 </div>
-                <div class="swiper-pagination"></div>
+                
               </div>
         </div>
-        
+      </div>
+      </div>
     </div>
       <div id="footers"></div>  
   </section>
@@ -249,10 +254,6 @@ $("#footers").load("./page/footer.html");  // 추가 인클루드를 원할 경�
     var swiper = new Swiper(".mySwiper03", {
       slidesPerView: 6,
       spaceBetween: 50,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-      },
       autoplay: {
         delay: 3000,
         disableOnInteraction: false,
@@ -264,7 +265,7 @@ $("#footers").load("./page/footer.html");  // 추가 인클루드를 원할 경�
     var memberCountConTxt= 296842;
     
     $({ val : 0 }).animate({ val : memberCountConTxt }, {
-     duration: 1000,
+     duration: 1500,
     step: function() {
       var num = numberWithCommas(Math.floor(this.val));
       $(".memberCountCon").text(num);
@@ -278,4 +279,5 @@ $("#footers").load("./page/footer.html");  // 추가 인클루드를 원할 경�
   function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-</script>
+  </script>
+

@@ -48,11 +48,24 @@
             <div class="login">
                 <a href="/page/login.html">로그인</i></a>
             </div>
+            <div class="mypage">
+                <a style="font-size:30px;cursor:pointer"
+                onclick="openNav()">&#9776; </a>
+            </div>
         </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/page/profile.html">회원 정보 수정</a>
+            <a href="#">후원 내역</a>
+            <a href="#">베네핏</a>
+            <a href="../index.html">로그아웃</a>
+          </div>
+          
+          
     </div>
 </div>
 
-<div class="jooyoung"></div>
+
 
 </body>
 </html>
@@ -95,6 +108,37 @@
         lastScrollTop = scrollTop;
     });
 </script>
+<script>
+    $(function () {
+        $(".left_sub_menu").hide();
+        $(".has_sub").click(function () {
+            $(".left_sub_menu").fadeToggle(300);
+        });
+        // 왼쪽메뉴 드롭다운
+        $(".sub_menu ul.small_menu").hide();
+        $(".sub_menu ul.big_menu").click(function () {
+            $("ul", this).slideToggle(300);
+        });
+        $('.sub_menu ul.big_menu').on('click', function () {
+            $('.left_sub_menu').fadeOut();
+            $('.hide_sidemenu').fadeIn();
+        });
+        // 외부 클릭 시 좌측 사이드 메뉴 숨기기
+        $('.overlay').on('click', function () {
+            $('.left_sub_menu').fadeOut();
+            $('.hide_sidemenu').fadeIn();
+        });
+    });
+</script>
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+    
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
 <script>
     AOS.init();
 </script>
