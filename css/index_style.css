@@ -98,7 +98,7 @@ section{
     height: 100%;
 }
 .mySwiper02 .swiper-slide{
-    background-color: rgb(92, 71, 32);
+    background-color: #AF4F00;
     color: white;
 }
 .mySwiper02 .swiper-slide img {
@@ -146,7 +146,7 @@ section{
     display : flex;
     justify-content: space-between;
     align-items: center;
-    padding : 0 10px;
+    padding : 0 40px;
     font-weight: 400;
 }
 .support-status-wrap{
@@ -165,9 +165,10 @@ section{
     width : 40%;
     height: 20vh;
     margin : 50px; 
-    background-color:rgb(205, 216, 57);
+    background-color:#3d3630;
     border-radius: 2%;
     border: 1px solid silver;
+    color: white;
 } 
 .wrap .participating-companies{
    height: 20vh;
