@@ -107,6 +107,7 @@
 }
 
 .donation >a {
+
 	background:linear-gradient(to bottom, #484A46 5%, #484A46 100%);
 	background-color:#cfcece;
 	border-radius:15px;
@@ -194,7 +195,6 @@
     background-color: #f4f4f4;;
     justify-content: center;
 }
-
 .bottom_info{
     height: 20vh;
 }
