@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="../css/profile_style.css" />  
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready( function() {
+$("#headers").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
+$("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+});
+</script>
+
+
+<link href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css" rel="stylesheet"/>
+
+<body>
+    <div id="headers"></div>
+    <div class="swiper mySwiper" style="height: 550px;">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+              <img src="..\img\banner1.jpg">
+          </div>
+          <div class="swiper-slide">
+            <img src="..\img\banner2.jpg">
+          </div>
+          <div class="swiper-slide">
+              <img src="..\img\banner4.jpg">
+          </div>
+    </div>
+    </div>
+    <div class="profile-wrap">
+        <div class="container">
+            <div class="member_wrap">
+                <div class="tit_wrap">
+                    <h2 class="member_tit">회원정보수정</h2>
+                </div>
+            </div>
+            <div class="join_wrap">
+                <form>
+                    <div class="join_detail">
+                        <div class="input_wrap">
+                            <div class="input_area first">
+                                <input type="text" name="id" id="id" placeholder="아이디 입력* (숫자,영문 자유 형식) " required="" autocomplete="off">
+                            </div>
+                        
+                            <div class="input_area">
+                            <input type="text" name="name" id="name" placeholder="이름 입력" required="" autocomplete="off">
+                            </div>
+                        
+                            <div class="input_area">
+                                <input type="text" name="email" id="email" placeholder="이메일" required="" autocomplete="off">
+                            </div>
+                                                
+                            <div class="input_area">
+                                <input type="password" name="pw" id="pw" placeholder="비밀번호(영문, 숫자 8-12자)" required="" autocomplete="off">
+                            </div>
+                            <div class="input_area">
+                                <input type="password" name="pw2" id="pw2" placeholder="비밀번호 확인" required="" autocomplete="off">
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                <div class= "join-btn">
+                    <a href="signup.html">수정하기</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<div id="footers">
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 300,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+</script>
