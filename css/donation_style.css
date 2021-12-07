@@ -1,44 +1,46 @@
 
 .donation-link-btn {
-    height: 90px;
+    height: 300px;
     width: 60%;
     max-width: 1000px;
     margin: 100px auto;
     display: flex;
-    cursor: pointer;
+    
 }
 
 .donation-wrap {
     margin: 0 auto;
 }
 
-.donation-link-btn li a {
+.donation-link-btn a {
     width: 100%;
-    height: 90px;
+    height: 300px;
     display: block;
 }
 
-.donation-link-selected {
+.sponsorship-link-side {
     background-color: rgb(255, 164, 178);
-    color: white;
-    width: 33.3%;
+    color: black;
+    width: 100%;
     height: 100%;
-    line-height: 90px;
     font-size: 30px;
     box-shadow: 0px 0px 15px rgb(241 128 175 / 75%);
     text-align: center;
-    font-weight: 500;
-    
+    font-weight: 600;
+    padding-top: 20px;
+    cursor: pointer;
 }
-.donation-link {
-    background-color: rgb(214, 214, 214);
+
+.reverse-sponsorship-link-side {
+    background-color: rgb(145, 210, 214);
     color: black;
-    width: 33.3%;
+    width: 100%;
     height: 100%;
-    line-height: 90px;
     font-size: 30px;
     text-align: center;
-    font-weight: 400;
+    font-weight: 600;
+    padding-top: 20px;
+    cursor: pointer;
 }
 
 .wrap-blood-donation {
@@ -53,6 +55,16 @@
     font-size: 70px;
     font-weight: 600;
     font-family: 'MaruBuriLight';
+}
+
+.sponsorship-link-side img {
+    margin-top: 40px; 
+    width: 200px;
+}
+
+.reverse-sponsorship-link-side img {
+    margin-top: 40px; 
+    width: 200px;
 }
 
 .blood-donation-info {
