@@ -245,4 +245,19 @@
     background-color: #d8d8d8; 
     border: none;
     position: fixed; z-index: 2; 
+    cursor: pointer;
+}
+
+.gobackbtn{ 
+    top: 61%; 
+    left: 90%; 
+    width: 80px; 
+    height: 80px; 
+    border-radius: 80%; 
+    font-size: 30px;
+    font-weight: 700;
+    background-color: #d8d8d8; 
+    border: none;
+    position: fixed; z-index: 2; 
+    cursor: pointer;
 }

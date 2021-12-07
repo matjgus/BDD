@@ -13,26 +13,40 @@ body {
 
 .story-box {
     display: none;
-    width: 80%;
+    width: 1000px;
     height: 400px;
     margin-bottom: 100px;
 }
 
+.story-box a {
+    display: block;
+}
+
 .img-box {
-    width: 50%;
+    width: 500px;
+    height: 400px;
     float: left;
 }
 
+.img-box img{
+    height: 100%;
+}
+
 .content-box {
+    height: 400px;
     width: 50%;
     float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 
 .story-p {
     text-align: center;
     font-size: 30px;
-    line-height: 400px;
+    max-height: 400px;
+    
 }
 
 .title {
