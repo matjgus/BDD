@@ -18,10 +18,10 @@
     line-height: 32px;
     text-align: center;
     border-radius: 10%;
-    width: 30%;
-    
+    width: 25%;
+    color : white;
     border : 700;
-    background-color: bisque;
+    background-color: rgb(0, 0, 0);
 }
 
 .donation-bill > div{
