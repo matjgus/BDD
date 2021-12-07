@@ -37,29 +37,35 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
                 <form>
                     <div class="join_detail">
                         <div class="input_wrap">
-                            <div class="input_area first">
+                            <div class="input_area first" style="display : flex;">
+                                <p> 아이디 </p>
                                 <input type="text" name="id" id="id" placeholder="아이디 입력* (숫자,영문 자유 형식) " required="" autocomplete="off">
                             </div>
                         
-                            <div class="input_area">
+                            <div class="input_area"style="display : flex;">
+                                <p> 이름 </p>
                             <input type="text" name="name" id="name" placeholder="이름 입력" required="" autocomplete="off">
                             </div>
                         
-                            <div class="input_area">
+                            <div class="input_area" style="display : flex;">
+                                <p> 이메일 </p>
                                 <input type="text" name="email" id="email" placeholder="이메일" required="" autocomplete="off">
                             </div>
                                                 
-                            <div class="input_area">
+                            <div class="input_area" style="display : flex;">
+                                <p> 비밀번호 </p>
                                 <input type="password" name="pw" id="pw" placeholder="비밀번호(영문, 숫자 8-12자)" required="" autocomplete="off">
                             </div>
-                            <div class="input_area">
+                            <div class="input_area" style="display : flex;">
+                                <p> 비밀번호 </p>
                                 <input type="password" name="pw2" id="pw2" placeholder="비밀번호 확인" required="" autocomplete="off">
                             </div>                            
                         </div>
                     </div>
                 </div>
                 <div class= "join-btn">
-                    <a href="signup.html">수정하기</a>
+                    <a href="#none">저장</a>
+                    <a href="#none">취소</a>
                 </div>
             </form>
         </div>
