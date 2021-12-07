@@ -1,17 +1,75 @@
-.mySwiper02 {
-    max-width: 1800px;
+@font-face {
+    src : url("../fonts/BMJUA_ttf.ttf");
+}
+
+section{
+    height: 100vh;
+    font-family: "jua";
+    
+}
+.swiper-wrapper .banner1{
+    background:url("../img/banner2.jpg");
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+.swiper-wrapper .banner1 p{
+    font-size : 35px;
+    color: white;
+}
+.swiper-wrapper .banner1 h1{
+    font-size : 60px;
+    color: white;
+    text-align: center;
+}
+.swiper-wrapper .banner2{
+    background:url("../img/banner1.jpg");
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+
+.swiper-wrapper .banner2 h1{
+    font-size : 60px;
+    color: white;
+    text-align: center;
+}
+.swiper-wrapper .banner2 > div> p{
+    font-size : 35px;
+    color: white;
+}
+
+.swiper-wrapper .banner3{
+    background:url("../img/banner4.jpg");
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+
+.swiper-wrapper .banner3 h1{
+    font-size : 60px;
+    color: white;
+    text-align: center;
+}
+.swiper-wrapper .banner3 > div> p{
+    font-size : 35px;
+    color: white;
+}
+.mySwiper {
     width: 100%;
-    height: 400px;
+    height: 60vh;
     margin-bottom: 30px;
   }
 .mySwiper02 {
     max-width: 1800px;
     width: 100%;
-    height: 400px;
+    height: 30vh;
     margin-bottom: 30px;
-    background-color: rgb(241, 243, 243);
   }
-  .swiper-slide {
+.swiper-slide {
     text-align: center;
     font-size: 18px;
     background: rgb(212, 164, 164);
@@ -29,21 +87,20 @@
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-  }
-  .swiper-slide3{
+}
+.swiper-slide3{
       background-color:none;
       margin : 10px;
-
-  }
+}
   .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
-  }
-  .mySwiper02 .swiper-slide{
-      background-color: rgb(80, 169, 175);
-      color: white;
-  }
+}
+.mySwiper02 .swiper-slide{
+    background-color: #AF4F00;
+    color: white;
+}
 .mySwiper02 .swiper-slide img {
     display: block;
     width: 100%;
@@ -53,7 +110,7 @@
   .mySwiper02 .swiper-slide h1{
       width:100%;
       height: 20%;
-      line-height: 50px;
+      line-height: 70px;
   }
 .wrap .story-title {
     width : 100%;
@@ -63,10 +120,11 @@
     line-height: 90px;
 }
 .wrap .story-content{
-    height: 500px;
+    height: 50vh;
 }
 .wrap .story-title > h1 {
     font-size: 50px;
+    font-family: "jua";
 }
 .story-content{
     background-color: rgb(153, 173, 190);
@@ -88,27 +146,32 @@
     display : flex;
     justify-content: space-between;
     align-items: center;
-    padding : 0 10px;
+    padding : 0 40px;
     font-weight: 400;
 }
-
+.support-status-wrap{
+    background-color: #f4f4f4;
+    
+    padding-bottom : 30px;
+}
 .wrap .support-status .status-box {
     display: flex;
     justify-content: center;
-    background-color: antiquewhite;
+    background-color: #f4f4f4;
+    height: 30vh;
 }
 
 .wrap .support-status .status-box > div{
     width : 40%;
-    height: 300px;
-    margin : 40px 30px;
-    background-color:rgb(205, 216, 57);
+    height: 20vh;
+    margin : 50px; 
+    background-color:#3d3630;
     border-radius: 2%;
     border: 1px solid silver;
+    color: white;
 } 
 .wrap .participating-companies{
-   height: 400px;
-   background-color: beige;
+   height: 20vh;
    margin : 50px 0;
 
 }

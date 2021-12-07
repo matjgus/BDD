@@ -1,6 +1,6 @@
 .header {
     display:flex;
-    font-size:20px;
+    font-size:25px;
     font-weight: bolder;
     color : white;
     z-index: 100;
@@ -14,8 +14,8 @@
     justify-content: center;
     transition: all 0.3s;
     margin : 0 auto;
-    max-width: 1800px;
     width:100%;
+    font-family: "jua";
 }
 
 .wrap {
@@ -30,12 +30,18 @@
     padding:10px 0;
     text-align:center;
     transform:translate(-50%);
-    transition:all .3s}
+    transition:all .3s;
+    
+}
 
 
 .header .logo {
-    width : 6%;
+    width : 15%;
     height: 100%;
+}
+.header .logo >a{
+    font-family: 'MaruBuriLight';
+    
 }
 .header .nav {
     width : 30%;
@@ -52,27 +58,56 @@
     margin : 8px 20px;
     line-height: 50px;
     text-align: center;
-    color : white;
+    
 }
-
+.header .nav > ul > li > a {
+    color : rgb(218, 216, 216);
+}
 .header .right-header {
-    width : 20%;
+    width : 30%;
     display: flex;
     font-size:20px;
     margin : 5px 20px;
     line-height: 30px;
     text-align: center;
+    justify-content: center;
 }
 .header .right-header .donation{
     height : 50px;
     margin : 5px 20px;
     text-align: center;
-    width: 50%;
+    width: 20%;
+}
+.header .right-header .donationbill{
+    height : 50px;
+    margin : 5px 20px;
+    text-align: center;
+    width: 30%;
+    
+}
+.donationbill >a {
+	background:linear-gradient(to bottom, #e0e0e0 5%, #e0e0e0 100%);
+	background-color:#6cd88c;
+	display:inline-block;
+	cursor:pointer;
+	font-family:Arial;
+    margin: 6px;
+	padding:5px 5px;
+    border-radius: 15px;
+    font-size : 20px;
+    font-weight: bolder;
+}
+.donationbill >a:hover {
+	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	background-color:#bab1ba;
+}
+.donationbill >a:active {
+	position:relative;
+	top:1px;
 }
 
-
 .donation >a {
-	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	background:linear-gradient(to bottom, #484A46 5%, #484A46 100%);
 	background-color:#cfcece;
 	border-radius:15px;
 	display:inline-block;
@@ -80,9 +115,10 @@
 	font-family:Arial;
     margin: 6px;
 	padding:5px 5px;
+
 }
 .donation >a:hover {
-	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	background:linear-gradient(to bottom, #a4a5a4 5%, #ededed 100%);
 	background-color:#bab1ba;
 }
 .donation >a:active {
@@ -94,34 +130,27 @@
     margin : 5px 20px;
     line-height: 40px;
     text-align: center;
-    width: 50%;
+    width: 15%;
 }
 .login >a {
-	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
-	background-color:#ededed;
-	border-radius:15px;
+	background:linear-gradient;
+	
+	border-radius:5px;
 	display:inline-block;
 	cursor:pointer;
 	font-family:Arial;
-    margin: 6px;
-	padding:5px 5px;
-}
-.login >a:hover {
-	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
-	background-color:#bab1ba;
-}
-.login >a:active {
-	position:relative;
-	top:1px;
-}
+    margin: 3px;
+	padding:2px 2px;
+    color : silver;
 
+}
 .bottom_box div{
     padding-top: 10px;
     margin-left :30px;
 }
 .bottom_box{
     width: 100%;
-    height: 200px;
+    height: 20vh;
     background-color: rgb(129, 26, 112);
     color: white;
     margin-bottom: 50px;
@@ -162,7 +191,12 @@
     color: #1e1f21;
     justify-content: space-between;
     margin:0 auto;
-    background-color: #757980;
+    background-color: #f4f4f4;;
+    justify-content: center;
+}
+
+.bottom_info{
+    height: 20vh;
 }
 .bottom_info .footer-l{
     width: 50%;
@@ -187,3 +221,16 @@
     margin : 20px;
     font-weight:normal;
 }
+.intro-icon2{
+    display : flex;
+    justify-content: center;
+    background-color: #f4f4f4;
+}
+.intro-icon2 > i{
+    color : rgb(184, 184, 184);
+    font-size: 40px;
+    padding : 20px;
+    text-align: center;
+    
+}
+
