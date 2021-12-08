@@ -58,7 +58,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
       <div class="story-box">
         <a href="story.html">
           <div class="img-box">
-           <img src="../img/story2.jpg">
+           <img src="../img/blood.png">
          </div>
           <div class="content-box">
             <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
@@ -69,7 +69,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
       <div class="story-box">
         <a href="story.html">
           <div class="img-box">
-           <img src="../img/story2.jpg">
+           <img src="../img/baby2.jpg">
          </div>
           <div class="content-box">
             <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
@@ -80,7 +80,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
       <div class="story-box">
         <a href="story.html">
           <div class="img-box">
-           <img src="../img/story2.jpg">
+           <img src="../img/baby3.jpg">
          </div>
           <div class="content-box">
             <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
@@ -91,7 +91,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
       <div class="story-box">
         <a href="story.html">
           <div class="img-box">
-           <img src="../img/story2.jpg">
+           <img src="../img/house.jpg">
          </div>
           <div class="content-box">
             <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
@@ -180,7 +180,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
             $(".story-box").slice(0, 4).show(); // 최초 10개 선택
             $("#load").click(function(e){ // Load More를 위한 클릭 이벤트e
             e.preventDefault();
-            $("div:hidden").slice(0, 3).show(); // 숨김 설정된 다음 10개를 선택하여 표시
+            $("div:hidden").slice(0, 4).show(); // 숨김 설정된 다음 10개를 선택하여 표시
             if($("div:hidden").length == 0){ // 숨겨진 DIV가 있는지 체크
             //alert("더 이상 항목이 없습니다"); // 더 이상 로드할 항목이 없는 경우 경고
             }
@@ -193,7 +193,15 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
 
     
     
-
+    <script>
+      function clickme() {
+          window.scrollTo(0,0);
+        }
+        function goBack() {
+            history.back();
+        }
+  
+  </script>
     
       <div id="footers"></div>  
 

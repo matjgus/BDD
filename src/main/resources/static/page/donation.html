@@ -51,6 +51,32 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
           </a>
     </div>
 
+    <div class="wrap-donation-guide">
+      <p class="p-title">후원안내</p>
+      <div class="donation-guide-box">
+        <div>
+          <img src="..\img\patient.png">
+          <p class="p-contents">사람들의 사연을 읽고 선택합니다.</p>
+        </div>
+        <div>
+          <img src="..\img\Logo.png">
+          <p class="p-contents">사연을 선택하면 원하는 수만큼 <br> 헌혈증을 기증할 수 있습니다.</p>
+        </div>
+        <div>
+          <img src="..\img\blood_donation_img.png">
+          <p class="p-contents">헌혈증은 환자에게 바로 전달됩니다.</p>
+        </div>
+        <div>
+          <img src="..\img\house.png">
+          <p class="p-contents">재단에 헌혈증을 보관할 수 있습니다. <br> 보관한 헌혈증은 추후 <br>  원하는 곳에 기증할 수 있습니다.</p>
+        </div>
+      </div>
+      <div class="gotodonation">
+      <p class="p-title2"><a href="sponsorship.html"><b>후원하러가기</b></a></p></b>
+      </div>
+    </div>
+
+
     <div class="wrap-blood-donation">
       <p class="title">헌혈증이란?</p>
       <div class="blood-donation-info">
@@ -83,30 +109,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
     </div>
 
     
-    <div class="wrap-donation-guide">
-      <p class="p-title">후원안내</p>
-      <div class="donation-guide-box">
-        <div>
-          <img src="..\img\patient.png">
-          <p class="p-contents">사람들의 사연을 읽고 선택합니다.</p>
-        </div>
-        <div>
-          <img src="..\img\Logo.png">
-          <p class="p-contents">사연을 선택하면 원하는 수만큼 <br> 헌혈증을 기증할 수 있습니다.</p>
-        </div>
-        <div>
-          <img src="..\img\blood_donation_img.png">
-          <p class="p-contents">헌혈증은 환자에게 바로 전달됩니다.</p>
-        </div>
-        <div>
-          <img src="..\img\house.png">
-          <p class="p-contents">재단에 헌혈증을 보관할 수 있습니다. <br> 보관한 헌혈증은 추후 <br>  원하는 곳에 기증할 수 있습니다.</p>
-        </div>
-      </div>
-      <div>
-      <p class="p-title2"><a href="sponsorship.html"><b>후원하러가기</b></a></p></b>
-      </div>
-    </div>
+
 
 
     <!-- Swiper JS -->
@@ -148,7 +151,16 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
             },
           });
     </script>
-
+    
+    <script>
+      function clickme() {
+          window.scrollTo(0,0);
+        }
+        function goBack() {
+            history.back();
+        }
+  
+  </script>
   
       <div id="footers"></div>  
 
