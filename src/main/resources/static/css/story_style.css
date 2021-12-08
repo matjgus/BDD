@@ -1,5 +1,5 @@
 .story-wrap {
-    margin: 100px;
+    margin: 40px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -8,40 +8,40 @@
 }
 
 .story-title {
-    font-size: 60px;
+    font-size: 30px;
     font-weight: 700;
 }
 
 .story-main-box {
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
-    width: 1200px;
+    width: 1000px;
     border-bottom: 3px solid rgb(223, 223, 223);
     padding-bottom: 100px;
 }
 
 .story-img-box {
-    width: 800px;
-    height: 500px;
+    width: 600px;
+    height: 400px;
 }
 
 .story-content-box {
-    width: 350px;
-    height: 500px;
+    width: 250px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-left: 50px;
-    line-height: 48px;
+    line-height: 46px;
 }
 
 .story-img-box img {
-    width: 800px;
-    height: 500px;
+    width: 600px;
+    height: 450px;
 }
 
 .content-small {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 300;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .content-big {
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 500;
 }
 
@@ -83,21 +83,21 @@
 
 .story-info {
     margin: 0 auto;
-    width: 1200px;
+    width: 1000px;
     text-align: center;
     padding-bottom: 50px;
 }
 
 .story-info img {
-    margin: 100px 0 50px 0;
-    width: 1200px;
-    height: 800px;
+    margin: 50px 0 50px 0;
+    width: 1000px;
+    height: 500px;
 }
 
 .terms-info {
     margin-top: 20px;
     width: 350px;
-    height: 100px;
+    height: 80px;
     background-color: rgb(255, 128, 128);
     border-radius: 10px;
     border: none;
@@ -156,18 +156,18 @@
 }
 
 .layer-title {
-    height: 100px;
+    height: 60px;
     background: black;
     margin-bottom: 0;
-    font-size: 40px;
+    font-size: 30px;
     color: white;
     text-align: center;
-    line-height: 100px;
+    line-height: 60px;
 }
 
 .layer-main {
     margin-top: 0;
-    height: 90%;
+    height: 150%;
     background: white;
 }
 

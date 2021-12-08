@@ -60,12 +60,15 @@
             <a href="#">베네핏</a>
             <a href="../index.html">로그아웃</a>
           </div>
+          </div>
           
-          
+        </div>
     </div>
 </div>
 
 
+<input class="goupbtn" type="button" value="TOP" onclick="clickme()">
+<input class="gobackbtn" type="button" value="BACK" onclick="goBack()">
 
 </body>
 </html>
@@ -141,4 +144,14 @@
     </script>
 <script>
     AOS.init();
+</script>
+
+<script>
+    function clickme() {
+        window.scrollTo(0,0);
+      }
+      function goBack() {
+          history.back();
+      }
+
 </script>

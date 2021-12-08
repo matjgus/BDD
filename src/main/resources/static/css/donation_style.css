@@ -2,7 +2,7 @@
 	height: 300px;
 	width: 60%;
 	max-width: 1000px;
-	margin: 100px auto;
+	margin: 50px auto;
 	display: flex;
 }
 
@@ -91,7 +91,7 @@
 
 .blood-donation-info {
 	display: flex;
-	height: 500px;
+	height: 400px;
 	align-items: center;
 	justify-content: center;
 }
@@ -104,6 +104,8 @@
 	width: 35%;
 	height: 300px;
 	align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .blood-donation-info p {
@@ -114,7 +116,7 @@
 
 .wrap-qna {
 	border: 1px dotted rgb(116, 115, 115);
-	margin-top: 50px;
+	margin-top: 20px;
 	padding: 30px;
 }
 
@@ -152,29 +154,29 @@
 	margin: 0 auto;
 	text-align: center;
 	background-color: rgb(236, 235, 255);
-	height: 550px;
-	margin-top: 140px;
-	margin-bottom: 240px;
+	height: 400px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 	display: flex;
 	flex-direction: column;
 }
 
 .p-title {
-	font-size: 40px;
-	font-weight: 600;
-	font-family: 'MaruBuriLight';
-	margin-bottom: 30px;
-}
-
-.p-title2 {
 	font-size: 30px;
 	font-weight: 600;
 	font-family: 'MaruBuriLight';
 	margin-bottom: 30px;
 }
 
+.p-title2 {
+	font-size: 27px;
+	font-weight: 600;
+	font-family: 'MaruBuriLight';
+	margin-bottom: 30px;
+}
+
 .p-contents {
-	font-size: 23px;
+	font-size: 21px;
 	font-weight: 300;
 	color: rgb(88, 88, 88);
 	margin-top: 10px;
@@ -186,15 +188,12 @@
 }
 
 .donation-guide-box div img {
-	width: 300px;
-	height: 270px;
+	width: 200px;
+	height: 170px;
 }
 
 .donation-guide-box div {
-	width: 450px;
-	height: 350px;
+	width: 350px;
+	height: 270px;
 }
 
-.gotodonation {
-	margin-top:60px;
-}
