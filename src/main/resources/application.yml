@@ -11,6 +11,9 @@ spring:
     hibernate:
       ddl-auto: update
       
-server:  servlet:    encoding:      charset: UTF-8
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
       force-response: true
       

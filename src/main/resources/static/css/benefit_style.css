@@ -1,0 +1,129 @@
+.benefit-title h1 {
+    font-size: 40px;
+    text-align: center;
+}
+.total-donation-box{
+    width : 25%;
+    border : 1px solid rgb(240, 240, 240);
+    border-radius: 3%;
+    margin-top: 5vh;
+    padding : 10px 10px;
+    background-color: rgb(253, 253, 253);
+    display : flex;
+}
+.total-donation-box p{
+    font-size : 30px;
+    text-align: left;
+}
+.benefit-product-wrap .wrap .product{
+    width: 100%;
+    margin-top: 2vh;
+}
+.benefit-product-wrap .wrap .product ul{
+    width: 100%;
+    display: flex;
+    
+}
+.benefit-product-wrap .wrap .product ul > li{
+    width: 20%; 
+    height: 20vh;
+    border: 1px solid silver; 
+    border-radius: 5%;
+    margin-right: 2vw;  
+}
+
+.benefit-product-wrap .wrap .product img{
+    width : 100%;
+    height: 85%;
+}
+.benefit-product-wrap .wrap .product >ul >li > p{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    height: 15%;
+    background-color: rgb(244, 247, 250);
+    line-height: 40px;
+}
+.benefit-product-wrap .wrap .product p{
+    font-size: 30px;
+    margin-bottom: 1vh;
+    width: auto;
+    background-color: rgb(250, 252, 253);
+}
+
+.benefit-product-wrap .wrap .product hr{
+    font-size: 30px;
+    margin-bottom: 1vh;
+}
+
+/*팝업창*/
+#popup {
+    display: none; /*숨기기*/
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+}
+
+#popmenu {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 50vw;
+    height: 50vh;
+    text-align: center;
+    background: rgb(230, 229, 229);
+}
+
+#popmenu p {
+    margin-top: 80px;
+}
+
+.exit {
+    position: absolute;
+    left: 53%;
+    bottom: 10px;
+    transform: translate(-50%,0);
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background: #007AAE;
+    cursor: pointer;
+}
+.select {
+    position: absolute;
+    left: 47%;
+    bottom: 10px;
+    transform: translate(-50%,0);
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background: #007AAE;
+    cursor: pointer;
+}
+.product-select-box{
+    position: absolute;
+    top : 10%;
+    left: 20%;
+    transform: translate(-50%,0);
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    font-size: 40px;
+}
+/*본문내용*/
+#contents {
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    background: #555;
+    cursor: pointer;
+    margin-left: 2vw;
+}
