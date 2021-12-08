@@ -13,6 +13,13 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.product-option {
+	height: 40px;
+	width: 120px;
+	font-size: 20px;
+}
+
 .total-donation-box p{
     font-size : 30px;
     text-align: left;
@@ -27,11 +34,11 @@
     
 }
 .benefit-product-wrap .wrap .product ul > li{
-    width: 20%; 
-    height: 20vh;
+    width: 25%; 
+    height: 40vh;
     border: 1px solid silver; 
     border-radius: 5%;
-    margin-right: 2vw;  
+    margin-right: 4vw;  
 }
 
 .benefit-product-wrap .wrap .product img{
@@ -39,12 +46,12 @@
     height: 85%;
 }
 .benefit-product-wrap .wrap .product >ul >li > p{
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
     font-weight: bold;
     height: 15%;
     background-color: rgb(244, 247, 250);
-    line-height: 40px;
+    line-height: 60px;
 }
 .benefit-product-wrap .wrap .product p{
     font-size: 30px;
@@ -58,6 +65,9 @@
     margin-bottom: 1vh;
 }
 
+.benefit-product-wrap{
+    margin-bottom: 50px;
+}
 
 
 
