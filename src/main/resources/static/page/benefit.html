@@ -1,159 +1,140 @@
-<link rel="stylesheet" href="../css/benefit_style.css" />  
+<link rel="stylesheet" href="../css/benefit_style.css" />
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
-   
-$(document).ready( function() {
-$("#headers").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
-$("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
-});
+	$(document).ready(function() {
+		$("#headers").load("./header.html"); // 원하는 파일 경로를 삽입하면 된다
+		$("#footers").load("./footer.html"); // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+	});
 </script>
 
 <body>
-    <div id="headers"></div>
-    <div class="swiper mySwiper" style="height: 500px;">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="..\img\banner1.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="..\img\banner2.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="..\img\banner4.jpg">
-            </div>
-        </div>
-    </div>
-    <div class="benefit-wrap">
-        <div class="wrap">
-            <div class="benefit-title">
-                <h1> 후원 기념 상품 선택</h1>
-            </div>
-            <div class="total-donation-box">
-                    <p> 총 후원수 : 427</p> 
-                    <div id="contents">기념품 받기</div>
-            </div>
-                        
-        </div>
-        
-        <div id="popup">
-            <div id="popmenu">
-                <div class="product-select-box">
-                <form action="">
-                <label>상품 선택</label>
-                <select name ="product" onchange="handleOnChange(this)">
-                    <option value = keyring>10회 키링</option>
-                    <option value = bracelet>20회 팔찌</option>
-                    <option value = ring>30회 반지</option>
-                </select>
-                <div id='result'>aa</div>
-            </form>
-        </div>
-                
-                <div class="select" id = "select">선택</div>
-                <div class="exit" id = "exit">닫기</div>
-            </div>
-        </div>
-    <!--contents-->
-   
-    </div>
-    <div class="benefit-product-wrap">
-        <div class="wrap">
-            <div class="product">
-                
-                <p>10회</p>
-                <hr size="3" noshade color="EAEAEA">
-                <ul>
-                    <li>
-                        <img src="../img/medal0.png" alt="메달1">
-                        <p>10회 메달</p>
-                    </li>
-                    <li>
-                        <img src="../img/product0.png" alt="메달1">
-                        <p>10회 키링</p>
-                    </li>
-                </ul>
-                
-            </div>
-        </div>
-        
-        <div class="wrap">
-            <div class="product">
-                <p>20회</p>
-                <hr size="3" noshade color="EAEAEA">
-                <ul>
-                    <li>
-                        <img src="../img/medal1.png" alt="메달1">
-                        <p>20회 메달</p>
-                    </li>
-                    <li>
-                        <img src="../img/product1.png" alt="반지">
-                        <p>20회 팔찌</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="wrap">
-            <div class="product">
-                <p>30회</p>
-                <hr size="3" noshade color="EAEAEA">
-                <ul>
-                    <li>
-                        <img src="../img/medal2.png" alt="메달1">
-                        <p>30회 메달</p>
-                    </li>
-                    <li>
-                        <img src="../img/product2.jpg" alt="반지">
-                        <p>30회 반지</p>
-                    </li>
-                </ul>
-                
-            </div>
-        </div>
-    </div>
+	<div id="headers"></div>
+	<div class="swiper mySwiper" style="height: 500px;">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<img src="..\img\banner1.jpg">
+			</div>
+			<div class="swiper-slide">
+				<img src="..\img\banner2.jpg">
+			</div>
+			<div class="swiper-slide">
+				<img src="..\img\banner4.jpg">
+			</div>
+		</div>
+	</div>
+	<div class="benefit-wrap">
+		<div class="wrap">
+			<div class="benefit-title">
+				<h1>후원 기념 상품 선택</h1>
+			</div>
+			<div class="total-donation-box">
+				<p>총 후원수 : 427</p>
+				<form action="">
+					<p>상품 선택</p> <select name="product"
+						onchange="handleOnChange(this)">
+						<option value=medal>10회 메달</option>
+						<option value=keyring>10회 키링</option>
+						<option value=medal>20회 메달</option>
+						<option value=bracelet>20회 팔찌</option>
+						<option value=medal>30회 메달</option>
+						<option value=ring>30회 반지</option>
+					</select>
+					<div id='result'></div>
+				</form>
+			</div>
+
+
+		</div>
+
+
+		<!--contents-->
+
+	</div>
+	<div class="benefit-product-wrap">
+		<div class="wrap">
+			<div class="product">
+
+				<p>10회</p>
+				<hr size="3" noshade color="EAEAEA">
+				<ul>
+					<li><img src="../img/medal0.png" alt="메달1">
+						<p>10회 메달</p></li>
+					<li><img src="../img/product0.png" alt="메달1">
+						<p>10회 키링</p></li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="wrap">
+			<div class="product">
+				<p>20회</p>
+				<hr size="3" noshade color="EAEAEA">
+				<ul>
+					<li><img src="../img/medal1.png" alt="메달1">
+						<p>20회 메달</p></li>
+					<li><img src="../img/product1.png" alt="반지">
+						<p>20회 팔찌</p></li>
+				</ul>
+			</div>
+		</div>
+		<div class="wrap">
+			<div class="product">
+				<p>30회</p>
+				<hr size="3" noshade color="EAEAEA">
+				<ul>
+					<li><img src="../img/medal2.png" alt="메달1">
+						<p>30회 메달</p></li>
+					<li><img src="../img/product2.jpg" alt="반지">
+						<p>30회 반지</p></li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
 </body>
 <!--<div id="footers"></div> !-->
 
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  
+
 <!-- Initialize Swiper -->
 <script>
-    var swiper = new Swiper(".mySwiper", {
-      spaceBetween: 300,
-      centeredSlides: true,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
+	var swiper = new Swiper(".mySwiper", {
+		spaceBetween : 300,
+		centeredSlides : true,
+		autoplay : {
+			delay : 2500,
+			disableOnInteraction : false,
+		},
+		pagination : {
+			el : ".swiper-pagination",
+			clickable : true,
+		},
+		navigation : {
+			nextEl : ".swiper-button-next",
+			prevEl : ".swiper-button-prev",
+		},
+	});
 </script>
 <script>
-    $(document).ready(function(){
-        $("#contents").click(function(){
-            $("#popup").fadeIn();
-        });
-        $("#exit").click(function(){
-            $("#popup").fadeOut();
-        });
-});
+	$(document).ready(function() {
+		$("#contents").click(function() {
+			$("#popup").fadeIn();
+		});
+		$("#exit").click(function() {
+			$("#popup").fadeOut();
+		});
+	});
 </script>
 
 <script>
-    function handleOnChange(e) {
-    // 선택된 데이터 가져오기
-    const value = e.value;
-        
-    // 데이터 출력
-    document.getElementById('result').innerText
-        = value;
-      }
+	function handleOnChange(e) {
+		// 선택된 데이터 가져오기
+		const value = e.value;
+
+		// 데이터 출력
+		document.getElementById('result').innerText = value;
+	}
 </script>
 

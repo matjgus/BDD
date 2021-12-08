@@ -3,13 +3,15 @@
     text-align: center;
 }
 .total-donation-box{
-    width : 25%;
+    width : 30%;
     border : 1px solid rgb(240, 240, 240);
     border-radius: 3%;
     margin-top: 5vh;
     padding : 10px 10px;
     background-color: rgb(253, 253, 253);
     display : flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .total-donation-box p{
     font-size : 30px;
@@ -56,15 +58,23 @@
     margin-bottom: 1vh;
 }
 
+
+
+
+
+
+
+
 /*팝업창*/
-#popup {
-    display: none; /*숨기기*/
+/* #popup {
+    display: none; 숨기기
     position: fixed;
     width: 100%;
     top: 0%;
     height: 100%;
     background: rgba(0,0,0,0.9);
     z-index: 9999;
+    
 }
 
 #popmenu {
@@ -72,10 +82,11 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 50vw;
-    height: 50vh;
+    width: 30vw;
+    height: 30vh;
     text-align: center;
-    background: rgb(230, 229, 229);
+    background: white;
+    border: 1px solid black;
 }
 
 #popmenu p {
@@ -84,39 +95,40 @@
 
 .exit {
     position: absolute;
-    left: 53%;
+    left: 52%;
     bottom: 10px;
-    transform: translate(-50%,0);
-    width: 60px;
-    height: 30px;
+    width: 8%;
+    height: 40px;
     text-align: center;
-    line-height: 30px;
-    background: #007AAE;
+    line-height: 40px;
+    background: rgb(192, 192, 192);
     cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 10px;
 }
 .select {
     position: absolute;
-    left: 47%;
+    left: 41%;
     bottom: 10px;
-    transform: translate(-50%,0);
-    width: 60px;
-    height: 30px;
+    width: 8%;
+    height: 40px;
     text-align: center;
-    line-height: 30px;
-    background: #007AAE;
+    line-height: 40px;
+    background: rgb(192, 192, 192);
     cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 10px;
 }
 .product-select-box{
-    position: absolute;
-    top : 10%;
-    left: 20%;
-    transform: translate(-50%,0);
+	margin-top: 20px;
     text-align: center;
     line-height: 30px;
     cursor: pointer;
     font-size: 40px;
 }
-/*본문내용*/
+본문내용
 #contents {
     width: 100px;
     height: 50px;
@@ -126,4 +138,7 @@
     background: #555;
     cursor: pointer;
     margin-left: 2vw;
-}
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 10px;
+} */
