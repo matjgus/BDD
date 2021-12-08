@@ -21,7 +21,6 @@ button {cursor:pointer}
 textarea, select {font-family:"jua", dotum, sans-serif;font-size:1em}
 select {margin:0}
 p {margin:0;padding:0;word-break:break-all}
-hr {display:none}
 pre {white-space: pre-line; font-size:1em;font-family:'Noto Sans KR', 'Malgun Gothic', dotum, sans-serif}
 a {text-decoration:none;  color : black;}
 
