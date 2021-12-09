@@ -34,11 +34,12 @@
     
 }
 .benefit-product-wrap .wrap .product ul > li{
-    width: 25%; 
-    height: 40vh;
+    width: 20%; 
+    height: 30vh;
     border: 1px solid silver; 
     border-radius: 5%;
     margin-right: 4vw;  
+    padding : 15px;
 }
 
 .benefit-product-wrap .wrap .product img{

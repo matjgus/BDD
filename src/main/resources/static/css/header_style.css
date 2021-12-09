@@ -62,7 +62,13 @@
     
 }
 .header .nav > ul > li > a {
-    color : rgb(218, 216, 216);
+    color : silver;
+    font-size: 30px;
+    font-weight: 550;
+}
+.header .nav > ul > li > a:hover{
+    color: white;
+    font-size: larger;
 }
 .header .right-header {
     width : 40%;
@@ -112,7 +118,8 @@
 }
 
 .sidenav a:hover {
-    color: rgb(196, 167, 167);
+    color: silver;
+    font-size: larger;
 }
 
 .sidenav .closebtn {
@@ -128,8 +135,7 @@
   .sidenav a {font-size: 18px;}
 }
 .donationbill >a {
-	background:linear-gradient(to bottom, #e0e0e0 5%, #e0e0e0 100%);
-	background-color:#6cd88c;
+	background:linear-gradient(to bottom, white 5%, white 100%);
 	display:inline-block;
 	cursor:pointer;
 	font-family:Arial;
@@ -140,8 +146,9 @@
     font-weight: bolder;
 }
 .donationbill >a:hover {
-	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	background:linear-gradient(to bottom, silver 5%, silver 100%);
 	background-color:#bab1ba;
+    font-size: larger;
 }
 .donationbill >a:active {
 	position:relative;
@@ -149,8 +156,7 @@
 }
 
 .donation >a {
-
-	background:linear-gradient(to bottom, #8f8f8f 5%, #9e9e9e 100%);
+	background:linear-gradient(to bottom, wihte 5%, wihte 100%);
 	background-color:#cfcece;
 	border-radius:15px;
 	display:inline-block;
@@ -161,8 +167,9 @@
 
 }
 .donation >a:hover {
-	background:linear-gradient(to bottom, #a4a5a4 5%, #ededed 100%);
+	background:linear-gradient(to bottom, silver 5%, silver 100%);
 	background-color:#bab1ba;
+    font-size: larger;
 }
 .donation >a:active {
 	position:relative;
@@ -187,6 +194,10 @@
     color : silver;
 
 }
+.login >a:hover{
+    color:white;
+    font-size: larger;
+}
 .mypage{
     position:absolute;
     top : 32px;
@@ -201,7 +212,10 @@
     margin: 3px;
 	padding:2px 2px;
     color : silver;
-
+}
+.mypage >a:hover{
+    color:white;
+    font-size: larger;
 }
 .bottom_box div{
     padding-top: 10px;
@@ -210,8 +224,8 @@
 .bottom_box{
     width: 100%;
     height: 20vh;
-    background-color: rgb(129, 26, 112);
-    color: white;
+    background-color: #a81431;
+    color: silver;
     margin-bottom: 50px;
 }
 .bottom_box div{
@@ -232,7 +246,7 @@
     max-width: 1400px;
     margin : 0 auto;
     display : flex;
-    background-color: rgb(192, 190, 188);
+    background-color: silver;
     align-items: center;
     
 }
@@ -255,7 +269,7 @@
     color: #1e1f21;
     justify-content: space-between;
     margin:0 auto;
-    background-color: #f4f4f4;;
+    background-color: #f4f4f4;
     padding : 0 11vw;
 }
 .bottom_info{
@@ -305,7 +319,7 @@
     border-radius: 80%; 
     font-size: 15px;
     font-weight: 700;
-    background-color: #d8d8d8; 
+    background-color: silver;; 
     border: none;
     position: fixed; z-index: 2; 
     cursor: pointer;
@@ -319,8 +333,15 @@
     border-radius: 80%; 
     font-size: 15px;
     font-weight: 700;
-    background-color: #d8d8d8; 
+    background-color: silver; 
     border: none;
     position: fixed; z-index: 2; 
     cursor: pointer;
+}
+
+.footer-box{
+    background-color: silver;
+}
+.bottom-info-box{
+    background-color: #f4f4f4;
 }
