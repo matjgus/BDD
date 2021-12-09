@@ -13,22 +13,22 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
     <div id="headers"></div>
     <div class="swiper mySwiper" style="height: 650px;">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-              <img src="..\img\banner1.jpg">
-          </div>
-          <div class="swiper-slide">
-            <img src="..\img\banner2.jpg">
-          </div>
-          <div class="swiper-slide">
-              <img src="..\img\banner4.jpg">
-          </div>
-    </div>
+            <div class="swiper-slide">
+                <img src="..\img\banner1.jpg">
+            </div>
+            <div class="swiper-slide">
+              <img src="..\img\banner2.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img src="..\img\banner4.jpg">
+            </div>
+        </div>
     </div>
     <div class="wrap">
         <div class="donation-bill">
             <div class="issue-bill">
                 <h1>기부금 영수증 발급하기</h1>
-                <a href = #none>바로가기</a>
+                <a href = #none id="popup-button">바로가기</a>
             </div>
             <div class="donation-history">
                 <h1>후원 내역 확인하기</h1>
@@ -39,12 +39,27 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
                      후원 내역이 자동으로 국세청에 신고되어
                      별도로 기부금 영수증을 발급하지 않아도 됩니다.</p>
             </div>
-
+        </div>
     </div>
-
-    <div id="footers"></div>  
-
+    <div id="popup">
+      <div id="popmenu">
+          <p>영수증을 뽑을 <span style="color:#a81431">후원</span>을 선택하세요
+          <select name="product" class="product-option">
+            <option value=no1>1회 기부</option>
+            <option value=no2>2회 기부</option>
+            <option value=no3>3회 기부</option>
+            <option value=no4>4회 기부</option>
+            <option value=no5>5회 기부</option>
+            <option value=no6>6회 기부</option>
+          </select>
+        </p>
+        <div class="exit">닫기</div>
+      </div>
+  </div>
+  
 </body>
+
+<div id="footers"></div>
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   
@@ -76,4 +91,15 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
         history.back();
     }
 
+</script>
+
+<script>
+  $(document).ready(function() {
+      $("#popup-button").click(function() {
+          $("#popup").fadeIn();
+      });
+      $(".exit").click(function() {
+          $("#popup").fadeOut();
+      });
+  });
 </script>
