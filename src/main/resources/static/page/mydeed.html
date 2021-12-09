@@ -1,0 +1,97 @@
+<link rel="stylesheet" href="../css/mydeed_style.css" />
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+   
+$(document).ready( function() {
+$("#headers").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
+$("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+});
+</script>
+
+<body>
+    
+
+    <div id="headers"></div>
+    <div class="swiper mySwiper" style="height: 650px;">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+              <img src="..\img\banner1.jpg">
+          </div>
+          <div class="swiper-slide">
+            <img src="..\img\banner2.jpg">
+          </div>
+          <div class="swiper-slide">
+              <img src="..\img\banner4.jpg">
+          </div>
+    </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="wrap">
+        <div class="deed-history">
+            <h1>내 후원증</h1>
+            <p> 남은 후원증 : <span style="color:a81431">2</span>개</p>
+            <table>
+                <tr>
+                    <td>번호</td>
+                    <td>후원증 충전/ 후원증 기증 여부</td>
+                    <td>개수</td>
+                    <td>작성자</td>         
+                    <td>날짜</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>후원증을 충전하셨습니다.</td>
+                    <td>5</td>
+                    <td>김세현</td>
+                    <td>2021.01.01</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>후원증을 기증하셨습니다.</td>
+                    <td>3</td>
+                    <td>김세현</td>
+                    <td>2021.01.01</td>
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+
+
+      <div id="footers"></div>  
+
+</body>
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 300,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+</script>
+
+<script>
+    function clickme() {
+        window.scrollTo(0,0);
+      }
+      function goBack() {
+          history.back();
+      }
+
+</script>
