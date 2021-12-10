@@ -1,10 +1,9 @@
 <link rel="stylesheet" href="../css/donation_style.css" />  
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript">
-
-$(document).ready( function() {
-$("#headers").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
-$("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+<script type="text/javascript">   
+	$(document).ready( function() {
+	$("#headers").load("/page/header");  // 원하는 파일 경로를 삽입하면 된다
+	$("#footers").load("/page/footer");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
 });
 </script>
 
@@ -35,14 +34,14 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
     <div class="donation-wrap">
         <div class="donation-link-btn">
            
-            <a href="sponsorship.html">
+            <a href="sponsorship">
             <div class="sponsorship-link-side">
               <p>후원참여</p>
               <img src="..\img\hand.png">
             </div>
           </a>
 
-          <a href="reverse_sponsorship.html">
+          <a href="reverse_sponsorship">
             <div class="reverse-sponsorship-link-side">
               <p>후원받기</p>
               <img src="..\img\hospital.png">
@@ -72,7 +71,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
         </div>
       </div>
       <div class="gotodonation">
-      <p class="p-title2"><a href="sponsorship.html"><b>후원하러가기</b></a></p></b>
+      <p class="p-title2"><a href="sponsorship"><b>후원하러가기</b></a></p></b>
       </div>
     </div>
 

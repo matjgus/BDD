@@ -1,10 +1,9 @@
 <link rel="stylesheet" href="../css/donationbill_style.css" />  
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript">
-   
-$(document).ready( function() {
-$("#headers").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
-$("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+<script type="text/javascript">   
+	$(document).ready( function() {
+	$("#headers").load("/page/header");  // 원하는 파일 경로를 삽입하면 된다
+	$("#footers").load("/page/footer");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
 });
 </script>
 
@@ -32,7 +31,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
             </div>
             <div class="donation-history">
                 <h1>후원 내역 확인하기</h1>
-                <a href = "./donationhistory.html">바로가기</a>
+                <a href = "./donationhistory">바로가기</a>
             </div>
             <div class="explanation">
                 <p> * 개인 주민등록번호가 등록되어 후원 중인 경우,

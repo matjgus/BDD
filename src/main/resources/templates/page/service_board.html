@@ -1,13 +1,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
-<link rel="stylesheet" href="/css/service_style.css" />
-<link rel="stylesheet" href="/css/service_board_style.css" />  
+<link rel="stylesheet" href="../css/service_style.css" />
+<link rel="stylesheet" href="../css/service_board_style.css" />  
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript">
-   
-$(document).ready( function() {
-$("#headers").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
-$("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+<script type="text/javascript">   
+	$(document).ready( function() {
+	$("#headers").load("/page/header");  // 원하는 파일 경로를 삽입하면 된다
+	$("#footers").load("/page/footer");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
 });
 </script>
 
@@ -34,7 +33,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
                 </ul>
         </div>
         <div class="board-btn">
-            <a href="./service.html">돌아가기</a>
+            <a href="./service">돌아가기</a>
             <a href="#none">등록하기</a>
         </div>
             
