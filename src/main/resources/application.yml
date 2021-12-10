@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:mariadb://localhost:3306/dashboard
+    url: jdbc:mariadb://localhost:3307/bdd
     driver-class-name: org.mariadb.jdbc.Driver
     username: root
-    password: 1234
+    password: 123456
   jpa:
     open-in-view: true
     hibernate:
