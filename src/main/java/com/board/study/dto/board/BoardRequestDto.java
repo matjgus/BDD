@@ -1,5 +1,4 @@
 package com.board.study.dto.board;
-// 게시판 요청 데이터를 담당
 
 import com.board.study.entity.board.Board;
 
@@ -22,5 +21,11 @@ public class BoardRequestDto {
 			.content(content)
 			.registerId(registerId)
 			.build();
+	}
+
+	@Override
+	public String toString() {
+		return "BoardRequestDto [id=" + id + ", title=" + title + ", content=" + content + ", registerId=" + registerId
+				+ "]";
 	}
 }
