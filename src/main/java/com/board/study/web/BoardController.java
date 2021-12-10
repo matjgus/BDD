@@ -17,7 +17,7 @@ public class BoardController {
 	
 	private final BoardService boardService;
 	
-	@GetMapping("/board/list")
+	@GetMapping("/page/service")
 	public String getBoardListPage(Model model
 			, @RequestParam(required = false, defaultValue = "0") Integer page
 			, @RequestParam(required = false, defaultValue = "5") Integer size) throws Exception {
@@ -28,12 +28,12 @@ public class BoardController {
 			throw new Exception(e.getMessage()); 
 		}
 		
-		return "/board/list";
+		return "/page/service";
 	}
 	
-	@GetMapping("/board/write")
+	@GetMapping("/page/service_board")
 	public String getBoardWritePage(Model model, BoardRequestDto boardRequestDto) {
-		return "/board/write";
+		return "/page/service_board";
 	}
 	
 	@GetMapping("/board/view")

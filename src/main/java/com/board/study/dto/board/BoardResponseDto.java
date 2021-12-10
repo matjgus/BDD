@@ -4,10 +4,11 @@ import com.board.study.entity.board.Board;
 import java.time.LocalDateTime;
 import lombok.Getter;
 
-//°Ô½ÃÆÇ ÀÀ´ä µ¥ÀÌÅÍ¸¦ ´ã´ç
+//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½
 import java.time.LocalDateTime;
 import com.board.study.entity.board.Board;
 import lombok.Getter;
+
 
 @Getter
 public class BoardResponseDto {

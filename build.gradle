@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.1'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+   id 'org.springframework.boot' version '2.6.1'
+   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+   id 'java'
 }
 
 group = 'com.hustar'
@@ -9,33 +9,32 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+   compileOnly {
+      extendsFrom annotationProcessor
+   }
 }
 
 repositories {
-	mavenCentral()
-	jecenter //의존성 추가
+   mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'//jpa
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'mysql:mysql-connector-java'
-	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client' //mariadb
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
-	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0' 
-	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+   implementation 'org.springframework.boot:spring-boot-starter-web'
+   implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+   implementation 'org.springframework.boot:spring-boot-starter-data-jpa'//jpa
+   compileOnly 'org.projectlombok:lombok'
+   developmentOnly 'org.springframework.boot:spring-boot-devtools'
+   runtimeOnly 'mysql:mysql-connector-java'
+   runtimeOnly 'org.mariadb.jdbc:mariadb-java-client' //mariadb
+   annotationProcessor 'org.projectlombok:lombok'
+   testImplementation 'org.springframework.boot:spring-boot-starter-test'
+   implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+   implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+   testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0' 
+   testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
     testAnnotationProcessor 'org.projectlombok:lombok'
 
-
+}
 test {
-	useJUnitPlatform()
+   useJUnitPlatform()
 }
