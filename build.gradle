@@ -16,6 +16,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	jecenter //의존성 추가
 }
 
 dependencies {
@@ -32,7 +33,8 @@ dependencies {
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0' 
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
-}
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
 
 test {
 	useJUnitPlatform()
