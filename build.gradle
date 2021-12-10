@@ -16,11 +16,11 @@ configurations {
 
 repositories {
 	mavenCentral()
-	jecenter //의존성 추가
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'//jpa
 	compileOnly 'org.projectlombok:lombok'
@@ -35,7 +35,7 @@ dependencies {
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
     testAnnotationProcessor 'org.projectlombok:lombok'
 
-
+}
 test {
 	useJUnitPlatform()
 }
