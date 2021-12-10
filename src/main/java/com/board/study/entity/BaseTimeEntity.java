@@ -12,17 +12,17 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import lombok.Getter;
 
 @Getter
-// JPA Entity Å¬·¡½ºµéÀÌ BaseTimeEntity¸¦ »ó¼ÓÇÒ °æ¿ì ÇÊµåµé(createdDate, modifiedDate)µµ Ä®·³À¸·Î ÀÎ½ÄÇÏµµ·Ï ÇÕ´Ï´Ù.
+// JPA Entity í´ë˜ìŠ¤ë“¤ì´ BaseTimeEntityë¥¼ ìƒì†í•  ê²½ìš° í•„ë“œë“¤(createdDate, modifiedDate)ë„ ì¹¼ëŸ¼ìœ¼ë¡œ ì¸ì‹í•˜ë„ë¡ í•œë‹¤.
 @MappedSuperclass
-// BaseEntity Å¬·¡½º¿¡ Auditing ±â´ÉÀ» Æ÷ÇÔ½ÃÅµ´Ï´Ù.
+// BaseEntity í´ë˜ìŠ¤ì— Auditing ê¸°ëŠ¥ì„ í¬í•¨ì‹œí‚¨ë‹¤.
 @EntityListeners(AuditingEntityListener.class)
 public class BaseTimeEntity {
 	
-	// Entity°¡ »ı¼ºµÇ¾î ÀúÀåµÉ ¶§ ½Ã°£ÀÌ ÀÚµ¿ ÀúÀåµÈ´Ù.
+	// Entityê°€ ìƒì„±ë˜ì–´ ì €ì¥ë  ë•Œ ì‹œê°„ì´ ìë™ ì €ì¥ëœë‹¤.
 	@CreatedDate
 	private LocalDateTime registerTime;
 	
-	// Á¶È¸ÇÑ EntityÀÇ °ªÀ» º¯°æÇÒ ¶§ ½Ã°£ÀÌ ÀÚµ¿ ÀúÀåµÈ´Ù.
+	// ì¡°íšŒí•œ Entityì˜ ê°’ì„ ë³€ê²½í•  ë•Œ ì‹œê°„ì´ ìë™ ì €ì¥ëœë‹¤.
 	@LastModifiedDate
 	private LocalDateTime	updateTime;
 }
