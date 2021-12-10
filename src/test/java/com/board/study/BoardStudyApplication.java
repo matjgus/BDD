@@ -14,7 +14,7 @@ class BoardStudyApplicationTests {
 	@Autowired
 	private BoardService boardService;
 	
-	@Test
+	
 	void save() {
 		BoardRequestDto boardSaveDto = new BoardRequestDto();
 		

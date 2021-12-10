@@ -1,15 +1,13 @@
 package com.board.study.dto.board;
 
-import com.board.study.entity.board.Board;
 import java.time.LocalDateTime;
-import lombok.Getter;
+import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
-//�Խ��� ���� �����͸� ���
-import java.time.LocalDateTime;
 import com.board.study.entity.board.Board;
 import lombok.Getter;
-
-
+import lombok.Setter;
+@Setter
 @Getter
 public class BoardResponseDto {
 	private Long id;
@@ -18,7 +16,7 @@ public class BoardResponseDto {
 	private int readCnt;
 	private String registerId;
 	private LocalDateTime registerTime;
-
+	
 	public BoardResponseDto(Board entity) {
 		this.id = entity.getId();
 		this.title = entity.getTitle();
@@ -30,7 +28,21 @@ public class BoardResponseDto {
 
 	@Override
 	public String toString() {
-		return "BoardListDto [id=" + id + ", title=" + title + ", content=" + content + ", readCnt=" + readCnt
+		return "BoardResponseDto [id=" + id + ", title=" + title + ", content=" + content + ", readCnt=" + readCnt
 				+ ", registerId=" + registerId + ", registerTime=" + registerTime + "]";
 	}
+	
+	public String getRegisterTime() {
+		return toStringDateTime(this.registerTime);
+	}
+	
+	/**
+     * Java 8 기준 포맷 LocalDateTime to StringDate
+     */
+    public static String toStringDateTime(LocalDateTime localDateTime) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return Optional.ofNullable(localDateTime)
+                .map(formatter::format)
+                .orElse("");
+    }
 }

@@ -10,22 +10,40 @@
 <body>
 	<div class="container">
 		<h1>Board View.</h1>
-		<div class="mb-3">
-		    <label class="form-label">Title.</label>
-		    <input type="text" class="form-control" id="" name="" th:value="${info.title}">
-		</div>
-		<div class="mb-3">
-	    	<label class="form-label">Content</label>
-	    	<textarea class="form-control" rows="5" cols="" name="" th:text="${info.content}"></textarea>
-		</div>
-		<div class="mb-3">
-		    <label class="form-label">Writer.</label>
-		    <input type="text" class="form-control" id="" name="" th:value="${info.registerId}">
-		</div>
-		<button type="button" class="btn btn-success" onclick="javascript:location.href='/board/list'">Previous</button>
+		<form id="frm" action="/board/view/action" method="post">
+			<input type="hidden" name="id" th:value="${info.id}">
+			<div class="mb-3">
+			    <label class="form-label">Title.</label>
+			    <input type="text" class="form-control" name="title" th:value="${info.title}">
+			</div>
+			<div class="mb-3">
+		    	<label class="form-label">Content</label>
+		    	<textarea class="form-control" rows="5" cols="" name="content" th:text="${info.content}"></textarea>
+			</div>
+			<div class="mb-3">
+			    <label class="form-label">Writer.</label>
+			    <input type="text" class="form-control" name="registerId" th:value="${info.registerId}">
+			</div>
+			<div class="float-left">
+				<button type="button" class="btn btn-success" onclick="javascript:location.href='/board/list'">Previous</button>
+				<button type="submit" class="btn btn-primary">Edit</button>
+			</div>
+			<div class="float-right">
+				<button type="button" class="btn btn-danger" th:onclick="fnViewDelete()">Delete</button>
+			</div>
+		</form>
 	</div>
     <!--부트스트랩 js, jquery 추가-->
     <script src="/js/lib/jquery.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>
+    <script th:inline="javascript">
+		function fnViewDelete() {
+			if (confirm("Do you want to delete it?")) {
+				let frm = $("#frm");
+				frm.attr("action","/board/view/delete");
+				frm.submit();
+			}
+		}
+	</script>
 </body>
 </html>
