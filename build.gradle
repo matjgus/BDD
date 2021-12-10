@@ -16,6 +16,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	jecenter //의존성 추가
 }
 
 dependencies {
@@ -28,8 +29,7 @@ dependencies {
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client' //mariadb
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 test {
