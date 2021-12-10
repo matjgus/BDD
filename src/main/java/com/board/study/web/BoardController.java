@@ -17,11 +17,6 @@ public class BoardController {
 	
 	private final BoardService boardService;
 	
-	
-	@GetMapping("/page/header")
-	public String getHeader(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/header";
-	}
 	@GetMapping("/page/service")
 	public String getBoardListPage(Model model
 			, @RequestParam(required = false, defaultValue = "0") Integer page
@@ -34,68 +29,6 @@ public class BoardController {
 		}
 		
 		return "/page/service";
-	}
-	@GetMapping("/page/footer")
-	public String getFooter(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/footer";
-	}
-	@GetMapping("/page/benefit")
-	public String getBenefit(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/benefit";
-	}
-	@GetMapping("/index")
-	public String getIndex(Model model, BoardRequestDto boardRequestDto) {
-		return "/index";
-	}
-	@GetMapping("/page/donation")
-	public String getDonation(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/donation";
-	}
-	
-	@GetMapping("/page/donationbill")
-	public String getDonationbill(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/donationbill";
-	}
-	@GetMapping("/page/donationhistory")
-	public String getDonationhistory(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/donationhistory";
-	}
-	
-	@GetMapping("/page/intro")
-	public String getIntro(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/intro";
-	}
-	@GetMapping("/page/intro-map")
-	public String getIntromap(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/intro-map";
-	}
-	@GetMapping("/page/login")
-	public String getLogin(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/login";
-	}
-	@GetMapping("/page/mydeed")
-	public String getMydeed(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/mydeed";
-	}
-	@GetMapping("/page/profile")
-	public String getProfile(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/profile";
-	}
-	@GetMapping("/page/reverse_sponsorship")
-	public String getReverse_sponsorship(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/reverse_sponsorship";
-	}
-	@GetMapping("/page/signup")
-	public String getSignup(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/signup";
-	}
-	@GetMapping("/page/sponsorship")
-	public String getSponsorship(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/sponsorship";
-	}
-	@GetMapping("/page/story")
-	public String getStory(Model model, BoardRequestDto boardRequestDto) {
-		return "/page/story";
 	}
 	
 	@GetMapping("/page/service_board")
