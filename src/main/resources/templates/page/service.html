@@ -78,10 +78,11 @@
         </div>
         <div class="faq-board">
             <h1>Q&A</h1>
-            <table>
 				<div id="wrapper">
-					<div class="container">
-					    <div class="col-md-12">
+				<div class="container">
+			    	<form action="/page/service" id="frm" method="get">
+					    <div class="col-md-12 mt-4">
+					    	<button type="button" class="btn btn-danger" onclick="fnDelete()">Delete</button>
 					        <table class="table table-striped table-horizontal table-bordered mt-3">
 					            <thead class="thead-strong">
 					                <tr>
@@ -94,6 +95,9 @@
 					            <tbody id="tbody">
 					            	<tr th:each="list,index : ${resultMap.list}" th:with="paging=${resultMap.paging}">
 										<td>
+											<input type="checkbox" name="deleteId" th:value="${list.id}">
+										</td>
+										<td>
 											<span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
 										</td>
 										<td>
@@ -101,6 +105,9 @@
 										</td>
 										<td>
 											<span th:text="${list.registerId}"></span>
+										</td>
+										<td>
+											<span th:text="${list.readCnt}"></span>
 										</td>
 										<td>
 											<span th:text="${list.registerTime}"></span>
@@ -112,7 +119,9 @@
 								<div class="col">
 									<ul class="pagination">
 										<li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
-											<a class="page-link" th:href="@{./service(page=${index - 1},page=${paging.pageSize})}"><span th:text="${index}"></span></a>
+											<a class="page-link" th:classappend="${paging.pageNumber ==  (index-1)} ? bg-primary : bg-secondary" th:href="@{./service(page=${index - 1},page=${paging.pageSize})}">
+												<span class="text-white" th:text="${index}"></span>
+											</a>
 										</li>
 									</ul>
 								</div>
@@ -153,6 +162,46 @@
       },
     });
 </script>
+<!-- 수정, 삭제 -->
+    <script th:inline="javascript">
+    	// header checkbox event
+    	$("#chkAll").click(function() {
+    		if (this.checked) {
+    			$("input[name='deleteId']").prop("checked", true);
+    		} else {
+    			$("input[name='deleteId']").prop("checked", false);
+    		}
+    	});
+    	
+    	// body checkbox event
+    	$("input[name='deleteId']").click(function() {
+    		let delInpLen = $("input[name='deleteId']").length;
+    		let delInpChkLen = $("input[name='deleteId']:checked").length;
+    		
+    		if (delInpLen == delInpChkLen) {
+    			$("#chkAll").prop("checked", true);
+    		} else {
+    			$("#chkAll").prop("checked", false);
+    		}
+    	});
+    
+		function fnDelete() {
+			let delInpChkLen = $("input[name='deleteId']:checked").length;
+			
+			if (delInpChkLen > 0) {
+				if (confirm("Do you want to delete it?")) {
+					let frm = $("#frm");
+					frm.attr("action","/page/delete");
+					frm.attr("method","post");
+					frm.submit();
+				}
+			} else {
+				alert("Not selected.");
+			}
+		}
+	</script>
+
+
 
 <script>
     function clickme() {
