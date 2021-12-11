@@ -16,6 +16,7 @@
         <div class="board">
             <h1>Board View</h1>
 			<form id="frm" action="/page/service_view/action" method="post">
+				<input type="hidden" name="id" th:value="${info.id}">
 	            <div class="write-form">
 	                <ul>
 	                    <li class="board-ctg">
@@ -37,6 +38,7 @@
 	                        <div class="board-name"><h4>첨부파일</h4></div>
 	                        <div class="board-data" style="font-size: 20px;"><input type="file"></div>
 	                    </li>
+
 	                </ul>
 	        	</div>
 			<button type="button" class="btn btn-success" onclick="javascript:location.href='/page/service'">Previous</button>
@@ -52,6 +54,20 @@
       <div id="footers"></div>  
 
 </body>
+
+    <!--부트스트랩 js, jquery 추가-->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <script th:inline="javascript">
+		function fnViewDelete() {
+			if (confirm("Do you want to delete it?")) {
+				let frm = $("#frm");
+				frm.attr("action","/page/service_view/delete");
+				frm.submit();
+			}
+		}
+	</script>
+
 
 <script>
     function clickme() {
