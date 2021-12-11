@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,8 +39,7 @@ public class BoardService {
 		
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		
-		Page<Board> list = boardRepository.findAll(PageRequest.of(page, size));
-		
+		Page<Board> list = boardRepository.findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "registerTime")));
 		resultMap.put("list", list.stream().map(BoardResponseDto::new).collect(Collectors.toList()));
 		resultMap.put("paging", list.getPageable());
 		resultMap.put("totalCnt", list.getTotalElements());

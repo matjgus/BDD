@@ -97,7 +97,7 @@
 											<span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
 										</td>
 										<td>
-											<a th:href="@{./view(id=${list.id})}"><span th:text="${list.title}"></span></a>
+											<a th:href="@{./service_view(id=${list.id})}"><span th:text="${list.title}"></span></a>
 										</td>
 										<td>
 											<span th:text="${list.registerId}"></span>
@@ -112,13 +112,11 @@
 								<div class="col">
 									<ul class="pagination">
 										<li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
-											<a class="page-link" th:href="@{./list(page=${index - 1},page=${paging.pageSize})}"><span th:text="${index}"></span></a>
+											<a class="page-link" th:href="@{./service(page=${index - 1},page=${paging.pageSize})}"><span th:text="${index}"></span></a>
 										</li>
 									</ul>
 								</div>
 							</div>
-					        <button type="button" class="btn btn-danger" onclick="fnDelete()">Delete</button>
-					        <button type="button" class="btn btn-primary" onclick="javascript:location.href='/board/write'">Register</button>
 					    </div>
 				    </div>
 			    </div>
