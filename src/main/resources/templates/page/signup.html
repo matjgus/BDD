@@ -17,7 +17,8 @@
 					<h2 class="member_tit">회원가입</h2>
 				</div>
 				<div class="join_wrap">
-					<form action="/join" method="post">
+					  <form action="/user/signup" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 						<div class="join_detail">
 						
 							<div class="info_row">
@@ -44,7 +45,7 @@
 									<p>비밀번호</p>
 								</div>
 								<div class="info_data">
-									<input type="text" name="password" required="" autocomplete="off">
+									<input type="text" name="password">
 									<p>숫자,영문 혼합 20자리</p>
 								</div>
 							</div>
@@ -54,7 +55,7 @@
 									<p>비밀번호 확인</p>
 								</div>
 								<div class="info_data">
-									<input type="text" name="check_password" required="" autocomplete="off">
+									<input type="text" name="checkpassword">
 									<p>숫자,영문 혼합 20자리</p>
 								</div>
 							</div>
@@ -64,7 +65,7 @@
 									<p>이메일</p>
 								</div>
 								<div class="info_data">
-								<input type="text" name="email" required="" autocomplete="off">
+								<input type="text" name="email">
 								</div>
 							</div>
 							
@@ -73,7 +74,7 @@
 									<p>우편번호</p>
 								</div>
 								<div class="info_data_post">
-								<input type="text" name="post" required="" autocomplete="off" disabled><button type="button" style="width:60px; height:30px; border-radius: 5px; border: none;" onclick="openZipSearch()">검색</button><br>
+								<input type="text" name="post" disabled><button type="button" style="width:60px; height:30px; border-radius: 5px; border: none;" onclick="openZipSearch()">검색</button><br>
 								</div>
 							</div>
 							
@@ -82,9 +83,9 @@
 									<p>주소</p>
 								</div>
 								<div class="info_data_address">
-								<input type="text" name="address" required="" autocomplete="off" disabled>
+								<input type="text" name="address" disabled>
 								<p>상세주소</p>
-								<input type="text" name="detail_address" required="" autocomplete="off">
+								<input type="text" name="detailaddress">
 								</div>
 							</div>
 							
@@ -93,7 +94,7 @@
 									<p>전화번호</p>
 								</div>
 								<div class="info_data">
-								<input type="text" name="phonenum" required="" autocomplete="off">
+								<input type="text" name="phonenum" >
 								</div>
 							</div>
 							

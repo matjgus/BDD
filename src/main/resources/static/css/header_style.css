@@ -59,11 +59,10 @@
     margin : 8px 20px;
     line-height: 50px;
     text-align: center;
-    
 }
 .header .nav > ul > li > a {
     color : silver;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 550;
 }
 .header .nav > ul > li > a:hover{
