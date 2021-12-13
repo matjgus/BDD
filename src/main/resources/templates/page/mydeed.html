@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="../css/mydeed_style.css" />
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="../js/lib/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript">   
 	$(document).ready( function() {
 	$("#headers").load("/page/header");  // 원하는 파일 경로를 삽입하면 된다
@@ -28,8 +30,18 @@
         <div class="swiper-pagination"></div>
     </div>
     <div class="wrap">
-        <div class="deed-history">
+        <div id="deed_history" class="deed-history">
             <h1>내 후원증</h1>
+            <p> 총 후원 수 : <span style="color:a81431">{{ total_donation }}</span>개</p>
+            <script>
+              회원.총후원개수
+              const deed_history = new Vue({
+                  el : "#deed_history", 
+                  data : {
+                    total_donation="3"
+                  }
+              });
+            </script>
             <p> 남은 후원증 : <span style="color:a81431">2</span>개</p>
             <table>
                 <tr>
