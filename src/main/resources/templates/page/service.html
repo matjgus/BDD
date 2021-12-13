@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" th:href="@{../css/service_style.css}" />
 <link rel="stylesheet" href="../css/service_style.css" />
-<link rel="stylesheet" href="../css/donation_style.css" />  
+
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">   
 	$(document).ready( function() {
@@ -95,9 +95,7 @@
 					            <tbody id="tbody">
 					            	<tr th:each="list,index : ${resultMap.list}" th:with="paging=${resultMap.paging}">
 										<td>
-											<input type="checkbox" name="deleteId" th:value="${list.id}">
-										</td>
-										<td>
+                                            <input type="checkbox" class="btn-danger" name="deleteId" th:value="${list.id}">
 											<span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
 										</td>
 										<td>
