@@ -1,17 +1,75 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
+
     <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <div class="swiper mySwiper" style="height: 650px;">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="..\img\banner1.jpg">
+        </div>
+        <div class="swiper-slide">
+          <img src="..\img\banner2.jpg">
+        </div>
+        <div class="swiper-slide">
+            <img src="..\img\banner4.jpg">
+        </div>
+  </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+  </div>
+  <div class="wrap">
+      <div id="deed_history" class="deed-history">
+          <h1>내 후원증</h1>
+          <p> 총 후원 수 : <span style="color:a81431">{{ total_donation }}</span>개</p>
+          <script>
+            회원.총후원개수
+            const deed_history = new Vue({
+                el : "#deed_history", 
+                data : {
+                  total_donation="4"
+                }
+            });
+          </script>
+          <p> 남은 후원증 : <span style="color:a81431">2</span>개</p>
+          <table>
+              <tr>
+                  <td>번호</td>
+                  <td>후원증 충전/ 후원증 기증 여부</td>
+                  <td>개수</td>
+                  <td>작성자</td>         
+                  <td>날짜</td>
+              </tr>
+              <tr>
+                  <td>1</td>
+                  <td>후원증을 충전하셨습니다.</td>
+                  <td>5</td>
+                  <td>김세현</td>
+                  <td>2021.01.01</td>
+              </tr>
+              <tr>
+                  <td>2</td>
+                  <td>후원증을 기증하셨습니다.</td>
+                  <td>3</td>
+                  <td>김세현</td>
+                  <td>2021.01.01</td>
+              </tr>
+          </table>
+      </div>
+      
+  </div>
+
+
+    <div id="footers"></div>  
+
+</body>
   </body>
 </html>
