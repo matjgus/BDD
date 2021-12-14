@@ -9,6 +9,7 @@
                     <div class="join_wrap">
                         <form action="/user/signup" method="post">
                             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                            
                     <div class="join_detail">
                     
                     <div class="info_row">
@@ -16,7 +17,7 @@
                         <p>이름</p>
                         </div>
                         <div class="info_data">
-                            <input type="text" name="name" required="" autocomplete="off">
+                            <input v-model="name" type="text" name="name" required="" autocomplete="off">
                         </div>
                     </div>
                         
@@ -25,7 +26,7 @@
                             <p>아이디</p>
                         </div>
                         <div class="info_data">
-                            <input type="text" name="id" required="" autocomplete="off">
+                            <input v-model="id" type="text" name="id" required="" autocomplete="off">
                             <p>숫자,영문 혼합 20자리</p>
                             </div>
                         </div>
@@ -35,7 +36,7 @@
                             <p>비밀번호</p>
                             </div>
                             <div class="info_data">
-                            <input type="password" name="password" id="pass">
+                            <input v-model="password" type="password" name="password" id="pass">
                             <p>숫자,영문 혼합 20자리</p>
                             </div>
                         </div>
@@ -45,7 +46,7 @@
                             <p>비밀번호 확인</p>
                             </div>
                             <div class="info_data">
-                            <input type="password" name="checkpassword" id="checkpass">
+                            <input v-model="checkpassword" type="password" name="checkpassword" id="checkpass">
                             <p><font id="chkNotice" size="2"></font></p>
                             </div>
                         </div>
@@ -55,7 +56,7 @@
                             <p>이메일</p>
                             </div>
                             <div class="info_data">
-                            <input type="text" name="email">
+                            <input v-model="email" type="text" name="email">
                             </div>
                         </div>
                         
@@ -64,7 +65,7 @@
                             <p>우편번호</p>
                             </div>
                             <div class="info_data_post">
-                            <input type="text" name="post" disabled><button type="button" style="width:60px; height:30px; border-radius: 5px; border: none;" onclick="openZipSearch()">검색</button><br>
+                            <input v-model="post" type="text" name="post" disabled><button type="button" style="width:60px; height:30px; border-radius: 5px; border: none;" onclick="openZipSearch()">검색</button><br>
                             </div>
                         </div>
                         
@@ -75,7 +76,7 @@
                             <div class="info_data_address">
                             <input type="text" name="address" >
                             <p>상세주소</p>
-                            <input type="text" name="detailaddress">
+                            <input v-model="detailaddress" type="text" name="detailaddress">
                             </div>
                         </div>
                         
@@ -84,7 +85,7 @@
                             <p>전화번호</p>
                             </div>
                             <div class="info_data">
-                            <input type="text" name="phonenum" >
+                            <input v-model="phonenum" type="text" name="phonenum" >
                             </div>
                         </div>
                         
@@ -125,7 +126,7 @@
                         </div>
                     </div>
                 <div class="btn_area">
-                    <button type="submit" class="btn_join" onclick="checkform()">회원가입</button>
+                    <button class="btn_join" @click="home">회원가입</button>
                 </div>
                 </form>
                 </div>
@@ -194,8 +195,84 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   name: 'Signup',
+  data(){
+      return {
+        //uid : "", //시큐리티에서 자동 생성
+        // varchar
+        address: "",
+        detailaddress : "",
+        email : " ",
+        id : "",
+        name : "" ,
+        password : "",
+        phonenum : 0, // int
+        post : 3 // 우편번호 int
+      }
+  },
+  methods : {
+      home(){
+          let User ={
+            'UserAddress' : this.address,
+            'UserDetailaddress': this.detailaddress,
+            'UserEmail' : this.email,
+            'UserId' : this.id,
+            'UserName' : this.name,
+            'UserPassword' : this.password,
+            'UserPhonenum' : this.phonenum,
+            'UserPost' : this.post
+        }
+        console.log(User)
+      },
+      join(){
+        let User ={
+            'UserAddress' : this.address,
+            'UserDetailaddress': this.detailaddress,
+            'UserEmail' : this.email,
+            'UserId' : this.id,
+            'UserName' : this.name,
+            'UserPassword' : this.password,
+            'UserPhonenum' : this.phonenum,
+            'UserPost' : this.post
+        }
+        var config={
+            header:{
+                'Content-Type' : 'application/json',
+            }
+        };
+
+      axios.post('http://localhost:9999/user/signup',User,config)
+      .then((res)=>{
+          res
+          alert("회원가입완료")
+          let User = {
+              'userId':this.id,
+              'userPassword':this.password
+          }
+        axios.post('/user/login',User,config)
+        .then((response)=>{
+            if(response.status === 200 && response.header.authorization){
+                this.$session.start();
+                this.$session.set('jwt',response.header.authorization);
+                axios.defaults.header.common['Autorization'] = response.header.authorization;
+                this.$store.dispatch('LOGIN',response.data);
+                this.$router.push('/');
+            }else{
+                alert("아이디와 비밀번호를 확인해주세요");
+            }
+        }).catch((err)=>{
+            err
+            alert("아이디와 비밀번호를 확인해주세요 System Error");
+        })
+      })
+      .catch((error)=>{
+          error
+          alert('아이디가 중복입니다.')
+      })
+      }
+  }
 }
 </script>
 // <script>
