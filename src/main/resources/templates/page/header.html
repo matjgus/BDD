@@ -102,8 +102,8 @@
                 <a href="../page/donation">후원하기</a>
             </div>
             <div class="login">
-                 <a sec:authorize access="isAnonymous()" th:href="@{/user/login}">로그인</a>
-                 <a sec:authorize access="isAuthenticated()" th:href="@{/}">로그아웃</a>
+                 <a sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
+                 <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
             </div>
             <div class="mypage">
                 <a style="font-size:30px;cursor:pointer"

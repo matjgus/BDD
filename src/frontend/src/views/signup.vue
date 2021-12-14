@@ -7,11 +7,10 @@
                         <h2 class="member_tit">회원가입</h2>
                     </div>
                     <div class="join_wrap">
-                        <form action="/user/signup" method="post">
+                        <form action="http://localhost:9999/user/signup" method="post">
                             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                             
                     <div class="join_detail">
-                    
                     <div class="info_row">
                         <div class="info_name">
                         <p>이름</p>
@@ -74,7 +73,7 @@
                             <p>주소</p>
                             </div>
                             <div class="info_data_address">
-                            <input type="text" name="address" >
+                            <input v-model="address" type="text" name="address" >
                             <p>상세주소</p>
                             <input v-model="detailaddress" type="text" name="detailaddress">
                             </div>
@@ -126,7 +125,7 @@
                         </div>
                     </div>
                 <div class="btn_area">
-                    <button class="btn_join" @click="join">회원가입</button>
+                    <button class="btn_join" @click="home">회원가입</button>
                 </div>
                 </form>
                 </div>
@@ -182,6 +181,7 @@
                 단체회원에서 탈퇴할 수 있고, 멤버들의 단체회원 계정 로그인 방법 및 이를 통한 게시물 게재 등 네이버 서비스 이용을
                 관리(게시물 삭제 포함)할 수 있습니다.<br>
                 <br>
+
                 <br> 본약관에서 규정한 사항은 원칙적으로 구성원 모두에게 적용되며, 각각의 구성원은 다른 구성원들의 단체회원
                 계정 및 아이디(ID)를 통한 서비스 이용에 관해 연대책임을 부담합니다.<br>
                 <br> 단체회원 계정 사용에서의 관리자, 멤버 등의 권한 및 (공동)책임에 관한 사항 등은 계정 운영정책 및
@@ -225,6 +225,7 @@ export default {
             'UserPost' : this.post
         }
         console.log(User)
+        alert(User.UserId)
       },
       join(){
         let User ={
@@ -251,7 +252,7 @@ export default {
               'userId':this.id,
               'userPassword':this.password
           }
-        axios.post('/user/login',User,config)
+        axios.post('http://localhost:9999/user/login',User,config)
         .then((response)=>{
             if(response.status === 200 && response.header.authorization){
                 this.$session.start();
@@ -275,69 +276,6 @@ export default {
   }
 }
 </script>
-// <script>
-//    $(document).ready(function() {
-//       $(".pop_open").click(function() {
-//          $("#layer").addClass("active");
-//       });
-//    });
-//    $(document).ready(function() {
-//       $(".btn_exit").click(function() {
-//          $("#layer").removeClass("active");
-//       });
-//    });
-//    $(document).ready(function() {
-//       $(".dimlayer").click(function() {
-//          $("#layer").removeClass("active");
-//       });
-//    });
-
-//     function clickme() {
-//         window.scrollTo(0, 0);
-//     }
-//     function goBack() {
-//         history.back();
-//     }
-//     function openZipSearch() {
-//         new daum.Postcode({
-//         oncomplete: function(data) {
-//             $('[name=post]').val(data.zonecode); // 우편번호 (5자리)
-//             $('[name=address]').val(data.address);
-//         }
-//         }).open();
-//     }
-// </script>
-   
-// <script type="text/javascript">
-// $(function(){
-//         $('#pass').keyup(function(){
-//         $('#chkNotice').html('');
-//         });
-
-//         $('#pass').keyup(function(){
-
-//             if($('#pass').val() != $('#checkpass').val()){
-//             $('#chkNotice').html('비밀번호 일치하지 않음');
-//             $('#chkNotice').attr('color', '#f82a2aa3');
-//             } else{
-//             $('#chkNotice').html('비밀번호 일치함');
-//             $('#chkNotice').attr('color', '#199894b3');
-//             }
-
-//         });
-        
-//         $('#checkpass').keyup(function(){
-//             if($('#pass').val() != $('#checkpass').val()){
-//             $('#chkNotice').html('비밀번호 일치하지 않음');
-//             $('#chkNotice').attr('color', '#f82a2aa3');
-//             } else{
-//             $('#chkNotice').html('비밀번호 일치함');
-//             $('#chkNotice').attr('color', '#199894b3');
-//             }
-//         });
-//     });
-// </script>
-   
    
 <style scoped>
 .signup {
