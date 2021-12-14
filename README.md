@@ -1,4 +1,10 @@
 # 헌혈증서 기부 사이트
+## 버전 정보
+    - Java version : 11
+    - node version : 14.18.1
+    - npm  version : 6.14.15 
+    - vue  version : 3
+    
 ## 기능설계
     <기본>
     1. 회원가입
