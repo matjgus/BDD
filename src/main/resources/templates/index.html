@@ -1,14 +1,11 @@
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript">   
-$(document).ready( function() {
-$("#headers").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
-$("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
-});
-</script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+
+
 <body>
-    <div id="headers"></div>
+  <div th:replace="page/header :: header"></div>
+  <div th:replace="page/header :: headerbody"></div>
   <section>
     <div class="swiper mySwiper" >
           <div class="swiper-wrapper">
@@ -213,7 +210,7 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
       </div>
       </div>
     </div>
-      <div id="footers"></div>  
+      <th:block th:replace="page/footer :: footer"></th:block>
   </section>
 </body>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

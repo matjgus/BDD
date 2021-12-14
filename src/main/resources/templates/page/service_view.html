@@ -1,0 +1,80 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" href="../css/service_style.css" />
+<link rel="stylesheet" href="../css/service_board_style.css" />  
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">   
+	$(document).ready( function() {
+	$("#headers").load("./header");  // 원하는 파일 경로를 삽입하면 된다
+	$("#footers").load("./footer");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+});
+</script>
+
+<body>
+    <div id="headers"></div>
+    <div class="service-wrap">
+        <div class="board">
+            <h1>Board View</h1>
+			<form id="frm" action="/page/service_view/action" method="post">
+				<input type="hidden" name="id" th:value="${info.id}">
+	            <div class="write-form">
+	                <ul>
+	                    <li class="board-ctg">
+	                        <div class="board-name"><h4>제목</h4></div>
+	                        <div class="board-data">
+			    			<input type="text" class="form-control" name="title" th:value="${info.title}"></div>
+	                    </li>
+	                    <li class="board-ctg">
+	                        <div class="board-name"><h4>내용</h4></div>
+	                        <div class="board-data">
+		    				<textarea class="form-control" rows="5" cols="" name="content" th:text="${info.content}"></textarea></div>
+	                    </li>
+	                    <li class="board-ctg">
+	                        <div class="board-name"><h4>작성자</h4></div>
+	                        <div class="board-data">
+			    			<input type="text" class="form-control" name="registerId" th:value="${info.registerId}">></div>
+	                    </li>
+	                    <li class="board-ctg">
+	                        <div class="board-name"><h4>첨부파일</h4></div>
+	                        <div class="board-data" style="font-size: 20px;"><input type="file"></div>
+	                    </li>
+
+	                </ul>
+	        	</div>
+			<button type="button" class="btn btn-success" onclick="javascript:location.href='/page/service'">Previous</button>
+			<button type="submit" class="btn btn-primary">Edit</button>
+			<div class="float-right">
+				<button type="button" class="btn btn-danger" th:onclick="fnViewDelete()">Delete</button>
+			</div>
+		</form>
+            
+        </div>
+    </div>
+
+      <div id="footers"></div>  
+
+</body>
+
+    <!--부트스트랩 js, jquery 추가-->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <script th:inline="javascript">
+		function fnViewDelete() {
+			if (confirm("Do you want to delete it?")) {
+				let frm = $("#frm");
+				frm.attr("action","/page/service_view/delete");
+				frm.submit();
+			}
+		}
+	</script>
+
+
+<script>
+    function clickme() {
+        window.scrollTo(0,0);
+      }
+      function goBack() {
+          history.back();
+      }
+
+</script>

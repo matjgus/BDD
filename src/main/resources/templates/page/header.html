@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blood Donation Deed</title>
-    <link rel="stylesheet" href="../css/set.css" >
-    <link rel="stylesheet" href="../css/header_style.css" >
-    <link rel="stylesheet" href="../css/index_style.css" >
+    <link rel="stylesheet" href="../css/set.css" th:href="@{/css/set.css}">
+    <link rel="stylesheet" href="../css/header_style.css"  th:href="@{/css/header_style.css}">
+    <link rel="stylesheet" href="../css/index_style.css"  th:href="@{/css/index_style.css}">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" >
@@ -18,17 +18,17 @@
 </head >
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <body>
-    <div class="">
+    <div class="" th:fragment="headerbody">
     <div class="header" id="navbar">
         <h1 class="logo">
-            <a href="../index" style="width:100%; height:86px; size:80px">
+            <a th:href="@{/page/intro}" style="width:100%; height:86px; size:80px">
                 <span style="color:#a81431; "><i class="fas fa-socks"> 빨간양말후원</i></span>
             </a>
         </h1>
         <div class="nav">
             <ul>
                 <li>
-                    <a href="../page/intro">소개</a>
+                    <a href="../page/intro.html" th:href="@{/page/intro.html}">소개</a>
                 </li>
                 <li>
                     <a href="../page/donation">후원</a>
@@ -144,14 +144,4 @@
     </script>
 <script>
     AOS.init();
-</script>
-
-<script>
-    function clickme() {
-        window.scrollTo(0,0);
-      }
-      function goBack() {
-          history.back();
-      }
-
 </script>

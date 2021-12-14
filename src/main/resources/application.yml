@@ -4,21 +4,23 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     username: root
     password: qwe123
-    
+  thymeleaf:
+        prefix : classpath:templates/
+        suffix : .html
+        cache : false
   jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    open-in-view: false
-    show-sql: true
+    open-in-view: true
     hibernate:
-      format_sql: true
-      ddl-auto: create
-
-logging:
-  level:
-    org:
-      hibernate:
-        SQL: DEBUG
-        type:
-          descriptor:
-            sql:
-              BasicBinder: TRACE
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      use-new-id-generator-mappings: false
+    show-sql: true
+    properties:
+      hibrnate.format_sql: true
+      
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      force-response: true

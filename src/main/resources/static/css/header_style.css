@@ -92,13 +92,13 @@
     
 }
 .sidenav {
-    height: 25vh;
+    height: 30vh;
     width: 0;
     position: fixed;
     z-index: 2000;
     top: 80px;
     right: 0;
-    background-color: rgb(0, 0, 0);
+    background-color: #a81431;;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;

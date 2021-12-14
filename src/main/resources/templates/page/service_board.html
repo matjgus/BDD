@@ -1,11 +1,12 @@
+<<<<<<< HEAD
 <link rel="stylesheet" href="../css/service_style.css" />
 <link rel="stylesheet" href="../css/service_board_style.css" />  
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
    
 $(document).ready( function() {
-$("#headers").load("./header.html");  // 원하는 파일 경로를 삽입하면 된다
-$("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+$("#headers").load("./header");  // 원하는 파일 경로를 삽입하면 된다
+$("#footers").load("./footer");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
 });
 </script>
 
@@ -32,9 +33,56 @@ $("#footers").load("./footer.html");  // 추가 인클루드를 원할 경우 �
                 </ul>
         </div>
         <div class="board-btn">
-            <a href="./service.html">돌아가기</a>
+            <a href="./service">돌아가기</a>
             <a href="#none">등록하기</a>
         </div>
+=======
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" href="../css/service_style.css" />
+<link rel="stylesheet" href="../css/service_board_style.css" />  
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">   
+	$(document).ready( function() {
+	$("#headers").load("/page/header");  // 원하는 파일 경로를 삽입하면 된다
+	$("#footers").load("/page/footer");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+});
+</script>
+
+<body>
+    <div id="headers"></div>
+    <div class="service-wrap">
+        <div class="board">
+            <h1>1:1문의</h1>
+            
+            <form action="/page/service_board/action" method="post">
+	            <div class="write-form">
+	                <ul>
+	                    <li class="board-ctg">
+	                        <div class="board-name"><h4>제목</h4></div>
+	                        <div class="board-data">
+			    			<input type="text" class="form-control" id="" name="title"></div>
+	                    </li>
+	                    <li class="board-ctg">
+	                        <div class="board-name"><h4>내용</h4></div>
+	                        <div class="board-data">
+	                        <textarea class="form-control" rows="5" cols="" name="content"></textarea></div>
+	                    </li>
+	                    <li class="board-ctg">
+	                        <div class="board-name"><h4>작성자</h4></div>
+	                        <div class="board-data">
+			    			<input type="text" class="form-control" id="" name="registerId"></div>
+	                    </li>
+	                    <li class="board-ctg">
+	                        <div class="board-name"><h4>첨부파일</h4></div>
+	                        <div class="board-data" style="font-size: 20px;"><input type="file"></div>
+	                    </li>
+	                </ul>
+	        	</div>
+			<button type="button" class="btn btn-success" onclick="javascript:location.href='/page/service'">Previous</button>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+>>>>>>> refs/remotes/origin/main
             
         </div>
     </div>

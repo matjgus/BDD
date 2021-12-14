@@ -41,3 +41,46 @@
     font-weight: 600;
     line-height: 30px;
 }
+/*팝업창*/
+#popup {
+    display: none; /*숨기기*/
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(214, 214, 214, 0.9);
+    top:0%;
+    left:0%;
+    z-index:113;
+}
+
+#popmenu {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 20vw;
+    height: 40vh;
+    text-align: center;
+    background: #fff;
+    border-radius: 5%;
+}
+
+#popmenu p {
+    margin-top: 80px;
+    font-size: large;
+}
+#popmenu select{
+    font-size:large;
+}
+.exit {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%,0);
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background: #007AAE;
+    cursor: pointer;
+}
