@@ -27,6 +27,7 @@ public class BoardController {
    @GetMapping("/")
    public String getIndexPage(Model model, BoardRequestDto boardRequestDto) {
       return "index";
+
    }
    
    @GetMapping("/page/footer")

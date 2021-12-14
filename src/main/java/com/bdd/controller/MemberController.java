@@ -3,6 +3,8 @@ package com.bdd.controller;
 import com.bdd.dto.MemberDto;
 import com.bdd.service.MemberService;
 import lombok.AllArgsConstructor;
+import org.hibernate.exception.ConstraintViolationException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class MemberController {
     private MemberService memberService;
 
+
+    // 메인 페이지
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
 
 
     // 회원가입 페이지
@@ -23,7 +31,15 @@ public class MemberController {
     // 회원가입 처리
     @PostMapping("/user/signup")
     public String execSignup(MemberDto memberDto) {
+
+        
+    	try {
+    		memberService.joinUser(memberDto);
+    	}catch(ConstraintViolationException e) {
+    		
+    	}
         memberService.joinUser(memberDto);
+
 
         return "redirect:/user/login";
     }
