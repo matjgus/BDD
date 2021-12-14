@@ -1,4 +1,6 @@
-package com.board.study.web;
+package com.board.study.controller;
+
+import java.util.HashMap;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,14 +47,7 @@ public class BoardController {
    public String getDonationPage(Model model, BoardRequestDto boardRequestDto) {
       return "/page/donation";
    }
-   @GetMapping("/page/sponsorship")
-   public String getSponsorshipPage(Model model, BoardRequestDto boardRequestDto) {
-      return "/page/sponsorship";
-   }
-   @GetMapping("/page/story")
-   public String getStoryPage(Model model, BoardRequestDto boardRequestDto) {
-      return "/page/story";
-   }
+
    @GetMapping("/page/reverse_sponsorship")
    public String getReverseSponsorshipPage(Model model, BoardRequestDto boardRequestDto) {
       return "/page/reverse_sponsorship";
@@ -122,7 +117,30 @@ public class BoardController {
       
       return "redirect:/page/service";
    }
+   @PostMapping("/page/service_view/delete")
+   public String boardViewDeleteAction(Model model, @RequestParam() Long id) throws Exception {
+      
+      try {
+         boardService.deleteById(id);
+      } catch (Exception e) {
+         throw new Exception(e.getMessage()); 
+      }
+      
+      return "redirect:/page/service";
+   }
    
+   @PostMapping("/page/delete")
+   public String boardDeleteAction(Model model, @RequestParam() Long[] deleteId) throws Exception {
+      
+      try {
+         boardService.deleteAll(deleteId);
+      } catch (Exception e) {
+         throw new Exception(e.getMessage()); 
+      }
+      
+      return "redirect:/page/service";
+   }
+
    
    //기부금영수증
    @GetMapping("/page/donationbill")
@@ -156,39 +174,8 @@ public class BoardController {
       return "/page/benefit";
    }
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   //예제
-
-   
-   @PostMapping("/page/service_view/delete")
-   public String boardViewDeleteAction(Model model, @RequestParam() Long id) throws Exception {
-      
-      try {
-         boardService.deleteById(id);
-      } catch (Exception e) {
-         throw new Exception(e.getMessage()); 
-      }
-      
-      return "redirect:/page/service";
-   }
-   
-   @PostMapping("/page/delete")
-   public String boardDeleteAction(Model model, @RequestParam() Long[] deleteId) throws Exception {
-      
-      try {
-         boardService.deleteAll(deleteId);
-      } catch (Exception e) {
-         throw new Exception(e.getMessage()); 
-      }
-      
-      return "redirect:/page/service";
+   @GetMapping("/api/boardlist")
+   public HashMap<String, Object> getBoardList(Integer page, Integer size) {
+	   return boardService.findAll(page, size);
    }
 }
