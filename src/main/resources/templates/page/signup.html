@@ -14,7 +14,7 @@
 					<h2 class="member_tit">회원가입</h2>
 				</div>
 				<div class="join_wrap">
-					  <form action="/user/signup" method="post">
+					  <form action="/user/signup" method="post" id="joinform">
         				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 						<div class="join_detail">
 						
@@ -23,7 +23,7 @@
 									<p>이름</p>
 								</div>
 								<div class="info_data">
-									<input type="text" name="name" required="" autocomplete="off">
+									<input type="text" name="name" id = >
 								</div>
 							</div>
 							
@@ -33,7 +33,7 @@
 								</div>
 								<div class="info_data">
 									<input type="text" name="id" required="" autocomplete="off">
-									<p>숫자,영문 혼합 20자리</p>
+									<p>숫자,영문 혼합 8자리 ~ 20자리</p>
 								</div>
 							</div>
 							
@@ -43,7 +43,7 @@
 								</div>
 								<div class="info_data">
 									<input type="password" name="password" id="pass">
-									<p>숫자,영문 혼합 20자리</p>
+									<p>숫자, 영문, 특수문자를 사용해서 8자리 ~ 20자리</p>
 								</div>
 							</div>
 							
@@ -269,5 +269,30 @@
 		    });
 		});
   </script>
+  
+  <script type="text/javascript">
+  var f = document.getElementById("joinform");
+  f.addEventListener("submit" , function(e) {
+    if(f.name.value.length == 0 ) {
+      alert("이름을 입력하세요");
+      e.preventDefault();
+      f.name.focus();
+      return;
+    }
+    if(f.email.value.length == 0 ) {
+      alert("이메일을 입력하세요");
+      e.preventDefault();
+      f.email.focus();
+      return;
+    }
+    if(f.password.value.length == 0 ) {
+      alert("비밀번호를 입력하세요");
+      e.preventDefault();
+      f.password.focus();
+      return;
+    }
+  });
+
+</script>
 	
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
