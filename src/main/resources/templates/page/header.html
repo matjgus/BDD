@@ -48,7 +48,8 @@
                 <a href="../page/donation">후원하기</a>
             </div>
             <div class="login">
-                 <a sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
+                 <a sec:authorize access="isAnonymous()" th:href="@{/user/login}">로그인</a>
+                 <a sec:authorize access="isAuthenticated()" th:href="@{/}">로그아웃</a>
             </div>
             <div class="mypage">
                 <a style="font-size:30px;cursor:pointer"
@@ -60,7 +61,6 @@
             <a href="/page/profile">회원 정보 수정</a>
             <a href="/page/donationhistory">후원 내역</a>
             <a href="/page/benefit">기념 상품</a>
-            <a href="../index">로그아웃</a>
           </div>
           </div>
           

@@ -4,6 +4,7 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     username: root
     password: 1234
+
   thymeleaf:
         prefix : classpath:templates/
         suffix : .html
