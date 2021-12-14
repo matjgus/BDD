@@ -8,10 +8,12 @@ spring:
     open-in-view: true
     hibernate:
       ddl-auto: update
-      naming:        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       use-new-id-generator-mappings: false
     show-sql: true
-    properties:      hibrnate.format_sql: true
+    properties:
+      hibrnate.format_sql: true
       
 server:
   servlet:
