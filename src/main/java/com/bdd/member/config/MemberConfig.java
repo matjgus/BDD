@@ -40,13 +40,15 @@ public class MemberConfig extends WebSecurityConfigurerAdapter {
                  
                 .antMatchers("/user/myinfo").hasRole("MEMBER")
                 .antMatchers("/**").permitAll()
-            .and() // 로그인 설정
-                                .formLogin()
+            
+               .and() // 로그인 설정
+                .formLogin()
                 .loginPage("/user/login")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/user/login/result")
                 .permitAll()
-            .and() // 로그아웃 설정
-                               .logout()
+            
+               .and() // 로그아웃 설정
+                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
                 .logoutSuccessUrl("/user/login/result")
                 .invalidateHttpSession(true);
