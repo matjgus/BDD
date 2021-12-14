@@ -23,7 +23,6 @@ public class BoardController {
    public String getHeader(Model model, BoardRequestDto boardRequestDto) {
       return "/page/header";
    }
-
    @GetMapping("/page/footer")
    public String getFooter(Model model, BoardRequestDto boardRequestDto) {
       return "/page/footer";
