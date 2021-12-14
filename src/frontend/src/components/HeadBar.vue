@@ -27,10 +27,10 @@
                 <button @click="donationbill">기부금 영수증</button>-->
             </div>
             <div class="donation">
-                <a href="../page/donation">후원하기</a>
+                <a href="/donation">후원하기</a>
             </div>
             <div class="login">
-                <a href="/page/login">로그인</a>
+                <a href="/login">로그인</a>
             </div>
             <div class="mypage">
                 <a style="font-size:30px;cursor:pointer"
@@ -39,12 +39,12 @@
         </div>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="/page/profile">회원 정보 수정</a>
-            <a href="/page/mydeed">내 후원증</a>
+            <a href="/profile">회원 정보 수정</a>
+            <a href="/mydeed">내 후원증</a>
             <!--<a href="/page/mydeed.html">내 후원증</a>-->
-            <a href="/page/donationhistory">후원 내역</a>
-            <a href="/page/benefit">기념 상품</a>
-            <a href="../index">로그아웃</a>
+            <a href="/donationhistory">후원 내역</a>
+            <a href="/benefit">기념 상품</a>
+            <a href="/">로그아웃</a>
           </div>
           </div>
           
