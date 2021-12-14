@@ -23,12 +23,7 @@ public class BoardController {
    public String getHeader(Model model, BoardRequestDto boardRequestDto) {
       return "/page/header";
    }
-   
-   @GetMapping("/")
-   public String getIndexPage(Model model, BoardRequestDto boardRequestDto) {
-      return "index";
-   }
-   
+
    @GetMapping("/page/footer")
    public String getFooter(Model model, BoardRequestDto boardRequestDto) {
       return "/page/footer";
@@ -82,18 +77,18 @@ public class BoardController {
    
    @PostMapping("/page/service_board/action")
    public String pageWriteAction(Model model, BoardRequestDto boardRequestDto) throws Exception {
-	      
-	      try {
-	         Long result = boardService.save(boardRequestDto);
-	         
-	         if (result < 1) {
-	            throw new Exception("#Exception boardWriteAction!");
-	         }
-	      } catch (Exception e) {
-	         throw new Exception(e.getMessage()); 
-	      }
-	      
-	      return "redirect:/page/service";
+         
+         try {
+            Long result = boardService.save(boardRequestDto);
+            
+            if (result < 1) {
+               throw new Exception("#Exception boardWriteAction!");
+            }
+         } catch (Exception e) {
+            throw new Exception(e.getMessage()); 
+         }
+         
+         return "redirect:/page/service";
    }
    
    @GetMapping("/page/service_view")
@@ -183,6 +178,6 @@ public class BoardController {
    
    @GetMapping("/api/boardlist")
    public HashMap<String, Object> getBoardList(Integer page, Integer size) {
-	   return boardService.findAll(page, size);
+      return boardService.findAll(page, size);
    }
 }

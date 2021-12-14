@@ -15,7 +15,7 @@
 				<img src="..\img\banner2.jpg">
 			</div>
 			<div class="swiper-slide">
-				<img src="..\img\banner3.jpg">
+				<img src="..\img\banner4.jpg">
 			</div>
 		</div>
 	</div>
@@ -24,8 +24,8 @@
 			<h2>통합 로그인</h2>
 			<div class="login">
 				<form action="/user/login" method="post">
-					<input type="hidden" th:name="${_csrf.parameterName}"
-						th:value="${_csrf.token}" />
+					<input type="hidden" th:name="${_csrf?.parameterName}"
+						th:value="${_csrf?.token}" />
 
 					<ul>
 						<li><input type='text' name="username" placeholder="아이디"></li>

@@ -34,7 +34,8 @@ public class MemberConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-    	http.httpBasic().disable();
+        http.httpBasic().disable();
+        http.csrf().disable();
         http.authorizeRequests()
                 // 페이지 권한 설정
                  
