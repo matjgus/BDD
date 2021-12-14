@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="../css/mydeed_style.css" />
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="../js/lib/vue.js"></script>
 <script type="text/javascript">   
 	$(document).ready( function() {
 	$("#headers").load("/page/header");  // 원하는 파일 경로를 삽입하면 된다
@@ -28,9 +29,11 @@
         <div class="swiper-pagination"></div>
     </div>
     <div class="wrap">
-        <div class="deed-history">
+        <div id="deed_history" class="deed-history">
             <h1>내 후원증</h1>
-            <p> 남은 후원증 : <span style="color:a81431">2</span>개</p>
+            <p> 총 후원 수 : <span  style="color:a81431">{{ tDonation }}</span>개</p>
+            <p> 남은 후원증 : <span  style="color:a81431">{{ remain_deed }}</span>개</p>
+            <button @click="fetchdeeds">fetchdeeds</button>
             <table>
                 <tr>
                     <td>번호</td>
@@ -58,8 +61,11 @@
         
     </div>
 
-
+    
       <div id="footers"></div>  
+   
+
+<script src="../js/vue/mydeed.js"></script>
 
 </body>
 <!-- Swiper JS -->

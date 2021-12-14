@@ -14,7 +14,7 @@
     <div id="headers"></div>
     <div class="service-wrap">
         <div class="board">
-            <h1>Board View</h1>
+            <h1>문의 수정</h1>
 			<form id="frm" action="/page/service_view/action" method="post">
 				<input type="hidden" name="id" th:value="${info.id}">
 	            <div class="write-form">
@@ -32,7 +32,7 @@
 	                    <li class="board-ctg">
 	                        <div class="board-name"><h4>작성자</h4></div>
 	                        <div class="board-data">
-			    			<input type="text" class="form-control" name="registerId" th:value="${info.registerId}">></div>
+			    			<input type="text" class="form-control" name="registerId" th:value="${info.registerId}"></div>
 	                    </li>
 	                    <li class="board-ctg">
 	                        <div class="board-name"><h4>첨부파일</h4></div>

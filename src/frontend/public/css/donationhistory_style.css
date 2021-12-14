@@ -1,0 +1,48 @@
+.donation-history-wrap .wrap .donation-history-title div{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin : 0 auto;
+}
+
+.donation-history-wrap .wrap .donation-history-title h1{
+    font-size : 40px;
+    text-align: left;
+    margin : 3vh;
+    padding-right : 5vw;
+}
+.donation-history-wrap .wrap .donation-history-title span{
+    font-size : 20px;
+    text-align: center;
+    margin : 4vh;
+}
+
+.history-wrap{
+    max-width: 1000px;
+}
+
+.donation-story ul{
+    display : flex;
+    justify-content: space-evenly;
+    margin: 2vh auto;
+    max-width: 1400px;
+    
+
+    
+}
+.donation-story ul li{
+    width : 20%;
+    border-radius: 15%;
+    background-color: #a81431;
+}
+.donation-story ul li img{
+    border-top-right-radius: 15%;
+    border-top-left-radius: 15%;
+}
+.donation-story ul li p{
+    text-align: center;
+    font-size: 15px;
+    line-height: 40px;
+    font-weight: 600;
+    color:white;
+}

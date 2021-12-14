@@ -45,10 +45,11 @@
     
 }
 .header .nav {
-    width : 30%;
+    width : 40%;
     margin : 0 auto;
 }
 .header .nav >ul {
+    width: 100%;
     display : flex;
     margin : 10px 0;
 }

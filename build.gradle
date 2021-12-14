@@ -2,7 +2,27 @@ plugins {
    id 'org.springframework.boot' version '2.6.1'
    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
    id 'java'
+   id 'com.moowork.node'  version "1.3.1"
 }
+node{
+	version = '14.18.1'
+	npmVersion = '6.14.15'
+	workDir = file("./src/frontend")
+	npmWorkDir = file("./src/frontend")
+	nodeModulesDir = file("./src/frontend")
+}
+task setUp(type:NpmTask){
+	description = "Install Node.js spackage"
+	args = ['install']
+	inputs.files file('package.json')
+	outputs.files file('node_modules')
+}
+
+task buildFrontEnd(type:NpmTask, dependsOn:setUp){
+	description = "Build vue.js"
+	args = ['run', 'build']
+}
+processResources.dependsOn 'buildFrontend'
 
 group = 'com.hustar'
 version = '0.0.1-SNAPSHOT'

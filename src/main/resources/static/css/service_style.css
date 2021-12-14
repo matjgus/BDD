@@ -61,3 +61,32 @@ input[id*="answer"] + label + div p{
 }
 input[id*="answer"]:checked + label + div {max-height:500px;}
 input[id*="answer"]:checked + label em {background-position:0 -30px;}   
+
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid #dee2e6;
+}
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    visibility: hidden;
+}
+
+.page-link:not([disabled]):not(.disabled) {
+    cursor: pointer;
+}
