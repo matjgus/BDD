@@ -16,6 +16,7 @@ spring:
       hibrnate.format_sql: true
       
 server:
+  port : 9999
   servlet:
     encoding:
       charset: UTF-8
