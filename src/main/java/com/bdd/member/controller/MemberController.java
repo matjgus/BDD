@@ -52,7 +52,7 @@ public class MemberController {
     
     @GetMapping("/user/login/result")
     public String dispLoginResult() {
-        return "/loginSuccess";
+        return "/page/loginSuccess";
     }
 
 //    // 어드민 페이지
