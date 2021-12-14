@@ -126,7 +126,7 @@
                         </div>
                     </div>
                 <div class="btn_area">
-                    <button class="btn_join" @click="home">회원가입</button>
+                    <button class="btn_join" @click="join">회원가입</button>
                 </div>
                 </form>
                 </div>
