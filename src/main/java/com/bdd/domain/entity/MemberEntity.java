@@ -16,7 +16,10 @@ public class MemberEntity {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int uid;
     
+
     @Column(length = 30, nullable = false, unique = true)
+
+    @Column(length = 30, nullable = false)
     private String id;    
 
     @Column(length = 30, nullable = false)

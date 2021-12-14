@@ -44,6 +44,4 @@ public class MemberService implements UserDetailsService {
 
         return new User(userEntity.getId(), userEntity.getPassword(), authorities);
     }
-    
-    
 }

@@ -24,9 +24,10 @@ public class BoardController {
       return "/page/header";
    }
    
-   @GetMapping("/index")
+   @GetMapping("/")
    public String getIndexPage(Model model, BoardRequestDto boardRequestDto) {
-      return "/index";
+      return "index";
+
    }
    
    @GetMapping("/page/footer")

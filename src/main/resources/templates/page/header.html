@@ -27,7 +27,8 @@
 </head>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <body>
-	<div class="" th:fragment="headerbody">
+
+          <div class="" th:fragment="headerbody">
 		<div class="header" id="navbar">
 			<h1 class="logo">
 				<a th:href="@{/page/intro}"
@@ -72,6 +73,59 @@
 
 	<input class="goupbtn" type="button" value="TOP" onclick="clickme()">
 	<input class="gobackbtn" type="button" value="BACK" onclick="goBack()">
+
+    <div class="" th:fragment="headerbody">
+    <div class="header" id="navbar">
+        <h1 class="logo">
+            <a th:href="@{/}" style="width:100%; height:86px; size:80px">
+                <span style="color:#a81431; "><i class="fas fa-socks"> 빨간양말후원</i></span>
+            </a>
+        </h1>
+        <div class="nav">
+            <ul>
+                <li>
+                    <a href="../page/intro.html" th:href="@{/page/intro}">소개</a>
+                </li>
+                <li>
+                    <a href="../page/donation">후원</a>
+                </li>
+                <li>
+                    <a href="../page/service">고객센터</a>
+                </li>
+            </ul>
+        </div>
+        <div class="right-header">
+            <div class="donationbill">
+                <a href="../page/donationbill">기부금 영수증</a>
+            </div>
+            <div class="donation">
+                <a href="../page/donation">후원하기</a>
+            </div>
+            <div class="login">
+                 <a sec:authorize access="isAnonymous()" th:href="@{/user/login}">로그인</a>
+                 <a sec:authorize access="isAuthenticated()" th:href="@{/}">로그아웃</a>
+            </div>
+            <div class="mypage">
+                <a style="font-size:30px;cursor:pointer"
+                onclick="openNav()">&#9776; </a>
+            </div>
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/page/profile">회원 정보 수정</a>
+            <a href="/page/donationhistory">후원 내역</a>
+            <a href="/page/benefit">기념 상품</a>
+          </div>
+          </div>
+          
+        </div>
+    </div>
+</div>
+
+
+<input class="goupbtn" type="button" value="TOP" onclick="clickme()">
+<input class="gobackbtn" type="button" value="BACK" onclick="goBack()">
+
 
 </body>
 </html>
