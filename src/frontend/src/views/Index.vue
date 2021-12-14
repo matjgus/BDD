@@ -35,7 +35,7 @@
     <div class="wrap">
         <div class="story-title">
             <h1>사람들을 위한 <span style="color:#a81431">다양한 사업</span>을 진행합니다.</h1>
-            <a href="./page/sponsorship">전체보기 	&#8594;</a>
+            <a href="/sponsorship">전체보기 	&#8594;</a>
         </div>
     </div>
     <!-- Swiper -->
@@ -142,47 +142,47 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide swiper-slide3">
                                 <div>
-                                    <a href="#none"><img src="img\part_ent1.png"></a>
+                                    <a href="#none"><img src="../assets/img/part_ent1.png"></a>
                                 </div>
                             </div>
                             <div class="swiper-slide swiper-slide3">
                                 <div>
-                                    <a href="#none"><img src="img\part_ent2.png"></a>
+                                    <a href="#none"><img src="../assets/img/part_ent2.png"></a>
                                 </div>
                             </div>
                             <div class="swiper-slide swiper-slide3">
                                 <div>
-                                    <a href="#none"><img src="img\part_ent3.png"></a>
+                                    <a href="#none"><img src="../assets/img/part_ent3.png"></a>
                                 </div>
                             </div>
                             <div class="swiper-slide swiper-slide3">
                                 <div>
-                                    <a href="#none"><img src="img\part_ent1.png"></a>
+                                    <a href="#none"><img src="../assets/img/part_ent1.png"></a>
                                 </div>
                             </div>
                             <div class="swiper-slide swiper-slide3">
                                 <div>
-                                    <a href="#none"><img src="img\part_ent2.png"></a>
+                                    <a href="#none"><img src="../assets/img/part_ent2.png"></a>
                                 </div>
                             </div>
                             <div class="swiper-slide swiper-slide3">
                                 <div>
-                                    <a href="#none"><img src="img\part_ent3.png"></a>
+                                    <a href="#none"><img src="../assets/img/part_ent3.png"></a>
                                 </div>
                             </div>
                             <div class="swiper-slide swiper-slide3">
                                 <div>
-                                    <a href="#none"><img src="img\part_ent1.png"></a>
+                                    <a href="#none"><img src="../assets/img/part_ent1.png"></a>
                                 </div>
                             </div>
                             <div class="swiper-slide swiper-slide3">
                                 <div>
-                                    <a href="#none"><img src="img\part_ent2.png"></a>
+                                    <a href="#none"><img src="../assets/img/part_ent2.png"></a>
                                 </div>
                             </div>
                             <div class="swiper-slide swiper-slide3">
                                 <div>
-                                    <a href="#none"><img src="img\part_ent3.png"></a>
+                                    <a href="#none"><img src="../assets/img/part_ent3.png"></a>
                                 </div>
                             </div>
                         </div>
