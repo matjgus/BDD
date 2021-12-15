@@ -1,0 +1,90 @@
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+
+<body>
+  <div th:replace="page/header :: header"></div>
+  <div th:replace="page/header :: headerbody"></div>
+  <section>
+    <div class="swiper mySwiper" >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide banner1">
+              <div >
+                <h1> [ 베 : 풀다] </h1>
+                <p> 힘듬에 상처받지 않도록 </p>
+                <p> 나누어서 행복하도록 </p>
+              </div>
+            </div>
+            <div class="swiper-slide banner2">
+              <div>
+              <h1> [ Wake _ up ] </h1>
+              <p> 잠들어 있는 헌혈증 </p>
+              <p> 깨울 시간 </p>
+              </div>
+            </div>
+            <div class="swiper-slide banner3">
+              <div>
+              <h1> [느: 루]</h1>
+              <p> 몰아치지 아니하고 </p>
+              <p>  오래도록 늘 </p>
+              </div>
+            </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+
+    </div>
+   
+    
+    <div><h1>로그아웃 성공!</h1></div>
+  </section>
+ 
+      <th:block th:replace="page/footer :: footer"></th:block>
+
+</body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script> var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+  </script>
+  
+  <script>
+    var swiper = new Swiper(".mySwiper02", {
+      slidesPerView: 4,
+      spaceBetween: 50,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      }
+    });
+  </script>
+
+  <script>
+    var swiper = new Swiper(".mySwiper03", {
+      slidesPerView: 6,
+      spaceBetween: 50,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      }
+    });
+  </script>

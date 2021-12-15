@@ -1,22 +1,20 @@
-<link rel="stylesheet" href="../css/signup_style.css" />
+<link rel="stylesheet" href="../css/signup_style.css"  th:href="@{/css/signup_style.css}">
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-{Version 1.1.8}.js"></script>
-<script type="text/javascript">   
-	$(document).ready( function() {
-	$("#headers").load("/page/header");  // 원하는 파일 경로를 삽입하면 된다
-	$("#footers").load("/page/footer");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
-});
-</script>
+
 <body>
 	<div class="signup">
-		<div id="headers"></div>
+		  <div th:replace="page/header :: header"></div>
+  	<div th:replace="page/header :: headerbody"></div>
+
 		<div class="container">
 			<div class="member_wrap">
 				<div class="tit_wrap">
 					<h2 class="member_tit">회원가입</h2>
 				</div>
 				<div class="join_wrap">
-					<form action="/join" method="post">
+					  <form action="/user/signup" method="post">
+        				<input type="hidden" th:name="${_csrf?.parameterName}" th:value="${_csrf?.token}" />
 						<div class="join_detail">
 						
 							<div class="info_row">
@@ -24,7 +22,7 @@
 									<p>이름</p>
 								</div>
 								<div class="info_data">
-									<input type="text" name="name" required="" autocomplete="off">
+									<input type="text" name="name" id = >
 								</div>
 							</div>
 							
@@ -34,7 +32,7 @@
 								</div>
 								<div class="info_data">
 									<input type="text" name="id" required="" autocomplete="off">
-									<p>숫자,영문 혼합 20자리</p>
+									<p>숫자,영문 혼합 8자리 ~ 20자리</p>
 								</div>
 							</div>
 							
@@ -43,8 +41,8 @@
 									<p>비밀번호</p>
 								</div>
 								<div class="info_data">
-									<input type="text" name="password" required="" autocomplete="off">
-									<p>숫자,영문 혼합 20자리</p>
+									<input type="password" name="password" id="pass">
+									<p>숫자, 영문, 특수문자를 사용해서 8자리 ~ 20자리</p>
 								</div>
 							</div>
 							
@@ -53,8 +51,8 @@
 									<p>비밀번호 확인</p>
 								</div>
 								<div class="info_data">
-									<input type="text" name="check_password" required="" autocomplete="off">
-									<p>숫자,영문 혼합 20자리</p>
+									<input type="password" name="checkpassword" id="checkpass">
+									<p><font id="chkNotice" size="2"></font></p>
 								</div>
 							</div>
 							
@@ -63,7 +61,7 @@
 									<p>이메일</p>
 								</div>
 								<div class="info_data">
-								<input type="text" name="email" required="" autocomplete="off">
+								<input type="text" name="email">
 								</div>
 							</div>
 							
@@ -72,7 +70,7 @@
 									<p>우편번호</p>
 								</div>
 								<div class="info_data_post">
-								<input type="text" name="post" required="" autocomplete="off" disabled><button type="button" style="width:60px; height:30px; border-radius: 5px; border: none;" onclick="openZipSearch()">검색</button><br>
+								<input type="text" name="post" disabled><button type="button" style="width:60px; height:30px; border-radius: 5px; border: none;" onclick="openZipSearch()">검색</button><br>
 								</div>
 							</div>
 							
@@ -81,9 +79,9 @@
 									<p>주소</p>
 								</div>
 								<div class="info_data_address">
-								<input type="text" name="address" required="" autocomplete="off" disabled>
+								<input type="text" name="address" >
 								<p>상세주소</p>
-								<input type="text" name="detail_address" required="" autocomplete="off">
+								<input type="text" name="detailaddress">
 								</div>
 							</div>
 							
@@ -92,7 +90,7 @@
 									<p>전화번호</p>
 								</div>
 								<div class="info_data">
-								<input type="text" name="phonenum" required="" autocomplete="off">
+								<input type="text" name="phonenum" >
 								</div>
 							</div>
 							
@@ -126,7 +124,7 @@
 											(선택)
 										</label> </div>
 										<a class="btn btn_pop pop_open">내용보기</a>
-									</iv>
+									</div>
 								</div>
 							</div>
 					
@@ -164,7 +162,7 @@
 					<br> 네이버는 단체에 속한 여러 구성원들이김세현 바보 멍청이 공동의 계정으로 네이버 서비스를 함께 이용할 수
 					있도록 단체회원 계정도 부여하고 있습니다.<br>
 					<br> 단체회원 구성원들은 하나의 계정 및 아이디(ID)를 공유하되 각자 개별적으로 설정한 비밀번호를 입력하여
-					계정에 로그인하고 각종 서비스를 이용하게 됩니다. <br>
+					계정에 로그인하고 각종 서비스를 이용하게 됩r니다. <br>
 					<br> 단체회원은 관리자와 멤버로 구성되며, 관리자는 구성원 전부로부터 권한을 위임 받아 단체회원을 대표하고
 					단체회원 계정을 운용합니다. 따라서 관리자는 단체회원 계정을 통해 별도 약관 또는 기존 약관 개정에 대해 동의하거나
 					단체회원에서 탈퇴할 수 있고, 멤버들의 단체회원 계정 로그인 방법 및 이를 통한 게시물 게재 등 네이버 서비스 이용을
@@ -219,7 +217,7 @@
 		});
 	});
 </script>
-<div id="footers">
+<th:block th:replace="page/footer :: footer"></th:block>
 
 	<script>
 		function clickme() {
@@ -238,5 +236,62 @@
 			}).open();
 		}
 	</script>
+	
+	 <script type="text/javascript">
+	 $(function(){
+		    $('#pass').keyup(function(){
+		      $('#chkNotice').html('');
+		    });
+
+		    $('#pass').keyup(function(){
+
+		        if($('#pass').val() != $('#checkpass').val()){
+		          $('#chkNotice').html('비밀번호 일치하지 않음');
+		          $('#chkNotice').attr('color', '#f82a2aa3');
+		        } else{
+		          $('#chkNotice').html('비밀번호 일치함');
+		          $('#chkNotice').attr('color', '#199894b3');
+		        }
+
+		    });
+		    
+		    $('#checkpass').keyup(function(){
+
+		        if($('#pass').val() != $('#checkpass').val()){
+		          $('#chkNotice').html('비밀번호 일치하지 않음');
+		          $('#chkNotice').attr('color', '#f82a2aa3');
+		        } else{
+		          $('#chkNotice').html('비밀번호 일치함');
+		          $('#chkNotice').attr('color', '#199894b3');
+		        }
+
+		    });
+		});
+  </script>
+  
+  <script type="text/javascript">
+  var f = document.getElementById("joinform");
+  f.addEventListener("submit" , function(e) {
+    if(f.name.value.length == 0 ) {
+      alert("이름을 입력하세요");
+      e.preventDefault();
+      f.name.focus();
+      return;
+    }
+    if(f.email.value.length == 0 ) {
+      alert("이메일을 입력하세요");
+      e.preventDefault();
+      f.email.focus();
+      return;
+    }
+    if(f.password.value.length == 0 ) {
+      alert("비밀번호를 입력하세요");
+      e.preventDefault();
+      f.password.focus();
+      return;
+    }
+  });
+
+</script>
 	
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

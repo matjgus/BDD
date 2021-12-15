@@ -4,6 +4,11 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     username: choi
     password: 1234
+
+  thymeleaf:
+        prefix : classpath:templates/
+        suffix : .html
+        cache : false
   jpa:
     open-in-view: true
     show-sql: true
@@ -17,6 +22,7 @@ spring:
 
       
 server:
+  port : 9999
   servlet:
     encoding:
       charset: UTF-8

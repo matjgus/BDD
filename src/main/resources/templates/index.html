@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript">   
-	$(document).ready( function() {
-	$("#headers").load("./page/header");  // 원하는 파일 경로를 삽입하면 된다
-	$("#footers").load("./page/footer");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
-});
-</script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+
+
 <body>
-    <div id="headers"></div>
+  <div th:replace="page/header :: header"></div>
+  <div th:replace="page/header :: headerbody"></div>
   <section>
     <div class="swiper mySwiper" >
           <div class="swiper-wrapper">
@@ -50,7 +45,6 @@
     <div class="wrap">
         <div class="story-title">
             <h1>사람들을 위한 <span style="color:#a81431">다양한 사업</span>을 진행합니다.</h1>
-            <a href="./page/sponsorship">전체보기 	&#8594;</a>
         </div>
     </div>
     <!-- Swiper -->
@@ -125,11 +119,11 @@
     <div class="wrap">
         <div class="support-status">
             <div class="donation-title">
-              <h1> 수많은 사람들이 <span style="color:#a81431">후원</span>에 참여하였습니다.</h1>
+              <h1> 많은 사람들이 <span style="color:#a81431">후원</span>에 참여하였습니다.</h1>
             </div>
-           
+            
             <div class="status-box" >
-                <div>
+   <div>
                     <p>
                         <span>이번달 월 헌혈증서 수 : </span>
                         <span class="memberCountCon">10</span>
@@ -155,7 +149,7 @@
   </div>
     <div class="wrap">
         <div class="participating-companies-title">
-            <h1>함께하는 기업/단체</h1>
+            <h1>참여기업</h1>
         </div>
     </div>
     <div class="participating-companies-box">
@@ -216,7 +210,7 @@
       </div>
       </div>
     </div>
-      <div id="footers"></div>  
+      <th:block th:replace="page/footer :: footer"></th:block>
   </section>
 </body>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -255,7 +249,7 @@
 
   <script>
     var swiper = new Swiper(".mySwiper03", {
-      slidesPerView: 7,
+      slidesPerView: 6,
       spaceBetween: 50,
       autoplay: {
         delay: 3000,
@@ -293,4 +287,3 @@
       }
 
 </script>
-</html>
