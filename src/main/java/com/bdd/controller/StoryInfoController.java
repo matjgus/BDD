@@ -1,40 +1,49 @@
 package com.bdd.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bdd.dto.board.StoryInfoDto;
+import com.bdd.dto.board.StoryInfoRequestDto;
+import com.bdd.dto.board.StoryInfoResponseDto;
 import com.bdd.service.StoryInfoService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @RestController
 public class StoryInfoController {
-	final StoryInfoService storyInfoService;
 	
-	public StoryInfoController(StoryInfoService storyInfoService) {
-		this.storyInfoService = storyInfoService;
+	private final StoryInfoService storyInfoService;
+	
+	@GetMapping("/storylist")
+	public List<StoryInfoResponseDto> getStoryInfoList(){
+		return storyInfoService.findAll();
 	}
-	@PostMapping("/storyinfo")
-	public StoryInfoDto createStoryInfo(@RequestBody StoryInfoDto storyInfoDto) {
-		return storyInfoService.createStoryInfo(storyInfoDto);
+	@PostMapping("/story")
+	public Long reqStoryInfo(@RequestBody StoryInfoRequestDto requestDto) {
+		return storyInfoService.save(requestDto);
 	}
-	@GetMapping("/storyinfo/{name}")
-	public StoryInfoDto selectStoyInfo(@PathVariable String name) {
-		return storyInfoService.selectStoryInfo(name);
+	@PostMapping("/storylist")
+	public List<Long> reqStoryInfoList(@RequestBody List<StoryInfoRequestDto> requestDtos){
+		StoryInfoRequestDto requestDto;
+		List<Long> storyList = new ArrayList<Long>();
+		
+		for(int i=0;i<requestDtos.size();i++) {
+			requestDto = requestDtos.get(i);
+			storyList.add(storyInfoService.save(requestDto));
+		}
+		return storyList;
 	}
-	@PutMapping("/storyinfo/{name}")
-	public StoryInfoDto updateStoryInfo(@PathVariable String name, @RequestBody StoryInfoDto storyInfoDto) {
-		return storyInfoService.updateStoryInfo(name, storyInfoDto);
+	
+	@DeleteMapping("/story")
+	public Long deleteStoryInfoById(Long storyList) {
+		return storyInfoService.deleteById(storyList);
 	}
-	@DeleteMapping("/storyinfo/{name}")
-	public String deleteStoryInfo(@PathVariable String name) {
-		storyInfoService.deleteUserInfo(name);
-		return "deleted"+name;
-	}
-
 }
 
