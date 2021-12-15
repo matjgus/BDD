@@ -7,8 +7,7 @@
                         <h2 class="member_tit">회원가입</h2>
                     </div>
                     <div class="join_wrap">
-                        <form action="http://localhost:9999/user/signup" method="post">
-                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                             
                     <div class="join_detail">
                     <div class="info_row">
@@ -124,10 +123,10 @@
                             </div>
                         </div>
                     </div>
+                
                 <div class="btn_area">
-                    <button class="btn_join" @click="home">회원가입</button>
+                    <button class="btn_join" @click="join">회원가입</button>
                 </div>
-                </form>
                 </div>
             </div>
         </div>
@@ -199,81 +198,45 @@ import axios from 'axios'
 export default {
   name: 'Signup',
   data(){
-      return {
-        //uid : "", //시큐리티에서 자동 생성
-        // varchar
-        address: "",
-        detailaddress : "",
-        email : " ",
-        id : "",
-        name : "" ,
-        password : "",
-        phonenum : 0, // int
-        post : 3 // 우편번호 int
-      }
-  },
-  methods : {
-      home(){
-          let User ={
-            'UserAddress' : this.address,
-            'UserDetailaddress': this.detailaddress,
-            'UserEmail' : this.email,
-            'UserId' : this.id,
-            'UserName' : this.name,
-            'UserPassword' : this.password,
-            'UserPhonenum' : this.phonenum,
-            'UserPost' : this.post
+        return{
+            address: "",
+            detailaddress : "",
+            email : " ",
+            id : "",
+            name : "" ,
+            password : "",
+            phonenum : 0, // int
+            post : 3 // 우편번호 int    
         }
-        console.log(User)
-        alert(User.UserId)
-      },
-      join(){
-        let User ={
-            'UserAddress' : this.address,
-            'UserDetailaddress': this.detailaddress,
-            'UserEmail' : this.email,
-            'UserId' : this.id,
-            'UserName' : this.name,
-            'UserPassword' : this.password,
-            'UserPhonenum' : this.phonenum,
-            'UserPost' : this.post
+    },
+    methods :{
+        join(){
+            const config={
+                    baseUrl:'http://localhost:9999'
+            };
+            // // function joinUser(User){
+                //     // }
+            // // console.log(config);
+            var User ={
+                'address' : this.address,
+                'detailaddress': this.detailaddress,
+                'email' : this.email,
+                'id' : this.id,
+                'name' : this.name,
+                'password' : this.password,
+                'phonenum' : this.phonenum,
+                'post' : this.post
+            }
+            // // this.joinUser(User);
+            axios.post(`${config.baseUrl}/testgo`,User)
+            // axios.get('http://localhost:9999/test')
+            .then((res)=>{
+                console.log(res)
+                this.$router.push('/login');
+                // console.log(message.data)
+            })
         }
-        var config={
-            header:{
-                'Content-Type' : 'application/json',
-            }
-        };
-
-      axios.post('http://localhost:9999/user/signup',User,config)
-      .then((res)=>{
-          res
-          alert("회원가입완료")
-          let User = {
-              'userId':this.id,
-              'userPassword':this.password
-          }
-        axios.post('http://localhost:9999/user/login',User,config)
-        .then((response)=>{
-            if(response.status === 200 && response.header.authorization){
-                this.$session.start();
-                this.$session.set('jwt',response.header.authorization);
-                axios.defaults.header.common['Autorization'] = response.header.authorization;
-                this.$store.dispatch('LOGIN',response.data);
-                this.$router.push('/');
-            }else{
-                alert("아이디와 비밀번호를 확인해주세요");
-            }
-        }).catch((err)=>{
-            err
-            alert("아이디와 비밀번호를 확인해주세요 System Error");
-        })
-      })
-      .catch((error)=>{
-          error
-          alert('아이디가 중복입니다.')
-      })
-      }
-  }
+    }
 }
 </script>
    
