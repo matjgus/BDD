@@ -3,13 +3,10 @@ package com.bdd.controller;
 import com.bdd.dto.MemberDto;
 import com.bdd.service.MemberService;
 import lombok.AllArgsConstructor;
-<<<<<<< HEAD
 
 import java.sql.SQLException;
 
-=======
 import org.hibernate.exception.ConstraintViolationException;
->>>>>>> origin/main
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,10 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class MemberController {
     private MemberService memberService;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/main
     // 메인 페이지
     @GetMapping("/")
     public String index() {
@@ -39,6 +33,8 @@ public class MemberController {
     // 회원가입 처리
     @PostMapping("/user/signup")
     public String execSignup(MemberDto memberDto){
+        memberService.joinUser(memberDto);
+        System.out.println(memberDto);
         return "redirect:/user/login";
     }
 
