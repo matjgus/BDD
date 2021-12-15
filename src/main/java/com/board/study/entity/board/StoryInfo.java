@@ -18,13 +18,5 @@ public class StoryInfo {
 	private String story_content;
 	private String story_id;
 	private int num_donation;
-	
-	@Builder
-	public StoryInfo(Long story_idx, String story_title, String story_content, String story_id, int num_donation) {
-		this.story_idx=story_idx;
-		this.story_title=story_title;
-		this.story_content=story_content;
-		this.story_id=story_id;
-		this.num_donation=num_donation;
-	}
+
 }

@@ -3,10 +3,12 @@ package com.board.study.dto.board;
 import com.board.study.entity.board.StoryInfo;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class StoryInfoResponseDto {
 	private Long story_idx;
 	private String story_title;

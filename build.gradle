@@ -55,6 +55,9 @@ dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0' 
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
     testAnnotationProcessor 'org.projectlombok:lombok'
+    
+    implementation "org.springframework.boot:spring-boot-starter-jdbc"
+	implementation "org.springframework.boot:spring-boot-starter-data-jdbc"
 
 }
 test {
