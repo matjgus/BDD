@@ -29,7 +29,7 @@ public class MemberService implements UserDetailsService {
         // 비밀번호 암호화
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         memberDto.setPassword(passwordEncoder.encode(memberDto.getPassword()));
-
+        System.out.println("sucess");
         return memberRepository.save(memberDto.toEntity()).getUid();
     }
 
