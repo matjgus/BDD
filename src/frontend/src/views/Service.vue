@@ -76,11 +76,12 @@
                                     <th width="">제목</th>
                                     <th width="20%">작성자</th>
                                     <th width="20%">작성일</th>
+                                    <th width="10%">필요한 후원 수</th>
                                 </tr>
                             </thead>
                             <tbody id="tbody">
-                                <tr th:each="list,index : ${resultMap.list}" th:with="paging=${resultMap.paging}">
-                                    <td>
+                                <tr v-for="(lists,index) in lists" :key = "index">
+                                    <!-- <td>
                                         <input type="checkbox" class="btn-danger" name="deleteId" th:value="${list.id}">
                                         <span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
                                     </td>
@@ -88,14 +89,19 @@
                                         <a th:href="@{./service_view(id=${list.id})}"><span th:text="${list.title}"></span></a>
                                     </td>
                                     <td>
-                                        <span th:text="${list.registerId}"></span>
+                                        <span>{{list.registerId}}</span>
                                     </td>
                                     <td>
-                                        <span th:text="${list.readCnt}"></span>
+                                        <span>{{list.readCnt}}</span>
                                     </td>
                                     <td>
-                                        <span th:text="${list.registerTime}"></span>
-                                    </td>
+                                        <span>{{list.registerTime}} </span>
+                                    </td> -->
+                                    <th scope="row">{{ index + 1 }}</th>
+                                        <td>{{ lists.story_title }}</td>
+                                        <td>{{ lists.story_id }}</td>
+                                        <td>{{ lists.story_content }}</td>
+                                        <td>{{ lists.num_donation }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -117,9 +123,48 @@
     </div>
     <div class="board-page-btn">
         <router-link to="/serviceboard">1:1 문의하기</router-link>
-    </div>
+        
+    </div>	
 </div>
 </template>
+<script>
+import axios from 'axios'
+export default {
+    data() {
+        
+      return {
+        baseUrl : 'http://localhost:9999',
+        lists : [],
+        story_title: '',
+        story_content: '',
+        story_id: '',
+        num_donation: 0,
+        story_file : '',
+        fin_date : '',
+        reg_date : ''
+      }
+      
+    },
+    
+    methods:
+    {
+    getlist(){
+        axios.get('http://localhost:9999/storylist')
+            .then(res =>{ 
+                console.log(res);
+                this.lists = res.data;
+                console.log(this.lists[0]);
+            })
+            .catch(error => 
+            console.log(error))
+        },
+            },
+    mounted(){
+        this.getlist();
+        
+    },
+}
+</script>
 
 <style scoped>
 .service-wrap {
