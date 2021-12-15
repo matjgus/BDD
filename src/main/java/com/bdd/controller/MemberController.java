@@ -34,7 +34,7 @@ public class MemberController {
     public String dispSignup() {
         return "page/signup";
     }
-    // 회원가입 테스트
+    // 회원가입 (vue)
     @PostMapping("testgo")
     @ResponseBody
     public Object vuesign(@RequestBody MemberDto st){
@@ -67,10 +67,27 @@ public class MemberController {
     // 로그인 페이지
     @GetMapping("/user/login")
     public String dispLogin(){
-        //memberService.loadUserByUsername()
+        System.out.println("su");
         return "page/login";
     }
-
+    // 로그인 (vue)
+    @PostMapping("testlogin")
+    @ResponseBody
+    public Object vuelogin(@RequestBody MemberDto st){
+        System.out.println("===========================");
+        System.out.println(st);
+        System.out.println("===========================");
+        memberService.loadUserByUsername(st.getId());
+        ResponseEntity response = null;
+        try {
+            System.out.println("로그인 시도중");
+            response = new ResponseEntity<String>("success", HttpStatus.OK);
+            System.out.println("로그인완료");
+        } catch (Exception e) {
+            response = new ResponseEntity<String>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return "/user/login/result";
+    }
 //    // 접근 거부 페이지
 //    @GetMapping("/user/denied")
 //    public String dispDenied() {
