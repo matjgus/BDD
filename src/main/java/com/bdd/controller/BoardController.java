@@ -23,12 +23,7 @@ public class BoardController {
    public String getHeader(Model model, BoardRequestDto boardRequestDto) {
       return "/page/header";
    }
-   
-   @GetMapping("/index")
-   public String getIndexPage(Model model, BoardRequestDto boardRequestDto) {
-      return "/index";
-   }
-   
+
    @GetMapping("/page/footer")
    public String getFooter(Model model, BoardRequestDto boardRequestDto) {
       return "/page/footer";

@@ -4,7 +4,10 @@ import com.bdd.dto.MemberDto;
 import com.bdd.service.MemberService;
 import lombok.AllArgsConstructor;
 
-import org.hibernate.exception.ConstraintViolationException;
+import java.sql.SQLException;
+
+import javax.validation.ConstraintViolationException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,18 +26,17 @@ public class MemberController {
     // 회원가입 페이지
     @GetMapping("/user/signup")
     public String dispSignup() {
-        return "/page/signup";
+        return "page/signup";
     }
 
     // 회원가입 처리
     @PostMapping("/user/signup")
-    public String execSignup(MemberDto memberDto) {
+    public String execSignup(MemberDto memberDto){
         
     	try {
-    		memberService.joinUser(memberDto);
-    	}catch(ConstraintViolationException e) {
-    		
-    	}
+			memberService.joinUser(memberDto);
+		} catch (SQLException e) {
+		}
 
         return "redirect:/user/login";
     }
@@ -42,7 +44,7 @@ public class MemberController {
     // 로그인 페이지
     @GetMapping("/user/login")
     public String dispLogin() {
-        return "/page/login";
+        return "page/login";
     }
 
 //    // 접근 거부 페이지
@@ -54,17 +56,17 @@ public class MemberController {
     // 내 정보 페이지
     @GetMapping("/user/info")
     public String dispMyInfo() {
-        return "/page/profile";
+        return "page/profile";
     }
     
     @GetMapping("/user/login/result")
     public String dispLoginResult() {
-        return "/page/loginSuccess";
+        return "page/loginSuccess";
     }
     
     @GetMapping("/user/logout/result")
     public String dispLogoutResult() {
-        return "/page/logout";
+        return "page/logout";
     }
 
 //    // 어드민 페이지
