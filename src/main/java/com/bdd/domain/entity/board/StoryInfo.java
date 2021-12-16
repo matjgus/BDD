@@ -1,7 +1,6 @@
 package com.bdd.domain.entity.board;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
