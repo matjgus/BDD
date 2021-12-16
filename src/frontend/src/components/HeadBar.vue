@@ -12,7 +12,7 @@
                     <router-link to="/intro">소개</router-link>
                 </li>
                 <li>
-                     <router-link to="/donation">후원</router-link>
+                     <router-link to="/sponsorship">사연</router-link>
                 </li>
                 <li>
                     <router-link to="/service">고객센터</router-link>

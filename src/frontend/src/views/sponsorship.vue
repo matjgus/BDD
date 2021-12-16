@@ -4,12 +4,41 @@
 
     
     <p class="title">사연목록</p>
-
+    <p>{{dates}}</p>
     <div class="sort-box">
-      
-
+      <div class="wrap">
+      <table class="table table-striped table-horizontal table-bordered mt-3">
+                            <thead class="thead-strong">
+                                <tr>
+                                    <th width="10%">게시글번호</th>
+                                    <th width="">제목</th>
+                                    <th width="10%">필요 후원 수</th>
+                                    <th width="10%">작성일</th>
+                                    <th width="10%">마감일</th>
+                                    <th width="10%">작성자</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                             
+                                <tr  v-for="(list,index) in lists" :key = "index" >
+                                    <th  scope="row">{{ index + 1 }} </th>
+                                        <td>{{ list.story_title }}</td>
+                                        <td>{{ list.num_donation }}</td>
+                                        <td>{{ list.reg_date }}</td>
+                                        <td>{{ list.fin_date }}</td>
+                                        <td>{{ list.story_id }}</td>
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                         <div class="btn-cover" >
+      <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">이전</button>
+      <span class="page-count">{{ pageNum + 1 }}/{{ page }} 페이지</span>
+      <button :disabled="pageNum >= page - 1" @click="nextPage" class="page-btn">다음</button>
     </div>
 
+    </div>
+</div>
     <div class="story-wrap">
 
       
@@ -36,95 +65,94 @@
         </a>
       </div>
       
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/baby2.jpg">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/baby3.jpg">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/house.png">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/story2.jpg">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/story2.jpg">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/story2.jpg">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-
+    
     </div>
-    <div class="wrap">
-    <a href="#" id="load" class="load"><p class="load-more">더보기</p></a>
-    </div>
+    <tr v-for="p in lists" :key="p.no">
+        <td>{{ p.story_title }}</td>
+        <td>{{ p.tel }}</td>
+        <td>{{ p.address }}</td>
+        <td>{{ p.name }}</td>
+      </tr>
 </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
-  name: 'Sponsorship',
+    data() {
+        
+      return {
+        baseUrl : 'http://localhost:9999',
+        lists : [],
+        dates:"",
+        story_title: '',
+        story_content: '',
+        story_id: '',
+        num_donation: 0,
+        story_file : '',
+        fin_date : '',
+        reg_date : '',
+        pageNum: 0
+      }
+      
+    },
+    props: {
+      pageSize: {
+        type: Number,
+        required: false,
+        default: 10
+      }
+    },
+    methods:
+    {
+    nextPage(){
+      this.pageNum+=1;
+      this.lists=this.listslice();
+    },
+    prevPage(){
+      this.pageNum-=1;
+      this.lists=this.listslice();
+    },
+    getlist(){
+        axios.get('http://localhost:9999/storylist')
+            .then(res =>{ 
+                this.lists = res.data;
+                this.page = this.pageCount();
+            })
+            
+            .catch(error => 
+            console.log(error))
+        },
+    
+    gettime(){
+    var date = new Date();
+    this.dates = date.getFullYear() + "-"
+    + (date.getMonth()+1) + "-" +
+    date.getDate();
+    },
+
+    pageCount () {
+      let listLeng = this.lists.length,
+          listSize = this.pageSize,
+          page = Math.floor(listLeng / listSize);
+      
+      page = Math.floor((listLeng - 1) / listSize) + 1;
+      return page;
+    },
+    listslice() {
+       const start = this.pageNum * this.pageSize,
+             end = start + this.pageSize;
+            alert(this.pageNum)
+      return this.lists.slice(start, end);
+    }
+  },
+  
+    mounted(){
+        this.getlist();
+        this.gettime();
+    },
 }
 </script>
-<script>
-//  $(function(){
-//             $(".story-box").slice(0, 4).show(); // 최초 10개 선택
-//             $("#load").click(function(e){ // Load More를 위한 클릭 이벤트e
-//             e.preventDefault();
-//             $("div:hidden").slice(0, 4).show(); // 숨김 설정된 다음 10개를 선택하여 표시
-//             if($("div:hidden").length == 0){ // 숨겨진 DIV가 있는지 체크
-//             //alert("더 이상 항목이 없습니다"); // 더 이상 로드할 항목이 없는 경우 경고
-//             }
-//             });
-//             });
-</script>
+
 
 <style scoped>
 body {
@@ -206,5 +234,11 @@ body {
     margin : 0 auto;
     text-align: center;
 }
-
+.btn-cover{
+  display : flex;
+  margin : 0 auto;
+  justify-content: center;
+  font-size: 20px;
+  margin : 20px 0;
+}
 </style>
