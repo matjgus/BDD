@@ -18,12 +18,13 @@
         <div class="login-box">
             <h2>통합 로그인</h2>
             <div class="login">
-                <form action="">
+                <input v-model="token" type="hidden" th:name="${_csrf?.parameterName}"
+						th:value="${_csrf?.token}" />
                     <ul>
-                        <li><input type='text' placeholder="아이디"></li>
-                        <li><input type='password' placeholder="패스워드"></li>
+                        <li><input v-model="id" name="username" type='text' placeholder="아이디"></li>
+                        <li><input v-model="password" type='password' name="password" placeholder="패스워드"></li>
                         <li class = 'btn'>
-                            <button>로그인</button>
+                            <button @click="join">로그인</button>
                         </li>
                     </ul>
                     <div class="opt-box">
@@ -39,15 +40,58 @@
                 <div class= "join-btn">
                     <a href="/signup">회원가입하기</a>
                 </div>
-            </form>
         </div>
     </div>
 </div>
 </div>
 </template>
 <script>
+import axios from 'axios'
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 export default {
   name: 'Login',
+  data(){
+        return{
+            id : "",
+            password : "",
+        }
+    },
+    methods :{
+        join(){
+            const config={
+                    baseUrl:'http://localhost:9999'
+            };
+            // // function joinUser(User){
+                //     // }
+            // // console.log(config);
+            var User ={
+                'id' : this.id,
+                'password' : this.password
+            }
+            // // this.joinUser(User);
+            axios.post(`${config.baseUrl}/testlogin`,User)
+            .then((response)=>{
+            if(response.status === 200){
+                this.$router.push('/');
+                alert("로그인 성공");
+            }else{
+                alert(response)
+                alert("아이디와 비밀번호를 확인해주세요");
+            }
+        }).catch((err)=>{
+            alert(err);
+            console.log(err);
+            alert("아이디와 비밀번호를 확인해주세요");
+        })
+      .catch((error)=>{
+          error
+          console.log(error)
+          alert(error)
+      })
+      }
+  }
+  
 }
 </script>
 

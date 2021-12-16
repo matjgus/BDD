@@ -7,16 +7,15 @@
                         <h2 class="member_tit">회원가입</h2>
                     </div>
                     <div class="join_wrap">
-                        <form action="/user/signup" method="post">
-                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                            
                     <div class="join_detail">
-                    
                     <div class="info_row">
                         <div class="info_name">
                         <p>이름</p>
                         </div>
                         <div class="info_data">
-                            <input type="text" name="name" required="" autocomplete="off">
+                            <input v-model="name" type="text" name="name" required="" autocomplete="off">
                         </div>
                     </div>
                         
@@ -25,7 +24,7 @@
                             <p>아이디</p>
                         </div>
                         <div class="info_data">
-                            <input type="text" name="id" required="" autocomplete="off">
+                            <input v-model="id" type="text" name="id" required="" autocomplete="off">
                             <p>숫자,영문 혼합 20자리</p>
                             </div>
                         </div>
@@ -35,7 +34,7 @@
                             <p>비밀번호</p>
                             </div>
                             <div class="info_data">
-                            <input type="password" name="password" id="pass">
+                            <input v-model="password" type="password" name="password" id="pass">
                             <p>숫자,영문 혼합 20자리</p>
                             </div>
                         </div>
@@ -45,7 +44,7 @@
                             <p>비밀번호 확인</p>
                             </div>
                             <div class="info_data">
-                            <input type="password" name="checkpassword" id="checkpass">
+                            <input v-model="checkpassword" type="password" name="checkpassword" id="checkpass">
                             <p><font id="chkNotice" size="2"></font></p>
                             </div>
                         </div>
@@ -55,7 +54,7 @@
                             <p>이메일</p>
                             </div>
                             <div class="info_data">
-                            <input type="text" name="email">
+                            <input v-model="email" type="text" name="email">
                             </div>
                         </div>
                         
@@ -64,7 +63,7 @@
                             <p>우편번호</p>
                             </div>
                             <div class="info_data_post">
-                            <input type="text" name="post" disabled><button type="button" style="width:60px; height:30px; border-radius: 5px; border: none;" onclick="openZipSearch()">검색</button><br>
+                            <input v-model="post" type="text" name="post" disabled><button type="button" style="width:60px; height:30px; border-radius: 5px; border: none;" onclick="openZipSearch()">검색</button><br>
                             </div>
                         </div>
                         
@@ -73,9 +72,9 @@
                             <p>주소</p>
                             </div>
                             <div class="info_data_address">
-                            <input type="text" name="address" >
+                            <input v-model="address" type="text" name="address" >
                             <p>상세주소</p>
-                            <input type="text" name="detailaddress">
+                            <input v-model="detailaddress" type="text" name="detailaddress">
                             </div>
                         </div>
                         
@@ -84,7 +83,7 @@
                             <p>전화번호</p>
                             </div>
                             <div class="info_data">
-                            <input type="text" name="phonenum" >
+                            <input v-model="phonenum" type="text" name="phonenum" >
                             </div>
                         </div>
                         
@@ -124,10 +123,10 @@
                             </div>
                         </div>
                     </div>
+                
                 <div class="btn_area">
-                    <button type="submit" class="btn_join" onclick="checkform()">회원가입</button>
+                    <button class="btn_join" @click="join">회원가입</button>
                 </div>
-                </form>
                 </div>
             </div>
         </div>
@@ -181,6 +180,7 @@
                 단체회원에서 탈퇴할 수 있고, 멤버들의 단체회원 계정 로그인 방법 및 이를 통한 게시물 게재 등 네이버 서비스 이용을
                 관리(게시물 삭제 포함)할 수 있습니다.<br>
                 <br>
+
                 <br> 본약관에서 규정한 사항은 원칙적으로 구성원 모두에게 적용되며, 각각의 구성원은 다른 구성원들의 단체회원
                 계정 및 아이디(ID)를 통한 서비스 이용에 관해 연대책임을 부담합니다.<br>
                 <br> 단체회원 계정 사용에서의 관리자, 멤버 등의 권한 및 (공동)책임에 관한 사항 등은 계정 운영정책 및
@@ -194,73 +194,51 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   name: 'Signup',
+  data(){
+        return{
+            address: "",
+            detailaddress : "",
+            email : " ",
+            id : "",
+            name : "" ,
+            password : "",
+            phonenum : 0, // int
+            post : 3 // 우편번호 int    
+        }
+    },
+    methods :{
+        join(){
+            const config={
+                    baseUrl:'http://localhost:9999'
+            };
+            // // function joinUser(User){
+                //     // }
+            // // console.log(config);
+            var User ={
+                'address' : this.address,
+                'detailaddress': this.detailaddress,
+                'email' : this.email,
+                'id' : this.id,
+                'name' : this.name,
+                'password' : this.password,
+                'phonenum' : this.phonenum,
+                'post' : this.post
+            }
+            // // this.joinUser(User);
+            axios.post(`${config.baseUrl}/testgo`,User)
+            // axios.get('http://localhost:9999/test')
+            .then((res)=>{
+                console.log(res)
+                this.$router.push('/login');
+                // console.log(message.data)
+            })
+        }
+    }
 }
 </script>
-// <script>
-//    $(document).ready(function() {
-//       $(".pop_open").click(function() {
-//          $("#layer").addClass("active");
-//       });
-//    });
-//    $(document).ready(function() {
-//       $(".btn_exit").click(function() {
-//          $("#layer").removeClass("active");
-//       });
-//    });
-//    $(document).ready(function() {
-//       $(".dimlayer").click(function() {
-//          $("#layer").removeClass("active");
-//       });
-//    });
-
-//     function clickme() {
-//         window.scrollTo(0, 0);
-//     }
-//     function goBack() {
-//         history.back();
-//     }
-//     function openZipSearch() {
-//         new daum.Postcode({
-//         oncomplete: function(data) {
-//             $('[name=post]').val(data.zonecode); // 우편번호 (5자리)
-//             $('[name=address]').val(data.address);
-//         }
-//         }).open();
-//     }
-// </script>
-   
-// <script type="text/javascript">
-// $(function(){
-//         $('#pass').keyup(function(){
-//         $('#chkNotice').html('');
-//         });
-
-//         $('#pass').keyup(function(){
-
-//             if($('#pass').val() != $('#checkpass').val()){
-//             $('#chkNotice').html('비밀번호 일치하지 않음');
-//             $('#chkNotice').attr('color', '#f82a2aa3');
-//             } else{
-//             $('#chkNotice').html('비밀번호 일치함');
-//             $('#chkNotice').attr('color', '#199894b3');
-//             }
-
-//         });
-        
-//         $('#checkpass').keyup(function(){
-//             if($('#pass').val() != $('#checkpass').val()){
-//             $('#chkNotice').html('비밀번호 일치하지 않음');
-//             $('#chkNotice').attr('color', '#f82a2aa3');
-//             } else{
-//             $('#chkNotice').html('비밀번호 일치함');
-//             $('#chkNotice').attr('color', '#199894b3');
-//             }
-//         });
-//     });
-// </script>
-   
    
 <style scoped>
 .signup {

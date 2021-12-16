@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.cors.CorsUtils;
 
 import com.bdd.service.MemberService;
 
@@ -36,7 +37,8 @@ public class MemberConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
     	http.httpBasic().disable();
     	http.csrf().disable();
-        http.authorizeRequests()
+        http.
+        	authorizeRequests()
                 // 페이지 권한 설정
                  
                 .antMatchers("/user/myinfo").hasRole("MEMBER")
@@ -53,6 +55,7 @@ public class MemberConfig extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
                 .logoutSuccessUrl("/user/logout/result")
                 .invalidateHttpSession(true);
+        
     }
 
     @Override

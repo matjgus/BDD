@@ -1,56 +1,44 @@
 package com.bdd.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
-import com.bdd.dto.board.StoryInfoDto;
+import com.bdd.dto.board.StoryInfoRequestDto;
+import com.bdd.dto.board.StoryInfoResponseDto;
 import com.bdd.domain.entity.board.StoryInfo;
+import com.bdd.domain.entity.board.StoryInfoRepository;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Service
-@Slf4j
 public class StoryInfoService {
-	final StoryInfoDomainService storyInfoDomainService;
+	private final StoryInfoRepository storyInfoRepository;
 	
-	public StoryInfoService(StoryInfoDomainService storyInfoDomainService) {
-		this.storyInfoDomainService = storyInfoDomainService;
-	}
-	public StoryInfoDto selectStoryInfo(String name) {
-		StoryInfo storyInfo = storyInfoDomainService.getStoryInfo(name);
-		StoryInfoDto storyInfoDto = new StoryInfoDto();
-		storyInfoDto.setId(storyInfo.getId());
-		storyInfoDto.setName(storyInfo.getName());
-		storyInfoDto.setAge(storyInfo.getAge());
-		
-		return storyInfoDto;
-	}
-	public StoryInfoDto createStoryInfo(StoryInfoDto storyInfoDto) {
-		StoryInfo storyInfo = new StoryInfo();
-		log.debug("userStoryDto.getId():"+storyInfoDto.getId());
-		storyInfo.setId(storyInfo.getId());
-		storyInfo.setName(storyInfo.getName());
-		storyInfo.setAge(storyInfo.getAge());
-		
-		storyInfo = storyInfoDomainService.createStoryInfo(storyInfo);
-		
-		storyInfoDto.setId(storyInfo.getId());
-		storyInfoDto.setName(storyInfo.getName());
-		storyInfoDto.setAge(storyInfo.getAge());
-		
-		return storyInfoDto;
+	@Transactional
+	public Long save(StoryInfoRequestDto requestDto) {
+		return storyInfoRepository.save(requestDto.toEntity()).getStory_idx();
 	}
 	
-	public StoryInfoDto updateStoryInfo(String name, StoryInfoDto storyInfoDto) {
-		StoryInfo storyInfo = new StoryInfo();
-		storyInfo.setId(storyInfoDto.getId());
-		storyInfo.setName(storyInfoDto.getName());
-		storyInfo.setAge(storyInfoDto.getAge());
-		log.debug("storyInfo created, id:"+ storyInfoDto.getId());
-		storyInfoDomainService.updateStoryInfo(storyInfo);
-		return storyInfoDto;
+	@Transactional
+	public List<StoryInfoResponseDto> findAll(){
+		List<StoryInfo> entityList = storyInfoRepository.findAll();
+		List<StoryInfoResponseDto> storyInfoList = new ArrayList<StoryInfoResponseDto>();
+		
+		for(int i = 0; i<entityList.size();i++) {
+			storyInfoList.add(new StoryInfoResponseDto(entityList.get(i)));
+		}
+		return storyInfoList;
 	}
-	public void deleteUserInfo(String name) {
-		storyInfoDomainService.deleteUserInfo(name);
+	
+	@Transactional
+	public Long deleteById(Long story_idx) {
+		storyInfoRepository.deleteById(story_idx);
+		return story_idx;
 	}
 	
 }

@@ -30,7 +30,7 @@ public class MemberService implements UserDetailsService {
         // 비밀번호 암호화
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         memberDto.setPassword(passwordEncoder.encode(memberDto.getPassword()));
-
+        System.out.println("success");
         return memberRepository.save(memberDto.toEntity()).getUid();
     }
 
@@ -42,9 +42,8 @@ public class MemberService implements UserDetailsService {
         List<GrantedAuthority> authorities = new ArrayList<>();
 
         authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
-
+        System.out.println("password" + userEntity.getPassword());
+        System.out.println("authorities" + authorities);
         return new User(userEntity.getId(), userEntity.getPassword(), authorities);
     }
-    
-    
 }
