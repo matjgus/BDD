@@ -1,19 +1,6 @@
 <template>
 <div>
-    <div class="swiper mySwiper" style="height: 450px;">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="../assets/img/banner1.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="../assets/img/banner2.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="../assets/img/banner4.jpg">
-            </div>
-        </div>
-    </div>
-    
+        
     <div class="login-wrap" >
         <div class="login-box">
             <h2>통합 로그인</h2>

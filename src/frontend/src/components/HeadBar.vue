@@ -47,14 +47,41 @@
             <a href="/">로그아웃</a>
           </div>
           </div>
-          
+    <div class="swiper mySwiper" >
+            <div class="swiper-wrapper">
+                <swiper :slidesPerView="'auto'" :spaceBetween="30" :pagination='{"clickable": true}' class="mySwiper">
+                <swiper-slide class="swiper-slide banner1">
+                    <div>
+                        <h1> [ 베 : 풀다] </h1>
+                        <p> 힘듬에 상처받지 않도록 </p>
+                        <p> 나누어서 행복하도록 </p>
+                    </div>
+                </swiper-slide>
+                <swiper-slide class="swiper-slide banner2"><div>
+                        <h1> [ Wake _ up ] </h1>
+                        <p> 잠들어 있는 헌혈증 </p>
+                        <p> 깨울 시간 </p>
+                    </div>
+                    </swiper-slide>
+                <swiper-slide class="swiper-slide banner3"><div>
+                        <h1> [느: 루]</h1>
+                        <p> 몰아치지 아니하고 </p>
+                        <p>  오래도록 늘 </p>
+                    </div></swiper-slide>
+                </swiper>         
+            </div>
+        </div>      
     </div>
     
 
 </template>
 <script>
-
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
 export default{
+    components: {
+        swiper,
+        swiperSlide
+    },
     name : 'headbar',
     methods :{
         donationbill(){
@@ -65,6 +92,57 @@ export default{
 </script>
 
 <style scoped>
+.swiper-wrapper .banner1{
+    background:url("../assets/img/banner2.jpg");
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+.swiper-wrapper .banner1 p{
+    font-size : 35px;
+    color: white;
+}
+.swiper-wrapper .banner1 h1{
+    font-size : 60px;
+    color: white;
+    text-align: center;
+}
+.swiper-wrapper .banner2{
+    background:url("../assets/img/banner1.jpg");
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+
+.swiper-wrapper .banner2 h1{
+    font-size : 60px;
+    color: white;
+    text-align: center;
+}
+.swiper-wrapper .banner2 > div> p{
+    font-size : 35px;
+    color: white;
+}
+
+.swiper-wrapper .banner3{
+    background:url("../assets/img/banner4.jpg");
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+
+.swiper-wrapper .banner3 h1{
+    font-size : 60px;
+    color: white;
+    text-align: center;
+}
+.swiper-wrapper .banner3 > div> p{
+    font-size : 35px;
+    color: white;
+}
 .header {
     display:flex;
     font-size:25px;
