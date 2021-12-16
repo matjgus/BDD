@@ -29,12 +29,15 @@
             <div class="donation">
                 <a href="/donation">후원하기</a>
             </div>
-            <div class="login">
+            <div v-if="!loginStatus" class="login">
                 <a href="/login">로그인</a>
             </div>
-            <div class="mypage">
-                <a style="font-size:30px;cursor:pointer"
-                onclick="openNav()">&#9776; </a>
+            <div v-if="loginStatus" class="login">
+
+                <div class="mypage">
+                    <a style="font-size:30px;cursor:pointer"
+                    @click="shownav()">&#9776; </a>
+                </div>
             </div>
         </div>
         <div id="mySidenav" class="sidenav">
@@ -44,9 +47,9 @@
             <!--<a href="/page/mydeed.html">내 후원증</a>-->
             <a href="/donationhistory">후원 내역</a>
             <a href="/benefit">기념 상품</a>
-            <a href="/">로그아웃</a>
-          </div>
-          </div>
+            <a @click="logoutEnt">로그아웃</a>
+        </div>
+    </div>
     <div class="swiper mySwiper" >
             <div class="swiper-wrapper">
                 <swiper :slidesPerView="'auto'" :spaceBetween="30" :pagination='{"clickable": true}' class="mySwiper">
@@ -83,10 +86,38 @@ export default{
         swiperSlide
     },
     name : 'headbar',
+    data(){
+        return{
+            loginStatus:this.$session.get('islogin'),
+            downnav: false,
+        }
+    },
     methods :{
         donationbill(){
             this.$router.push('/donationbill')
-        }
+        },
+        checkS(){
+            // var tmp = this.$session.get('islogin')
+            console.log(this.loginStatus)
+        },
+        logoutEnt(){
+            this.$session.destroy();
+            this.$router.go('/')
+        },
+        shownav(){
+            var navstyle = document.getElementById("mySidenav");
+            if(!this.downnav){
+                navstyle.style.display="table";
+                this.downnav = !this.downnav;
+                return;
+            }
+            navstyle.style.display="none";
+            this.downnav = !this.downnav;
+        },
+    },
+    mounted(){
+        var navstyle = document.getElementById("mySidenav");
+        navstyle.style.display="none";
     }
 }
 </script>
@@ -250,6 +281,18 @@ export default{
     transition: 0.5s;
     padding-top: 60px;
     border-radius: 20px;
+}
+
+@media screen and (min-width: 799px){
+    .sidenav{
+        width: 250px;
+    }
+}
+
+@media only screen and (max-width: 798px) {
+    .sidenav{
+        width: 100vw;
+    }
 }
 
 .sidenav a {

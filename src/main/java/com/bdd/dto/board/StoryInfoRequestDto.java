@@ -22,7 +22,6 @@ public class StoryInfoRequestDto {
 	private LocalDate reg_date;
 	private LocalDate fin_date;
 	
-	private Date
 	
 	
 	public StoryInfo toEntity() {

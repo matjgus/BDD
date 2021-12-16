@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -37,14 +38,15 @@ public class MemberConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
     	http.httpBasic().disable();
     	http.csrf().disable();
-        http.
-        	authorizeRequests()
+        http.authorizeRequests()
                 // 페이지 권한 설정
                  
                 .antMatchers("/user/myinfo").hasRole("MEMBER")
                 .antMatchers("/**").permitAll()
             
                .and() // 로그인 설정
+               .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+              .and() // 로그인 설정
                 .formLogin()
                 .loginPage("/user/login")
                 .defaultSuccessUrl("/user/login/result")
