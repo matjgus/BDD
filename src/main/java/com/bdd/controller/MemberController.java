@@ -37,7 +37,7 @@ public class MemberController {
     // 회원가입 (vue)
     @PostMapping("testgo")
     @ResponseBody
-    public Object vuesign(@RequestBody MemberDto st){
+    public Object vuesign(@RequestBody MemberDto st) throws SQLException{
         System.out.println("===========================");
         System.out.println(st);
         System.out.println("===========================");
@@ -57,7 +57,7 @@ public class MemberController {
     // 회원가입 처리
     @PostMapping("/user/signup")
     @ResponseBody
-    public String execSignup(@RequestBody MemberDto memberDto){
+    public String execSignup(@RequestBody MemberDto memberDto) throws SQLException{
         memberService.joinUser(memberDto);
         System.out.println(memberDto);
         

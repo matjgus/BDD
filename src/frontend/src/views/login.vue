@@ -21,8 +21,8 @@
                 <input v-model="token" type="hidden" th:name="${_csrf?.parameterName}"
 						th:value="${_csrf?.token}" />
                     <ul>
-                        <li><input v-model="id" type='text' placeholder="아이디"></li>
-                        <li><input v-model="password" type='password' placeholder="패스워드"></li>
+                        <li><input v-model="id" name="username" type='text' placeholder="아이디"></li>
+                        <li><input v-model="password" type='password' name="password" placeholder="패스워드"></li>
                         <li class = 'btn'>
                             <button @click="join">로그인</button>
                         </li>
