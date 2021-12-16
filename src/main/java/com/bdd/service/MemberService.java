@@ -37,13 +37,36 @@ public class MemberService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
         Optional<MemberEntity> userEntityWrapper = memberRepository.findById(userId);
-        MemberEntity userEntity = userEntityWrapper.get();
-
-        List<GrantedAuthority> authorities = new ArrayList<>();
-
-        authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
-        System.out.println("password" + userEntity.getPassword());
-        System.out.println("authorities" + authorities);
-        return new User(userEntity.getId(), userEntity.getPassword(), authorities);
+        if(userEntityWrapper.isEmpty()){
+            return null;
+        }else {
+            MemberEntity userEntity = userEntityWrapper.get();
+            System.out.println(userEntity);
+            
+            List<GrantedAuthority> authorities = new ArrayList<>();
+            
+            authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
+            // System.out.println("password" + userEntity.getPassword());
+            // System.out.println("authorities" + authorities);
+            return new User(userEntity.getId(), userEntity.getPassword(), authorities);
+        }
     }
+
+    
+    public int checkLogin(String userId,String userPw){
+        UserDetails tmp = this.loadUserByUsername(userId);
+        if(tmp == null){
+            return 1;
+        }else {
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            if (!passwordEncoder.matches(userPw,tmp.getPassword())){
+                System.out.println("no match");
+                return 2;
+            }else{
+                System.out.println("match");
+            }
+            return 0;
+        }
+    }
+
 }

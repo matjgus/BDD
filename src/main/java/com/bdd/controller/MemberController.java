@@ -69,24 +69,36 @@ public class MemberController {
     public String dispLogin(){
         System.out.println("su");
         return "page/login";
-    }
-    // 로그인 (vue)
+    }// 로그인 (vue)
     @PostMapping("testlogin")
     @ResponseBody
-    public Object vuelogin(@RequestBody MemberDto st){
+    public int vuelogin(@RequestBody MemberDto st){
         System.out.println("===========================");
         System.out.println(st);
         System.out.println("===========================");
-        memberService.loadUserByUsername(st.getId());
-        ResponseEntity response = null;
-        try {
-            System.out.println("로그인 시도중");
-            response = new ResponseEntity<String>("success", HttpStatus.OK);
-            System.out.println("로그인완료");
-        } catch (Exception e) {
-            response = new ResponseEntity<String>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
+        int tmp = memberService.checkLogin(st.getId(), st.getPassword());
+        System.out.println(tmp);
+        System.out.println("===========================");
+        if(tmp==1){
+            System.out.println("없는 아이디");
+            return 1;
+        }else {
+            if(tmp == 2){
+                System.out.println("비밀번호가 일치하지 않습니다.");
+                return 2;
+            }
+            ResponseEntity response = null;
+            try {
+                System.out.println("로그인 시도중");
+                response = new ResponseEntity<String>("success", HttpStatus.OK);
+                System.out.println("로그인완료");
+                return 0;
+            } catch (Exception e) {
+                response = new ResponseEntity<String>("fail", HttpStatus.INTERNAL_SERVER_ERROR);
+                return 3;
+            }
         }
-        return "/user/login/result";
+        // return "/user/login/result";
     }
 //    // 접근 거부 페이지
 //    @GetMapping("/user/denied")
