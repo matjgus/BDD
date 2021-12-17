@@ -1,6 +1,6 @@
 <template>
 <div>
-
+<sub-banner/>
 <div class="wrap">
     <div class="donation-bill">
         <div class="issue-bill">
@@ -38,7 +38,9 @@
 </template>
 
 <script>
+import subBanner from '../components/SubBanner.vue';
 export default {
+    components:{subBanner}
     
   
 }

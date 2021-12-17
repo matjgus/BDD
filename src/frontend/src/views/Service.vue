@@ -1,6 +1,6 @@
 <template>
 <div>
-    
+    <sub-banner/>
     <div class="service-wrap">
         <div class="faq-board">
             <h1>FAQ</h1>
@@ -98,7 +98,9 @@
 </template>
 <script>
 import axios from 'axios'
+import subBanner from '../components/SubBanner.vue';
 export default {
+    components:{subBanner},
     data() {
         
       return {

@@ -1,6 +1,6 @@
 <template>
 <div>
-    
+    <sub-banner/>
 
     <div class="wrap">
         <div class="intro">
@@ -22,7 +22,9 @@
 </template>
 
 <script>
+import subBanner from '../components/SubBanner.vue';
 export default {
+    components:{subBanner},
   name: 'IntroMap',
 }
 </script>

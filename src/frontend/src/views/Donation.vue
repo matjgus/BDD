@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="headers"></div>
-    
+	<sub-banner/>
    
 
     
@@ -83,6 +83,13 @@
     </div>
     </div>
 </template>
+<script>
+import subBanner from '../components/SubBanner.vue';
+export default {
+    components:{subBanner}
+}
+
+</script>
 
 <style scoped>
 

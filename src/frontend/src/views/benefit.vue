@@ -1,6 +1,6 @@
 <template>
 <div>
-
+    <sub-banner/>
 	<div class="benefit-wrap">
 		<div class="wrap">
 			<div class="benefit-title">
@@ -84,7 +84,9 @@
     </div>
 </template>
 <script>
+import subBanner from '../components/SubBanner.vue';
 export default {
+    components:{subBanner},
   name: 'Benefit',
 }
 </script>

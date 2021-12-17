@@ -1,6 +1,6 @@
 <template>
 <div>
-
+<sub-banner/>
 	
     <div class="donation-history-wrap">
 		<div class="wrap history-wrap">
@@ -63,7 +63,9 @@
 </div>
 </template>
 <script>
+import subBanner from '../components/SubBanner.vue';
 export default {
+    components:{subBanner},
   name: 'Donationhistory',
 }
 </script>

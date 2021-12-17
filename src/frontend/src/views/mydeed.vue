@@ -1,6 +1,6 @@
 <template>
 <div>
-
+<sub-banner/>
     <div class="wrap">
         <div id="deed_history" class="deed-history">
             <h1>내 후원증</h1>
@@ -37,7 +37,9 @@
    
 </template>
 <script>
+import subBanner from '../components/SubBanner.vue';
 export default {
+    components:{subBanner},
   name: 'Mydeed',
 }
 // const deed_history = new Vue({

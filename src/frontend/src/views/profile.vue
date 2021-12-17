@@ -1,6 +1,6 @@
 <template>
 <div>
-     
+     <sub-banner/>
     <div class="profile-wrap">
         <div class="container">
             <div class="member_wrap">
@@ -48,7 +48,9 @@
 </div>
 </template>
 <script>
+import subBanner from '../components/SubBanner.vue';
 export default {
+    components:{subBanner},
   name: 'Profile',
 }
 </script>

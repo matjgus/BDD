@@ -1,6 +1,6 @@
 <template>
 <div>
-
+<sub-banner/>
 
     
     <p class="title">사연목록</p>
@@ -75,9 +75,13 @@
       </tr>
 </div>
 </template>
+
+    
 <script>
+import subBanner from '../components/SubBanner.vue';
 import axios from 'axios'
 export default {
+    components:{subBanner},
     data() {
         
       return {
@@ -90,27 +94,65 @@ export default {
         num_donation: 0,
         story_file : '',
         fin_date : '',
-        reg_date : ''
+        reg_date : '',
+        pageNum: 0
       }
       
     },
-    
+    props: {
+      pageSize: {
+        type: Number,
+        required: false,
+        default: 10
+      }
+    },
     methods:
     {
+    nextPage(){
+      this.pageNum+=1;
+      this.lists=this.listslice();
+    },
+    prevPage(){
+      this.pageNum-=1;
+      this.lists=this.listslice();
+    },
     getlist(){
         axios.get('http://localhost:9999/storylist')
             .then(res =>{ 
-                console.log(res);
                 this.lists = res.data;
-                console.log(this.lists[0]);
+                this.page = this.pageCount();
             })
+            
             .catch(error => 
             console.log(error))
         },
-            },
+    
+    gettime(){
+    var date = new Date();
+    this.dates = date.getFullYear() + "-"
+    + (date.getMonth()+1) + "-" +
+    date.getDate();
+    },
+
+    pageCount () {
+      let listLeng = this.lists.length,
+          listSize = this.pageSize,
+          page = Math.floor(listLeng / listSize);
+      
+      page = Math.floor((listLeng - 1) / listSize) + 1;
+      return page;
+    },
+    listslice() {
+       const start = this.pageNum * this.pageSize,
+             end = start + this.pageSize;
+            alert(this.pageNum)
+      return this.lists.slice(start, end);
+    }
+  },
+  
     mounted(){
         this.getlist();
-        
+        this.gettime();
     },
 }
 </script>
