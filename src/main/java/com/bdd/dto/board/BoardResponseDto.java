@@ -7,6 +7,7 @@ import java.util.Optional;
 import com.bdd.domain.entity.board.Board;
 import lombok.Getter;
 import lombok.Setter;
+
 @Setter
 @Getter
 public class BoardResponseDto {
