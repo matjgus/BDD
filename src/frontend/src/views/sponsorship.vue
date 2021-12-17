@@ -106,14 +106,12 @@ export default {
     {
     nextPage(){
       this.pageNum+=1;
-      this.lists=this.listslice();
     },
     prevPage(){
       this.pageNum-=1;
-      this.lists=this.listslice();
     },
     getlist(){
-        axios.get('http://localhost:9999/storylist')
+        axios.get('http://localhost:9999/storylist?_start=1&_end=5')
             .then(res =>{ 
                 this.lists = res.data;
                 this.page = this.pageCount();
