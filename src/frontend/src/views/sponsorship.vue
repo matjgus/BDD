@@ -90,63 +90,27 @@ export default {
         num_donation: 0,
         story_file : '',
         fin_date : '',
-        reg_date : '',
-        pageNum: 0
+        reg_date : ''
       }
       
     },
-    props: {
-      pageSize: {
-        type: Number,
-        required: false,
-        default: 10
-      }
-    },
+    
     methods:
     {
-    nextPage(){
-      this.pageNum+=1;
-    },
-    prevPage(){
-      this.pageNum-=1;
-    },
     getlist(){
-        axios.get('http://localhost:9999/storylist?_start=1&_end=5')
+        axios.get('http://localhost:9999/storylist')
             .then(res =>{ 
+                console.log(res);
                 this.lists = res.data;
-                this.page = this.pageCount();
+                console.log(this.lists[0]);
             })
-            
             .catch(error => 
             console.log(error))
         },
-    
-    gettime(){
-    var date = new Date();
-    this.dates = date.getFullYear() + "-"
-    + (date.getMonth()+1) + "-" +
-    date.getDate();
-    },
-
-    pageCount () {
-      let listLeng = this.lists.length,
-          listSize = this.pageSize,
-          page = Math.floor(listLeng / listSize);
-      
-      page = Math.floor((listLeng - 1) / listSize) + 1;
-      return page;
-    },
-    listslice() {
-       const start = this.pageNum * this.pageSize,
-             end = start + this.pageSize;
-            alert(this.pageNum)
-      return this.lists.slice(start, end);
-    }
-  },
-  
+            },
     mounted(){
         this.getlist();
-        this.gettime();
+        
     },
 }
 </script>
