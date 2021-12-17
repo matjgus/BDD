@@ -69,6 +69,7 @@
     
 </template>
 <script>
+//import axios from 'axios'
 import { Hooper, Slide } from 'hooper';
 import 'hooper/dist/hooper.css';
 import MainBanner from '../components/MainBanner.vue';
@@ -121,7 +122,9 @@ export default {
                     img:"story5.jpg",
                     text:"피가 너무 비싸요",
                 },
-            ],
+            ]
+
+            
         }
     }
 }

@@ -106,28 +106,30 @@ export default {
       return {
         baseUrl : 'http://localhost:9999',
         lists : [],
-        story_title: '',
-        story_content: '',
-        story_id: '',
-        num_donation: 0,
-        story_file : '',
-        fin_date : '',
-        reg_date : ''
-      }
+        id : 0,
+        registerTime : "",
+        updateTime : "",
+        content : "",
+        readCnt : 0,
+        registerid: "",
+        title : ""
+       }
       
     },
     
     methods:
     {
     getlist(){
-        axios.get('http://localhost:9999/storylist')
+        axios.get('http://localhost:9999/page/service')
             .then(res =>{ 
                 console.log(res);
                 this.lists = res.data;
                 console.log(this.lists[0]);
+                alert(this.lists[0]);
             })
             .catch(error => 
-            console.log(error))
+            console.log(error));
+            alert("에러");
         },
             },
     mounted(){
