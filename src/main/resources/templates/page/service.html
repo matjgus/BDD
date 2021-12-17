@@ -3,17 +3,13 @@
 <link rel="stylesheet" href="../css/service_style.css" />
 <link rel="stylesheet" href="../css/donation_style.css" />  
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript">
-   
-$(document).ready( function() {
-$("#headers").load("./header");  // 원하는 파일 경로를 삽입하면 된다
-$("#footers").load("./footer");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+<script type="text/javascript">   
+   $(document).ready( function() {
+   $("#headers").load("/page/header");  // 원하는 파일 경로를 삽입하면 된다
+   $("#footers").load("/page/footer");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
 });
 </script>
-
 <body>
-    
-
     <div id="headers"></div>
     <div class="swiper mySwiper" style="height: 650px;">
         <div class="swiper-wrapper">
@@ -24,7 +20,7 @@ $("#footers").load("./footer");  // 추가 인클루드를 원할 경우 이런�
             <img src="..\img\banner2.jpg">
           </div>
           <div class="swiper-slide">
-              <img src="..\img\banner3.jpg">
+              <img src="..\img\banner4.jpg">
           </div>
     </div>
         <div class="swiper-button-next"></div>
@@ -121,6 +117,48 @@ $("#footers").load("./footer");  // 추가 인클루드를 원할 경우 이런�
 					    </div>
 				    </div>
 			    </div>
+            <table>
+            <div id="wrapper">
+               <div class="container">
+                   <div class="col-md-12">
+                       <table class="table table-striped table-horizontal table-bordered mt-3">
+                           <thead class="thead-strong">
+                               <tr>
+                                   <th width="10%">게시글번호</th>
+                                   <th width="">제목</th>
+                                   <th width="20%">작성자</th>
+                                   <th width="20%">작성일</th>
+                               </tr>
+                           </thead>
+                           <tbody id="tbody">
+                              <tr th:each="list,index : ${resultMap.list}" th:with="paging=${resultMap.paging}">
+                              <td>
+                                 <span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
+                              </td>
+                              <td>
+                                 <a th:href="@{./service_view(id=${list.id})}"><span th:text="${list.title}"></span></a>
+                              </td>
+                              <td>
+                                 <span th:text="${list.registerId}"></span>
+                              </td>
+                              <td>
+                                 <span th:text="${list.registerTime}"></span>
+                              </td>
+                           <tr>
+                           </tbody>
+                       </table>
+                       <div class="row">
+                        <div class="col">
+                           <ul class="pagination">
+                              <li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
+                                 <a class="page-link" th:href="@{./service(page=${index - 1},page=${paging.pageSize})}"><span th:text="${index}"></span></a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                   </div>
+                </div>
+             </div>
             </table>
         </div>
         <div class="board-page-btn">
@@ -164,3 +202,4 @@ $("#footers").load("./footer");  // 추가 인클루드를 원할 경우 이런�
       }
 
 </script>
+</html>
