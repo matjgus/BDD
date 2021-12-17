@@ -3,7 +3,9 @@ package com.bdd.dto;
 import com.bdd.domain.entity.MemberEntity;
 import lombok.*;
 
+import lombok.Data;
 
+@Data
 @Getter
 @Setter
 @ToString
@@ -18,7 +20,7 @@ public class MemberDto {
     private String detailaddress;
     private String email;
     private int phonenum;
-    
+    private String role;
 
     public MemberEntity toEntity(){
         return MemberEntity.builder()
@@ -31,11 +33,12 @@ public class MemberDto {
                 .detailaddress(detailaddress)
                 .email(email)
                 .phonenum(phonenum)
+                .role(role)
                 .build();
     }
 
     @Builder
-    public MemberDto(int uid, String id, String name, String password, int post, String address, String detailaddress, String email, int phonenum) {
+    public MemberDto(int uid, String id, String name, String password, int post, String address, String detailaddress, String email, int phonenum, String role) {
         this.uid = uid;
         this.id = id;
         this.name = name;
@@ -45,5 +48,6 @@ public class MemberDto {
         this.detailaddress = detailaddress;
         this.email = email;
         this.phonenum = phonenum;
+        this.role = role;
     }
 }

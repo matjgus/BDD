@@ -1,19 +1,6 @@
 <template>
 <div>
-    <div class="swiper mySwiper" style="height: 450px;">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="../assets/img/banner1.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="../assets/img/banner2.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="../assets/img/banner4.jpg">
-            </div>
-        </div>
-    </div>
-    
+        
     <div class="login-wrap" >
         <div class="login-box">
             <h2>통합 로그인</h2>
@@ -45,10 +32,9 @@
 </div>
 </div>
 </template>
+
 <script>
 import axios from 'axios'
-axios.defaults.xsrfCookieName = 'csrftoken'
-axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 export default {
   name: 'Login',
   data(){
@@ -62,35 +48,45 @@ export default {
             const config={
                     baseUrl:'http://localhost:9999'
             };
-            // // function joinUser(User){
-                //     // }
-            // // console.log(config);
             var User ={
                 'id' : this.id,
                 'password' : this.password
             }
-            // // this.joinUser(User);
+            console.log(User);
             axios.post(`${config.baseUrl}/testlogin`,User)
             .then((response)=>{
-            if(response.status === 200){
-                this.$router.push('/');
-                alert("로그인 성공");
-            }else{
-                alert(response)
-                alert("아이디와 비밀번호를 확인해주세요");
-            }
-        }).catch((err)=>{
-            alert(err);
-            console.log(err);
-            alert("아이디와 비밀번호를 확인해주세요");
-        })
-      .catch((error)=>{
-          error
-          console.log(error)
-          alert(error)
-      })
-      }
-  }
+                console.log(response.data);
+                var flag = response.data;
+                if(response.status === 200){
+                    if(flag==0){
+                        this.$router.push('/');
+                        this.$session.set('islogin', true);
+                        this.$router.go();
+                        alert("로그인 성공");
+                    }
+                    else if(flag==1){
+                        this.$router.go();
+                        alert("아이디 혹은 비밀번호가 틀렸습니다.");
+                        console.log("일치하는 아이디가 없음");
+                    }else if(flag==2){
+                        this.$router.go();
+                        alert("아이디 혹은 비밀번호가 틀렸습니다.");
+                        console.log("비밀번호가 일치하지 않음");
+                    }else {
+                        this.$router.push('/login');
+                        console.log("통신이 원활하지 않음");
+                    }
+                }else{
+                    alert(response)
+                    alert("통신에러");
+                }
+            }).catch((err)=>{
+                alert(err);
+                console.log(err);
+                alert("예외 에러");
+            })
+        }
+    }
   
 }
 </script>

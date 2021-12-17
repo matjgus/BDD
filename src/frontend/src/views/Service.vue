@@ -1,21 +1,6 @@
 <template>
 <div>
-    <div class="swiper mySwiper" style="height: 650px;">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="../assets/img/banner1.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="../assets/img/banner2.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="../assets/img/banner4.jpg">
-            </div>
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-    </div>
+    
     <div class="service-wrap">
         <div class="faq-board">
             <h1>FAQ</h1>
@@ -62,9 +47,9 @@
                             또한 SNS(인스타그램, 페이스북)를 통해서 더 가까이 후원자님께 지원 소식을 전하기 위해 노력하고 있으니 많은 관심과 구독 부탁드립니다. </p></div>
             </div>
         </div>
-        <div class="faq-board">
+         <div class="faq-board">
             <h1>Q&A</h1>
-            <div id="wrapper">
+            <!--<div id="wrapper">
                 <div class="container">
                     <form action="/page/service" id="frm" method="get"/>
                         <div class="col-md-12 mt-4">
@@ -76,26 +61,16 @@
                                     <th width="">제목</th>
                                     <th width="20%">작성자</th>
                                     <th width="20%">작성일</th>
+                                    <th width="10%">필요한 후원 수</th>
                                 </tr>
                             </thead>
                             <tbody id="tbody">
-                                <tr th:each="list,index : ${resultMap.list}" th:with="paging=${resultMap.paging}">
-                                    <td>
-                                        <input type="checkbox" class="btn-danger" name="deleteId" th:value="${list.id}">
-                                        <span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
-                                    </td>
-                                    <td>
-                                        <a th:href="@{./service_view(id=${list.id})}"><span th:text="${list.title}"></span></a>
-                                    </td>
-                                    <td>
-                                        <span th:text="${list.registerId}"></span>
-                                    </td>
-                                    <td>
-                                        <span th:text="${list.readCnt}"></span>
-                                    </td>
-                                    <td>
-                                        <span th:text="${list.registerTime}"></span>
-                                    </td>
+                                <tr v-for="(lists,index) in lists" :key = "index">
+                                    <th scope="row">{{ index + 1 }}</th>
+                                        <td>{{ lists.story_title }}</td>
+                                        <td>{{ lists.story_id }}</td>
+                                        <td>{{ lists.story_content }}</td>
+                                        <td>{{ lists.num_donation }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -112,14 +87,53 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
-    </div>
+    </div> 
     <div class="board-page-btn">
         <router-link to="/serviceboard">1:1 문의하기</router-link>
-    </div>
+        
+    </div>	
 </div>
 </template>
+<script>
+import axios from 'axios'
+export default {
+    data() {
+        
+      return {
+        baseUrl : 'http://localhost:9999',
+        lists : [],
+        story_title: '',
+        story_content: '',
+        story_id: '',
+        num_donation: 0,
+        story_file : '',
+        fin_date : '',
+        reg_date : ''
+      }
+      
+    },
+    
+    methods:
+    {
+    getlist(){
+        axios.get('http://localhost:9999/storylist')
+            .then(res =>{ 
+                console.log(res);
+                this.lists = res.data;
+                console.log(this.lists[0]);
+            })
+            .catch(error => 
+            console.log(error))
+        },
+            },
+    mounted(){
+        this.getlist();
+        
+    },
+}
+</script>
 
 <style scoped>
 .service-wrap {

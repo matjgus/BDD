@@ -1,11 +1,19 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import axios from 'axios'
 import store from './store'
+import VueSession from 'vue-session'
 // import axios from 'axios'
 // axios.defult.baseURL = "https://localhost:9999"
-Vue.config.productionTip = false
+var sessionOptions ={
+  persist: true
+}
 
+Vue.use(VueSession,sessionOptions)
+
+Vue.config.productionTip = false
+Vue.prototype.$axios = axios;
 new Vue({
   router,
   store,

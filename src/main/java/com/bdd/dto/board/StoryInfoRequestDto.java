@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,8 +18,8 @@ public class StoryInfoRequestDto {
 	private String story_id;
 	private int num_donation;
 	
-	private LocalDate fin_date;
 	private LocalDate reg_date;
+	private LocalDate fin_date;
 	
 	
 	public StoryInfo toEntity() {
@@ -30,6 +29,8 @@ public class StoryInfoRequestDto {
 				.story_content(story_content)
 				.story_id(story_id)
 				.num_donation(num_donation)
+				.reg_date(reg_date)
+				.fin_date(fin_date)
 				
 				.build();
 	}

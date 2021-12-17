@@ -39,9 +39,11 @@ public class MemberEntity {
 
     @Column(length = 12, nullable = false)
     private int phonenum;
+    
+    private String role;
 
     @Builder
-    public MemberEntity(int uid, String id, String name, String password, int post, String address, String detailaddress, String email, int phonenum) {
+    public MemberEntity(int uid, String id, String name, String password, int post, String address, String detailaddress, String email, int phonenum, String role) {
         this.uid = uid;
         this.id = id;
         this.name = name;
@@ -51,5 +53,6 @@ public class MemberEntity {
         this.detailaddress = detailaddress;
         this.email = email;
         this.phonenum = phonenum;
+        this.role = role;
     }
 }
