@@ -1,81 +1,29 @@
 <template>
 <div>
-    <div>
-        <div id="headers">
-        </div>
-        
+    <div class="mainbanner">
+        <main-banner/>
     </div>
     <div class="wrap">
         <div class="story-title">
             <h1>사람들을 위한 <span style="color:#a81431">다양한 사업</span>을 진행합니다.</h1>
             <a href="/sponsorship">전체보기 	&#8594;</a>
         </div>
-    </div>
-    <!-- Swiper -->
-    <!-- <div class="swiper mySwiper02">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div>
-                    <a href="#none"><img src="../assets/img/story2.jpg"></a>
-                    <h1> 우리 아이를 좀 도와주세요</h1>
-                </div>                
-            </div>
-            <div class="swiper-slide">
-                <div>
-                    <a href="#none"><img src="../assets/img/story3.jpg"></a>
-                    <h1> 피가 부족해요</h1>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div>
-                    <a href="#none"><img src="../assets/img/story4.jpg"></a>
-                    <h1> 피가 급합니다</h1>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div>
-                    <a href="#none"><img src="../assets/img/story5.jpg"></a>
-                    <h1> 피가 너무 비싸요</h1>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div>
-                    <a href="#none"><img src="../assets/img/story2.jpg"></a>
-                    <h1> 우리 아이를 좀 도와주세요</h1>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div>
-                    <a href="#none"><img src="../assets/img/story3.jpg"></a>
-                    <h1> 피가 부족해요</h1>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div>
-                    <a href="#none"><img src="../assets/img/story5.jpg"></a>
-                    <h1> 피가 너무 비싸요</h1>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div>
-                    <a href="#none"><img src="../assets/img/story2.jpg"></a>
-                    <h1> 우리 아이를 좀 도와주세요</h1>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div>
-                    <a href="#none"><img src="../assets/img/story3.jpg"></a>
-                    <h1> 피가 부족해요</h1>
-                </div>
-            </div> 
+       <div class="swiper-wrazpper"> 
+           <hooper :infiniteScroll="true" :wheelControl="false" :mouseDrag="true" :autoPlay="true" :playSpeed="3000" :itemsToShow="4" class="buhooper">
+               <slide v-for="bulist in bulists" v-bind:key="bulist">
+                    <div class="card">
+                        <a href="#none"><img :src="require(`@/assets/img/${bulist.img}`)"></a>
+                        <h1> {{bulist.text}}</h1>
+                    </div>
+               </slide>
+           </hooper>
         </div>
-        <div class="swiper-pagination"></div> 
-    </div>-->
+    </div>
     <div class = "support-status-wrap">
         <div class="wrap">
             <div class="support-status">
                 <div class="donation-title">
-                    <h1> 수많은 사람들이 <span style="color:#a81431">후원</span>에 참여하였습니다.</h1>
+                    <h1>많은 사람들이 <span style="color:#a81431">후원</span>에 참여하였습니다.</h1>
                 </div>           
                 <div class="status-box" >
                     <div>
@@ -104,109 +52,119 @@
         </div>
         <div class="wrap">
             <div class="participating-companies-title">
-                <h1>함께하는 기업/단체</h1>
+                <h1>참여기업</h1>
             </div>
         </div>
-        <div class="participating-companies-box">
-            <div class="wrap">
-                <div class="participating-companies">
-                    <div class="swiper mySwiper03">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide swiper-slide3">
-                                <div>
-                                    <a href="#none"><img src="../assets/img/part_ent1.png"></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide swiper-slide3">
-                                <div>
-                                    <a href="#none"><img src="../assets/img/part_ent2.png"></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide swiper-slide3">
-                                <div>
-                                    <a href="#none"><img src="../assets/img/part_ent3.png"></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide swiper-slide3">
-                                <div>
-                                    <a href="#none"><img src="../assets/img/part_ent1.png"></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide swiper-slide3">
-                                <div>
-                                    <a href="#none"><img src="../assets/img/part_ent2.png"></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide swiper-slide3">
-                                <div>
-                                    <a href="#none"><img src="../assets/img/part_ent3.png"></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide swiper-slide3">
-                                <div>
-                                    <a href="#none"><img src="../assets/img/part_ent1.png"></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide swiper-slide3">
-                                <div>
-                                    <a href="#none"><img src="../assets/img/part_ent2.png"></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide swiper-slide3">
-                                <div>
-                                    <a href="#none"><img src="../assets/img/part_ent3.png"></a>
-                                </div>
-                            </div>
-                        </div>
+        <div class="swiper-wrapper"> 
+           <hooper :infiniteScroll="true" :wheelControl="false" :hoverPause="false" :mouseDrag="false" :autoPlay="true" :playSpeed="3000" :itemsToShow="6" class="pahooper">
+               <slide v-for="palist in palists" v-bind:key="palist">
+                    <div class="palist">
+                        <a href="#none"><img :src="require(`@/assets/img/${palist.img}`)"></a>
                     </div>
-                </div>
-            </div>
+               </slide>
+           </hooper>
         </div>
-       <div class="swiper-wrapper"> 
-            <swiper :slidesPerView="5" :spaceBetween="30" :pagination='{"clickable": true}' class="swiper mySwiper02">
-                <swiper-slide class="swiper-slide">
-                    <div>
-                        <a href="#none"><img src="../assets/img/story2.jpg"></a>
-                        <h1> 우리 아이를 좀 도와주세요</h1>
-                    </div>
-                </swiper-slide>
-                <swiper-slide class="swiper-slide">
-                    <div>
-                        <a href="#none"><img src="../assets/img/story3.jpg"></a>
-                        <h1> 피가 부족해요</h1>
-                    </div>
-                </swiper-slide>
-                <swiper-slide class="swiper-slide">
-                        <div>
-                            <a href="#none"><img src="../assets/img/story4.jpg"></a>
-                            <h1> 피가 급합니다</h1>
-                        </div>
-                </swiper-slide>
-
-                <swiper-slide class="swiper-slide">
-                    <div>
-                        <a href="#none"><img src="../assets/img/story5.jpg"></a>
-                        <h1> 피가 너무 비싸요</h1>
-                    </div>
-                    
-                </swiper-slide>
-            </swiper>
-        </div>
-    
 </div>
     
     
 </template>
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import { Hooper, Slide } from 'hooper';
+import 'hooper/dist/hooper.css';
+import MainBanner from '../components/MainBanner.vue';
 export default {
     components: {
-        swiper,
-        swiperSlide,
-  }
+        Hooper,
+        Slide,
+        MainBanner,
+    },
+    data(){
+        return{
+            palists:[
+                {
+                    img:"part_ent1.png",
+                },
+                {
+                    img:"part_ent2.png",
+                },
+                {
+                    img:"part_ent3.png",
+                },
+                {
+                    img:"part_ent1.png",
+                },
+                {
+                    img:"part_ent2.png",
+                },
+                {
+                    img:"part_ent3.png",
+                },
+            ],
+            bulists:[
+                {
+                    link:"#none",
+                    img:"story2.jpg",
+                    text:"우리 아이를 좀 도와주세요",
+                },
+                {
+                    link:"#none",
+                    img:"story3.jpg",
+                    text:"피가 부족해요",
+                },
+                {
+                    link:"#none",
+                    img:"story4.jpg",
+                    text:"피가 급합니다",
+                },
+                {
+                    link:"#none",
+                    img:"story5.jpg",
+                    text:"피가 너무 비싸요",
+                },
+            ],
+        }
+    }
 }
 </script>
 <style scoped>
+.palist{
+    width:13vw;
+}
+
+.buhooper{
+    height:100%;
+}
+.card{
+    height: 400px;
+    border-radius: 50%;
+    margin: 10px;
+    color: white;
+}
+.card a:focus{
+    outline: none;
+}
+.card a img{
+    display:block;
+    object-fit: cover;
+    height: 360px;
+    border-radius: 10% 10% 0% 0%;;
+}
+.card h1{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    background-color: #a81431;
+    border-radius: 0 0 10% 10%;
+    margin-inline-start: 0px;
+    margin-block-end: 0px;
+    font-weight:bold;
+    text-align: center;
+    font-size: 20px;
+}
+.mainbanner{
+    height: 60vh;
+    min-height: 400px;
+}
 .section{
     height: 100vh;
     font-family: "jua";

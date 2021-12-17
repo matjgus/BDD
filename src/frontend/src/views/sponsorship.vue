@@ -4,31 +4,41 @@
 
     
     <p class="title">사연목록</p>
-
+    <p>{{dates}}</p>
     <div class="sort-box">
+      <div class="wrap">
       <table class="table table-striped table-horizontal table-bordered mt-3">
                             <thead class="thead-strong">
                                 <tr>
                                     <th width="10%">게시글번호</th>
                                     <th width="">제목</th>
-                                    <th width="20%">작성자</th>
-                                    <th width="20%">작성일</th>
-                                    <th width="10%">필요한 후원 수</th>
+                                    <th width="10%">필요 후원 수</th>
+                                    <th width="10%">작성일</th>
+                                    <th width="10%">마감일</th>
+                                    <th width="10%">작성자</th>
                                 </tr>
                             </thead>
                             <tbody id="tbody">
-                                <tr v-for="(lists,index) in lists" :key = "index">
-                                    <th scope="row">{{ index + 1 }}</th>
-                                        <td>{{ lists.story_title }}</td>
-                                        <td>{{ lists.story_id }}</td>
-                                        <td>{{ lists.story_content }}</td>
-                                        <td>{{ lists.num_donation }}</td>
+                             
+                                <tr  v-for="(list,index) in lists" :key = "index" >
+                                    <th  scope="row">{{ index + 1 }} </th>
+                                        <td>{{ list.story_title }}</td>
+                                        <td>{{ list.num_donation }}</td>
+                                        <td>{{ list.reg_date }}</td>
+                                        <td>{{ list.fin_date }}</td>
+                                        <td>{{ list.story_id }}</td>
+                                   
                                 </tr>
                             </tbody>
                         </table>
-
+                         <div class="btn-cover" >
+      <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">이전</button>
+      <span class="page-count">{{ pageNum + 1 }}/{{ page }} 페이지</span>
+      <button :disabled="pageNum >= page - 1" @click="nextPage" class="page-btn">다음</button>
     </div>
 
+    </div>
+</div>
     <div class="story-wrap">
 
       
@@ -57,6 +67,12 @@
       
     
     </div>
+    <tr v-for="p in lists" :key="p.no">
+        <td>{{ p.story_title }}</td>
+        <td>{{ p.tel }}</td>
+        <td>{{ p.address }}</td>
+        <td>{{ p.name }}</td>
+      </tr>
 </div>
 </template>
 <script>
@@ -67,6 +83,7 @@ export default {
       return {
         baseUrl : 'http://localhost:9999',
         lists : [],
+        dates:"",
         story_title: '',
         story_content: '',
         story_id: '',
@@ -179,5 +196,11 @@ body {
     margin : 0 auto;
     text-align: center;
 }
-
+.btn-cover{
+  display : flex;
+  margin : 0 auto;
+  justify-content: center;
+  font-size: 20px;
+  margin : 20px 0;
+}
 </style>
