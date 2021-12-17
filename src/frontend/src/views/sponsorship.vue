@@ -6,7 +6,26 @@
     <p class="title">사연목록</p>
 
     <div class="sort-box">
-      
+      <table class="table table-striped table-horizontal table-bordered mt-3">
+                            <thead class="thead-strong">
+                                <tr>
+                                    <th width="10%">게시글번호</th>
+                                    <th width="">제목</th>
+                                    <th width="20%">작성자</th>
+                                    <th width="20%">작성일</th>
+                                    <th width="10%">필요한 후원 수</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                                <tr v-for="(lists,index) in lists" :key = "index">
+                                    <th scope="row">{{ index + 1 }}</th>
+                                        <td>{{ lists.story_title }}</td>
+                                        <td>{{ lists.story_id }}</td>
+                                        <td>{{ lists.story_content }}</td>
+                                        <td>{{ lists.num_donation }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
     </div>
 
@@ -36,95 +55,49 @@
         </a>
       </div>
       
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/baby2.jpg">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/baby3.jpg">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/house.png">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/story2.jpg">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/story2.jpg">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/story2.jpg">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-
-    </div>
-    <div class="wrap">
-    <a href="#" id="load" class="load"><p class="load-more">더보기</p></a>
+    
     </div>
 </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
-  name: 'Sponsorship',
+    data() {
+        
+      return {
+        baseUrl : 'http://localhost:9999',
+        lists : [],
+        story_title: '',
+        story_content: '',
+        story_id: '',
+        num_donation: 0,
+        story_file : '',
+        fin_date : '',
+        reg_date : ''
+      }
+      
+    },
+    
+    methods:
+    {
+    getlist(){
+        axios.get('http://localhost:9999/storylist')
+            .then(res =>{ 
+                console.log(res);
+                this.lists = res.data;
+                console.log(this.lists[0]);
+            })
+            .catch(error => 
+            console.log(error))
+        },
+            },
+    mounted(){
+        this.getlist();
+        
+    },
 }
 </script>
-<script>
-//  $(function(){
-//             $(".story-box").slice(0, 4).show(); // 최초 10개 선택
-//             $("#load").click(function(e){ // Load More를 위한 클릭 이벤트e
-//             e.preventDefault();
-//             $("div:hidden").slice(0, 4).show(); // 숨김 설정된 다음 10개를 선택하여 표시
-//             if($("div:hidden").length == 0){ // 숨겨진 DIV가 있는지 체크
-//             //alert("더 이상 항목이 없습니다"); // 더 이상 로드할 항목이 없는 경우 경고
-//             }
-//             });
-//             });
-</script>
+
 
 <style scoped>
 body {
