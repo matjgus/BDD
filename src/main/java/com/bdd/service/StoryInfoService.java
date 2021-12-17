@@ -2,6 +2,7 @@ package com.bdd.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -23,7 +24,25 @@ public class StoryInfoService {
 	public Long save(StoryInfoRequestDto requestDto) {
 		return storyInfoRepository.save(requestDto.toEntity()).getStory_idx();
 	}
-	
+	// 임시----------------------------------------------------------------------------
+	@Transactional
+    public Optional<StoryInfo> selectStoryDetail(long story_idx) throws Exception{
+
+        Optional<StoryInfo> result = storyInfoRepository.findById(story_idx);
+        System.out.println("==============================================");
+        System.out.println("==============================================");
+        System.out.println("==============================================");
+
+        System.out.println(result);
+
+        System.out.println("==============================================");
+        System.out.println("==============================================");
+        System.out.println("==============================================");
+
+
+        return result;
+    }
+	// ----------------------------------------------------------------------------
 	@Transactional
 	public List<StoryInfoResponseDto> findAll(){
 		List<StoryInfo> entityList = storyInfoRepository.findAll();

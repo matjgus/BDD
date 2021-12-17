@@ -1,6 +1,6 @@
 <template>
 <div>
-
+<sub-banner/>
 
     
 
@@ -31,7 +31,9 @@
 </div>
 </template>
 <script>
+import subBanner from '../components/SubBanner.vue';
 export default {
+    components:{subBanner},
   name: 'Reverse_Sponsorship',
 }
 </script>

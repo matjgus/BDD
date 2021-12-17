@@ -1,5 +1,6 @@
 <template>
     <div class="service-wrap">
+		<sub-banner/>
         <div class="board">
             <h1>문의 수정</h1>
 			<form id="frm" action="/page/service_view/action" method="post">
@@ -40,7 +41,11 @@
 </template>
 
 <script>
-
+import subBanner from '../components/SubBanner.vue';
+export default {
+    components:{subBanner},
+  name: 'ServiceView',
+}
 </script>
 
 <style scoped>

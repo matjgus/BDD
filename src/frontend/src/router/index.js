@@ -18,6 +18,11 @@ const routes = [
     component: ()=> import('../views/Intro.vue')
   },
   {
+    path: '/story',
+    name: 'Story',
+    component: ()=> import('../views/story.vue')
+  },
+  {
     path: '/Test',
     name: 'Test',
     component: ()=> import('../views/Test.vue')
@@ -92,6 +97,11 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: ()=> import('../views/profile.vue')
+  },
+  {
+    path: '/storydetail/:idx',
+    name: 'StoryDetail',
+    component: ()=> import('../views/StoryDetail.vue')
   }
 ]
 

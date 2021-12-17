@@ -1,5 +1,6 @@
 <template>
 <div>
+    <sub-banner/>
     <div class="service-wrap">
         <div class="board">
             <h1>1:1 문의</h1>
@@ -42,6 +43,14 @@
 </div>
 
 </template>
+<script>
+import subBanner from '../components/SubBanner.vue';
+export default {
+    components:{subBanner},
+     name: 'ServiceBoard',
+}
+</script>
+
 
 <style scoped>
 .board{
