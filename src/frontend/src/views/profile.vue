@@ -1,19 +1,6 @@
 <template>
 <div>
-     <div class="swiper mySwiper" style="height: 550px;">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-              <img src="../assets/img/banner1.jpg">
-              
-          </div>
-          <div class="swiper-slide">
-            <img src="../assets/img/banner2.jpg">
-          </div>
-          <div class="swiper-slide">
-              <img src="../assets/img/banner4.jpg">
-          </div>
-    </div>
-    </div>
+     
     <div class="profile-wrap">
         <div class="container">
             <div class="member_wrap">

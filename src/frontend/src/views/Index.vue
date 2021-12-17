@@ -3,34 +3,7 @@
     <div>
         <div id="headers">
         </div>
-        <div class="swiper mySwiper" >
-            <div class="swiper-wrapper">
-                <div class="swiper-slide banner1">
-                    <div>
-                        <h1> [ 베 : 풀다] </h1>
-                        <p> 힘듬에 상처받지 않도록 </p>
-                        <p> 나누어서 행복하도록 </p>
-                    </div>
-                </div>
-                <div class="swiper-slide banner2">
-                    <div>
-                        <h1> [ Wake _ up ] </h1>
-                        <p> 잠들어 있는 헌혈증 </p>
-                        <p> 깨울 시간 </p>
-                    </div>
-                </div>
-                <div class="swiper-slide banner3">
-                    <div>
-                        <h1> [느: 루]</h1>
-                        <p> 몰아치지 아니하고 </p>
-                        <p>  오래도록 늘 </p>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
-        </div>
+        
     </div>
     <div class="wrap">
         <div class="story-title">
@@ -39,7 +12,7 @@
         </div>
     </div>
     <!-- Swiper -->
-    <div class="swiper mySwiper02">
+    <!-- <div class="swiper mySwiper02">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div>
@@ -94,11 +67,10 @@
                     <a href="#none"><img src="../assets/img/story3.jpg"></a>
                     <h1> 피가 부족해요</h1>
                 </div>
-            </div>
+            </div> 
         </div>
-        <div class="swiper-pagination">
-        </div>
-    </div>
+        <div class="swiper-pagination"></div> 
+    </div>-->
     <div class = "support-status-wrap">
         <div class="wrap">
             <div class="support-status">
@@ -190,9 +162,50 @@
                 </div>
             </div>
         </div>
-    </div>
-</template>
+       <div class="swiper-wrapper"> 
+            <swiper :slidesPerView="5" :spaceBetween="30" :pagination='{"clickable": true}' class="swiper mySwiper02">
+                <swiper-slide class="swiper-slide">
+                    <div>
+                        <a href="#none"><img src="../assets/img/story2.jpg"></a>
+                        <h1> 우리 아이를 좀 도와주세요</h1>
+                    </div>
+                </swiper-slide>
+                <swiper-slide class="swiper-slide">
+                    <div>
+                        <a href="#none"><img src="../assets/img/story3.jpg"></a>
+                        <h1> 피가 부족해요</h1>
+                    </div>
+                </swiper-slide>
+                <swiper-slide class="swiper-slide">
+                        <div>
+                            <a href="#none"><img src="../assets/img/story4.jpg"></a>
+                            <h1> 피가 급합니다</h1>
+                        </div>
+                </swiper-slide>
 
+                <swiper-slide class="swiper-slide">
+                    <div>
+                        <a href="#none"><img src="../assets/img/story5.jpg"></a>
+                        <h1> 피가 너무 비싸요</h1>
+                    </div>
+                    
+                </swiper-slide>
+            </swiper>
+        </div>
+    
+</div>
+    
+    
+</template>
+<script>
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
+export default {
+    components: {
+        swiper,
+        swiperSlide,
+  }
+}
+</script>
 <style scoped>
 .section{
     height: 100vh;
@@ -289,7 +302,10 @@
   .swiper-slide img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: 85%;
+}
+.mySwiper02 div{
+    width : 20%;
 }
 .mySwiper02 .swiper-slide{
     color: white;
@@ -297,7 +313,7 @@
 .mySwiper02 .swiper-slide img {
     display: block;
     width: 100%;
-    height: 85%;
+    height:85%;
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
     object-fit: cover;

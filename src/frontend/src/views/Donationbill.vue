@@ -1,18 +1,6 @@
 <template>
 <div>
-<div class="swiper mySwiper" style="height: 650px;">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="../assets/img/banner1.jpg">
-            </div>
-            <div class="swiper-slide">
-              <img src="../assets/img/banner2.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="../assets/img/banner4.jpg">
-            </div>
-        </div>
-</div>
+
 <div class="wrap">
     <div class="donation-bill">
         <div class="issue-bill">
@@ -50,12 +38,63 @@
 </template>
 
 <script>
-
 export default {
-    name : 'donationbill'
+    
+  
 }
 </script>
 <style scoped>
+.swiper-wrapper .banner1{
+    background:url("../assets/img/banner2.jpg");
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+.swiper-wrapper .banner1 p{
+    font-size : 35px;
+    color: white;
+}
+.swiper-wrapper .banner1 h1{
+    font-size : 60px;
+    color: white;
+    text-align: center;
+}
+.swiper-wrapper .banner2{
+    background:url("../assets/img/banner1.jpg");
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+
+.swiper-wrapper .banner2 h1{
+    font-size : 60px;
+    color: white;
+    text-align: center;
+}
+.swiper-wrapper .banner2 > div> p{
+    font-size : 35px;
+    color: white;
+}
+
+.swiper-wrapper .banner3{
+    background:url("../assets/img/banner4.jpg");
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+
+.swiper-wrapper .banner3 h1{
+    font-size : 60px;
+    color: white;
+    text-align: center;
+}
+.swiper-wrapper .banner3 > div> p{
+    font-size : 35px;
+    color: white;
+}
 .donation-bill{
     height: 35vh;
     padding :40px 30%;

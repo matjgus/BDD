@@ -1,21 +1,6 @@
 <template>
 <div>
-    <div class="swiper mySwiper" style="height: 650px;">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="../assets/img/banner1.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="../assets/img/banner2.jpg">
-            </div>
-            <div class="swiper-slide">
-                <img src="../assets/img/banner4.jpg">
-            </div>
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-    </div>
+    
     <div class="service-wrap">
         <div class="faq-board">
             <h1>FAQ</h1>
@@ -62,9 +47,9 @@
                             또한 SNS(인스타그램, 페이스북)를 통해서 더 가까이 후원자님께 지원 소식을 전하기 위해 노력하고 있으니 많은 관심과 구독 부탁드립니다. </p></div>
             </div>
         </div>
-        <div class="faq-board">
+         <div class="faq-board">
             <h1>Q&A</h1>
-            <div id="wrapper">
+            <!--<div id="wrapper">
                 <div class="container">
                     <form action="/page/service" id="frm" method="get"/>
                         <div class="col-md-12 mt-4">
@@ -81,22 +66,6 @@
                             </thead>
                             <tbody id="tbody">
                                 <tr v-for="(lists,index) in lists" :key = "index">
-                                    <!-- <td>
-                                        <input type="checkbox" class="btn-danger" name="deleteId" th:value="${list.id}">
-                                        <span th:text="${(resultMap.totalCnt - index.index) - (paging.pageNumber * paging.pageSize)}"></span>
-                                    </td>
-                                    <td>
-                                        <a th:href="@{./service_view(id=${list.id})}"><span th:text="${list.title}"></span></a>
-                                    </td>
-                                    <td>
-                                        <span>{{list.registerId}}</span>
-                                    </td>
-                                    <td>
-                                        <span>{{list.readCnt}}</span>
-                                    </td>
-                                    <td>
-                                        <span>{{list.registerTime}} </span>
-                                    </td> -->
                                     <th scope="row">{{ index + 1 }}</th>
                                         <td>{{ lists.story_title }}</td>
                                         <td>{{ lists.story_id }}</td>
@@ -118,9 +87,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
-    </div>
+    </div> 
     <div class="board-page-btn">
         <router-link to="/serviceboard">1:1 문의하기</router-link>
         
