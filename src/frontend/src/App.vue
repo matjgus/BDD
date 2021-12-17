@@ -32,7 +32,7 @@ export default {
       }else if(event.deltaY<0){
         this.show=true;
       }
-      console.log(event.deltaY);
+      //console.log(event.deltaY);
     }
   }
 }

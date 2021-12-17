@@ -22,7 +22,7 @@
                              
                                 <tr  v-for="(list,index) in lists" :key = "index" >
                                     <th  scope="row">{{ index + 1 }} </th>
-                                        <td>{{ list.story_title }}</td>
+                                       <td @click="goStory(list.story_idx)">{{ list.story_title }}</td>
                                         <td>{{ list.num_donation }}</td>
                                         <td>{{ list.reg_date }}</td>
                                         <td>{{ list.fin_date }}</td>
@@ -68,7 +68,7 @@
     
     </div>
     <tr v-for="p in lists" :key="p.no">
-        <td>{{ p.story_title }}</td>
+        <td >{{ p.story_title }}</td>
         <td>{{ p.tel }}</td>
         <td>{{ p.address }}</td>
         <td>{{ p.name }}</td>
@@ -111,6 +111,9 @@ export default {
     nextPage(){
       this.pageNum+=1;
       this.lists=this.listslice();
+    },
+    goStory(idx){
+            this.$router.push('/storydetail/'+idx);
     },
     prevPage(){
       this.pageNum-=1;

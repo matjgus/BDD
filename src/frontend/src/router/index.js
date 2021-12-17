@@ -97,6 +97,11 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: ()=> import('../views/profile.vue')
+  },
+  {
+    path: '/storydetail/:idx',
+    name: 'StoryDetail',
+    component: ()=> import('../views/StoryDetail.vue')
   }
 ]
 
