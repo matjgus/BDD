@@ -11,7 +11,6 @@ import com.bdd.domain.entity.board.Benefit;
 import com.bdd.domain.entity.board.BenefitRepository;
 import com.bdd.dto.board.BenefitRequestDto;
 import com.bdd.dto.board.BenefitResponseDto;
-import com.bdd.dto.board.DeedResponseDto;
 
 import lombok.RequiredArgsConstructor;
 
