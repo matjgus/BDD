@@ -101,7 +101,6 @@
                                         <td>{{ result.title }}</td>
                                         <td>{{ result.title }}</td>
                                         <td>{{ result.readCnt }}</td>
-                                   
                                 </tr>
     <!-- <p>hi</p>
     <tr v-for="(result,index) in ResultMap" :key = "result" >
@@ -132,7 +131,8 @@ export default {
         something : null,
         readCnt : 0,
         registerid: "",
-        title : ""
+        title : "",
+        ResultMap : []
        }
       
     },
@@ -158,14 +158,8 @@ export default {
         },
     },
     created(){
-        console.log("A'");
         this.getlist();
-        console.log("B'");
-    },
-    mounted(){
-        console.log("A");
-        console.log("B");
-    },
+    }
 }
 </script>
 
