@@ -49,116 +49,31 @@
         </div>
          <div class="faq-board">
             <h1>Q&A</h1>
-			<table>
-				<div id="wrapper">
-					<div class="container">
-					    <div class="col-md-12">
-					       <table class="table table-striped table-horizontal table-bordered mt-3">
-                            <thead class="thead-strong">
-                                <tr>
-                                    <th width="10%">글번호</th>
-                                    <th width="">제목</th>
-                                    <th width="10%">작성자</th>
-                                    <th width="10%">작성일</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbody">
-                             
-                                <tr v-for="(result,index) in ResultMap" :key = "result" >
-                                    <th  scope="row">{{ index + 1 }} </th>
-                                        <td>{{ result.title }}</td>
-                                        <td>{{ result.title }}</td>
-                                        <td>{{ result.readCnt }}</td>
-                                   
-                                </tr> -
-                            </tbody>
-                        </table>
-                         <div class="btn-cover" >
-      <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">이전</button>
-      <span class="page-count">{{ pageNum + 1 }}/{{ page }} 페이지</span>
-      <button :disabled="pageNum >= page - 1" @click="nextPage" class="page-btn">다음</button>
-    </div>
-					        <div class="row">
-								<div class="col">
-									<ul class="pagination">
-										<li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
-											<a class="page-link" th:href="@{./service(page=${index - 1},page=${paging.pageSize})}"><span th:text="${index}"></span></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-					    </div>
-				    </div>
-			    </div>
-            </table>
+			<service-list/>
         </div>
         <div class="board-page-btn">
             <a href="./service_board">1:1 문의하기</a>
         </div>
     </div>
-    <tr v-for="(result,index) in ResultMap" :key = "result" >
-                                    <th  scope="row">{{ index + 1 }} </th>
-                                        <td>{{ result.title }}</td>
-                                        <td>{{ result.title }}</td>
-                                        <td>{{ result.readCnt }}</td>
-                                </tr>
-    <!-- <p>hi</p>
-    <tr v-for="(result,index) in ResultMap" :key = "result" >
-        <th  scope="row">{{ index + 1 }} </th>
-            <td>{{ result.title }}</td>
-            
-            <td>{{ result.registerTime }}</td>
-            <td>{{ result.readCnt }}</td>
-
-    </tr> -->
 </div>
 
 </template>
 <script>
-import axios from 'axios'
+
 import subBanner from '../components/SubBanner.vue';
+import ServiceList from './ServiceList.vue';
 
 export default {
-    components:{subBanner},
+    components:{subBanner, ServiceList},
     data() {
       return {
-        baseUrl : 'http://localhost:9999',
-        lists : [],
-        id : 0,
-        registerTime : "",
-        updateTime : "",
-        content : "",
-        something : null,
-        readCnt : 0,
-        registerid: "",
-        title : "",
-        ResultMap : []
        }
       
     },
     
     methods:
     {
-    async getlist(){
-        await axios.get('http://localhost:9999/api/boardlist',{
-            params : {
-                page : 0,
-                size : 5
-            }
-        })
-        .then(res =>{
-                console.log("-----------------------this-----------------------")
-                this.ResultMap = res.data.list;
-                //console.log(this.lists);
-                //alert(this.lists[0]);
-            })
-        .catch(error => 
-            console.log(error));
-        //alert("에러");
-        },
-    },
-    created(){
-        this.getlist();
+
     }
 }
 </script>
