@@ -5,7 +5,7 @@
     <div class="donation-bill">
         <div class="issue-bill">
             <h1>기부금 영수증 발급하기</h1>
-            <a href = #none id="popup-button">바로가기</a>
+            <a @click="donation_bill_login" href = #none id="popup-button">바로가기</a>
         </div>
         <div class="donation-history">
             <h1>후원 내역 확인하기</h1>
@@ -40,8 +40,23 @@
 <script>
 import subBanner from '../components/SubBanner.vue';
 export default {
-    components:{subBanner}
+    components:{subBanner},
+    data() {
+      return {
+       }
+      
+    },
     
+    methods:
+    {
+    donation_bill_login(){
+        var loging = this.$session.get('islogin')
+        if (!loging){
+            alert("로그인이 필요합니다")
+            this.$router.push('/login');
+        }
+        }
+    }
   
 }
 </script>

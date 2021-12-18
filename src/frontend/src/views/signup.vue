@@ -1,5 +1,6 @@
 <template>
     <div>
+        <div v-if="!prevlog">
         <div class="signup">
             <div class="container">
                 <div class="member_wrap">
@@ -192,6 +193,10 @@
         <div class="dimlayer"></div>
     </div>
     </div>
+    <div v-if="prevlog">
+    <p class="wrong_access"> 잘못된 접근입니다. </p>
+</div>
+     </div>
 </template>
 <script>
 import axios from 'axios'
@@ -206,7 +211,8 @@ export default {
             name : "" ,
             password : "",
             phonenum : 0, // int
-            post : 3 // 우편번호 int    
+            post : 3, // 우편번호 int    
+            prevlog : this.$session.get('islogin')
         }
     },
     methods :{
@@ -241,6 +247,9 @@ export default {
 </script>
    
 <style scoped>
+.wrong_access{
+    font-size:50px;
+}
 .signup {
 	margin-top: 200px;
 }

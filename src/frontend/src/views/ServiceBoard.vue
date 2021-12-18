@@ -1,29 +1,24 @@
 <template>
 <div>
+    <div v-if="prevlog">
     <sub-banner/>
     <div class="service-wrap">
         <div class="board">
             <h1>1:1 문의</h1>
-            <form id="frm" action="/ServiceView/action" method="post">
+            <!-- <form id="frm" action="/ServiceView/action" method="post"> -->
             <input type="hidden" name="id" th:value = "${info.id}">
                 <div class="write-form">
                     <ul>
                         <li class="board-ctg">
                             <div class="board-name"><h4>제목</h4></div>
                             <div class="board-data">
-                                <input type="text" class="form-control" name="title" th:value="${info.title}">
+                                <input v-model="title" type="text" class="form-control" name="title" >
                             </div>
                         </li>
                         <li class="board-ctg">
                             <div class="board-name"><h4>내용</h4></div>
                             <div class="board-data">
-                                <textarea class="form-control" rows="5" cols="" name="content" th:text="${info.content}"></textarea>
-                            </div>
-                        </li>
-                        <li class="board-ctg">
-                            <div class="board-name"><h4>작성자</h4></div>
-                            <div class="board-data">
-                                <input type="text" class="form-control" name="registerId" th:value="${info.registerId}">
+                                <textarea v-model="content" class="form-control" rows="5" cols="" name="content"></textarea>
                             </div>
                         </li>
                         <li class="board-ctg">
@@ -32,22 +27,61 @@
                         </li>
                     </ul>
                 </div>
-                    <button type="button" class="btn btn-success" onclick="javascript:location.href='/service'">Previous</button>
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <button type="button" class="btn btn-success" onclick="javascript:location.href='/service'">이전</button>
+                    <button @click="submit" type="submit" class="btn btn-primary">등록</button>
                 <div class="float-right">
                     <button type="button" class="btn btn-danger" th:onclick="fnViewDelete()">Delete</button>
                 </div>
-            </form>
+            <!-- </form> -->
         </div>
     </div>
+    
+    </div>
+    <div v-if="!prevlog">
+    <p class="wrong_access"> 잘못된 접근입니다. </p>
+    </div>
 </div>
-
 </template>
 <script>
+import axios from 'axios'
 import subBanner from '../components/SubBanner.vue';
 export default {
     components:{subBanner},
      name: 'ServiceBoard',
+     data(){
+        return{
+            id : 1,
+            title : "",
+            content : "",
+            registerId : "test",
+            prevlog : this.$session.get('islogin')
+        }
+    },
+    methods :{
+    submit(){
+        var Params ={
+            'id' : this.id,
+            'title' : this.title,
+            'content' : this.content,
+            'registerId' : this.$session.get('UserId'),
+            }
+        const config={
+                    baseUrl:'http://localhost:9999'
+            };
+        
+        axios.post(`${config.baseUrl}/page/service_board/action`,Params     
+        )       
+            .then((response)=>{
+                console.log(response);
+                alert("글을 등록하셨습니다.");
+                this.$router.push("/service");
+            })
+            .catch(error => {
+                console.log(error);
+            })//alert("에러");    
+             
+        }
+    }
 }
 </script>
 
@@ -82,5 +116,7 @@ export default {
 
 .board-btn{margin-top:30px; text-align: center;}
 .board-btn a{ border: 1.5px solid rgb(160, 156, 156); padding: 10px 20px; margin: 0px 20px;}
-
+.wrong_access{
+    font-size:50px;
+}
 </style>

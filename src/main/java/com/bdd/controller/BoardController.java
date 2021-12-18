@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -74,13 +75,14 @@ public class BoardController {
    public String getBoardWritePage(Model model, BoardRequestDto boardRequestDto) {
       return "/page/service_board";
    }
-   
+   @ResponseBody
    @PostMapping("/page/service_board/action")
-   public String pageWriteAction(Model model, BoardRequestDto boardRequestDto) throws Exception {
-         
+   public String pageWriteAction(Model model,  @RequestBody BoardRequestDto boardRequestDto) throws Exception {
+         System.out.println(boardRequestDto);
          try {
             Long result = boardService.save(boardRequestDto);
-            
+            System.out.println("ttttttttttttttttttttttttt");
+            System.out.println(result);
             if (result < 1) {
                throw new Exception("#Exception boardWriteAction!");
             }

@@ -84,7 +84,7 @@ const routes = [
     component: ()=> import('../views/sponsorship.vue')
   },
   {
-    path: '/serviceboard',
+    path: '/service_board',
     name: 'ServiceBoard',
     component: ()=> import('../views/ServiceBoard.vue')
   },
