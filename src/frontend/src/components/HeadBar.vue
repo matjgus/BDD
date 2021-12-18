@@ -39,10 +39,10 @@
         </div>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <router-link to="/profile">회원 정보 수정</router-link>
+            <!-- <router-link to="/profile">회원 정보 수정</router-link> -->
             <router-link to="/mydeed">내 후원증</router-link>
             <!--<a href="/page/mydeed.html">내 후원증</a>-->
-            <router-link to="/donationhistory">후원 내역</router-link>
+            <!-- <router-link to="/donationhistory">후원 내역</router-link> -->
             <router-link to="/benefit">기념 상품</router-link>
             <a id="logout" @click="logoutEnt" @mouseover="hover">로그아웃</a>
         </div>
@@ -69,10 +69,11 @@ export default{
         },
         checkS(){
             // var tmp = this.$session.get('islogin')
-            console.log(this.loginStatus)
+            console.log(this.loginStatus);
         },
         logoutEnt(){
             this.$session.destroy();
+            this.$router.push('/')
             this.$router.go('/')
         },
         shownav(){
@@ -193,7 +194,7 @@ export default{
     
 }
 .sidenav {
-    height: 30vh;
+    height: 20vh;
     width: 0;
     position: fixed;
     z-index: 2000;

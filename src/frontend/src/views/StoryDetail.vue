@@ -20,7 +20,9 @@
                         채우지 못하면 마감일까지 <br>
                         모인 헌혈증 수만큼 후원합니다.</p>
                 </div>
+                
                 <button @click="donationclick" type="button" class="terms-info">후원하기</button>
+                
             </div>
         </div>
         <div class="story-info">
@@ -67,17 +69,25 @@ export default{
             dates:"",
             remaining_days : "",
             idx : 3,
-            donor_uid : "hi",
+            donor_uid : this.$session.get('UserId'),
+            // donor_uid : "hi",
             donee_uid : "hih",
-            donation_count : 1
+            donation_count : 1,
+            //login_id:this.$session.get('id'),
+            
         }
     },
     methods:{
     donationclick(){
-      var layerstyle = document.getElementById("pop-layer")
-      var layerstyle2 = document.getElementById("bg-layer")
-      layerstyle.style.display = "block";
-      layerstyle2.style.display = "block";
+        var loging = this.$session.get('islogin')
+        if (!loging){
+            alert("로그인이 필요합니다")
+            this.$router.push('/login');
+        }
+        var layerstyle = document.getElementById("pop-layer")
+        var layerstyle2 = document.getElementById("bg-layer")
+        layerstyle.style.display = "block";
+        layerstyle2.style.display = "block";
     },
     X_button_click(){
       var layerstyle = document.getElementById("pop-layer")
@@ -102,12 +112,13 @@ export default{
             'donee_uid' : this.donee_uid,
             'donation_count' : this.donation_count,
             }
-        
+        console.log(this.donor_uid);
         axios.post('http://localhost:9999/d_detail',Params)
         .then(res =>{ 
             console.log(res);
             alert("후원에 감사합니다.")
             this.$router.go("");
+            
         })
         .catch(error => 
             console.log(error))

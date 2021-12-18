@@ -52,7 +52,9 @@
 			<service-list/>
         </div>
         <div class="board-page-btn">
-            <a href="./service_board">1:1 문의하기</a>
+            <a @click="service_login">
+            <router-link to="/service_board" >1:1문의하기</router-link>
+            </a>
         </div>
     </div>
 </div>
@@ -73,7 +75,13 @@ export default {
     
     methods:
     {
-
+    service_login(){
+        var loging = this.$session.get('islogin')
+        if (!loging){
+            alert("로그인이 필요합니다")
+            this.$router.push('/login');
+        }
+        }
     }
 }
 </script>
@@ -143,7 +151,9 @@ input[id*="answer"] + label + div p{
 input[id*="answer"]:checked + label + div {max-height:500px;}
 input[id*="answer"]:checked + label em {background-position:0 -30px;}   
 
-
+.container{
+    max-width : 100%;
+}
 .table-bordered td, .table-bordered th {
     border: 1px solid #dee2e6;
 }
