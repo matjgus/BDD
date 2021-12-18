@@ -4,38 +4,32 @@
 
     
     <p class="title">사연목록</p>
-    <p>{{dates}}</p>
+    <!-- <p>{{dates}}</p> -->
     <div class="sort-box">
       <div class="wrap">
       <table class="table table-striped table-horizontal table-bordered mt-3">
-                            <thead class="thead-strong">
-                                <tr>
-                                    <th width="10%">게시글번호</th>
-                                    <th width="">제목</th>
-                                    <th width="10%">필요 후원 수</th>
-                                    <th width="10%">작성일</th>
-                                    <th width="10%">마감일</th>
-                                    <th width="10%">작성자</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbody">
-                             
-                                <tr  v-for="(list,index) in lists" :key = "index" >
-                                    <th  scope="row">{{ index + 1 }} </th>
-                                       <td @click="goStory(list.story_idx)">{{ list.story_title }}</td>
-                                        <td>{{ list.num_donation }}</td>
-                                        <td>{{ list.reg_date }}</td>
-                                        <td>{{ list.fin_date }}</td>
-                                        <td>{{ list.story_id }}</td>
-                                   
-                                </tr>
-                            </tbody>
-                        </table>
-                         <div class="btn-cover" >
-      <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">이전</button>
-      <span class="page-count">{{ pageNum + 1 }}/{{ page }} 페이지</span>
-      <button :disabled="pageNum >= page - 1" @click="nextPage" class="page-btn">다음</button>
-    </div>
+        <thead class="thead-strong">
+            <tr>
+                <th width="10%">게시글번호</th>
+                <th width="">제목</th>
+                <th width="10%">필요 후원 수</th>
+                <th width="10%">작성일</th>
+                <th width="10%">마감일</th>
+                <th width="10%">작성자</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr  v-for="(list,index) in lists" :key = "index" >
+                <th  scope="row">{{ index + 1 }} </th>
+                    <td @click="goStory(list.story_idx)">{{ list.story_title }}</td>
+                    <td>{{ list.num_donation }}</td>
+                    <td>{{ list.reg_date }}</td>
+                    <td>{{ list.fin_date }}</td>
+                    <td>{{ list.story_id }}</td>
+            </tr>
+        </tbody>
+      </table>
+                         
 
     </div>
 </div>
@@ -67,12 +61,7 @@
       
     
     </div>
-    <tr v-for="p in lists" :key="p.no">
-        <td >{{ p.story_title }}</td>
-        <td>{{ p.tel }}</td>
-        <td>{{ p.address }}</td>
-        <td>{{ p.name }}</td>
-      </tr>
+    
 </div>
 </template>
 
@@ -136,21 +125,6 @@ export default {
     + (date.getMonth()+1) + "-" +
     date.getDate();
     },
-
-    pageCount () {
-      let listLeng = this.lists.length,
-          listSize = this.pageSize,
-          page = Math.floor(listLeng / listSize);
-      
-      page = Math.floor((listLeng - 1) / listSize) + 1;
-      return page;
-    },
-    listslice() {
-       const start = this.pageNum * this.pageSize,
-             end = start + this.pageSize;
-            alert(this.pageNum)
-      return this.lists.slice(start, end);
-    }
   },
   
     mounted(){
@@ -247,5 +221,8 @@ body {
   justify-content: center;
   font-size: 20px;
   margin : 20px 0;
+}
+.sort-box{
+  margin : 0 auto 100px auto;
 }
 </style>
