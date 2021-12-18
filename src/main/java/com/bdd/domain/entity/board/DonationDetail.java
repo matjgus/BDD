@@ -1,31 +1,38 @@
 package com.bdd.domain.entity.board;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import javax.persistence.*;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@Entity(name="donation_detail")
-@Data
+@Entity
+@Table(name="donation_detail")
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 public class DonationDetail {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long story_idx;
-	private String donor_uid;
-	private String donee_uid;
-	private int donation_count;
-	
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	private Long donation_idx;
+	@Column(length = 30, nullable = false)
+    private Long story_idx;
+	@Column(length = 30, nullable = false)
+    private String donor_uid;
+	@Column(length = 30, nullable = false)
+    private String donee_uid;
+	@Column(length = 30, nullable = false)
+    private int donation_count;
+
 	@Builder
-	public DonationDetail(Long story_idx, String donor_uid, String donee_uid, int donation_count) {
+	public DonationDetail(Long donation_idx, int donation_count,Long story_idx, String donor_uid, String donee_uid) {
 		super();
 		this.story_idx = story_idx;
 		this.donor_uid = donor_uid;
 		this.donee_uid = donee_uid;
 		this.donation_count = donation_count;
+		this.donation_idx = donation_idx;
 	}
 }

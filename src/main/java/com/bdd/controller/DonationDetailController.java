@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bdd.dto.board.DonationDetailRequestDto;
@@ -24,19 +25,22 @@ public class DonationDetailController {
 		return donationDetailService.findAll();
 	}
 	@PostMapping("/d_detail")
-	public Long reqDonationDetail(@RequestBody DonationDetailRequestDto requestDto) {
-		return donationDetailService.save(requestDto);
+	@ResponseBody
+	public void reqDonationDetail(@RequestBody DonationDetailRequestDto requestDto) {
+		System.out.println("test----------------------------------------");
+		System.out.println(requestDto);
+		donationDetailService.save(requestDto);
 	}
-	@PostMapping("/d_detaillist")
-	public List<Long> reqDetailDonationList(@RequestBody List<DonationDetailRequestDto> requestDtos){
-		DonationDetailRequestDto requestDto;
-		List<Long> donationDetailList= new ArrayList<Long>();
+	// @PostMapping("/d_detaillist")
+	// public List<Long> reqDetailDonationList(@RequestBody List<DonationDetailRequestDto> requestDtos){
+	// 	DonationDetailRequestDto requestDto;
+	// 	List<Long> donationDetailList= new ArrayList<Long>();
 		
-		for(int i=0; i<requestDtos.size();i++) {
-			requestDto = requestDtos.get(i);
-			donationDetailList.add(donationDetailService.save(requestDto));
-		}
-		return donationDetailList;
-	}
+	// 	for(int i=0; i<requestDtos.size();i++) {
+	// 		requestDto = requestDtos.get(i);
+	// 		donationDetailList.add(donationDetailService.save(requestDto));
+	// 	}
+	// 	return donationDetailList;
+	// }
 	
 }

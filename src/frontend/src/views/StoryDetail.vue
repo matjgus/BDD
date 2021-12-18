@@ -43,9 +43,9 @@
             </div>
             <div class="layer-main">
                 <div class="text-box">
-                   <input type="text" placeholder="기증할 헌혈증 수 입력" class="membership-info"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                   <input  v-model="donation_count" type="text" placeholder="기증할 헌혈증 수 입력" class="membership-info"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                    <p class="content-tiny">(숫자만 입력가능)</p>
-                   <button type="button" class="send-info-btn">후원하기</button>
+                   <button @click="Postdonation" type="button" class="send-info-btn">후원하기</button>
                 </div>
             </div>
         </div>
@@ -63,8 +63,13 @@ export default{
         return{
             storyIdx : this.$route.params.idx,
             lists : [],
+            donationinfo : [],
             dates:"",
-            remaining_days : ""
+            remaining_days : "",
+            idx : 3,
+            donor_uid : "hi",
+            donee_uid : "hih",
+            donation_count : 1
         }
     },
     methods:{
@@ -86,6 +91,23 @@ export default{
             console.log(res);
             this.lists = res.data;
             console.log(this.lists);
+        })
+        .catch(error => 
+            console.log(error))
+    },
+    Postdonation(){
+        var Params ={
+            'story_idx' : this.storyIdx,
+            'donor_uid' : this.donor_uid,
+            'donee_uid' : this.donee_uid,
+            'donation_count' : this.donation_count,
+            }
+        
+        axios.post('http://localhost:9999/d_detail',Params)
+        .then(res =>{ 
+            console.log(res);
+            alert("후원에 감사합니다.")
+            this.$router.go("");
         })
         .catch(error => 
             console.log(error))
