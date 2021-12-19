@@ -18,11 +18,6 @@ const routes = [
     component: ()=> import('../views/Intro.vue')
   },
   {
-    path: '/story',
-    name: 'Story',
-    component: ()=> import('../views/story.vue')
-  },
-  {
     path: '/Test',
     name: 'Test',
     component: ()=> import('../views/Test.vue')
