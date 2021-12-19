@@ -10,6 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class BenefitRequestDto {
+	private String id;
 	private int uid;
 	private char is_get10;
 	private char is_get20;
@@ -17,6 +18,7 @@ public class BenefitRequestDto {
 	
 	public Benefit toEntity() {
 		return Benefit.builder()
+				.id(id)
 				.uid(uid)
 				.is_get10(is_get10)
 				.is_get20(is_get20)
