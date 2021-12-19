@@ -14,22 +14,28 @@
                 <p class="content-small">현황</p>
                 <p class="content-big"><b>{{lists.num_donation}}</b>장</p>
                 <p class="content-small">남은시간</p>
-                <p class="content-big"><b>{{parseInt(lists.fin_date.substr(8,10)) - parseInt(dates.substr(8,10))}}</b>일</p>
+                <p class="content-big"><b>{{remaining_days}}</b>일</p>
                 <div class="content-info-box">
+                <div v-if="remaining_days!= 0">
                     <p class="content-tiny"><b>{{lists.fin_date}}</b>까지 목표를 <br>
                         채우지 못하면 마감일까지 <br>
                         모인 헌혈증 수만큼 후원합니다.</p>
                 </div>
-                
+                <div v-if="remaining_days== 0">
+                    <p class="content-tiny"><b>{{lists.fin_date}}</b>까지 후원하고 <br>
+                        마감된 후원입니다.<br></p>
+                </div>
+                </div>
+                <div v-if="remaining_days!= 0">
                 <button @click="donationclick" type="button" class="terms-info">후원하기</button>
-                
+                </div>
             </div>
         </div>
         <div class="story-info">
             <p class="story-info-content">{{lists.story_content}}</p>
-
+             <div v-if="remaining_days!= 0">
             <button @click="donationclick" type="button" class="terms-info">후원하기</button>
-        
+        </div>
         </div>
             
         </div>
@@ -70,8 +76,7 @@ export default{
             remaining_days : "",
             idx : 3,
             donor_uid : this.$session.get('UserId'),
-            // donor_uid : "hi",
-            donee_uid : "hih",
+            donee_uid : "",
             donation_count : 1,
             //login_id:this.$session.get('id'),
             
@@ -100,16 +105,34 @@ export default{
         .then(res =>{ 
             console.log(res);
             this.lists = res.data;
-            console.log(this.lists);
+            this.gettime();
+            this.count_date();
+            //console.log(this.lists);
         })
         .catch(error => 
             console.log(error))
+    },
+    count_date(){
+        this.remaining_days = parseInt(this.lists.fin_date.substr(8,10)) - parseInt(this.dates.substr(8,10))
+        // 년도 체크
+        if (this.lists.fin_date.substr(0,3) < this.dates.substr(0,3)){
+            this.remaining_days = 0;
+        }
+        // 월 체크
+        if (this.lists.fin_date.substr(5,6) < this.dates.substr(5,6)){
+        this.remaining_days = 0;
+        }
+        // 기한이 지나지 않았다면
+        else{
+            this.remaining_days = parseInt(this.lists.fin_date.substr(8,10)) - parseInt(this.dates.substr(8,10))
+        }
+        console.log(this.remaining_days);
     },
     Postdonation(){
         var Params ={
             'story_idx' : this.storyIdx,
             'donor_uid' : this.donor_uid,
-            'donee_uid' : this.donee_uid,
+            'donee_uid' : this.lists.story_id,
             'donation_count' : this.donation_count,
             }
         console.log(this.donor_uid);
@@ -118,7 +141,7 @@ export default{
             console.log(res);
             alert("후원에 감사합니다.")
             this.$router.go("");
-            
+
         })
         .catch(error => 
             console.log(error))
@@ -128,14 +151,16 @@ export default{
     this.dates = date.getFullYear() + "-"
     + (date.getMonth()+1) + "-" +
     date.getDate();
+    //console.log(this.dates);
     },
   },
     mounted(){
-        this.gettime();
+        
     },
     created(){
-        console.log(this.storyIdx);
         this.getstory();
+        this.gettime();
+        this.count_date();
     }
 }
 </script>

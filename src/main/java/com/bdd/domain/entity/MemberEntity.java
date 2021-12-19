@@ -40,8 +40,15 @@ public class MemberEntity {
     @Column(length = 12, nullable = false)
     private int phonenum;
 
+    @Column(length = 30, nullable = true)
+    private int member_donation; 
+
+    @Column(length = 30, nullable = true)
+    private int my_deednum; 
+
     @Builder
-    public MemberEntity(int uid, String id, String name, String password, int post, String address, String detailaddress, String email, int phonenum) {
+    public MemberEntity(int uid, String id, String name, String password, int post, String address,
+     String detailaddress, String email, int phonenum, int member_donation, int my_deednum) {
         this.uid = uid;
         this.id = id;
         this.name = name;
@@ -51,5 +58,7 @@ public class MemberEntity {
         this.detailaddress = detailaddress;
         this.email = email;
         this.phonenum = phonenum;
+        this.member_donation = member_donation;
+        this.my_deednum = my_deednum;
     }
 }

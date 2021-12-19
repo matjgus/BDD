@@ -9,7 +9,7 @@
         </div>
         <div class="donation-history">
             <h1>후원 내역 확인하기</h1>
-            <a href = "./donationhistory">바로가기</a>
+            <a href = "./mydeed">바로가기</a>
         </div>
         <div class="explanation">
             <p> * 개인 주민등록번호가 등록되어 후원 중인 경우,

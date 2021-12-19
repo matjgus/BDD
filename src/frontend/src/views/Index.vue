@@ -3,6 +3,7 @@
     <div class="mainbanner">
         <main-banner/>
     </div>
+    
     <div class="wrap">
         <div class="story-title">
             <h1>사람들을 위한 <span style="color:#a81431">다양한 사업</span>을 진행합니다.</h1>
@@ -11,8 +12,8 @@
        <div class="swiper-wrazpper"> 
            <hooper :infiniteScroll="true" :wheelControl="false" :mouseDrag="true" :autoPlay="true" :playSpeed="3000" :itemsToShow="4" class="buhooper">
                <slide v-for="bulist in bulists" v-bind:key="bulist">
-                    <div class="card">
-                        <a href="#none"><img :src="require(`@/assets/img/${bulist.img}`)"></a>
+                    <div @click="goStory(1)" class="card" >
+                        <a><img :src="require(`@/assets/img/${bulist.img}`)"></a>
                         <h1> {{bulist.text}}</h1>
                     </div>
                </slide>
@@ -28,24 +29,25 @@
                 <div class="status-box" >
                     <div>
                         <p>
-                            <span>이번달 월 헌혈증서 수 : </span>
-                            <span class="memberCountCon">10</span>
+                            <span>총 기증한 사람 : </span>
+                            <span class="memberCountCon">{{total_donor}} 명</span>
                         </p>
-                        <p>
-                            <span>누적 헌혈증서 수 :</span>
-                            <span class="memberCountCon"></span>
-                        </p>
+                            <p>
+                                <span>총  기증받은 사람 : </span>
+                                <span class="memberCountCon">{{total_donee}} 명</span>
+                            </p>
                     </div>
                     <div>
                         <p>
-                            <span>기증받은 사람 수 : </span>
-                            <span class="memberCountCon"></span>
+                            <span> 기증 받은 금액  : </span>
+                            <span class="memberCountCon"> 2,736,000 원</span>
                         </p>
-                            <p>
-                                <span> 총 기증받은 양 : </span>
-                                <span class="memberCountCon"></span>
-                            </p>
-                        </div>
+                        <p>
+                            <span>누적 헌혈증서 기부 :</span>
+                            <span class="memberCountCon">{{total_donation}} 개</span>
+                        </p>
+                    </div>
+                    
                     </div>
                 </div>
             </div>
@@ -72,6 +74,7 @@
 //import axios from 'axios'
 import { Hooper, Slide } from 'hooper';
 import 'hooper/dist/hooper.css';
+import axios from 'axios'
 import MainBanner from '../components/MainBanner.vue';
 export default {
     components: {
@@ -81,6 +84,15 @@ export default {
     },
     data(){
         return{
+            donation : [],
+            title_lists : [],
+            total_donation : 0,
+            donee_list : [],
+            total_donee:0,
+            donor_list :[],
+            total_donor:0,
+            lists : [],
+            pageNum: 0,
             palists:[
                 {
                     img:"part_ent1.png",
@@ -103,9 +115,9 @@ export default {
             ],
             bulists:[
                 {
-                    link:"#none",
+                    link: "/storydetail/1",
                     img:"story2.jpg",
-                    text:"우리 아이를 좀 도와주세요",
+                    text: "",
                 },
                 {
                     link:"#none",
@@ -122,10 +134,59 @@ export default {
                     img:"story5.jpg",
                     text:"피가 너무 비싸요",
                 },
-            ]
-
+            ],
             
         }
+    },
+    mathods: {
+        goStory(idx){
+            this.$router.push('/storydetail/'+idx);
+        },
+        getdonation(){
+            console.log("hey");
+        }
+    },
+    mounted(){
+        this.getdonation();
+    },
+    created(){
+        // 사연 hooper용
+        axios.get('http://localhost:9999/storylist')
+            .then(res =>{ 
+                this.lists = res.data;
+                for(var i =0; i<5; i++){
+                   this.bulists[i].text = (this.lists[i].story_title);
+                   this.bulists[i].link = "/storydetail/"+[i];
+                }
+                console.log(this.bulists[1].text)
+                // console.log(this.lists[1]);
+                // console.log(this.title_lists);
+            })
+            
+            .catch(error => 
+            console.log(error));
+        // 총 후원 관련
+        axios.get('http://localhost:9999/d_detaillist')
+        .then(res =>{ 
+            this.donation = res.data;
+            for(var i =0; i<this.donation.length; i++){
+                this.total_donation += this.donation[i].donation_count;
+                this.donee_list.push(this.donation[i].donee_uid) ;
+                this.donor_list.push(this.donation[i].donor_uid) ;
+            }
+            //console.log(this.donee_list);
+            const donee_set = new Set(this.donee_list);
+            const donor_set = new Set(this.donor_list);
+            //console.log(set.size);
+            this.total_donee = donee_set.size;
+            this.total_donor = donor_set.size;
+            // for(const item of this.donation){
+            //     console.log(item);
+            // }
+            })
+        .catch(error => 
+            console.log(error));
+        
     }
 }
 </script>

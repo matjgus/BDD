@@ -69,7 +69,9 @@ public class MemberController {
     public String dispLogin(){
         System.out.println("su");
         return "page/login";
-    }// 로그인 (vue)
+    }
+    
+    // 로그인 (vue)
     @PostMapping("testlogin")
     @ResponseBody
     public int vuelogin(@RequestBody MemberDto st){
