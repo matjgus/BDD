@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bdd.domain.entity.board.Benefit;
 import com.bdd.dto.board.BenefitRequestDto;
 import com.bdd.dto.board.BenefitResponseDto;
 import com.bdd.service.BenefitService;
@@ -27,6 +28,7 @@ public class BenefitController {
 	public Integer reqBenefit(@RequestBody BenefitRequestDto requestDto) {
 		return benefitService.save(requestDto);
 	}
+	
 	@PostMapping("/benefitlist")
 	public List<Integer> reqDeedList(@RequestBody List<BenefitRequestDto> requestDtos){
 		BenefitRequestDto requestDto;
@@ -37,5 +39,18 @@ public class BenefitController {
 			deedList.add(benefitService.save(requestDto));
 		}
 		return deedList;
-	} 
+	}
+	
+	//list던지기
+	@GetMapping("/benefitdetail")
+	public List<Benefit> findBenefitByid() throws Exception{
+		return benefitService.selectBenefitList("마서현");
+	}
+	
+	/*
+	@GetMapping("/benefitdetail")
+	public List<Benefit> findBenefitByid(@RequestParam(value="id") String id) throws Exception{
+		return benefitService.selectBenefitDetail(id);
+	}
+	*/
 }

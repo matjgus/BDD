@@ -11,11 +11,13 @@ import lombok.Setter;
 @NoArgsConstructor
 public class DeedResponseDto {
 	private int deed_idx;
+	private String id;
 	private int uid;
 	private char is_used;
 	
 	public DeedResponseDto(Deed entity) {
 		this.deed_idx = entity.getDeed_idx();
+		this.id = entity.getId();
 		this.uid = entity.getUid();
 		this.is_used = entity.getIs_used();
 	}

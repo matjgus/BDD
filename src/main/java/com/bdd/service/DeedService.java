@@ -2,6 +2,7 @@ package com.bdd.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -23,6 +24,19 @@ public class DeedService {
 	public int save(DeedRequestDto requestDto) {
 		return deedRepository.save(requestDto.toEntity()).getDeed_idx();
 	}
+	
+	//------------------------------------
+	@Transactional
+	public List<Deed> selectDeedDetail(String id) throws Exception{
+		List<Deed> result = deedRepository.findByid(id);
+        //System.out.println("서비스서비스1=================================");
+        //System.out.println("서비스서비스2=================================");
+		System.out.println(result);
+
+		return result;
+	}
+	//------------------------------------
+
 	@Transactional
 	public List<DeedResponseDto> findAll(){
 		List<Deed> entityList = deedRepository.findAll();
@@ -33,4 +47,6 @@ public class DeedService {
 		}
 		return deedList;
 	}
+
+
 }
