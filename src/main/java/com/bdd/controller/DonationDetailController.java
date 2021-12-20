@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bdd.domain.entity.board.DonationDetail;
 import com.bdd.dto.board.DonationDetailRequestDto;
 import com.bdd.dto.board.DonationDetailResponseDto;
 import com.bdd.service.DonationDetailService;
@@ -43,4 +45,15 @@ public class DonationDetailController {
 	// 	}
 	// 	return donationDetailList;
 	// }
+//	
+//	@GetMapping("/d_detail_get")
+//	public List<DonationDetail> findBydonorUid() throws Exception{
+//		System.out.println("어디서 터지노");
+//		System.out.println(donationDetailService.selectDonationDetail("rlatpgus4444"));
+//		return donationDetailService.selectDonationDetail("rlatpgus4444");
+//	}
+	@GetMapping("/d_detail_get")
+	public List<DonationDetail> findBydonorUid(@RequestParam(value="donorUid") String donorUid) throws Exception{
+				return donationDetailService.selectDonationDetail(donorUid);
+	}
 }
