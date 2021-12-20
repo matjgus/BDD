@@ -14,7 +14,7 @@ public class DonationDetailRequestDto {
 	private Long storyIdx;
 	private String donorUid;
 	private String doneeUid;
-	private int donationCount;
+	private int donation_count;
 	
 	public DonationDetail toEntity() {
 		return DonationDetail.builder()
@@ -22,7 +22,7 @@ public class DonationDetailRequestDto {
 				.storyIdx(storyIdx)
 				.donorUid(donorUid)
 				.doneeUid(doneeUid)
-				.donationCount(donationCount)
+				.donationCount(donation_count)
 				.build();
 	}
 	

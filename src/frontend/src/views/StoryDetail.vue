@@ -158,6 +158,8 @@ export default{
         })
             .catch(error => 
                 console.log(error))
+
+            axios.post('http://localhost:9999/d_count',Params)
         }
     },
     gettime(){
