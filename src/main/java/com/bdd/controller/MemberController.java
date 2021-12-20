@@ -1,10 +1,12 @@
 package com.bdd.controller;
 
+import com.bdd.domain.entity.MemberEntity;
 import com.bdd.dto.MemberDto;
 import com.bdd.service.MemberService;
 import lombok.AllArgsConstructor;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 @CrossOrigin
 @Controller
@@ -129,6 +132,17 @@ public class MemberController {
 //    public String dispAdmin() {
 //        return "/admin";
 //    }
+//    @ResponseBody
+//    @GetMapping("/userlist")
+//    public List<MemberEntity> findByid() throws Exception{
+//    	System.out.println(memberService.selectEntity("t"));
+//    	return memberService.selectEntity("t");
+//    }
+    @ResponseBody
+    @GetMapping("/userlist")
+    public List<MemberEntity> findByid(@RequestParam(value="id") String id) throws Exception{
+    	return memberService.selectEntity(id);
+    }
     
     
     

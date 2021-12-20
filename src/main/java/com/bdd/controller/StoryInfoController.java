@@ -32,7 +32,7 @@ public class StoryInfoController {
 	public Long reqStoryInfo(@RequestBody StoryInfoRequestDto requestDto) {
 		return storyInfoService.save(requestDto);
 	}
-	@PostMapping("/storylist")
+	/*@PostMapping("/storylist")
 	public List<Long> reqStoryInfoList(@RequestBody List<StoryInfoRequestDto> requestDtos){
 		StoryInfoRequestDto requestDto;
 		List<Long> storyList = new ArrayList<Long>();
@@ -42,7 +42,8 @@ public class StoryInfoController {
 			storyList.add(storyInfoService.save(requestDto));
 		}
 		return storyList;
-	}
+	}*/
+
 	@GetMapping("/storydetail")
     public Optional<StoryInfo> findStoryById( @RequestParam(value = "idx")String idx) throws Exception{
         System.out.println("======================!!!!!=========");
