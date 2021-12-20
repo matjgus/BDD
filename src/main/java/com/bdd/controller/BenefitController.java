@@ -44,7 +44,7 @@ public class BenefitController {
 	//list던지기
 	@GetMapping("/benefitdetail")
 	public List<Benefit> findBenefitByid() throws Exception{
-		return benefitService.selectBenefitList("마서현");
+		return benefitService.selectBenefitList("sa01578");
 	}
 	
 	/*
