@@ -1,6 +1,6 @@
 <template>
 <div>
-    
+    <sub-banner/>
     <div class="service-wrap">
         <div class="faq-board">
             <h1>FAQ</h1>
@@ -49,89 +49,40 @@
         </div>
          <div class="faq-board">
             <h1>Q&A</h1>
-            <!--<div id="wrapper">
-                <div class="container">
-                    <form action="/page/service" id="frm" method="get"/>
-                        <div class="col-md-12 mt-4">
-                            <button type="button" class="btn btn-danger" onclick="fnDelete()">Delete</button>
-                        <table class="table table-striped table-horizontal table-bordered mt-3">
-                            <thead class="thead-strong">
-                                <tr>
-                                    <th width="10%">게시글번호</th>
-                                    <th width="">제목</th>
-                                    <th width="20%">작성자</th>
-                                    <th width="20%">작성일</th>
-                                    <th width="10%">필요한 후원 수</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbody">
-                                <tr v-for="(lists,index) in lists" :key = "index">
-                                    <th scope="row">{{ index + 1 }}</th>
-                                        <td>{{ lists.story_title }}</td>
-                                        <td>{{ lists.story_id }}</td>
-                                        <td>{{ lists.story_content }}</td>
-                                        <td>{{ lists.num_donation }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="row">
-                            <div class="col">
-                                <ul class="pagination">
-                                    <li class="page-item" th:each="index : ${#numbers.sequence(1, resultMap.totalPage)}" th:with="paging=${resultMap.paging}">
-                                        <a class="page-link" th:classappend="${paging.pageNumber ==  (index-1)} ? bg-primary : bg-secondary" th:href="@{./service(page=${index - 1},page=${paging.pageSize})}">
-                                            <span class="text-white" th:text="${index}"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
+			<service-list/>
         </div>
-    </div> 
-    <div class="board-page-btn">
-        <router-link to="/serviceboard">1:1 문의하기</router-link>
-        
-    </div>	
+        <div class="board-page-btn">
+            <a @click="service_login">
+            <router-link to="/service_board" >1:1문의하기</router-link>
+            </a>
+        </div>
+    </div>
 </div>
+
 </template>
 <script>
-import axios from 'axios'
+
+import subBanner from '../components/SubBanner.vue';
+import ServiceList from './ServiceList.vue';
+
 export default {
+    components:{subBanner, ServiceList},
     data() {
-        
       return {
-        baseUrl : 'http://localhost:9999',
-        lists : [],
-        story_title: '',
-        story_content: '',
-        story_id: '',
-        num_donation: 0,
-        story_file : '',
-        fin_date : '',
-        reg_date : ''
-      }
+       }
       
     },
     
     methods:
     {
-    getlist(){
-        axios.get('http://localhost:9999/storylist')
-            .then(res =>{ 
-                console.log(res);
-                this.lists = res.data;
-                console.log(this.lists[0]);
-            })
-            .catch(error => 
-            console.log(error))
-        },
-            },
-    mounted(){
-        this.getlist();
-        
-    },
+    service_login(){
+        var loging = this.$session.get('islogin')
+        if (!loging){
+            alert("로그인이 필요합니다")
+            this.$router.push('/login');
+        }
+        }
+    }
 }
 </script>
 
@@ -200,7 +151,9 @@ input[id*="answer"] + label + div p{
 input[id*="answer"]:checked + label + div {max-height:500px;}
 input[id*="answer"]:checked + label em {background-position:0 -30px;}   
 
-
+.container{
+    max-width : 100%;
+}
 .table-bordered td, .table-bordered th {
     border: 1px solid #dee2e6;
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bdd.domain.entity.board.DonationDetail;
@@ -17,12 +18,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Service
 public class DonationDetailService {
+	@Autowired
 	private final DonationDetailRepository donationDetailRepository;
 	
 	@Transactional
-	public Long save(DonationDetailRequestDto requestDto) {
-		return donationDetailRepository.save(requestDto.toEntity()).getStory_idx();
+	public void save(DonationDetailRequestDto requestDto) {
+		System.out.println("aaaaaaaaaaaaaaaaaaa되라");
+		//
+		donationDetailRepository.save(requestDto.toEntity()).getDonation_idx();
+		System.out.println("bbbbbbbbbbbbbbbb");
 	}
+	
 	@Transactional
 	public List<DonationDetailResponseDto> findAll(){
 		List<DonationDetail> entityList = donationDetailRepository.findAll();
@@ -34,4 +40,5 @@ public class DonationDetailService {
 		return donationdetailList;
 	}
 	
+
 }

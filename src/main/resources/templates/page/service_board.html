@@ -15,26 +15,33 @@ $("#footers").load("./footer");  // 추가 인클루드를 원할 경우 이런�
     <div class="service-wrap">
         <div class="board">
             <h1>1:1문의</h1>
-            <div class="write-form">
-                <ul>
-                    <li class="board-ctg">
-                        <div class="board-name"><h4>제목</h4></div>
-                        <div class="board-data"><input type="text"></div>
-                    </li>
-                    <li class="board-ctg">
-                        <div class="board-name"><h4>내용</h4></div>
-                        <div class="board-data"><textarea name="text" id="text"></textarea></div>
-                    </li>
-                    <li class="board-ctg">
-                        <div class="board-name"><h4>첨부파일</h4></div>
-                        <div class="board-data" style="font-size: 20px;"><input type="file"></div>
-                    </li>
-                </ul>
-        </div>
-        <div class="board-btn">
-            <a href="./service">돌아가기</a>
-            <a href="#none">등록하기</a>
-        </div>
+			<form action="/page/service_board/action" method="post">
+	            <div class="write-form">
+	                <ul>
+	                    <li class="board-ctg">
+	                        <div class="board-name"><h4>�젣紐�</h4></div>
+	                        <div class="board-data">
+			    			<input type="text" class="form-control" id="" name="title"></div>
+	                    </li>
+	                    <li class="board-ctg">
+	                        <div class="board-name"><h4>�궡�슜</h4></div>
+	                        <div class="board-data">
+	                        <textarea class="form-control" rows="5" cols="" name="content"></textarea></div>
+	                    </li>
+	                    <li class="board-ctg">
+	                        <div class="board-name"><h4>�옉�꽦�옄</h4></div>
+	                        <div class="board-data">
+			    			<input type="text" class="form-control" id="" name="registerId"></div>
+	                    </li>
+	                    <li class="board-ctg">
+	                        <div class="board-name"><h4>泥⑤��뙆�씪</h4></div>
+	                        <div class="board-data" style="font-size: 20px;"><input type="file"></div>
+	                    </li>
+	                </ul>
+	        	</div>
+			<button type="button" class="btn btn-success" onclick="javascript:location.href='/page/service'">Previous</button>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
             
         </div>
     </div>

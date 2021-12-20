@@ -1,6 +1,6 @@
 <template>
 <div>
-        
+    <div v-if="!prevlog">
     <div class="login-wrap" >
         <div class="login-box">
             <h2>통합 로그인</h2>
@@ -31,6 +31,10 @@
     </div>
 </div>
 </div>
+<div v-if="prevlog">
+    <p class="wrong_access"> 잘못된 접근입니다. </p>
+</div>
+</div>
 </template>
 
 <script>
@@ -41,6 +45,7 @@ export default {
         return{
             id : "",
             password : "",
+            prevlog : this.$session.get('islogin')
         }
     },
     methods :{
@@ -61,6 +66,7 @@ export default {
                     if(flag==0){
                         this.$router.push('/');
                         this.$session.set('islogin', true);
+                        this.$session.set('UserId', this.id);
                         this.$router.go();
                         alert("로그인 성공");
                     }
@@ -102,7 +108,9 @@ export default {
 input[type='text']{width: 100%; height: 40px;}
 
 input[type='password']{width: 100%; height: 40px;}
-
+.wrong_access{
+    font-size:50px;
+}
 .login-box{
     text-align: center;
     width: 100%;

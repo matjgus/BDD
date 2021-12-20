@@ -1,15 +1,24 @@
 package com.bdd.domain.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import lombok.Setter;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Getter
+@Setter
+@Data
 @Table(name = "tb_user")
 public class MemberEntity {
     @Id
@@ -41,9 +50,12 @@ public class MemberEntity {
     private int phonenum;
     
     private String role;
+    
+    @Column(length = 10, nullable = true)
+    private int member_donation;
 
     @Builder
-    public MemberEntity(int uid, String id, String name, String password, int post, String address, String detailaddress, String email, int phonenum, String role) {
+    public MemberEntity(int uid, String id, String name, String password, int post, String address, String detailaddress, String email, int phonenum, String role, int member_donation) {
         this.uid = uid;
         this.id = id;
         this.name = name;
@@ -54,5 +66,8 @@ public class MemberEntity {
         this.email = email;
         this.phonenum = phonenum;
         this.role = role;
+        this.member_donation = member_donation;
     }
+    
+   
 }

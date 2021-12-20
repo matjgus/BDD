@@ -11,10 +11,12 @@ import com.bdd.domain.entity.BaseTimeEntity;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity(name="story")
 @Data
+@Getter
 @NoArgsConstructor
 public class StoryInfo extends BaseTimeEntity{
 	@Id

@@ -21,6 +21,7 @@ public class MemberDto {
     private String email;
     private int phonenum;
     private String role;
+    private int member_donation;
 
     public MemberEntity toEntity(){
         return MemberEntity.builder()
@@ -34,11 +35,16 @@ public class MemberDto {
                 .email(email)
                 .phonenum(phonenum)
                 .role(role)
+                .member_donation(member_donation)
                 .build();
+    }
+    
+    public MemberEntity update() {
+    	return MemberEntity.builder().member_donation(member_donation).build();
     }
 
     @Builder
-    public MemberDto(int uid, String id, String name, String password, int post, String address, String detailaddress, String email, int phonenum, String role) {
+    public MemberDto(int uid, String id, String name, String password, int post, String address, String detailaddress, String email, int phonenum, String role, int member_donation) {
         this.uid = uid;
         this.id = id;
         this.name = name;
@@ -49,5 +55,9 @@ public class MemberDto {
         this.email = email;
         this.phonenum = phonenum;
         this.role = role;
+        this.member_donation = member_donation;
+    } 
+    public void update(int member_donation) {
+        this.member_donation = member_donation;
     }
 }

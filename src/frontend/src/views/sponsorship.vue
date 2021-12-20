@@ -1,34 +1,38 @@
 <template>
 <div>
-
+<sub-banner/>
 
     
     <p class="title">사연목록</p>
-
+    <!-- <p>{{dates}}</p> -->
     <div class="sort-box">
+      <div class="wrap">
       <table class="table table-striped table-horizontal table-bordered mt-3">
-                            <thead class="thead-strong">
-                                <tr>
-                                    <th width="10%">게시글번호</th>
-                                    <th width="">제목</th>
-                                    <th width="20%">작성자</th>
-                                    <th width="20%">작성일</th>
-                                    <th width="10%">필요한 후원 수</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbody">
-                                <tr v-for="(lists,index) in lists" :key = "index">
-                                    <th scope="row">{{ index + 1 }}</th>
-                                        <td>{{ lists.story_title }}</td>
-                                        <td>{{ lists.story_id }}</td>
-                                        <td>{{ lists.story_content }}</td>
-                                        <td>{{ lists.num_donation }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+        <thead class="thead-strong">
+            <tr>
+                <th width="10%">게시글번호</th>
+                <th width="">제목</th>
+                <th width="10%">필요 후원 수</th>
+                <th width="10%">작성일</th>
+                <th width="10%">마감일</th>
+                <th width="10%">작성자</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr  v-for="(list,index) in lists" :key = "index" >
+                <th  scope="row">{{ index + 1 }} </th>
+                    <td @click="goStory(list.story_idx)">{{ list.story_title }}</td>
+                    <td>{{ list.num_donation }}</td>
+                    <td>{{ list.reg_date }}</td>
+                    <td>{{ list.fin_date }}</td>
+                    <td>{{ list.story_id }}</td>
+            </tr>
+        </tbody>
+      </table>
+                         
 
     </div>
-
+</div>
     <div class="story-wrap">
 
       
@@ -57,43 +61,75 @@
       
     
     </div>
+    
 </div>
 </template>
+
+    
 <script>
+import subBanner from '../components/SubBanner.vue';
 import axios from 'axios'
 export default {
+    components:{subBanner},
     data() {
         
       return {
         baseUrl : 'http://localhost:9999',
         lists : [],
+        dates:"",
         story_title: '',
         story_content: '',
         story_id: '',
         num_donation: 0,
         story_file : '',
         fin_date : '',
-        reg_date : ''
+        reg_date : '',
+        pageNum: 0
       }
       
     },
-    
+    props: {
+      pageSize: {
+        type: Number,
+        required: false,
+        default: 10
+      }
+    },
     methods:
     {
+    nextPage(){
+      this.pageNum+=1;
+      this.lists=this.listslice();
+    },
+    goStory(idx){
+            this.$router.push('/storydetail/'+idx);
+    },
+    prevPage(){
+      this.pageNum-=1;
+      this.lists=this.listslice();
+    },
     getlist(){
         axios.get('http://localhost:9999/storylist')
             .then(res =>{ 
-                console.log(res);
                 this.lists = res.data;
-                console.log(this.lists[0]);
+                this.page = this.pageCount();
             })
+            
             .catch(error => 
             console.log(error))
         },
-            },
+    
+    gettime(){
+    var date = new Date();
+    this.dates = date.getFullYear() + "-"
+    + (date.getMonth()+1) + "-" +
+    date.getDate();
+    },
+  },
+  
     mounted(){
         this.getlist();
-        
+        this.gettime();
     },
 }
 </script>
@@ -179,5 +215,14 @@ body {
     margin : 0 auto;
     text-align: center;
 }
-
+.btn-cover{
+  display : flex;
+  margin : 0 auto;
+  justify-content: center;
+  font-size: 20px;
+  margin : 20px 0;
+}
+.sort-box{
+  margin : 0 auto 100px auto;
+}
 </style>
