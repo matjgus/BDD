@@ -87,6 +87,14 @@ export default {
 </script>
 
 <style scoped>
+@media(max-width: 480px){
+.faq-board{
+    margin: 50px;
+    padding: 50px;
+    border: 1px solid red;
+}
+}
+@media(min-width: 1400px){
 .service-wrap {
     margin : 0 auto;
     max-width: 1800px;
@@ -180,5 +188,6 @@ input[id*="answer"]:checked + label em {background-position:0 -30px;}
 
 .page-link:not([disabled]):not(.disabled) {
     cursor: pointer;
+}
 }
 </style>

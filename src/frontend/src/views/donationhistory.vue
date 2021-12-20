@@ -71,6 +71,12 @@ export default {
 </script>
 
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 .donation-history-wrap .wrap .donation-history-title div{
     display: flex;
     justify-content: space-between;
@@ -120,5 +126,5 @@ export default {
     color:white;
 }
 
-
+}
 </style>

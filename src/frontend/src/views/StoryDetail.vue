@@ -12,7 +12,8 @@
                 <p class="content-small">목표</p>
                 <p class="content-big"><b>1000</b>장</p>
                 <p class="content-small">현황</p>
-                <p class="content-big"><b>{{lists.num_donation}}</b>장</p>
+                <!-- <p class="content-big"><b>{{lists.num_donation}}</b>장</p> -->
+                 <p class="content-big"><b>{{total_deed}}</b>장</p>
                 <p class="content-small">남은시간</p>
                 <p class="content-big"><b>{{remaining_days}}</b>일</p>
                 <div class="content-info-box">
@@ -51,8 +52,10 @@
             </div>
             <div class="layer-main">
                 <div class="text-box">
-                   <input  v-model="donation_count" type="text" placeholder="기증할 헌혈증 수 입력" class="membership-info"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                   <p class="content-tiny">(숫자만 입력가능)</p>
+                   <input  v-model="donation_count" type="number" min="1"
+                   placeholder="기증할 헌혈증 수 입력" class="membership-info"/>
+                   <p v-if="login" class="content-tiny"><span>( {{ userlists[0].my_deednum }}</span>개 보유중 )</p>
+                   <p v-if="!login" class="content-tiny"><span>( 0</span>개 보유중 )</p>
                    <button @click="Postdonation" type="button" class="send-info-btn">후원하기</button>
                 </div>
             </div>
@@ -69,6 +72,7 @@ export default{
     components:{subBanner},
     data() {
         return{
+            login : this.$session.get('islogin'),
             storyIdx : this.$route.params.idx,
             lists : [],
             donationinfo : [],
@@ -78,6 +82,10 @@ export default{
             donor_uid : this.$session.get('UserId'),
             donee_uid : "",
             donation_count : 1,
+            id : this.$session.get('UserId'),
+            userlists:[],
+            detail_list:[],
+            total_deed:0
             //login_id:this.$session.get('id'),
             
         }
@@ -103,10 +111,11 @@ export default{
     getstory(){
         axios.get('http://localhost:9999/storydetail?idx='+this.storyIdx)
         .then(res =>{ 
-            console.log(res);
+            //console.log(res);
             this.lists = res.data;
             this.gettime();
             this.count_date();
+            this.get_donationdetail();
             //console.log(this.lists);
         })
         .catch(error => 
@@ -126,25 +135,30 @@ export default{
         else{
             this.remaining_days = parseInt(this.lists.fin_date.substr(8,10)) - parseInt(this.dates.substr(8,10))
         }
-        console.log(this.remaining_days);
+        //console.log(this.remaining_days);
     },
     Postdonation(){
         var Params ={
-            'story_idx' : this.storyIdx,
-            'donor_uid' : this.donor_uid,
-            'donee_uid' : this.lists.story_id,
-            'donation_count' : this.donation_count,
+            'storyIdx' : this.storyIdx,
+            'donorUid' : this.donor_uid,
+            'doneeUid' : this.lists.story_id,
+            'donationCount' : this.donation_count,
             }
         console.log(this.donor_uid);
-        axios.post('http://localhost:9999/d_detail',Params)
-        .then(res =>{ 
-            console.log(res);
-            alert("후원에 감사합니다.")
-            this.$router.go("");
+        if(this.donation_count > this.userlists[0].my_deednum){
+            alert("보유한 증서 수를 넘을 수 없습니다");
+        }
+        else{
+            axios.post('http://localhost:9999/d_detail',Params)
+            .then(res =>{ 
+                console.log(res);
+                alert("후원에 감사합니다.")
+                this.$router.go("");
 
         })
-        .catch(error => 
-            console.log(error))
+            .catch(error => 
+                console.log(error))
+        }
     },
     gettime(){
     var date = new Date();
@@ -153,20 +167,63 @@ export default{
     date.getDate();
     //console.log(this.dates);
     },
+    get_user(){
+        axios.get('http://localhost:9999/userlist', {
+            params : {
+                id : this.id,
+            }
+        })
+        .then(res =>{ 
+            console.log(res);
+            this.userlists = res.data;
+            //console.log(this.userlists);
+        })
+        .catch(error => 
+            console.log(error))
+    },
+    get_donationdetail(){
+        axios.get('http://localhost:9999/d_detaillist')
+        .then(res =>{ 
+            console.log("----------------donationdetail")
+            console.log(res);
+            this.detail_list = res.data;
+            this.count_deed();
+            //console.log(this.userlists);
+        })
+        .catch(error => 
+            console.log(error))
+    },
+    count_deed(){
+        for(var i=0; i<this.detail_list.length; i++){
+            if (this.detail_list[i].storyIdx == this.storyIdx){
+                this.total_deed += this.detail_list[i].donationCount;
+            }
+        }
+        console.log("test==========")
+        //console.log(this.storyIdx);
+        console.log(this.total_deed);
+    }
   },
     mounted(){
         
     },
     created(){
         this.getstory();
-        this.gettime();
-        this.count_date();
+        this.get_user();
+        
+        
     }
 }
 </script>
 
 
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 .story-wrap {
     margin: 40px;
     text-align: center;
@@ -377,5 +434,5 @@ margin-right: 4%;
 }
 .story-info-content{
     font-size:20px;
-}
+}}
 </style>

@@ -98,7 +98,12 @@ export default {
 </script>
 
 <style scoped>
-
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 .login-box h2{
     text-align: center;
     font-size : 40px;
@@ -136,4 +141,5 @@ input[type='password']{width: 100%; height: 40px;}
 .login-box .join-btn a{
     display: block; border: 1px solid #ccc; line-height: 50px; text-align: center;
     border-radius: 30px;}
+}
 </style>

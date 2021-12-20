@@ -95,6 +95,10 @@ export default{
 </script>
 
 <style scoped>
+@media(max-width: 500px) {
+    
+}
+@media(min-width: 1400px){
 .mySidenav a:hover {
     cursor: pointer;
 }
@@ -438,24 +442,11 @@ export default{
     cursor: pointer;
 }
 
-.gobackbtn{ 
-    top: 63%; 
-    left: 90%; 
-    width: 50px; 
-    height: 50px; 
-    border-radius: 80%; 
-    font-size: 15px;
-    font-weight: 700;
-    background-color: silver; 
-    border: none;
-    position: fixed; z-index: 2; 
-    cursor: pointer;
-}
-
 .footer-box{
     background-color: silver;
 }
 .bottom-info-box{
     background-color: #f4f4f4;
+}
 }
 </style>
