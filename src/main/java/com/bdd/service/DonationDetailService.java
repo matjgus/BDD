@@ -26,7 +26,7 @@ public class DonationDetailService {
 	public void save(DonationDetailRequestDto requestDto) {
 		System.out.println("aaaaaaaaaaaaaaaaaaa되라");
 		//
-		donationDetailRepository.save(requestDto.toEntity()).getDonation_idx();
+		donationDetailRepository.save(requestDto.toEntity()).getDonationIdx();
 		System.out.println("bbbbbbbbbbbbbbbb");
 	}
 	@Transactional
@@ -41,8 +41,8 @@ public class DonationDetailService {
 	}	
 	
 	@Transactional
-	public List<DonationDetail> selectDonationDetail(String donor_uid) throws Exception{
-		List<DonationDetail> result = donationDetailRepository.findBydonorUid(donor_uid);
+	public List<DonationDetail> selectDonationDetail(String donorUid) throws Exception{
+		List<DonationDetail> result = donationDetailRepository.findBydonorUid(donorUid);
 		System.out.println(result);
 		return result;
 		
