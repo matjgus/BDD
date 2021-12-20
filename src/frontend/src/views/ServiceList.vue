@@ -10,7 +10,7 @@
                                 <th width="10%">글번호</th>
                                 <th width="">제목</th>
                                 <th width="10%">작성자</th>
-                                <th width="10%">작성일</th>
+                                <th width="15%">작성일</th>
                             </tr>
                         </thead>
                         <tbody id="tbody">
@@ -18,8 +18,8 @@
                             <tr v-for="(result,index) in ResultMap" :key = "result" >
                                 <th  scope="row">{{ nowpage*5+index + 1 }} </th>
                                 <td>{{ result.title }}</td>
-                                <td>{{ result.title }}</td>
-                                <td>{{ result.readCnt }}</td>
+                                <td>{{ result.registerId }}</td>
+                                <td>{{ result.registerTime }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -84,3 +84,13 @@ export default {
     },
 }
 </script>
+<style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
+    
+}
+</style>

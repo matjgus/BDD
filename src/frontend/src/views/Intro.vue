@@ -71,6 +71,12 @@ export default {
 </script>
 
 <style>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 .intro > ul> li{
     list-style: none;
     margin: 50px;
@@ -220,5 +226,5 @@ export default {
     color: red;
     font-size: 30px;
 }
-
+}
 </style>

@@ -53,6 +53,12 @@ export default{
 </script>
 
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 .hooper{
     height:60vh;
     min-height: 400px;
@@ -83,5 +89,6 @@ export default{
     font-size : 60px;
     color: white;
     text-align: center;
+}
 }
 </style>

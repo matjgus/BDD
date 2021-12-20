@@ -136,6 +136,12 @@ export default {
 
 
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 body {
     text-align: center;
 }
@@ -224,5 +230,6 @@ body {
 }
 .sort-box{
   margin : 0 auto 100px auto;
+}
 }
 </style>

@@ -39,6 +39,12 @@ export default {
 </script>
 
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 body {
     margin:0 auto;
     justify-content: center;
@@ -74,5 +80,5 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+}
 </style>

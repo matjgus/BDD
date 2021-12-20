@@ -247,6 +247,12 @@ export default {
 </script>
    
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 .wrong_access{
     font-size:50px;
 }
@@ -554,5 +560,6 @@ export default {
 a:hover {
 	color: rgb(27, 111, 194);
 	cursor: pointer;
+}
 }
 </style>

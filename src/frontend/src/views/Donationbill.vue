@@ -1,7 +1,9 @@
+
 <template>
-<div>
+
+<div class="row col-md-12" >
 <sub-banner/>
-<div class="wrap">
+<div class="wrap col-md-6">
     <div class="donation-bill">
         <div class="issue-bill">
             <h1>기부금 영수증 발급하기</h1>
@@ -61,6 +63,12 @@ export default {
 }
 </script>
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 .swiper-wrapper .banner1{
     background:url("../assets/img/banner2.jpg");
     object-fit: cover;
@@ -197,5 +205,6 @@ export default {
     line-height: 30px;
     background: #007AAE;
     cursor: pointer;
+}
 }
 </style>
