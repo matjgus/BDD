@@ -12,8 +12,8 @@
        <div class="swiper-wrazpper"> 
            <hooper :infiniteScroll="true" :wheelControl="false" :mouseDrag="true" :autoPlay="true" :playSpeed="3000" :itemsToShow="4" class="buhooper">
                <slide v-for="bulist in bulists" v-bind:key="bulist">
-                    <div @click="goStory(1)" class="card" >
-                        <a><img :src="require(`@/assets/img/${bulist.img}`)"></a>
+                    <div class="card" >
+                        <a @click=" goStory(bulist.link)"  ><img :src="require(`@/assets/img/${bulist.img}`)"></a>
                         <h1> {{bulist.text}}</h1>
                     </div>
                </slide>
@@ -29,7 +29,7 @@
                 <div class="status-box" >
                     <div>
                         <p>
-                            <span>총 기증한 사람 : </span>
+                            <span >총 기증한 사람 : </span>
                             <span class="memberCountCon">{{total_donor}} 명</span>
                         </p>
                             <p>
@@ -74,13 +74,13 @@
 //import axios from 'axios'
 import { Hooper, Slide } from 'hooper';
 import 'hooper/dist/hooper.css';
-import axios from 'axios'
+import axios from 'axios';
 import MainBanner from '../components/MainBanner.vue';
 export default {
     components: {
         Hooper,
         Slide,
-        MainBanner,
+        MainBanner
     },
     data(){
         return{
@@ -93,6 +93,7 @@ export default {
             total_donor:0,
             lists : [],
             pageNum: 0,
+            idx : 5,
             palists:[
                 {
                     img:"part_ent1.png",
@@ -114,49 +115,50 @@ export default {
                 },
             ],
             bulists:[
+                
                 {
-                    link: "/storydetail/1",
+                    link: 1,
                     img:"story2.jpg",
-                    text: "",
+                    text: "피1",
                 },
                 {
-                    link:"#none",
+                    link:2,
                     img:"story3.jpg",
-                    text:"피가 부족해요",
+                    text:"피2",
                 },
                 {
-                    link:"#none",
+                    link:3,
                     img:"story4.jpg",
-                    text:"피가 급합니다",
+                    text:"피3",
                 },
                 {
-                    link:"#none",
+                    link:4,
                     img:"story5.jpg",
-                    text:"피가 너무 비싸요",
-                },
-            ],
-            
+                    text:"피4",
+                }
+            ]
         }
     },
-    mathods: {
+    methods: {
         goStory(idx){
-            this.$router.push('/storydetail/'+idx);
+            this.$router.push(''+idx);
         },
         getdonation(){
             console.log("hey");
-        }
+        },
     },
     mounted(){
         this.getdonation();
     },
     created(){
         // 사연 hooper용
+        this.getdonation();
         axios.get('http://localhost:9999/storylist')
             .then(res =>{ 
                 this.lists = res.data;
                 for(var i =0; i<5; i++){
-                   this.bulists[i].text = (this.lists[i].story_title);
-                   this.bulists[i].link = "/storydetail/"+[i];
+                this.bulists[i].text = (this.lists[i].story_title);
+                this.bulists[i].link = "/storydetail/"+[i+1];
                 }
                 console.log(this.bulists[1].text)
                 // console.log(this.lists[1]);
@@ -170,9 +172,9 @@ export default {
         .then(res =>{ 
             this.donation = res.data;
             for(var i =0; i<this.donation.length; i++){
-                this.total_donation += this.donation[i].donation_count;
-                this.donee_list.push(this.donation[i].donee_uid) ;
-                this.donor_list.push(this.donation[i].donor_uid) ;
+                this.total_donation += this.donation[i].donationCount;
+                this.donee_list.push(this.donation[i].doneeUid) ;
+                this.donor_list.push(this.donation[i].donorUid) ;
             }
             //console.log(this.donee_list);
             const donee_set = new Set(this.donee_list);
@@ -186,11 +188,20 @@ export default {
             })
         .catch(error => 
             console.log(error));
-        
+            
+        }
     }
-}
 </script>
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
+    
+
+
 .palist{
     width:13vw;
 }
@@ -459,5 +470,5 @@ export default {
 
  margin:auto auto;
 
-}
+}}
 </style>
