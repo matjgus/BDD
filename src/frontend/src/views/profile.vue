@@ -55,6 +55,12 @@ export default {
 }
 </script>
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 .container{
     margin : 50px auto;
     max-width: 700px;
@@ -92,4 +98,5 @@ input[type='password']{padding-left: 10px; width: 80%; height: 40px;margin : 10p
     display: block; border: 1px solid #ccc; line-height: 50px; text-align: center;
     width : 30%;
     border-radius: 50px;margin: 0 5px;}
+}
 </style>

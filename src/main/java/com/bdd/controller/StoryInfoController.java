@@ -42,7 +42,7 @@ public class StoryInfoController {
 	public Long reqStoryInfo(@RequestBody StoryInfoRequestDto requestDto) {
 		return storyInfoService.save(requestDto);
 	}
-	@PostMapping("/storylist")
+	/*@PostMapping("/storylist")
 	public List<Long> reqStoryInfoList(@RequestBody List<StoryInfoRequestDto> requestDtos){
 		StoryInfoRequestDto requestDto;
 		List<Long> storyList = new ArrayList<Long>();
@@ -52,7 +52,8 @@ public class StoryInfoController {
 			storyList.add(storyInfoService.save(requestDto));
 		}
 		return storyList;
-	}
+	}*/
+
 	@GetMapping("/storydetail")
     public Optional<StoryInfo> findStoryById( @RequestParam(value = "idx")String idx) throws Exception{
         System.out.println("======================!!!!!=========");
@@ -78,7 +79,7 @@ public class StoryInfoController {
 	public void donationCount(@RequestBody DonationDetailRequestDto requestDto) {
 		System.out.println(requestDto.getDonation_count() + "dsdsd");
 		donation_count = requestDto.getDonation_count();
-		storyInfoService.updateDonation(requestDto.getStory_idx(), requestDto.getDonation_count());
+		storyInfoService.updateDonation(requestDto.getStoryIdx(), requestDto.getDonation_count());
 	}
 	
 

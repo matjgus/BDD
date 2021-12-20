@@ -92,12 +92,18 @@ export default {
 </script>
 
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 .benefit-title h1 {
     font-size: 40px;
     text-align: center;
 }
 .total-donation-box{
-    width : 30%;
+    width : 40%;
     border : 1px solid rgb(240, 240, 240);
     border-radius: 3%;
     margin-top: 5vh;
@@ -247,4 +253,5 @@ export default {
     font-size: 15px;
     border-radius: 10px;
 } */
+}
 </style>

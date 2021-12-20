@@ -12,24 +12,31 @@
                 <p class="content-small">목표</p>
                 <p class="content-big"><b>1000</b>장</p>
                 <p class="content-small">현황</p>
-                <p class="content-big"><b>{{lists.num_donation}}</b>장</p>
+                <!-- <p class="content-big"><b>{{lists.num_donation}}</b>장</p> -->
+                 <p class="content-big"><b>{{total_deed}}</b>장</p>
                 <p class="content-small">남은시간</p>
-                <p class="content-big"><b>{{parseInt(lists.fin_date.substr(8,10)) - parseInt(dates.substr(8,10))}}</b>일</p>
+                <p class="content-big"><b>{{remaining_days}}</b>일</p>
                 <div class="content-info-box">
+                <div v-if="remaining_days!= 0">
                     <p class="content-tiny"><b>{{lists.fin_date}}</b>까지 목표를 <br>
                         채우지 못하면 마감일까지 <br>
                         모인 헌혈증 수만큼 후원합니다.</p>
                 </div>
-                
+                <div v-if="remaining_days== 0">
+                    <p class="content-tiny"><b>{{lists.fin_date}}</b>까지 후원하고 <br>
+                        마감된 후원입니다.<br></p>
+                </div>
+                </div>
+                <div v-if="remaining_days!= 0">
                 <button @click="donationclick" type="button" class="terms-info">후원하기</button>
-                
+                </div>
             </div>
         </div>
         <div class="story-info">
             <p class="story-info-content">{{lists.story_content}}</p>
-
+             <div v-if="remaining_days!= 0">
             <button @click="donationclick" type="button" class="terms-info">후원하기</button>
-        
+        </div>
         </div>
             
         </div>
@@ -45,15 +52,16 @@
             </div>
             <div class="layer-main">
                 <div class="text-box">
-                   <input  v-model="donation_count" type="text" placeholder="기증할 헌혈증 수 입력" class="membership-info"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                   <p class="content-tiny">(숫자만 입력가능)</p>
+                   <input  v-model="donation_count" type="number" min="1"
+                   placeholder="기증할 헌혈증 수 입력" class="membership-info"/>
+                   <p v-if="login" class="content-tiny"><span>( {{ userlists[0].my_deednum }}</span>개 보유중 )</p>
+                   <p v-if="!login" class="content-tiny"><span>( 0</span>개 보유중 )</p>
                    <button @click="Postdonation" type="button" class="send-info-btn">후원하기</button>
                 </div>
             </div>
         </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -64,6 +72,7 @@ export default{
     components:{subBanner},
     data() {
         return{
+            login : this.$session.get('islogin'),
             storyIdx : this.$route.params.idx,
             lists : [],
             donationinfo : [],
@@ -71,9 +80,12 @@ export default{
             remaining_days : "",
             idx : 3,
             donor_uid : this.$session.get('UserId'),
-            // donor_uid : "hi",
-            donee_uid : "hih",
+            donee_uid : "",
             donation_count : 1,
+            id : this.$session.get('UserId'),
+            userlists:[],
+            detail_list:[],
+            total_deed:0
             //login_id:this.$session.get('id'),
             
         }
@@ -99,56 +111,121 @@ export default{
     getstory(){
         axios.get('http://localhost:9999/storydetail?idx='+this.storyIdx)
         .then(res =>{ 
-            console.log(res);
+            //console.log(res);
             this.lists = res.data;
-            console.log(this.lists);
+            this.gettime();
+            this.count_date();
+            this.get_donationdetail();
+            //console.log(this.lists);
         })
         .catch(error => 
             console.log(error))
     },
+    count_date(){
+        this.remaining_days = parseInt(this.lists.fin_date.substr(8,10)) - parseInt(this.dates.substr(8,10))
+        // 년도 체크
+        if (this.lists.fin_date.substr(0,3) < this.dates.substr(0,3)){
+            this.remaining_days = 0;
+        }
+        // 월 체크
+        if (this.lists.fin_date.substr(5,6) < this.dates.substr(5,6)){
+        this.remaining_days = 0;
+        }
+        // 기한이 지나지 않았다면
+        else{
+            this.remaining_days = parseInt(this.lists.fin_date.substr(8,10)) - parseInt(this.dates.substr(8,10))
+        }
+        //console.log(this.remaining_days);
+    },
     Postdonation(){
         var Params ={
-            'story_idx' : this.storyIdx,
-            'donor_uid' : this.donor_uid,
-            'donee_uid' : this.donee_uid,
-            'donation_count' : this.donation_count,
+            'storyIdx' : this.storyIdx,
+            'donorUid' : this.donor_uid,
+            'doneeUid' : this.lists.story_id,
+            'donationCount' : this.donation_count,
             }
         console.log(this.donor_uid);
-        axios.post('http://localhost:9999/d_detail',Params)
-        .then(res =>{ 
-            console.log(res);
-            alert("후원에 감사합니다.")
-            this.$router.go("");
+        if(this.donation_count > this.userlists[0].my_deednum){
+            alert("보유한 증서 수를 넘을 수 없습니다");
+        }
+        else{
+            axios.post('http://localhost:9999/d_detail',Params)
+            .then(res =>{ 
+                console.log(res);
+                alert("후원에 감사합니다.")
+                this.$router.go("");
+
         })
-        .catch(error => 
-            console.log(error))
-        axios.post('http://localhost:9999/d_count',Params)
-        .then(res =>{ 
-            console.log(res);
-            this.$router.go("");
-        })
-        .catch(error => 
-            console.log(error))
+            .catch(error => 
+                console.log(error))
+
+            axios.post('http://localhost:9999/d_count',Params)
+        }
     },
     gettime(){
     var date = new Date();
     this.dates = date.getFullYear() + "-"
     + (date.getMonth()+1) + "-" +
     date.getDate();
+    //console.log(this.dates);
     },
+    get_user(){
+        axios.get('http://localhost:9999/userlist', {
+            params : {
+                id : this.id,
+            }
+        })
+        .then(res =>{ 
+            console.log(res);
+            this.userlists = res.data;
+            //console.log(this.userlists);
+        })
+        .catch(error => 
+            console.log(error))
+    },
+    get_donationdetail(){
+        axios.get('http://localhost:9999/d_detaillist')
+        .then(res =>{ 
+            console.log("----------------donationdetail")
+            console.log(res);
+            this.detail_list = res.data;
+            this.count_deed();
+            //console.log(this.userlists);
+        })
+        .catch(error => 
+            console.log(error))
+    },
+    count_deed(){
+        for(var i=0; i<this.detail_list.length; i++){
+            if (this.detail_list[i].storyIdx == this.storyIdx){
+                this.total_deed += this.detail_list[i].donationCount;
+            }
+        }
+        console.log("test==========")
+        //console.log(this.storyIdx);
+        console.log(this.total_deed);
+    }
   },
     mounted(){
-        this.gettime();
+        
     },
     created(){
-        console.log(this.storyIdx);
         this.getstory();
+        this.get_user();
+        
+        
     }
 }
 </script>
 
 
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 .story-wrap {
     margin: 40px;
     text-align: center;
@@ -359,5 +436,5 @@ margin-right: 4%;
 }
 .story-info-content{
     font-size:20px;
-}
+}}
 </style>

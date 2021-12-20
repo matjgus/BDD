@@ -33,4 +33,12 @@ public class BenefitService {
 		}
 		return benefitList;
 	}
+	
+	//추가
+	public List<Benefit> selectBenefitList(String id) throws Exception{
+		List<Benefit> result = benefitRepository.findByid(id);
+		
+		System.out.println(result);
+		return result;
+	}
 }

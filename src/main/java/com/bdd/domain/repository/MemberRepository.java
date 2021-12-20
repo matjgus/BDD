@@ -1,11 +1,10 @@
 package com.bdd.domain.repository;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.bdd.domain.entity.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.bdd.domain.entity.MemberEntity;
+import java.util.List;
+import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<MemberEntity, Integer> {
     

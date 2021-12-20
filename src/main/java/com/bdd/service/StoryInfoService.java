@@ -28,7 +28,7 @@ public class StoryInfoService {
 
 	// 임시----------------------------------------------------------------------------
 	@Transactional
-	public Optional<StoryInfo> selectStoryDetail(long story_idx) throws Exception {
+	public Optional<StoryInfo> selectStoryDetail(Long story_idx) throws Exception {
 
 		Optional<StoryInfo> result = storyInfoRepository.findById(story_idx);
 		System.out.println("==============================================");

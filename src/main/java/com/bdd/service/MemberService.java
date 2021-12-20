@@ -98,5 +98,12 @@ public class MemberService implements UserDetailsService {
             return 0;
         }
     }
+    
+    @Transactional
+    public List<MemberEntity> selectEntity(String id) throws Exception{
+    	List<MemberEntity> result = memberRepository.findByid(id);
+    	System.out.println(result);
+    	return result;
+    }
 
 }

@@ -2,12 +2,15 @@ package com.bdd.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bdd.domain.entity.board.Deed;
 import com.bdd.dto.board.DeedRequestDto;
 import com.bdd.dto.board.DeedResponseDto;
 import com.bdd.service.DeedService;
@@ -38,5 +41,19 @@ public class DeedController {
 		}
 		return deedList;
 	}
+	@GetMapping("/deeddetail")
+	public List<Deed> findDeedByid() throws Exception{
+        System.out.println("후원증컨트롤러11111=================================");
+        System.out.println("후원증컨트롤러22222=================================");
+		return deedService.selectDeedDetail("sa01578");
+		
+	}
+	
+	/*
+	@GetMapping("/deeddetail")
+	public List<Deed> findDeedByid(@RequestParam(value="id") String id) throws Exception{
+		return deedService.selectDeedDetail(id);
+	}
+	*/
 	
 }

@@ -10,19 +10,19 @@ import lombok.Setter;
 @NoArgsConstructor
 @lombok.ToString
 public class DonationDetailRequestDto {
-	private Long story_idx;
-	private Long donation_idx;
-	private String donor_uid;
-	private String donee_uid;
+	private Long donationIdx;
+	private Long storyIdx;
+	private String donorUid;
+	private String doneeUid;
 	private int donation_count;
-
+	
 	public DonationDetail toEntity() {
 		return DonationDetail.builder()
-				.donation_idx(donation_idx)
-				.donation_count(donation_count)
-				.donee_uid(donee_uid)
-				.donor_uid(donor_uid)
-				.story_idx(story_idx)
+				.donationIdx(donationIdx)
+				.storyIdx(storyIdx)
+				.donorUid(donorUid)
+				.doneeUid(doneeUid)
+				.donationCount(donation_count)
 				.build();
 	}
 	

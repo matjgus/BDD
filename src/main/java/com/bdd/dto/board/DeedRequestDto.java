@@ -11,12 +11,14 @@ import lombok.Setter;
 @NoArgsConstructor
 public class DeedRequestDto {
 	private int deed_idx;
+	private String id;
 	private int uid;
 	private char is_used;
 	
 	public Deed toEntity() {
 		return Deed.builder()
 				.deed_idx(deed_idx)
+				.id(id)
 				.uid(uid)
 				.is_used(is_used)
 				.build();

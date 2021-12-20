@@ -1,15 +1,17 @@
+
 <template>
-<div>
+
+<div class="row col-md-12" >
 <sub-banner/>
-<div class="wrap">
+<div class="wrap col-md-6">
     <div class="donation-bill">
         <div class="issue-bill">
             <h1>기부금 영수증 발급하기</h1>
-            <a @click="donation_bill_login" href = #none id="popup-button">바로가기</a>
+            <a @click="donation_bill_login" id="popup-button">바로가기</a>
         </div>
         <div class="donation-history">
             <h1>후원 내역 확인하기</h1>
-            <a href = "./donationhistory">바로가기</a>
+            <a href = "./mydeed">바로가기</a>
         </div>
         <div class="explanation">
             <p> * 개인 주민등록번호가 등록되어 후원 중인 경우,
@@ -31,7 +33,8 @@
             <option value=no6>6회 기부</option>
           </select>
         </p>
-        <div class="exit">닫기</div>
+        <div @click="bill_exit" id="submit" class="submit">받기</div>
+        <div @click="bill_exit" id="exit" class="exit">닫기</div>
       </div>
   </div>
 </div>
@@ -55,12 +58,26 @@ export default {
             alert("로그인이 필요합니다")
             this.$router.push('/login');
         }
+        else {
+            var layerstyle = document.getElementById("popup")
+            layerstyle.style.display = "block";
         }
+        },
+    bill_exit(){
+        var layerstyle = document.getElementById("popup")
+            layerstyle.style.display = "none";
+    }
     }
   
 }
 </script>
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 .swiper-wrapper .banner1{
     background:url("../assets/img/banner2.jpg");
     object-fit: cover;
@@ -173,7 +190,7 @@ export default {
     top: 50%;
     transform: translate(-50%,-50%);
     width: 20vw;
-    height: 40vh;
+    height: 20vh;
     text-align: center;
     background: #fff;
     border-radius: 5%;
@@ -186,10 +203,10 @@ export default {
 #popmenu select{
     font-size:large;
 }
-.exit {
+.submit{
     position: absolute;
-    left: 50%;
-    bottom: 10px;
+    left: 43%;
+    bottom: 2vh;
     transform: translate(-50%,0);
     width: 60px;
     height: 30px;
@@ -197,5 +214,18 @@ export default {
     line-height: 30px;
     background: #007AAE;
     cursor: pointer;
+}
+.exit {
+    position: absolute;
+    left: 57%;
+    bottom: 2vh;
+    transform: translate(-50%,0);
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background: #007AAE;
+    cursor: pointer;
+}
 }
 </style>

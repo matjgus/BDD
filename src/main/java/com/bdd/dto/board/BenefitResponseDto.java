@@ -10,12 +10,14 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class BenefitResponseDto {
+	private String id;
 	private int uid;
 	private char is_get10;
 	private char is_get20;
 	private char is_get30;
 	
 	public BenefitResponseDto(Benefit entity) {
+		this.id = entity.getId();
 		this.uid = entity.getUid();
 		this.is_get10 = entity.getIs_get10();
 		this.is_get20 = entity.getIs_get20();

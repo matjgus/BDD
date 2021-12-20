@@ -87,6 +87,12 @@ export default {
 
 
 <style scoped>
+/* 모바일용 화면 */
+@media(max-width: 480px) {
+    
+}
+/* 컴퓨터용 화면 */
+@media(min-width: 1400px) {
 .board{
     width: 100%;
     max-width: 1500px;
@@ -118,5 +124,6 @@ export default {
 .board-btn a{ border: 1.5px solid rgb(160, 156, 156); padding: 10px 20px; margin: 0px 20px;}
 .wrong_access{
     font-size:50px;
+}
 }
 </style>

@@ -17,13 +17,15 @@ public class Deed {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	
 	private int deed_idx;
+	private String id;
 	private int uid;
 	private char is_used;
 	
 	@Builder
-	public Deed(int deed_idx, int uid, char is_used) {
+	public Deed(int deed_idx, String id, int uid, char is_used) {
 		super();
 		this.deed_idx = deed_idx;
+		this.id = id;
 		this.uid = uid;
 		this.is_used = is_used;
 	}
