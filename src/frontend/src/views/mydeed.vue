@@ -4,17 +4,15 @@
     <div class="wrap">
         <div id="deed_history" class="deed-history">
             <h1>내 후원증</h1>
-            <p> 총 후원 수 : <span  style="color:a81431">{{ tDonation }}</span>개</p>
-            <p> 남은 후원증 : <span  style="color:a81431">{{ remain_deed }}</span>개</p>
+            <p> 내가 한 후원 수 : <span  style="color:a81431">{{ tDonation }}</span> 개</p>
+            <p> 남은 후원증 : <span  style="color:a81431">{{ userlists[0].my_deednum }}</span>개</p>
             <table>
                 <tr>
                     <th width="10%">번호</th>
                     <th width="30%">사연제목</th>
-                    <th width="15%">후원증서 기부수</th>
-                             
+                    <th width="15%">후원증서 기부수</th>                         
                     <th width="10%">수혜자</th>
                 </tr>
-
                 <tr  v-for="(list,index) in lists" :key = "index" >
                 <th  scope="row">{{ index + 1 }} </th>
                 <td @click="goStory(list.storyIdx+1)">{{storylists[list.storyIdx].story_title}}</td>
@@ -59,7 +57,9 @@ export default {
             isdonation : "기증",
             ischarge : "충전",
             donorUid : this.$session.get('UserId'),
-            storylists : []
+            id : this.$session.get('UserId'),
+            storylists : [],
+            userlists:[]
             
         }
     },
@@ -91,15 +91,30 @@ export default {
         .then(res =>{ 
             //console.log(res);
             this.storylists = res.data;
-            console.log(this.storylists);
+            //console.log(this.storylists);
         })
         .catch(error => 
             console.log(error))
-    }
+    }, 
+        get_user(){
+            axios.get('http://localhost:9999/userlist', {
+                params : {
+                    id : this.id
+                }
+            })
+        .then(res =>{ 
+            //console.log(res);
+            this.userlists = res.data;
+            console.log(this.userlists);
+        })
+        .catch(error => 
+            console.log(error))
+        }
     },
     created(){
         this.detail_get();
         this.get_stroy();
+        this.get_user();
     }
 }
 

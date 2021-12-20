@@ -21,7 +21,7 @@
         <tbody id="tbody">
             <tr  v-for="(list,index) in lists" :key = "index" >
                 <th  scope="row">{{ index + 1 }} </th>
-                    <td @click="goStory(list.story_idx)">{{ list.story_title }}</td>
+                    <td  @mouseover="hover" id="storytd" @click="goStory(list.story_idx)">{{ list.story_title }}</td>
                     <td>{{ list.num_donation }}</td>
                     <td>{{ list.reg_date }}</td>
                     <td>{{ list.fin_date }}</td>
@@ -101,6 +101,11 @@ export default {
       this.pageNum+=1;
       this.lists=this.listslice();
     },
+    hover(){
+            var storytd = document.getElementById("storytd")
+            storytd.style.cursor = "pointer";
+            
+        },
     goStory(idx){
             this.$router.push('/storydetail/'+idx);
     },

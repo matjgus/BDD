@@ -54,7 +54,7 @@ export default {
             await axios.get('http://localhost:9999/api/boardlist',{
                 params : {
                     page : this.nowpage,
-                    size : 5
+                    size : 10
                 }
             })
             .then(res =>{
