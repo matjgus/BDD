@@ -85,12 +85,23 @@ export default {
 }
 </script>
 <style scoped>
+
 /* 모바일용 화면 */
 @media(max-width: 480px) {
     
 }
 /* 컴퓨터용 화면 */
 @media(min-width: 1400px) {
-    
+.container{
+    max-width: 1800%;
+}
+.btn-cover{
+    margin : 0 auto;
+    width:100%;
+    max-width: 200px;
+}
+.btn-cover button{
+    margin : 0 5px;
+}
 }
 </style>

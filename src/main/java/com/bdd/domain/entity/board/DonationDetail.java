@@ -30,7 +30,7 @@ public class DonationDetail {
 	@Builder
 	public DonationDetail(Long donationIdx, Long storyIdx, String donorUid, String doneeUid, int donationCount) {
 		super();
-		this.donationCount = donationCount;
+		this.donationIdx = donationIdx;
 		this.storyIdx = storyIdx;
 		this.donorUid = donorUid;
 		this.doneeUid = doneeUid;

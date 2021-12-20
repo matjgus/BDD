@@ -103,7 +103,7 @@ export default {
     text-align: center;
 }
 .total-donation-box{
-    width : 30%;
+    width : 40%;
     border : 1px solid rgb(240, 240, 240);
     border-radius: 3%;
     margin-top: 5vh;

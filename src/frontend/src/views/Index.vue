@@ -170,9 +170,9 @@ export default {
         .then(res =>{ 
             this.donation = res.data;
             for(var i =0; i<this.donation.length; i++){
-                this.total_donation += this.donation[i].donation_count;
-                this.donee_list.push(this.donation[i].donee_uid) ;
-                this.donor_list.push(this.donation[i].donor_uid) ;
+                this.total_donation += this.donation[i].donationCount;
+                this.donee_list.push(this.donation[i].doneeUid) ;
+                this.donor_list.push(this.donation[i].donorUid) ;
             }
             //console.log(this.donee_list);
             const donee_set = new Set(this.donee_list);

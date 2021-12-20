@@ -130,10 +130,10 @@ export default{
     },
     Postdonation(){
         var Params ={
-            'story_idx' : this.storyIdx,
-            'donor_uid' : this.donor_uid,
-            'donee_uid' : this.lists.story_id,
-            'donation_count' : this.donation_count,
+            'storyIdx' : this.storyIdx,
+            'donorUid' : this.donor_uid,
+            'doneeUid' : this.lists.story_id,
+            'donationCount' : this.donation_count,
             }
         console.log(this.donor_uid);
         axios.post('http://localhost:9999/d_detail',Params)
