@@ -16,23 +16,24 @@ import lombok.ToString;
 public class DonationDetail {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private Long donation_idx;
-	@Column(length = 30, nullable = false)
-    private Long story_idx;
-	@Column(length = 30, nullable = false)
-    private String donor_uid;
-	@Column(length = 30, nullable = false)
-    private String donee_uid;
-	@Column(length = 30, nullable = false)
-    private int donation_count;
+	@Column(name = "donation_idx",length = 30, nullable = false)
+	private Long donationIdx;
+	@Column(name = "story_idx",length = 30, nullable = false)
+    private Long storyIdx;
+	@Column(name = "donor_uid", length = 30, nullable = false)
+    private String donorUid;
+	@Column(name = "donee_uid", length = 30, nullable = false)
+    private String doneeUid;
+	@Column(name = "donation_count", length = 30, nullable = false)
+    private int donationCount;
 
 	@Builder
-	public DonationDetail(Long donation_idx, int donation_count,Long story_idx, String donor_uid, String donee_uid) {
+	public DonationDetail(Long donationIdx, Long storyIdx, String donorUid, String doneeUid, int donationCount) {
 		super();
-		this.story_idx = story_idx;
-		this.donor_uid = donor_uid;
-		this.donee_uid = donee_uid;
-		this.donation_count = donation_count;
-		this.donation_idx = donation_idx;
+		this.donationCount = donationCount;
+		this.storyIdx = storyIdx;
+		this.donorUid = donorUid;
+		this.doneeUid = doneeUid;
+		this.donationCount = donationCount;
 	}
 }

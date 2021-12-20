@@ -11,18 +11,18 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class DonationDetailResponseDto {
-	private Long donation_idx;
-	private Long story_idx;
-	private String donor_uid;
-	private String donee_uid;
-	private int donation_count;
+	private Long donationIdx;
+	private Long storyIdx;
+	private String donorUid;
+	private String doneeUid;
+	private int donationCount;
 	
 	@Builder
 	public DonationDetailResponseDto(DonationDetail entity) {
-		this.story_idx = entity.getStory_idx();
-		this.donation_idx = entity.getDonation_idx();
-		this.donor_uid = entity.getDonor_uid();
-		this.donee_uid = entity.getDonee_uid();
-		this.donation_count = entity.getDonation_count();
+		this.donationIdx = entity.getDonationIdx();
+		this.storyIdx = entity.getStoryIdx();
+		this.donorUid = entity.getDonorUid();
+		this.doneeUid = entity.getDoneeUid();
+		this.donationCount = entity.getDonationCount();
 	}
 }

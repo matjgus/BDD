@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bdd.domain.entity.board.Benefit;
 import com.bdd.domain.entity.board.DonationDetail;
 import com.bdd.domain.entity.board.DonationDetailRepository;
 import com.bdd.dto.board.DonationDetailRequestDto;
@@ -39,4 +40,11 @@ public class DonationDetailService {
 		return donationdetailList;
 	}	
 	
+	@Transactional
+	public List<DonationDetail> selectDonationDetail(String donor_uid) throws Exception{
+		List<DonationDetail> result = donationDetailRepository.findBydonorUid(donor_uid);
+		System.out.println(result);
+		return result;
+		
+	}
 }
