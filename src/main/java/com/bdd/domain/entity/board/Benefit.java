@@ -5,13 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.NoArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity(name="benefit")
 @Data
 @NoArgsConstructor
+@Setter
+@Getter
 public class Benefit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

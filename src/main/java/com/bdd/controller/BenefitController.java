@@ -47,6 +47,21 @@ public class BenefitController {
 		return benefitService.selectBenefitList("sa01578");
 	}
 	
+	//페이지 들어갔을 때 전체 리스트 리턴
+	@GetMapping("/allbenefitlist")
+	public List<Benefit> getBenefitList(BenefitRequestDto requestDto) throws Exception {
+		return benefitService.selectBenefitList(requestDto.getId());
+	}
+	
+	//타입은 상관없고 db로 업데이트
+	@PostMapping("/checkbenefit")
+	public void checkbenefit(@RequestBody BenefitRequestDto requestDto) {
+		benefitService.updateBenefitB10(requestDto.getId(), requestDto.getIs_get10());
+		benefitService.updateBenefitB20(requestDto.getId(), requestDto.getIs_get20());
+		benefitService.updateBenefitB30(requestDto.getId(), requestDto.getIs_get30());
+	}
+	
+	
 	/*
 	@GetMapping("/benefitdetail")
 	public List<Benefit> findBenefitByid(@RequestParam(value="id") String id) throws Exception{

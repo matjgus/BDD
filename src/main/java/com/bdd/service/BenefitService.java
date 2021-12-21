@@ -2,13 +2,16 @@ package com.bdd.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.bdd.domain.entity.MemberEntity;
 import com.bdd.domain.entity.board.Benefit;
 import com.bdd.domain.entity.board.BenefitRepository;
+import com.bdd.domain.entity.board.StoryInfo;
 import com.bdd.dto.board.BenefitRequestDto;
 import com.bdd.dto.board.BenefitResponseDto;
 
@@ -40,5 +43,24 @@ public class BenefitService {
 		
 		System.out.println(result);
 		return result;
+	}
+	@Transactional
+	public void updateBenefitB10(String id, char b10) {
+		Optional<Benefit> benefit = benefitRepository.findById(id);
+		Benefit updateBenefit = benefit.get();
+		updateBenefit.setIs_get10(b10);
+	}
+	@Transactional
+	public void updateBenefitB20(String id, char b20) {
+		Optional<Benefit> benefit = benefitRepository.findById(id);
+		Benefit updateBenefit = benefit.get();
+		updateBenefit.setIs_get20(b20);
+	}
+	@Transactional
+	public void updateBenefitB30(String id, char b30) {
+		Optional<Benefit> benefit = benefitRepository.findById(id);
+		Benefit updateBenefit = benefit.get();
+		updateBenefit.setIs_get30(b30);
+		System.out.println("23");
 	}
 }
