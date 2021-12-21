@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class DonationDetailResponseDto {
 	private Long donationIdx;
-	private Long storyIdx;
+	private Long story_idx;
 	private String donorUid;
 	private String doneeUid;
 	private int donationCount;
@@ -20,7 +20,7 @@ public class DonationDetailResponseDto {
 	@Builder
 	public DonationDetailResponseDto(DonationDetail entity) {
 		this.donationIdx = entity.getDonationIdx();
-		this.storyIdx = entity.getStoryIdx();
+		this.story_idx = entity.getStory_idx();
 		this.donorUid = entity.getDonorUid();
 		this.doneeUid = entity.getDoneeUid();
 		this.donationCount = entity.getDonationCount();

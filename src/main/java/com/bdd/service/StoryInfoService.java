@@ -69,6 +69,7 @@ public class StoryInfoService {
 		StoryInfo result = wrapper.get();
 		count = result.getNum_donation();
 		count += donationNum;
+		System.out.println("cicici");
 		result.setNum_donation(count);
 	}
 
