@@ -7,23 +7,25 @@
 				<h1>후원 기념 상품 선택</h1>
 			</div>
 			<div class="total-donation-box">
-				<p>총 후원수 : 427</p>
+				<p> 내 후원 수 : <span  style="color:a81431"> {{ userlists[0].member_donation }}</span> 개</p>
 				<div>
 					<p>상품 선택 : </p>
 				</div>
-				<form action="">
-					<div>
-						<select name="product" onchange="handleOnChange(this)" class="product-option">
-							<option value=medal>10회 메달</option>
-							<option value=keyring>10회 키링</option>
-							<option value=medal>20회 메달</option>
-							<option value=bracelet>20회 팔찌</option>
-							<option value=medal>30회 메달</option>
-							<option value=ring>30회 반지</option>
-						</select>
-					</div>
-
-				</form>
+				
+                <div>
+                    <select name="product" onchange="handleOnChange(this)" class="product-option">
+                        <option v-if="userlists[0].member_donation>=10" value=medal>10회 메달</option>
+                        <option v-if="userlists[0].member_donation>=10" value=keyring>10회 키링</option>
+                        <option v-if="userlists[0].member_donation>=20" value=medal>20회 메달</option>
+                        <option v-if="userlists[0].member_donation>=20" value=bracelet>20회 팔찌</option>
+                        <option v-if="userlists[0].member_donation>=30" value=medal>30회 메달</option>
+                        <option v-if="userlists[0].member_donation>=30" value=ring>30회 반지</option>
+                    </select>
+                </div>
+                <div>
+                    <button><p>받기</p></button>
+                </div>
+				
 			</div>
 			<!--	<div id='result'></div>-->
 
@@ -84,10 +86,38 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
 import subBanner from '../components/SubBanner.vue';
 export default {
     components:{subBanner},
   name: 'Benefit',
+  data(){
+        return {
+            userlists : [],
+            tDonation : 0,
+            id : this.$session.get('UserId'),
+        }
+  },
+  methods:{
+      get_user(){
+            axios.get('http://localhost:9999/userlist', {
+                params : {
+                    id : this.id
+                }
+            })
+        .then(res =>{ 
+            //console.log(res);
+            this.userlists = res.data;
+            console.log(this.userlists);
+        })
+        .catch(error => 
+            console.log(error))
+        }
+  },
+  created(){
+      this.get_user();
+  }
+
 }
 </script>
 
@@ -98,12 +128,19 @@ export default {
 }
 /* 컴퓨터용 화면 */
 @media(min-width: 1400px) {
+.total-donation-box button p {
+    font-size : 15px;  
+    padding : 10px 20px; 
+}
+.total-donation-box button{
+    border-radius: 10%;
+}
 .benefit-title h1 {
     font-size: 40px;
     text-align: center;
 }
 .total-donation-box{
-    width : 40%;
+    width : 50%;
     border : 1px solid rgb(240, 240, 240);
     border-radius: 3%;
     margin-top: 5vh;
@@ -169,7 +206,9 @@ export default {
 .benefit-product-wrap{
     margin-bottom: 50px;
 }
-
+.total-donation-box{
+    padding : 20px;
+}
 
 
 

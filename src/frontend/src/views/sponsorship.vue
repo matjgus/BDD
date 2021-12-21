@@ -12,7 +12,7 @@
             <tr>
                 <th width="10%">게시글번호</th>
                 <th width="">제목</th>
-                <th width="10%">필요 후원 수</th>
+                <th width="10%">현재 후원 수</th>
                 <th width="10%">작성일</th>
                 <th width="10%">마감일</th>
                 <th width="10%">작성자</th>
@@ -115,7 +115,7 @@ export default {
     
 }
 /* 컴퓨터용 화면 */
-@media(min-width: 1400px) {
+@media(min-width: 1400px ) {
 body {
     text-align: center;
 }
