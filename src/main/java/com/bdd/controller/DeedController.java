@@ -44,7 +44,6 @@ public class DeedController {
 	@GetMapping("/deeddetail")
 	public List<Deed> findDeedByid() throws Exception{
         System.out.println("후원증컨트롤러11111=================================");
-        System.out.println("후원증컨트롤러22222=================================");
 		return deedService.selectDeedDetail("sa01578");
 		
 	}

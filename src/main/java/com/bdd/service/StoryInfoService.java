@@ -82,7 +82,7 @@ public class StoryInfoService {
 		mDonation += donationNum;
 		resultMember.setMember_donation(mDonation);
 		resultMember.setMy_deednum(deednum);
-		System.out.println("cicici");
+		System.out.println("test");
 		result.setNum_donation(count);
 	}
 
