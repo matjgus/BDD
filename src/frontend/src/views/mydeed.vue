@@ -15,7 +15,7 @@
                 </tr>
                 <tr  v-for="(list,index) in lists" :key = "index" >
                 <th  scope="row">{{ index + 1 }} </th>
-                <td @click="goStory(list.storyIdx+1)">{{storylists[list.storyIdx].story_title}}</td>
+                <td @click="goStory(list.story_idx+1)">{{storylists[list.story_idx].story_title}}</td>
                 <td> {{ list.donationCount }} </td>
                 <td>{{ list.doneeUid }}</td>
                     
@@ -76,7 +76,7 @@ export default {
                 }
             })
         .then(res =>{ 
-            //console.log(res);
+            console.log(res);
             this.lists = res.data;
             for(var i=0; i<this.lists.length; i++){
                 this.tDonation += this.lists[i].donationCount;

@@ -29,39 +29,9 @@
             </tr>
         </tbody>
       </table>
-                         
-
+                 
     </div>
-</div>
-    <div class="story-wrap">
-
-      
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/story2.jpg">
-         </div>
-          <div class="content-box">
-            <p class="story-p">타지에서 고통받는 돈치치...<br>
-              22개월 돈치치는 피가 필요해요. </p>
-          </div>
-        </a>
-      </div>
-    
-      <div class="story-box">
-        <a href="story">
-          <div class="img-box">
-           <img src="../assets/img/blood.png">
-         </div>
-          <div class="content-box">
-            <p class="story-p">아기 돈치치는 지금 피가 필요해요.</p>
-          </div>
-        </a>
-      </div>
-      
-    
-    </div>
-    
+</div>  
 </div>
 </template>
 
@@ -103,8 +73,7 @@ export default {
     },
     hover(){
             var storytd = document.getElementById("storytd")
-            storytd.style.cursor = "pointer";
-            
+            storytd.style.cursor = "pointer"; 
         },
     goStory(idx){
             this.$router.push('/storydetail/'+idx);
