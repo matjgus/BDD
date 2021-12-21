@@ -94,7 +94,7 @@ public class StoryInfoController {
 	public void donationCount(@RequestBody DonationDetailRequestDto requestDto) {
 		System.out.println(requestDto.getDonation_count() + "dsdsd");
 		donation_count = requestDto.getDonation_count();
-		storyInfoService.updateDonation(requestDto.getStory_idx(), requestDto.getDonation_count());
+		storyInfoService.updateDonation(requestDto.getStory_idx(), requestDto.getDonation_count(), requestDto.getDonorUid());
 	}
 	
 
