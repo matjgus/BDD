@@ -69,14 +69,18 @@ public class StoryInfoService {
 	public void updateDonation(Long story_idx, int donationNum, String story_id) {
 		int count;
 		int deednum;
+		int mDonation;
 		Optional<MemberEntity> member = memberRepository.findById(story_id);
 		Optional<StoryInfo> wrapper = storyInfoRepository.findById(story_idx);
 		StoryInfo result = wrapper.get();
 		MemberEntity resultMember = member.get();
 		deednum = resultMember.getMy_deednum();
 		count = result.getNum_donation();
-		deednum = deednum - donationNum;
+		mDonation = resultMember.getMember_donation();
+		deednum -= donationNum;
 		count += donationNum;
+		mDonation += donationNum;
+		resultMember.setMember_donation(mDonation);
 		resultMember.setMy_deednum(deednum);
 		System.out.println("cicici");
 		result.setNum_donation(count);
