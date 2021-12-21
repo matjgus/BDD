@@ -194,14 +194,76 @@ export default {
 </script>
 <style scoped>
 /* 모바일용 화면 */
-@media(max-width: 480px) {
-    
+@media(max-width: 300px) and (max-width: 599px) {
+    .card h1{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    background-color: #a81431;
+    border-radius: 0 0 10% 10%;
+    margin-inline-start: 0px;
+    margin-block-end: 0px;
+    font-weight:bold;
+    text-align: center;
+    font-size: 10px;
+}
+    .mainbanner{
+        min-height: 200px;
+    }
+    .wrap .story-title {
+        flex-direction: column;
+    }
+    .wrap .story-title a{
+        font-size: 5px;
+    }
+    .wrap .story-title > h1 {
+        font-size : 30px;
+        text-align: center;
+    }
+    .wrap .support-status .donation-title{
+        margin: 30px 0;
+    }
+    .wrap .support-status .donation-title h1{
+        text-align: center;
+        font-size:30px;
+    }
+    .wrap .support-status .status-box {
+        display: contents;    
+    }
+    .wrap .support-status .status-box > div{
+        width : 80%;
+        height: 10vh;
+        margin : 20px; 
+        background-color:#a81431;;
+        border-radius: 5%;
+        color: white;
+        box-shadow: 3px 3px 3px 3px rgb(37, 11, 11);
+    } 
+    .wrap .support-status .status-box > div > p{
+        font-size : 15px;
+        height: 50%;
+        line-height: 20px;
+        display : flex;
+        justify-content: center;
+        padding : 0 10px;
+        font-weight: 200;
+    }
+    .wrap .participating-companies-title {
+    margin :10px 0;
+    }
+    .wrap .participating-companies-title > h1{
+        font-size: 30px;        
+    }
+    .wrap .support-status .status-box > div > p >span{
+        padding: 8px;
+    }
+
+
+
 }
 /* 컴퓨터용 화면 */
 @media(min-width: 1400px) {
     
-
-
 .palist{
     width:13vw;
 }
