@@ -11,19 +11,16 @@
 				<div>
 					<p>상품 선택 : </p>
 				</div>
-				
                 <div>
                     <select @change="get_select($event)" class="product-option">
-                        <option v-if="userlists[0].member_donation>=10" value="medal10">10회 메달</option>
-                        <option v-if="userlists[0].member_donation>=10" value="keyring">10회 키링</option>
-                        <option v-if="userlists[0].member_donation>=20" value="medal20">20회 메달</option>
-                        <option v-if="userlists[0].member_donation>=20" value="bracelet">20회 팔찌</option>
-                        <option v-if="userlists[0].member_donation>=30" value="medal30">30회 메달</option>
-                        <option v-if="userlists[0].member_donation>=30" value="ring">30회 반지</option>
+                         <option value="wrong" selected disabled hidden >선택해주세요</option>
+                        <option v-if="userlists[0].member_donation>=10&&(lists[0].is_get10!=='Y')" value="medal10">10회 메달,키링</option>
+                        <option v-if="userlists[0].member_donation>=20&&(lists[0].is_get20!=='Y')" value="medal20">20회 메달,팔찌</option>
+                        <option v-if="userlists[0].member_donation>=30&&(lists[0].is_get30!=='Y')" value="medal30">30회 메달,링</option>
                     </select>
                 </div>
                 <div>
-                    <button><p>받기</p></button>
+                    <button @click="post_updatelist"><p>받기</p></button>
                 </div>
 				
 			</div>
@@ -37,11 +34,11 @@
 	</div>
 	<div class="benefit-product-wrap">
 		<div class="wrap">
-			<div class="product">
-
-				<p>10회</p>
+            <!-- 받지 못한 경우 -->
+			<div v-if="(lists[0].is_get10=='N')" class="product">
+				<p >10회</p>
 				<hr size="3" noshade color="EAEAEA">
-				<ul>
+				<ul >
 					<li><img src="../assets/img/medal0.png" alt="메달1">
 						<p>10회 메달</p>
 					</li>
@@ -49,12 +46,19 @@
 						<p>10회 키링</p>
 					</li>
 				</ul>
-
+                <p v-if="(lists[0].is_get10=='Y')">10회 상품을 모두 획득하셨습니다.</p>
+				<hr size="3" noshade color="EAEAEA">
+			</div>
+            <!-- 받은 경우 -->
+            <div v-if="(lists[0].is_get10=='Y')" class="product">
+				<p>10회 상품을 모두 획득하셨습니다.</p>
+				<hr size="3" noshade color="EAEAEA">
 			</div>
 		</div>
 
 		<div class="wrap">
-			<div class="product">
+            <!-- 받지 못한 경우 -->
+			<div v-if="(lists[0].is_get20=='N')" class="product">
 				<p>20회</p>
 				<hr size="3" noshade color="EAEAEA">
 				<ul>
@@ -66,9 +70,16 @@
 					</li>
 				</ul>
 			</div>
+            <!-- 받은 경우 -->
+            <div v-if="(lists[0].is_get20=='Y')" class="product">
+				<p>20회 상품을 모두 획득하셨습니다.</p>
+				<hr size="3" noshade color="EAEAEA">
+			</div>
 		</div>
+
 		<div class="wrap">
-			<div class="product">
+             <!-- 받지 못한 경우 -->
+			<div v-if="(lists[0].is_get30=='N')" class="product">
 				<p>30회</p>
 				<hr size="3" noshade color="EAEAEA">
 				<ul>
@@ -79,7 +90,11 @@
 						<p>30회 반지</p>
 					</li>
 				</ul>
-
+			</div>
+            <!-- 받은 경우 -->
+            <div v-if="(lists[0].is_get30=='Y')" class="product">
+				<p>30회 상품을 모두 획득하셨습니다.</p>
+				<hr size="3" noshade color="EAEAEA">
 			</div>
 		</div>
 	</div>
@@ -96,7 +111,8 @@ export default {
             userlists : [],
             tDonation : 0,
             id : this.$session.get('UserId'),
-            sel_product : ""
+            sel_product : "",
+            lists: [],
         }
   },
   methods:{
@@ -109,7 +125,9 @@ export default {
         .then(res =>{ 
             //console.log(res);
             this.userlists = res.data;
-            console.log(this.userlists);
+            console.log("test");
+            this.get_benefitlist();
+            //console.log(this.userlists);
         })
         .catch(error => 
             console.log(error))
@@ -117,10 +135,45 @@ export default {
         get_select(event){
             console.log(event.target.value);
             this.sel_product = event.target.value;
-        }
+        },
+        get_benefitlist(){
+        axios.get('http://localhost:9999/allbenefitlist',{
+            params : {
+                id : this.id
+            }
+            })
+            .then(res =>{ 
+                this.lists = res.data;
+                console.log(this.lists)
+            })
+            .catch(error => 
+            console.log(error))
+        },
+        post_updatelist(){
+            if(this.sel_product == "medal10"){
+                this.lists[0].is_get10 = "Y"
+}
+            else if(this.sel_product == "medal20"){ 
+                this.lists[0].is_get20 = "Y"
+            }
+            else if(this.sel_product == "medal30"){
+                this.lists[0].is_get30 = "Y"
+            }
+            else {
+                alert("상품을 선택하세요");
+                return 0;
+            }
+            axios.post('http://localhost:9999/checkbenefit',this.lists[0])
+            .than(
+                alert("상품 획득")
+            )
+            .catch(error => 
+            console.log(error))
+        },    
   },
   created(){
       this.get_user();
+      
   }
 
 }
@@ -158,7 +211,7 @@ export default {
 
 .product-option {
 	height: 40px;
-	width: 120px;
+	width: 100%;
 	font-size: 20px;
 }
 
