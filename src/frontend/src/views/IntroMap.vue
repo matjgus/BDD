@@ -31,8 +31,57 @@ export default {
 
 <style>
 /* 모바일용 화면 */
-@media(max-width: 480px) {
-    
+@media(min-width: 300px) and (max-width: 599px) {
+    .intro-link-btn {
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0px;
+        display: flex;
+        cursor: pointer;
+    }
+    .intro-link-btn li a {
+        width: 100%;
+        line-height: 50px;
+        display: block;
+    }
+
+    .intro-link-selected {
+        background-color: rgb(255, 164, 178);
+        color: white;
+        width: 90%;
+        font-size: 20px;
+        box-shadow: 0px 0px 15px rgb(241 128 175 / 75%);
+        text-align: center;
+        font-weight: 500;
+        
+    }
+    .intro-link {
+        background-color: rgb(214, 214, 214);
+        color: black;
+        width: 90%;
+        height: 100%;
+        line-height: 30px;
+        font-size: 20px;
+        text-align: center;
+        font-weight: 400;
+    }
+    .intro-map > iframe{
+        width: 100%;
+        height: 200px;
+        
+    }
+
+    .intro-map > p{
+        font-size: 15px;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 100px;
+    }
+    .intro-map >p >i{
+        padding: 5px;
+        color: red;
+        font-size: 20px;
+    }
 }
 /* 컴퓨터용 화면 */
 @media(min-width: 1400px) {
