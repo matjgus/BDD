@@ -96,6 +96,211 @@ export default {
 @media(max-width: 480px) {
     
 }
+
+@media(min-width: 800px) {
+.donation-link-btn {
+	height: 300px;
+	width: 60%;
+	max-width: 1000px;
+	margin: 50px auto;
+	display: flex;
+}
+
+
+
+.donation-wrap {
+	margin: 0 auto;
+}
+
+.donation-link-btn a {
+	width: 100%;
+	height: 300px;
+	display: block;
+}
+
+.sponsorship-link-side {
+	background-color: rgb(255, 164, 178);
+	color: black;
+	width: 100%;
+	height: 100%;
+	font-size: 30px;
+	text-align: center;
+	font-weight: 600;
+	padding-top: 20px;
+	cursor: pointer;
+}
+
+
+
+.reverse-sponsorship-link-side {
+	background-color: rgb(145, 210, 214);
+	color: black;
+	width: 100%;
+	height: 100%;
+	font-size: 30px;
+	text-align: center;
+	font-weight: 600;
+	padding-top: 20px;
+	cursor: pointer;
+}
+
+
+.wrap-blood-donation {
+	text-align: center;
+	flex-direction: column;
+	display: flex;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.wrap-blood-donation p {
+	font-size: 40px;
+	font-weight: 600;
+	font-family: 'MaruBuriLight';
+}
+
+.sponsorship-link-side img {
+	margin-top: 40px;
+	width: 200px;
+	transform:scale(1);
+	transition:0.1s;
+}
+
+
+.reverse-sponsorship-link-side img {
+	margin-top: 40px;
+	width: 200px;
+	transform:scale(1);
+	transition:0.1s;
+}
+
+.reverse-sponsorship-link-side:hover p{
+	transform:scale(1.1);
+}
+
+.reverse-sponsorship-link-side:hover img{
+	transform:scale(1.1);
+}
+.sponsorship-link-side:hover p{
+	transform:scale(1.1);
+}
+
+.sponsorship-link-side:hover img{
+	transform:scale(1.1);
+}
+
+.blood-donation-info {
+	display: flex;
+	height: 400px;
+	align-items: center;
+	justify-content: center;
+}
+
+.blood-donation-info div img {
+	height: 300px;
+}
+
+.blood-donation-info div {
+	width: 35%;
+	height: 300px;
+	align-items: center;
+    display: flex;
+    align-items: center;
+}
+
+.blood-donation-info p {
+	font-size: 25px;
+	line-height: 50px;
+	font-weight: 300;
+}
+
+.wrap-qna {
+	border: 1px dotted rgb(116, 115, 115);
+	margin-top: 20px;
+	padding: 30px;
+}
+
+.qna {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.qna p {
+	font-size: 25px;
+	font-weight: 300;
+	margin-top: 20px;
+}
+
+.qna li p {
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.qna img {
+	width: 25%;
+	margin-bottom: 20px;
+}
+
+.qna li {
+	margin: 10px 0 0 0;
+	width: 80%;
+	height: 50px;
+}
+
+.wrap-donation-guide {
+	width: 100%;
+	max-width: 2400px;
+	margin: 0 auto;
+	text-align: center;
+	background-color: rgb(236, 235, 255);
+	height: 400px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	flex-direction: column;
+}
+
+.p-title {
+	font-size: 30px;
+	font-weight: 600;
+	font-family: 'MaruBuriLight';
+	margin-bottom: 30px;
+}
+
+.p-title2 {
+	font-size: 27px;
+	font-weight: 600;
+	font-family: 'MaruBuriLight';
+	margin-bottom: 30px;
+}
+
+.p-contents {
+	font-size: 21px;
+	font-weight: 300;
+	color: rgb(88, 88, 88);
+	margin-top: 10px;
+}
+
+.donation-guide-box {
+	display: flex;
+	justify-content: space-around;
+}
+
+.donation-guide-box div img {
+	width: 200px;
+	height: 170px;
+}
+
+.donation-guide-box div {
+	width: 350px;
+	height: 270px;
+}
+
+}
+
+
+
 /* 컴퓨터용 화면 */
 @media(min-width: 1400px) {
 .donation-link-btn {
