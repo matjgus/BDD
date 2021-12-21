@@ -19,7 +19,7 @@ public class DonationDetail {
 	@Column(name = "donation_idx",length = 30, nullable = false)
 	private Long donationIdx;
 	@Column(name = "story_idx",length = 30, nullable = false)
-    private Long storyIdx;
+    private Long story_idx;
 	@Column(name = "donor_uid", length = 30, nullable = false)
     private String donorUid;
 	@Column(name = "donee_uid", length = 30, nullable = false)
@@ -28,10 +28,10 @@ public class DonationDetail {
     private int donationCount;
 
 	@Builder
-	public DonationDetail(Long donationIdx, Long storyIdx, String donorUid, String doneeUid, int donationCount) {
+	public DonationDetail(Long donationIdx, Long story_idx, String donorUid, String doneeUid, int donationCount) {
 		super();
 		this.donationIdx = donationIdx;
-		this.storyIdx = storyIdx;
+		this.story_idx = story_idx;
 		this.donorUid = donorUid;
 		this.doneeUid = doneeUid;
 		this.donationCount = donationCount;

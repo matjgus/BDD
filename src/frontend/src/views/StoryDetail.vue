@@ -73,7 +73,7 @@ export default{
     data() {
         return{
             login : this.$session.get('islogin'),
-            storyIdx : this.$route.params.idx,
+            story_idx : this.$route.params.idx,
             lists : [],
             donationinfo : [],
             dates:"",
@@ -109,7 +109,7 @@ export default{
       layerstyle2.style.display = "none";
     },
     getstory(){
-        axios.get('http://localhost:9999/storydetail?idx='+this.storyIdx)
+        axios.get('http://localhost:9999/storydetail?idx='+this.story_idx)
         .then(res =>{ 
             //console.log(res);
             this.lists = res.data;
@@ -139,10 +139,10 @@ export default{
     },
     Postdonation(){
         var Params ={
-            'storyIdx' : this.storyIdx,
+            'story_idx' : this.story_idx,
             'donorUid' : this.donor_uid,
             'doneeUid' : this.lists.story_id,
-            'donationCount' : this.donation_count,
+            'donation_count' : this.donation_count,
             }
         console.log(this.donor_uid);
         if(this.donation_count > this.userlists[0].my_deednum){
@@ -197,12 +197,12 @@ export default{
     },
     count_deed(){
         for(var i=0; i<this.detail_list.length; i++){
-            if (this.detail_list[i].storyIdx == this.storyIdx){
+            if (this.detail_list[i].story_idx == this.story_idx){
                 this.total_deed += this.detail_list[i].donationCount;
             }
         }
         console.log("test==========")
-        //console.log(this.storyIdx);
+        //console.log(this.story_idx);
         console.log(this.total_deed);
     }
   },

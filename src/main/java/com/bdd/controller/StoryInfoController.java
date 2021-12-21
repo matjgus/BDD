@@ -61,14 +61,29 @@ public class StoryInfoController {
         System.out.println("======================!!!!!=========");
 
         System.out.println(idx);
-        long storyidx = Long.parseLong(idx);
+        Long storyIdx = Long.parseLong(idx);
         System.out.println("======================!!!!!=========");
         System.out.println("======================!!!!!=========");
         System.out.println("======================!!!!!=========");
-        return storyInfoService.selectStoryDetail(storyidx);
+        return storyInfoService.selectStoryDetail(storyIdx);
         // return null;
     }
 	
+//	@GetMapping("/storydetail")
+//    public Optional<StoryInfo> findStoryById() throws Exception{
+//        System.out.println("======================!!!!!=========");
+//        System.out.println("======================!!!!!=========");
+//        System.out.println("======================!!!!!=========");
+//
+//        Long num_donation =  Long.parseLong("3");
+//        Long storyIdx = Long.parseLong("2");
+//        System.out.println("======================!!!!!=========");
+//        System.out.println("======================!!!!!=========");
+//        System.out.println("======================!!!!!=========");
+//        return storyInfoService.selectStoryDetail(storyIdx);
+//        // return null;
+//    }
+//	
 	@DeleteMapping("/story")
 	public Long deleteStoryInfoById(Long storyList) {
 		return storyInfoService.deleteById(storyList);
@@ -79,7 +94,7 @@ public class StoryInfoController {
 	public void donationCount(@RequestBody DonationDetailRequestDto requestDto) {
 		System.out.println(requestDto.getDonation_count() + "dsdsd");
 		donation_count = requestDto.getDonation_count();
-		storyInfoService.updateDonation(requestDto.getStoryIdx(), requestDto.getDonation_count());
+		storyInfoService.updateDonation(requestDto.getStory_idx(), requestDto.getDonation_count());
 	}
 	
 

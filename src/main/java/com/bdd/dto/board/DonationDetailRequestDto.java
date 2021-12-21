@@ -11,7 +11,7 @@ import lombok.Setter;
 @lombok.ToString
 public class DonationDetailRequestDto {
 	private Long donationIdx;
-	private Long storyIdx;
+	private Long story_idx;
 	private String donorUid;
 	private String doneeUid;
 	private int donation_count;
@@ -19,7 +19,7 @@ public class DonationDetailRequestDto {
 	public DonationDetail toEntity() {
 		return DonationDetail.builder()
 				.donationIdx(donationIdx)
-				.storyIdx(storyIdx)
+				.story_idx(story_idx)
 				.donorUid(donorUid)
 				.doneeUid(doneeUid)
 				.donationCount(donation_count)
