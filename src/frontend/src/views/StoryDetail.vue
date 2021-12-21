@@ -12,8 +12,8 @@
                 <p class="content-small">목표</p>
                 <p class="content-big"><b>1000</b>장</p>
                 <p class="content-small">현황</p>
-                <!-- <p class="content-big"><b>{{lists.num_donation}}</b>장</p> -->
-                 <p class="content-big"><b>{{total_deed}}</b>장</p>
+                <p class="content-big"><b>{{lists.num_donation}}</b>장</p>
+                 <!-- <p class="content-big"><b>{{total_deed}}</b>장</p> -->
                 <p class="content-small">남은시간</p>
                 <p class="content-big"><b>{{remaining_days}}</b>일</p>
                 <div class="content-info-box">
