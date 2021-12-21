@@ -72,8 +72,133 @@ export default {
 
 <style>
 /* 모바일용 화면 */
-@media(max-width: 480px) {
-    
+@media(min-width: 300px) and (max-width: 599px) {
+    .intro >ul{
+        display: contents;
+    }
+    .say-img > img{
+        width: 100%;
+    }
+    .say-img > p{
+        text-align: center;
+        font-size: 10px;
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+    .say-text{
+        background-color: #f7f7f7;
+        padding: 10px;
+    }
+    .say-text > h2{
+        font-size: 15px;
+    }
+    .say-text > p{
+        font-size: 15px;
+        padding: 10px 0;
+    }
+    .intro-icon{
+        text-align: center;
+    }
+    .intro-icon > i{
+        padding: 20px 10px;
+        font-size: 40px;
+        color: rgb(133, 125, 125);
+    }
+
+    .mySwiper {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 30px;
+    }
+    .donation-wrap {
+        margin: 0 auto;
+    }
+    .intro-link-btn {
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px 0px;
+        display: flex;
+        cursor: pointer;
+    }
+    .intro-link-btn li a {
+        width: 100%;
+        line-height: 50px;
+        display: block;
+    }
+
+    .intro-link-selected {
+        background-color: rgb(255, 164, 178);
+        color: white;
+        width: 90%;
+        font-size: 20px;
+        box-shadow: 0px 0px 15px rgb(241 128 175 / 75%);
+        text-align: center;
+        font-weight: 500;
+        
+    }
+    .intro-link {
+        background-color: rgb(214, 214, 214);
+        color: black;
+        width: 90%;
+        height: 100%;
+        line-height: 30px;
+        font-size: 20px;
+        text-align: center;
+        font-weight: 400;
+    }
+    .intro-greeting{
+        padding: 50px 0px;
+    }
+    .intro-slogan{
+        padding: 20px 0px;
+        font-size: 30px;
+        font-weight: 500;
+        text-align: center;
+    }
+    .intro-slogan > p > i{
+        color: red;
+    }
+
+    .intro-value{
+        width: 100%;
+        max-width: 2000px;
+        display: flex;
+        font-size: 25px;
+        justify-content: center;
+    }
+
+    .intro-value > li{
+        text-align: center;
+        border: 1px solid rgb(204, 198, 198);
+        border-radius: 20px;
+        padding: 10px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        width: 90%;
+
+        
+    }
+    .intro-value > li > div > p{
+        padding: 10px;
+        font-size: 15px;
+    }
+    .intro-map > iframe{
+        width: 100%;
+        height: 800px;
+        
+    }
+
+    .intro-map > p{
+        font-size: 25px;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 100px;
+    }
+    .intro-map >p >i{
+        padding: 5px;
+        color: red;
+        font-size: 30px;
+    }
 }
 /* 컴퓨터용 화면 */
 @media(min-width: 1400px) {
