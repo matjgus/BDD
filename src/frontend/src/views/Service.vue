@@ -87,12 +87,104 @@ export default {
 </script>
 
 <style scoped>
-@media(max-width: 480px){
-.faq-board{
-    margin: 50px;
-    padding: 50px;
-    border: 1px solid red;
-}
+@media(min-width: 300px) and (max-width: 599px){
+    .service-wrap {
+        max-width: 480px;
+        width:100%;
+    }   
+
+    .faq-board{
+        max-width: 480px;
+        margin: 10px;
+        padding: 15px;
+        border: 1px solid black;
+    }
+    .faq-board > h1{
+        font-size: 30px;
+        letter-spacing: 5px;
+        padding: 10px;
+    }
+    .accordion{
+        width: 100%;
+        max-width: 480px;
+    }
+    .board-page-btn{
+        width: 20%;
+        text-align: center;
+        line-height: 20px;
+        border-radius: 10px;
+        margin: 20px auto;
+        border: 1.2px solid black;
+        font-size: 10px;
+    }
+
+    input[id*="answer"]{ display: none; }
+    input[id*="answer"] + label {
+        font-size: 15px;
+        display:block;
+        padding: 10px;
+        border-bottom: 1px solid rgb(214, 213, 213);
+        font-weight: 600;
+        cursor:pointer;
+        position:relative;
+    }
+    input[id*="answer"] + label i{
+        padding: 0 10px;
+        color:rgb(134, 134, 134);
+    }
+    input[id*="answer"] + label em{
+        position:absolute;
+        top: 50%;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        margin-top: -15px;
+        display: inline-block;
+        background:url('../assets/img/arrow.png') 0 0 no-repeat;
+    }
+    input[id*="answer"] + label + div{
+        max-height: 0;
+        transition: all 1s;
+        overflow: hidden;
+        font-size: 12px;
+    }
+    input[id*="answer"] + label + div p{
+        display:inline-block;
+        padding: 10px;
+    }
+    input[id*="answer"]:checked + label + div {max-height:500px;}
+    input[id*="answer"]:checked + label em {background-position:0 -30px;}   
+
+    .container{
+        max-width : 100%;
+    }
+    .table-bordered td, .table-bordered th {
+        border: 1px solid #dee2e6;
+    }
+    .table-bordered {
+        border: 1px solid #dee2e6;
+    }
+    .table td, .table th {
+        padding: .75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+    .table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        background-color: transparent;
+    }
+    .btn-danger {
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+        visibility: hidden;
+    }
+
+    .page-link:not([disabled]):not(.disabled) {
+        cursor: pointer;
+    }
 }
 @media(min-width: 1400px){
 .service-wrap {

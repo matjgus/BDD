@@ -87,8 +87,18 @@ export default {
 <style scoped>
 
 /* 모바일용 화면 */
-@media(max-width: 480px) {
-    
+@media(min-width: 300px) and (max-width: 599px) {
+    .container{
+        max-width: 480px;
+        width: 100%;
+    }
+    .btn-cover{
+        margin : 0 auto;
+        width:30%;
+    }
+    .btn-cover button{
+        margin : 0;
+    }
 }
 /* 컴퓨터용 화면 */
 @media(min-width: 1400px) {
