@@ -9,7 +9,7 @@
             <h1>사람들을 위한 <span style="color:#a81431">다양한 사업</span>을 진행합니다.</h1>
             <a href="/sponsorship">전체보기 	&#8594;</a>
         </div>
-       <div class="swiper-wrazpper"> 
+       <div class="swiper-wrapper"> 
            <hooper :infiniteScroll="true" :wheelControl="false" :mouseDrag="true" :autoPlay="true" :playSpeed="3000" :itemsToShow="4" class="buhooper">
                <slide v-for="bulist in bulists" v-bind:key="bulist">
                     <div class="card" >
@@ -194,18 +194,22 @@ export default {
 </script>
 <style scoped>
 /* 모바일용 화면 */
-@media(max-width: 300px) and (max-width: 599px) {
+@media(min-width: 300px) and (max-width: 599px) {
+    .status-boxd p>span{
+        letter-spacing: 10px;
+    }
     .card h1{
+    color :white;
     width:100%;
-    height:40px;
-    line-height: 40px;
+    height:20px;
+    line-height: 20px;
     background-color: #a81431;
     border-radius: 0 0 10% 10%;
     margin-inline-start: 0px;
     margin-block-end: 0px;
     font-weight:bold;
     text-align: center;
-    font-size: 10px;
+    font-size: 5px;
 }
     .mainbanner{
         min-height: 200px;
@@ -217,15 +221,15 @@ export default {
         font-size: 5px;
     }
     .wrap .story-title > h1 {
-        font-size : 30px;
+        font-size : 25px;
         text-align: center;
     }
     .wrap .support-status .donation-title{
-        margin: 30px 0;
+        margin: 20px 0;
     }
     .wrap .support-status .donation-title h1{
         text-align: center;
-        font-size:30px;
+        font-size: 25px;
     }
     .wrap .support-status .status-box {
         display: contents;    
@@ -254,10 +258,6 @@ export default {
     .wrap .participating-companies-title > h1{
         font-size: 30px;        
     }
-    .wrap .support-status .status-box > div > p >span{
-        padding: 8px;
-    }
-
 
 
 }
