@@ -115,7 +115,7 @@ export default {
     
 }
 /* 컴퓨터용 화면 */
-@media(all and min-width: 1400px) {
+@media(min-width: 1400px) {
 body {
     text-align: center;
 }
