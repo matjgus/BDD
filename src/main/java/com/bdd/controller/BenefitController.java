@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bdd.domain.entity.board.Benefit;
@@ -49,8 +50,8 @@ public class BenefitController {
 	
 	//페이지 들어갔을 때 전체 리스트 리턴
 	@GetMapping("/allbenefitlist")
-	public List<Benefit> getBenefitList(BenefitRequestDto requestDto) throws Exception {
-		return benefitService.selectBenefitList(requestDto.getId());
+	public List<Benefit> getBenefitList( @RequestParam(value = "id")String id) throws Exception {
+		return benefitService.selectBenefitList(id);
 	}
 	
 	//타입은 상관없고 db로 업데이트
