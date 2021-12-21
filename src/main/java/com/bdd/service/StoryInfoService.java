@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 
 import com.bdd.dto.board.StoryInfoRequestDto;
 import com.bdd.dto.board.StoryInfoResponseDto;
+import com.bdd.domain.entity.MemberEntity;
 import com.bdd.domain.entity.board.DonationDetail;
 import com.bdd.domain.entity.board.StoryInfo;
 import com.bdd.domain.entity.board.StoryInfoRepository;
+import com.bdd.domain.repository.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,6 +22,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class StoryInfoService {
 	private final StoryInfoRepository storyInfoRepository;
+	private final MemberRepository memberRepository;
 
 	@Transactional
 	public Long save(StoryInfoRequestDto requestDto) {
@@ -63,12 +66,18 @@ public class StoryInfoService {
 	}
 
 	@Transactional
-	public void updateDonation(Long story_idx, int donationNum) {
+	public void updateDonation(Long story_idx, int donationNum, String story_id) {
 		int count;
+		int deednum;
+		Optional<MemberEntity> member = memberRepository.findById(story_id);
 		Optional<StoryInfo> wrapper = storyInfoRepository.findById(story_idx);
 		StoryInfo result = wrapper.get();
+		MemberEntity resultMember = member.get();
+		deednum = resultMember.getMy_deednum();
 		count = result.getNum_donation();
+		deednum = deednum - donationNum;
 		count += donationNum;
+		resultMember.setMy_deednum(deednum);
 		System.out.println("cicici");
 		result.setNum_donation(count);
 	}
