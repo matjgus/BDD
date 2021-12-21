@@ -47,6 +47,22 @@
             <a id="logout" @click="logoutEnt" @mouseover="hover">로그아웃</a>
         </div>
     </div>
+    <div class="nav_mobile">
+            <ul>
+                <li>
+                    <router-link to="/"><p>홈</p></router-link>
+                </li>
+                <li>
+                    <router-link to="/intro"><p>소개</p></router-link>
+                </li>
+                <li>
+                     <router-link to="/sponsorship"><p>사연</p></router-link>
+                </li>
+                <li>
+                    <router-link to="/service"><p>고객센터</p></router-link>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 <script>
@@ -95,10 +111,46 @@ export default{
 </script>
 
 <style scoped>
-@media(max-width: 500px) {
-    
+@media(min-width: 300px) and (max-width: 599px){
+    .header {
+        display : none;
+    }
+    .nav_mobile{
+        width : 100%;
+        z-index: 100;
+        position: fixed;
+        top : 0;
+        left: 0;
+        overflow:hidden;
+    }
+    .nav_mobile ul{
+        display : flex;
+        width : 100%;
+    }
+    .nav_mobile ul li{
+        width : 25%;
+    }
+    .nav_mobile ul li p{
+        text-align: center;
+        line-height: 6vh;
+        color: white;
+        background-color : rgb(168, 20, 49);
+        border-right: 1px solid rgb(70, 0, 0);
+        border-radius: 8%;
+        height: 6vh;
+        
+    }
+    .nav_mobile ul li router-link{
+        color : white;
+    }
 }
-@media(min-width: 1400px){
+
+@media(min-width: 900px){
+.nav_mobile{
+    display : none;
+   
+
+}
 .mySidenav a:hover {
     cursor: pointer;
 }

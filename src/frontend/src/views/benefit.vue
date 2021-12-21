@@ -13,13 +13,13 @@
 				</div>
 				
                 <div>
-                    <select name="product" onchange="handleOnChange(this)" class="product-option">
-                        <option v-if="userlists[0].member_donation>=10" value=medal>10회 메달</option>
-                        <option v-if="userlists[0].member_donation>=10" value=keyring>10회 키링</option>
-                        <option v-if="userlists[0].member_donation>=20" value=medal>20회 메달</option>
-                        <option v-if="userlists[0].member_donation>=20" value=bracelet>20회 팔찌</option>
-                        <option v-if="userlists[0].member_donation>=30" value=medal>30회 메달</option>
-                        <option v-if="userlists[0].member_donation>=30" value=ring>30회 반지</option>
+                    <select @change="get_select($event)" class="product-option">
+                        <option v-if="userlists[0].member_donation>=10" value="medal10">10회 메달</option>
+                        <option v-if="userlists[0].member_donation>=10" value="keyring">10회 키링</option>
+                        <option v-if="userlists[0].member_donation>=20" value="medal20">20회 메달</option>
+                        <option v-if="userlists[0].member_donation>=20" value="bracelet">20회 팔찌</option>
+                        <option v-if="userlists[0].member_donation>=30" value="medal30">30회 메달</option>
+                        <option v-if="userlists[0].member_donation>=30" value="ring">30회 반지</option>
                     </select>
                 </div>
                 <div>
@@ -96,10 +96,11 @@ export default {
             userlists : [],
             tDonation : 0,
             id : this.$session.get('UserId'),
+            sel_product : ""
         }
   },
   methods:{
-      get_user(){
+        get_user(){
             axios.get('http://localhost:9999/userlist', {
                 params : {
                     id : this.id
@@ -112,6 +113,10 @@ export default {
         })
         .catch(error => 
             console.log(error))
+            },
+        get_select(event){
+            console.log(event.target.value);
+            this.sel_product = event.target.value;
         }
   },
   created(){
