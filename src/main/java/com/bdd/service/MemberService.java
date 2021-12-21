@@ -50,8 +50,38 @@ public class MemberService implements UserDetailsService {
             // System.out.println("authorities" + authorities);
             return new User(userEntity.getId(), userEntity.getPassword(), authorities);
         }
+        
+      
     }
-
+    
+//    public int mydonation(String userId, int num, MemberDto memberDto) {
+//    	 Optional<MemberEntity> userEntityWrapper = memberRepository.findById(userId);
+//   
+//    	if(userEntityWrapper.isEmpty()){
+//            return 0;
+//        }else {
+//            MemberEntity userEntity = userEntityWrapper.get();
+//    	System.out.println("간다간다. 쑝간다!");
+//    	System.out.println(userEntity.getId());
+//    	
+//    	int count = userEntity.getMember_donation();
+//    	count += num;
+//    	System.out.println(userEntity.getAddress());
+//    	System.out.println(count);
+//    	memberRepository.save(memberDto.update()).setMember_donation(count);
+//    	System.out.println("간다간다. 쑝간다!");
+//    	System.out.println(userEntity.getMember_donation ());
+//    	return userEntity.getMember_donation(); 
+//        }
+//    }
+   
+    
+    
+//    
+//    public String FindId(String id) {
+//    	UserDetails tmp = this.loadUserByUsername(id);
+//  	  return tmp.getId();
+//    }
     
     public int checkLogin(String userId,String userPw){
         UserDetails tmp = this.loadUserByUsername(userId);
