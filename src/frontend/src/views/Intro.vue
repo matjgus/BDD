@@ -7,8 +7,8 @@
     <div class="intro">
         <div>
             <ul class="intro-link-btn">
-                <li class="intro-link-selected"><a href="/intro">소개</a></li>
-                <li class="intro-link"><a href="/IntroMap">오시는 길</a></li>
+                <li class="intro-link-selected"><router-link to="/intro">소개</router-link></li>
+                <li class="intro-link"><router-link to="/IntroMap">오시는 길</router-link></li>
             </ul>
         </div>
         <div class="intro-slogan">
