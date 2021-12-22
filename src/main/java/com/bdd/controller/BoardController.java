@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bdd.dto.board.BoardRequestDto;
+import com.bdd.dto.board.DonationDetailRequestDto;
 import com.bdd.service.BoardService;
 
 import lombok.RequiredArgsConstructor;
@@ -43,10 +44,10 @@ public class BoardController {
    public String getDonationPage(Model model, BoardRequestDto boardRequestDto) {
       return "/page/donation";
    }
-   @GetMapping("/page/sponsorship")
-   public String getSponsorshipPage(Model model, BoardRequestDto boardRequestDto) {
-      return "/page/sponsorship";
-   }
+//   @GetMapping("/page/sponsorship")
+//   public String getSponsorshipPage(Model model, BoardRequestDto boardRequestDto) {
+//      return "/page/sponsorship";
+//   }
    @GetMapping("/page/story")
    public String getStoryPage(Model model, BoardRequestDto boardRequestDto) {
       return "/page/story";
@@ -144,6 +145,45 @@ public class BoardController {
       
       return "redirect:/page/service";
    }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+ 
+   
+//   @PostMapping("/page/delete")
+//   public String sponsorshipboardDeleteAction(Model model, @RequestParam() Long[] deleteId) throws Exception {
+//      
+//      try {
+//         boardService.deleteAll(deleteId);
+//      } catch (Exception e) {
+//         throw new Exception(e.getMessage()); 
+//      }
+//      
+//      return "redirect:/page/sponsorship";
+//   }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 
    
    //기부금영수증

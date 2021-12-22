@@ -99,8 +99,29 @@ export default {
 
 <style scoped>
 /* 모바일용 화면 */
-@media(max-width: 480px) {
-    
+@media (min-width: 300px) and (max-width: 599px) {
+    .login-box{
+    text-align: center;
+    padding-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin:30px auto;
+    height: 800px;
+    margin-top : 300px;
+}
+
+ .login ul li {
+    margin-bottom: 10px;
+}
+
+.login-box h2{
+    text-align: center;
+    font-size : 30px;
+    margin-bottom : 20px;
+}
+
+.login-box .opt-box span a{display : inline-block; padding: 0 5px;}
+
 }
 /* 컴퓨터용 화면 */
 @media(min-width: 1400px) {
@@ -108,11 +129,14 @@ export default {
     text-align: center;
     font-size : 40px;
     margin-bottom : 20px;
-    
 }
-input[type='text']{width: 100%; height: 40px;}
+
+
+
+input[type='text']{width: 100%; height: 40px; }
 
 input[type='password']{width: 100%; height: 40px;}
+
 .wrong_access{
     font-size:50px;
 }

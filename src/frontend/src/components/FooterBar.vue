@@ -294,12 +294,12 @@ export default{
 .inquary div{
     max-width: 1400px;
     margin: 0 auto;
+    text-align: center;
 }
 .inquary a{
     display: inline-block;
     line-height: 50px;
     padding : 0 30px;
-    margin-right : 10px;
     font-size: 15px;
 }
 .bottom_info{
@@ -328,16 +328,17 @@ export default{
 }
 .bottom_info .footer-l h3 {
     margin : 30px 0 10px 0;
-    font-size: 30px;
+    font-size: 20px;
     text-align: left;
+    margin-bottom: 20px;
 }
 .bottom_info .footer-l p{
-    font-size: 15px;
+    font-size: 10px;
     font-weight:500;
     text-align: left;
 }
 .bottom_info .footer-r p{
-    font-size: 20px;
+    font-size: 15px;
     margin : 30px;
     font-weight:500;
     text-align: right;
