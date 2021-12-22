@@ -176,45 +176,45 @@ export default{
   .sidenav a {font-size: 18px;}
 }
 .donationbill >a {
-	background:linear-gradient(to bottom, white 5%, white 100%);
-	display:inline-block;
-	cursor:pointer;
-	font-family:Arial;
-    margin: 6px;
-	padding:5px 5px;
-    border-radius: 15px;
-    font-size : 20px;
-    font-weight: bolder;
+   background:linear-gradient(to bottom, white 5%, white 100%);
+   display:inline-block;
+   cursor:pointer;
+   font-family:Arial;
+   margin: 6px;
+   padding:5px 5px;
+   border-radius: 15px;
+   font-size : 20px;
+   font-weight: bolder;
 }
 .donationbill >a:hover {
-	background:linear-gradient(to bottom, silver 5%, silver 100%);
-	background-color:#bab1ba;
+   background:linear-gradient(to bottom, silver 5%, silver 100%);
+   background-color:#bab1ba;
     font-size: larger;
 }
 .donationbill >a:active {
-	position:relative;
-	top:1px;
+   position:relative;
+   top:1px;
 }
 
 .donation >a {
-	background:linear-gradient(to bottom, wihte 5%, wihte 100%);
-	background-color:#cfcece;
-	border-radius:15px;
-	display:inline-block;
-	cursor:pointer;
-	font-family:Arial;
+   background:linear-gradient(to bottom, wihte 5%, wihte 100%);
+   background-color:#cfcece;
+   border-radius:15px;
+   display:inline-block;
+   cursor:pointer;
+   font-family:Arial;
     margin: 6px;
-	padding:5px 5px;
+   padding:5px 5px;
 
 }
 .donation >a:hover {
-	background:linear-gradient(to bottom, silver 5%, silver 100%);
-	background-color:#bab1ba;
+   background:linear-gradient(to bottom, silver 5%, silver 100%);
+   background-color:#bab1ba;
     font-size: larger;
 }
 .donation >a:active {
-	position:relative;
-	top:1px;
+   position:relative;
+   top:1px;
 }
 .header .right-header .login{
     height : 50px;
@@ -224,15 +224,15 @@ export default{
     width: 15%;
 }
 .login >a {
-	background:linear-gradient;
-	
-	border-radius:5px;
-	display:inline-block;
-	cursor:pointer;
-	font-family:Arial;
-    margin: 3px;
-	padding:2px 2px;
-    color : silver;
+   background:linear-gradient;
+   
+   border-radius:5px;
+   display:inline-block;
+   cursor:pointer;
+   font-family:Arial;
+   margin: 3px;
+   padding:2px 2px;
+   color : silver;
 
 }
 .login >a:hover{
@@ -245,13 +245,13 @@ export default{
     right: 50px;
 }
 .mypage >a {
-	background:linear-gradient;
-	border-radius:5px;
-	display:inline-block;
-	cursor:pointer;
-	font-family:Arial;
+   background:linear-gradient;
+   border-radius:5px;
+   display:inline-block;
+   cursor:pointer;
+   font-family:Arial;
     margin: 3px;
-	padding:2px 2px;
+   padding:2px 2px;
     color : silver;
 }
 .mypage >a:hover{
@@ -294,12 +294,12 @@ export default{
 .inquary div{
     max-width: 1400px;
     margin: 0 auto;
+    text-align: center;
 }
 .inquary a{
     display: inline-block;
     line-height: 50px;
     padding : 0 30px;
-    margin-right : 10px;
     font-size: 15px;
 }
 .bottom_info{
@@ -328,16 +328,17 @@ export default{
 }
 .bottom_info .footer-l h3 {
     margin : 30px 0 10px 0;
-    font-size: 30px;
+    font-size: 20px;
     text-align: left;
+    margin-bottom: 20px;
 }
 .bottom_info .footer-l p{
-    font-size: 15px;
+    font-size: 10px;
     font-weight:500;
     text-align: left;
 }
 .bottom_info .footer-r p{
-    font-size: 20px;
+    font-size: 15px;
     margin : 30px;
     font-weight:500;
     text-align: right;
@@ -527,45 +528,45 @@ export default{
   .sidenav a {font-size: 18px;}
 }
 .donationbill >a {
-	background:linear-gradient(to bottom, white 5%, white 100%);
-	display:inline-block;
-	cursor:pointer;
-	font-family:Arial;
+   background:linear-gradient(to bottom, white 5%, white 100%);
+   display:inline-block;
+   cursor:pointer;
+   font-family:Arial;
     margin: 6px;
-	padding:5px 5px;
+   padding:5px 5px;
     border-radius: 15px;
     font-size : 20px;
     font-weight: bolder;
 }
 .donationbill >a:hover {
-	background:linear-gradient(to bottom, silver 5%, silver 100%);
-	background-color:#bab1ba;
+   background:linear-gradient(to bottom, silver 5%, silver 100%);
+   background-color:#bab1ba;
     font-size: larger;
 }
 .donationbill >a:active {
-	position:relative;
-	top:1px;
+   position:relative;
+   top:1px;
 }
 
 .donation >a {
-	background:linear-gradient(to bottom, wihte 5%, wihte 100%);
-	background-color:#cfcece;
-	border-radius:15px;
-	display:inline-block;
-	cursor:pointer;
-	font-family:Arial;
+   background:linear-gradient(to bottom, wihte 5%, wihte 100%);
+   background-color:#cfcece;
+   border-radius:15px;
+   display:inline-block;
+   cursor:pointer;
+   font-family:Arial;
     margin: 6px;
-	padding:5px 5px;
+   padding:5px 5px;
 
 }
 .donation >a:hover {
-	background:linear-gradient(to bottom, silver 5%, silver 100%);
-	background-color:#bab1ba;
+   background:linear-gradient(to bottom, silver 5%, silver 100%);
+   background-color:#bab1ba;
     font-size: larger;
 }
 .donation >a:active {
-	position:relative;
-	top:1px;
+   position:relative;
+   top:1px;
 }
 .header .right-header .login{
     height : 50px;
@@ -575,14 +576,14 @@ export default{
     width: 15%;
 }
 .login >a {
-	background:linear-gradient;
-	
-	border-radius:5px;
-	display:inline-block;
-	cursor:pointer;
-	font-family:Arial;
+   background:linear-gradient;
+   
+   border-radius:5px;
+   display:inline-block;
+   cursor:pointer;
+   font-family:Arial;
     margin: 3px;
-	padding:2px 2px;
+   padding:2px 2px;
     color : silver;
 
 }
@@ -596,13 +597,13 @@ export default{
     right: 50px;
 }
 .mypage >a {
-	background:linear-gradient;
-	border-radius:5px;
-	display:inline-block;
-	cursor:pointer;
-	font-family:Arial;
+   background:linear-gradient;
+   border-radius:5px;
+   display:inline-block;
+   cursor:pointer;
+   font-family:Arial;
     margin: 3px;
-	padding:2px 2px;
+   padding:2px 2px;
     color : silver;
 }
 .mypage >a:hover{

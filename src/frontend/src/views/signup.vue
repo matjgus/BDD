@@ -25,8 +25,7 @@
                             <p>아이디</p>
                         </div>
                         <div class="info_data">
-                            <input v-model="id" type="text" name="id" required="" autocomplete="off">
-                            <p>숫자,영문 혼합 20자리</p>
+                            <input v-model="id" type="text" name="id" required="" autocomplete="off" placeholder="  숫자 영문 혼합 20자리">
                             </div>
                         </div>
                         
@@ -35,8 +34,7 @@
                             <p>비밀번호</p>
                             </div>
                             <div class="info_data">
-                            <input v-model="password" type="password" name="password" id="pass">
-                            <p>숫자,영문 혼합 20자리</p>
+                            <input v-model="password" type="password" name="password" id="pass"  placeholder="  숫자 영문 혼합 20자리">
                             </div>
                         </div>
                         
@@ -59,14 +57,6 @@
                             </div>
                         </div>
                         
-                        <div class="info_row">
-                            <div class="info_name">
-                            <p>우편번호</p>
-                            </div>
-                            <div class="info_data_post">
-                            <input v-model="post" type="text" name="post" disabled><button type="button" style="width:60px; height:30px; border-radius: 5px; border: none;" onclick="openZipSearch()">검색</button><br>
-                            </div>
-                        </div>
                         
                         <div class="info_row">
                             <div class="info_name">
@@ -74,11 +64,17 @@
                             </div>
                             <div class="info_data_address">
                             <input v-model="address" type="text" name="address" >
-                            <p>상세주소</p>
-                            <input v-model="detailaddress" type="text" name="detailaddress">
                             </div>
                         </div>
-                        
+
+                        <div class="info_row">
+                            <div class="info_name">
+                            <p>상세주소</p>
+                            </div>
+                            <div class="info_data_address">
+                            <input v-model="detailaddress" type="text" name="detailaddress" >
+                            </div>
+                        </div>
                         <div class="info_row">
                             <div class="info_name">
                             <p>전화번호</p>
@@ -248,8 +244,318 @@ export default {
    
 <style scoped>
 /* 모바일용 화면 */
-@media(max-width: 480px) {
-    
+@media(min-width: 300px) and (max-width: 599px) 
+{
+.wrong_access{
+font-size:50px;
+}
+.btn_join{
+    width:100%;
+}
+.signup {
+	margin-top: 200px;
+}
+
+.container {
+	height: 800px;
+	max-width: 1000px;
+	margin: 30px auto;
+}
+
+.join_wrap {
+	border-top: 3px solid #a81431;
+}
+
+.join_detail {
+	display: flex;
+	flex-direction: column;
+}
+
+.info_row {
+	display: flex;
+	height: 50px;
+	border-bottom: 1px solid rgb(158, 158, 158);
+}
+
+.info_name {
+	line-height: 50px;
+	width: 25%;
+	background-color: rgb(238, 238, 238);
+	text-align: left;
+}
+.info_data_post {
+	width: 85%;
+	padding-left: 30px;
+	display: flex;
+	align-items: center;
+}
+
+.info_data_post input{
+	width: 70%;
+	height: 30px;
+	border: 1px solid silver;
+	border-radius: 5px;
+	margin-right: 10px;
+	}
+	
+.info_data_address {
+	padding-left: 30px;
+	display: flex;
+	align-items: center;
+	}
+
+.info_data_address input{
+	width: 100%;
+	height: 30px;
+	border: 1px solid silver;
+	border-radius: 5px;
+	margin-right: 10px;
+	}
+	
+.info_data_address p{
+	font-size: 15px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.info_data {
+	width: 85%;
+	padding-left: 30px;
+	display: flex;
+	align-items: center;
+}
+
+.info_data input {
+	width: 70%;
+	height: 30px;
+	border: 1px solid silver;
+	border-radius: 5px;
+	margin-right: 10px;
+}
+
+.info_name p {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.container .member_tit {
+	font-size: 30px;
+	margin: 30px 0;
+	text-align: left;
+}
+
+.container .join_filed {
+	display: flex;
+}
+
+.join_filed div {
+	width: 50%;
+	font-size: 25px;
+	background-color: black;
+	color: white;
+	text-align: center;
+	border: 1px solid black;
+}
+
+.join_filed div:first-child {
+	background-color: black;
+	color: white;
+}
+
+.join_filed div:last-child {
+	background-color: white;
+	color: black;
+}
+
+.join_wrap .normal {
+	color: white
+}
+
+.input_area {
+	margin: 15px 0;
+	height: 40px;
+}
+
+.select_box {
+	
+}
+
+.chk_content {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.chk_area {
+	margin: 15px 0;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.chk_area a{
+	cursor:pointer;
+}
+
+
+.btn_join {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color: #ededed;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #777777;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 1vh 5vw;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+}
+
+.tn_join:hover {
+	background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color: #dfdfdf;
+}
+
+.btn_join:active {
+	position: relative;
+	top: 1px;
+}
+
+.myButton {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+	background-color: #f9f9f9;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	display: block;
+	cursor: pointer;
+	color: #666666;
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+}
+
+.myButton:hover {
+	background: linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+	background-color: #e9e9e9;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
+
+.add_btn {
+	display: flex;
+}
+
+.add_btn a {
+	width: 130px;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.layer {
+	display: inline-block;
+}
+
+.btn_area {
+	display: flex;
+	justify-content: center;
+}
+
+
+
+.pop-layer {
+	width: 80%;
+	height: 80%;
+	background: white;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 102;
+	transform: translate(-50%, -50%);
+	display: none;
+}
+
+.pop-layer .pop-title {
+	width: 100%;
+	height: 15%;
+	background-color: rgb(56, 57, 58);
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 40px;
+	line-height: 100px;
+	position: relative;
+}
+
+.pop-layer .pop-title .pop-title-r {
+	position: absolute;
+	right: 20px;
+}
+
+.pop-layer .pop-title .pop-title-r button {
+	border: none;
+	background: none;
+	color: white;
+	vertical-align: middle;
+	padding: 0 0 15px 0;
+}
+
+.dimlayer {
+	width: 100%;
+	height: 100%;
+	background: rgba(7, 7, 7, 0.5);
+	z-index: 100;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	display: none;
+}
+
+.pop-layer .pop-main {
+	width: 100%;
+	height: 90%;
+	background: rgb(233, 232, 230);
+}
+
+.pop-layer .text-box {
+	width: 90%;
+	height: 90%;
+	top: 5%;
+	left: 5%;
+	z-index: 103;
+	background-color: rgb(255, 255, 255);
+	color: balck;
+	text-align: left;
+	vertical-align: middle;
+	font-size: 20px;
+	position: relative;
+	overflow-y: scroll;
+}
+
+#layer.active .pop-layer {
+	display: block;
+}
+
+#layer.active .dimlayer {
+	display: block;
+}
+
+ㅈ
+a:hover {
+	color: rgb(27, 111, 194);
+	cursor: pointer;
+}
 }
 /* 컴퓨터용 화면 */
 @media(min-width: 1400px) {
@@ -556,7 +862,6 @@ export default {
 	display: block;
 }
 
-ㅈ
 a:hover {
 	color: rgb(27, 111, 194);
 	cursor: pointer;

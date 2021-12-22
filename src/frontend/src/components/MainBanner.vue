@@ -55,7 +55,38 @@ export default{
 <style scoped>
 /* 모바일용 화면 */
 @media(max-width: 480px) {
-    
+.hooper{
+height:40vh;
+min-height: 30vh;
+width: 100vw;
+}
+.slide{
+    height:40vh;
+    line-height: 40vh;
+}
+.banner{
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+.banner img{
+    width:100vw;
+    position: absolute;
+}
+.banner div{
+    z-index: 10;
+}
+.banner p{
+    font-size : 20px;
+    color: white;
+}
+.banner h1{
+    font-size : 30px;
+    color: white;
+    text-align: center;
+}
+
 }
 /* 컴퓨터용 화면 */
 @media(min-width: 1400px) {
