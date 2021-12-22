@@ -1,6 +1,7 @@
 package com.bdd.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -56,4 +57,12 @@ public class DonationDetailController {
 	public List<DonationDetail> findBydonorUid(@RequestParam(value="donorUid") String donorUid) throws Exception{
 				return donationDetailService.selectDonationDetail(donorUid);
 	}
+	
+	   @GetMapping("/api/sponsorshiplist")
+	   @ResponseBody
+	   public HashMap<String, Object> getDonationDetailList( Integer page, Integer size) {
+	      System.out.println("hello" + donationDetailService.findAll(page, size));
+	      return  donationDetailService.findAll(page, size);
+	   
+	   }
 }

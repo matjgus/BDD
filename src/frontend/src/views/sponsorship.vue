@@ -7,30 +7,9 @@
     <!-- <p>{{dates}}</p> -->
     <div class="sort-box">
       <div class="wrap">
-      <table class="table table-striped table-horizontal table-bordered mt-3">
-        <thead class="thead-strong">
-            <tr>
-                <th width="10%">게시글번호</th>
-                <th width="">제목</th>
-                <th width="10%">현재 후원 수</th>
-                <th width="10%">작성일</th>
-                <th width="10%">마감일</th>
-                <th width="10%">작성자</th>
-            </tr>
-        </thead>
-        <tbody id="tbody">
-            <tr  v-for="(list,index) in lists" :key = "index" >
-                <th  scope="row">{{ index + 1 }} </th>
-                    <td  @mouseover="hover" id="storytd" @click="goStory(list.story_idx)">{{ list.story_title }}</td>
-                    <td>{{ list.num_donation }}</td>
-                    <td>{{ list.reg_date }}</td>
-                    <td>{{ list.fin_date }}</td>
-                    <td>{{ list.story_id }}</td>
-            </tr>
-        </tbody>
-      </table>
-                 
+     <sponsorship-list/>
     </div>
+
 </div>  
 </div>
 </template>
@@ -38,73 +17,12 @@
     
 <script>
 import subBanner from '../components/SubBanner.vue';
-import axios from 'axios'
+import sponsorshipList from './sponsorshipList.vue';
+
 export default {
-    components:{subBanner},
-    data() {
-        
-      return {
-        baseUrl : 'http://localhost:9999',
-        lists : [],
-        dates:"",
-        story_title: '',
-        story_content: '',
-        story_id: '',
-        num_donation: 0,
-        story_file : '',
-        fin_date : '',
-        reg_date : '',
-        pageNum: 0
-      }
-      
-    },
-    props: {
-      pageSize: {
-        type: Number,
-        required: false,
-        default: 10
-      }
-    },
-    methods:
-    {
-    nextPage(){
-      this.pageNum+=1;
-      this.lists=this.listslice();
-    },
-    hover(){
-            var storytd = document.getElementById("storytd")
-            storytd.style.cursor = "pointer"; 
-        },
-    goStory(idx){
-            this.$router.push('/storydetail/'+idx);
-    },
-    prevPage(){
-      this.pageNum-=1;
-      this.lists=this.listslice();
-    },
-    getlist(){
-        axios.get('http://localhost:9999/storylist')
-            .then(res =>{ 
-                this.lists = res.data;
-                this.page = this.pageCount();
-            })
-            
-            .catch(error => 
-            console.log(error))
-        },
+    components:{subBanner, sponsorshipList},
+   
     
-    gettime(){
-    var date = new Date();
-    this.dates = date.getFullYear() + "-"
-    + (date.getMonth()+1) + "-" +
-    date.getDate();
-    },
-  },
-  
-    mounted(){
-        this.getlist();
-        this.gettime();
-    },
 }
 </script>
 
@@ -175,7 +93,7 @@ body {
 
 .title {
     font-size: 40px;
-    font-weight: 600;
+    font-weight: 600;   
     margin: 50px auto;
     text-align: center;
 }
