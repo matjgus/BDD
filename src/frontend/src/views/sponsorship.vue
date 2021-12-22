@@ -29,8 +29,13 @@ export default {
 
 <style scoped>
 /* 모바일용 화면 */
-@media(max-width: 480px) {
-    
+@media(min-width: 300px) and (max-width: 599px) {
+    .title {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 50px auto;
+    text-align: center;
+}
 }
 /* 컴퓨터용 화면 */
 @media(min-width: 1400px ) {

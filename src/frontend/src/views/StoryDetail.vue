@@ -85,7 +85,7 @@ export default{
             id : this.$session.get('UserId'),
             userlists:[],
             detail_list:[],
-            total_deed:0
+            total_deed:0,
             //login_id:this.$session.get('id'),
             
         }
@@ -121,21 +121,16 @@ export default{
         .catch(error => 
             console.log(error))
     },
+    //       var DateDay =   now() -   2021-12-22   
+    //       if( DateDay < 1){}
     count_date(){
-        this.remaining_days = parseInt(this.lists.fin_date.substr(8,10)) - parseInt(this.dates.substr(8,10))
-        // 년도 체크
-        if (this.lists.fin_date.substr(0,3) < this.dates.substr(0,3)){
-            this.remaining_days = 0;
+        var endDate = new Date(this.dates);
+        var startDate = new Date(this.lists.fin_date);
+        var btMs = startDate.getTime() - endDate.getTime();
+        this.remaining_days = btMs / (1000*60*60*24);
+        if (this.remaining_days <= 0){
+            this.remaining_days = 0
         }
-        // 월 체크
-        if (this.lists.fin_date.substr(5,6) < this.dates.substr(5,6)){
-        this.remaining_days = 0;
-        }
-        // 기한이 지나지 않았다면
-        else{
-            this.remaining_days = parseInt(this.lists.fin_date.substr(8,10)) - parseInt(this.dates.substr(8,10))
-        }
-        //console.log(this.remaining_days);
     },
     Postdonation(){
         var Params ={

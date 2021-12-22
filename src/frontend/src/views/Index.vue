@@ -115,25 +115,24 @@ export default {
                 },
             ],
             bulists:[
-                
                 {
                     link: 1,
-                    img:"story2.jpg",
+                    img:"story2.png",
                     text: "피1",
                 },
                 {
                     link:2,
-                    img:"story3.jpg",
+                    img:"story6.png",
                     text:"피2",
                 },
                 {
                     link:3,
-                    img:"story4.jpg",
+                    img:"story7.png",
                     text:"피3",
                 },
                 {
                     link:4,
-                    img:"story5.jpg",
+                    img:"story8.png",
                     text:"피4",
                 }
             ]
@@ -195,8 +194,92 @@ export default {
 <style scoped>
 /* 모바일용 화면 */
 @media(min-width: 300px) and (max-width: 599px) {
+.swiper-wrapper .banner1{
+    background:url("../assets/img/banner2.jpg");
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+.swiper-wrapper .banner1 p{
+    font-size : 35px;
+    color: white;
+}
+.swiper-wrapper .banner1 h1{
+    font-size : 60px;
+    color: white;
+    text-align: center;
+}
+.swiper-wrapper .banner2{
+    background:url("../assets/img/banner1.jpg");
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+
+.swiper-wrapper .banner2 h1{
+    font-size : 60px;
+    color: white;
+    text-align: center;
+}
+.swiper-wrapper .banner2 > div> p{
+    font-size : 35px;
+    color: white;
+}
+
+.swiper-wrapper .banner3{
+    background:url("../assets/img/banner4.jpg");
+    object-fit: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+}
+
+.swiper-wrapper .banner3 h1{
+    font-size : 60px;
+    color: white;
+    text-align: center;
+}
+.swiper-wrapper .banner3 > div> p{
+    font-size : 35px;
+    color: white;
+}    
+.card{
+    height: 400px;
+    border-radius: 50%;
+    margin: 10px;
+    color: white;
+}
+.card a:focus{
+    outline: none;
+}
+.card a img{
+    display:block;
+    object-fit: cover;
+    border-radius: 10% 10% 0% 0%;;
+}
+
+.card h1{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    background-color: #a81431;
+    border-radius: 0 0 10% 10%;
+    margin-inline-start: 0px;
+    margin-block-end: 0px;
+    font-weight:bold;
+    text-align: center;
+    font-size: 20px;
+}
+    .story-title a{
+        font-size : 30px;
+    }
     .status-boxd p>span{
         letter-spacing: 10px;
+    }
+    .hooper{
+        height: 100px;
     }
     .card h1{
     color :white;
@@ -218,10 +301,13 @@ export default {
         flex-direction: column;
     }
     .wrap .story-title a{
-        font-size: 5px;
+        font-size: 15px;
+        text-align: right;
+        padding-right : 3vw;
     }
     .wrap .story-title > h1 {
-        font-size : 25px;
+        margin-top:2vh;
+        font-size : 17px;
         text-align: center;
     }
     .wrap .support-status .donation-title{
@@ -229,7 +315,8 @@ export default {
     }
     .wrap .support-status .donation-title h1{
         text-align: center;
-        font-size: 25px;
+        font-size: 17px;
+        padding-top : 2vh;
     }
     .wrap .support-status .status-box {
         display: contents;    
@@ -237,11 +324,11 @@ export default {
     .wrap .support-status .status-box > div{
         width : 80%;
         height: 10vh;
-        margin : 20px; 
         background-color:#a81431;;
         border-radius: 5%;
         color: white;
         box-shadow: 3px 3px 3px 3px rgb(37, 11, 11);
+        margin : 20px auto;
     } 
     .wrap .support-status .status-box > div > p{
         font-size : 15px;
@@ -256,9 +343,16 @@ export default {
     margin :10px 0;
     }
     .wrap .participating-companies-title > h1{
-        font-size: 30px;        
+        font-size: 17px;        
     }
-
+    .wrap .story-title {
+    width : 100%;
+    text-align: left;
+    margin:0 auto;
+    line-height: 20px;
+    display : flex;
+    justify-content: space-between;
+}
 
 }
 /* 컴퓨터용 화면 */
@@ -455,6 +549,7 @@ export default {
 .wrap .support-status .donation-title h1{
     text-align: left;
     font-size:40px;
+    
 }
 .wrap .support-status .status-box > div > p{
     font-size : 30px;

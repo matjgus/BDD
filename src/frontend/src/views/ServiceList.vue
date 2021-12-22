@@ -27,7 +27,7 @@
                         <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">이전</button>
                         <span class="page-count">{{ nowpage+1 }}/{{ maxpage }} 페이지</span>
                         <button :disabled="pageNum >= page - 1" @click="nextPage" class="page-btn">다음</button>
-                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,8 +87,18 @@ export default {
 <style scoped>
 
 /* 모바일용 화면 */
-@media(max-width: 480px) {
-    
+@media(min-width: 300px) and (max-width: 599px) {
+    .container{
+        max-width: 480px;
+        width: 100%;
+    }
+    .btn-cover{
+        margin : 0 auto;
+        width:30%;
+    }
+    .btn-cover button{
+        margin : 0;
+    }
 }
 /* 컴퓨터용 화면 */
 @media(min-width: 1400px) {
