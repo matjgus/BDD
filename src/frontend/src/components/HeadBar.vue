@@ -39,28 +39,35 @@
         </div>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <!-- <router-link to="/profile">회원 정보 수정</router-link> -->
             <router-link to="/mydeed">내 후원증</router-link>
-            <!--<a href="/page/mydeed.html">내 후원증</a>-->
-            <!-- <router-link to="/donationhistory">후원 내역</router-link> -->
             <router-link to="/benefit">기념 상품</router-link>
             <a id="logout" @click="logoutEnt" @mouseover="hover">로그아웃</a>
         </div>
     </div>
+    <div class="home_mobile">
+        <div>
+            <router-link to="/"><span style="color:#a81431; "><i class="fas fa-socks"> 빨간양말후원</i></span></router-link>
+        </div>
+        <div v-if="!loginStatus" class="login">
+            <router-link to="/login">로그인</router-link>
+        </div>
+    
+    </div>
     <div class="nav_mobile">
             <ul>
-                <li>
-                    <router-link to="/"><p>홈</p></router-link>
-                </li>
                 <li>
                     <router-link to="/intro"><p>소개</p></router-link>
                 </li>
                 <li>
-                     <router-link to="/sponsorship"><p>사연</p></router-link>
+                     <router-link to="/sponsorship"><p>사연보기</p></router-link>
+                </li>
+                <li>
+                    <router-link to="/donation"><p>후원하기</p></router-link>
                 </li>
                 <li>
                     <router-link to="/service"><p>고객센터</p></router-link>
                 </li>
+                
             </ul>
         </div>
     </div>
@@ -112,14 +119,36 @@ export default{
 
 <style scoped>
 @media(min-width: 300px) and (max-width: 599px){
+    .login{
+        font-size: 15px;
+        line-height: 4vh;
+        color : red;
+    }
     .header {
         display : none;
+    }
+    
+    .home_mobile i{
+        font-size : 18px;
+        line-height: 5vh;
+        height:5vh;
+    }
+
+    .home_mobile{
+        display : flex;
+        width : 100%;
+        z-index: 100;
+        position: fixed;
+        top : 0;
+        left: 0;
+        overflow:hidden;
+        justify-content: space-between;
     }
     .nav_mobile{
         width : 100%;
         z-index: 100;
         position: fixed;
-        top : 0;
+        bottom : 0vh;
         left: 0;
         overflow:hidden;
     }
@@ -134,6 +163,7 @@ export default{
         text-align: center;
         line-height: 6vh;
         color: white;
+        font-size : 18px;
         background-color : rgb(168, 20, 49);
         border-right: 1px solid rgb(70, 0, 0);
         border-radius: 8%;
@@ -146,6 +176,9 @@ export default{
 }
 
 @media(min-width: 900px){
+.home_mobile{
+    display :none;
+}
 .nav_mobile{
     display : none;
    
@@ -154,6 +187,7 @@ export default{
 .mySidenav a:hover {
     cursor: pointer;
 }
+
 .header {
     display:flex;
     font-size:25px;

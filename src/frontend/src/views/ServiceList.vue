@@ -27,7 +27,7 @@
                         <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">이전</button>
                         <span class="page-count">{{ nowpage+1 }}/{{ maxpage }} 페이지</span>
                         <button :disabled="pageNum >= page - 1" @click="nextPage" class="page-btn">다음</button>
-                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
