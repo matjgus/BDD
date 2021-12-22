@@ -19,7 +19,7 @@
             <li>
                 <div class="say-img">
                     <img src="../assets/img/representative.jpg">
-                    <p>빨간양말후원 사이트 개발자 <b>구뽀미</b></p>
+                    <p>빨간양말후원 사이트 개발자 <b> 프로틴 </b></p>
                 </div>
             </li>
             <li>
