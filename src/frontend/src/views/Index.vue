@@ -115,25 +115,24 @@ export default {
                 },
             ],
             bulists:[
-                
                 {
                     link: 1,
-                    img:"story2.png",
+                    img:"story2.jpg",
                     text: "피1",
                 },
                 {
                     link:2,
-                    img:"story6.png",
+                    img:"story3.jpg",
                     text:"피2",
                 },
                 {
                     link:3,
-                    img:"story7.png",
+                    img:"story4.jpg",
                     text:"피3",
                 },
                 {
                     link:4,
-                    img:"story8.png",
+                    img:"story5.jpg",
                     text:"피4",
                 }
             ]
