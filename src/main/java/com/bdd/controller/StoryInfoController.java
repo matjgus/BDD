@@ -97,6 +97,7 @@ public class StoryInfoController {
 		storyInfoService.updateDonation(requestDto.getStory_idx(), requestDto.getDonation_count(), requestDto.getDonorUid());
 	}
 	
+	
 
 	
 }

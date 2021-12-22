@@ -1,6 +1,9 @@
 package com.bdd.domain.entity.board;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,11 +16,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity(name="story")
 @Data
 @Getter
 @NoArgsConstructor
+@ToString
 public class StoryInfo extends BaseTimeEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,5 +46,7 @@ public class StoryInfo extends BaseTimeEntity{
 		this.reg_date = reg_date;
 		this.fin_date = fin_date;
 	}
+	
+
 
 }

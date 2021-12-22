@@ -109,7 +109,7 @@ export default{
       layerstyle2.style.display = "none";
     },
     getstory(){
-        axios.get('http://localhost:9999/storydetail?idx='+this.story_idx)
+        axios.get('http://local:9999/storydetail?idx='+this.story_idx)
         .then(res =>{ 
             //console.log(res);
             this.lists = res.data;
@@ -215,11 +215,218 @@ export default{
 
 
 <style scoped>
-/* 모바일용 화면 */
-@media(max-width: 480px) {
+/* 컴퓨터용 화면 */
+@media(min-width: 300px) and (max-width: 599px){
+    .story-wrap {
+    margin: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
 }
-/* 컴퓨터용 화면 */
+
+.story-title {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.story-main-box {
+    margin-top: 50px;
+    width: 100vw;
+    border-bottom: 3px solid rgb(223, 223, 223);
+    padding-bottom: 100px;
+}
+
+.story-img-box {
+    width: 100vw;
+}
+
+.story-content-box {
+    width: 250px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 50px;
+    line-height: 46px;
+}
+
+.story-img-box img {
+    width: 600px;
+    height: 450px;
+}
+
+.content-small {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.content-tiny {
+    font-size: 17px;
+    font-weight: 460;
+}
+
+.content-big {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.content-info-box {
+    margin-top: 20px;
+    width: 80vw;
+    height: 100px;
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    line-height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.content-select-box {
+    margin-top: 20px;
+    width: 350px;
+    height: 100px;
+    background-color: rgb(255, 128, 128);
+    border-radius: 10px;
+    border: none;
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}
+
+.story-info {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.story-info img {
+    margin: 50px 0 50px 0;
+    width: 1000px;
+    height: 500px;
+}
+
+.terms-info {
+    margin-top: 20px;
+    width: 80vw;
+    height: 80px;
+    background-color: rgb(255, 128, 128);
+    border-radius: 10px;
+    border: none;
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}
+
+.terms-check-box {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.membership-btn {
+    margin-top: 20px;
+    width: 600px;
+    height: 56px;
+    background: black;
+    border: none;
+    color:white;
+    font-size: 18px;
+}
+
+.h {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+
+
+.bg-layer {
+    position: fixed;
+    background: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1098;
+    display: none;
+}
+
+.pop-layer {
+    position: fixed;
+    width: 80%;
+    height: 80%;
+    background: #ccc;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1099;
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+.layer-title {
+    height: 60px;
+    background: black;
+    margin-bottom: 0;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+}
+
+.layer-main {
+    margin-top: 0;
+    height: 150%;
+    background: white;
+}
+
+.text-box {
+height: 92%;
+width: 92%;
+border: 1px solid silver;
+overflow-y: auto;
+padding: 10px;
+text-align: center;
+color: #222;
+margin-top: 2%;
+margin-left: 4%;
+margin-bottom: 4%;
+margin-right: 4%;
+}
+
+.membership-info {
+    height: 50px; 
+    width: 190px; 
+    margin-bottom: 5px; 
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(201, 201, 201);
+    margin-top: 5px;
+    text-align: center;
+}
+
+.send-info-btn {
+    margin-top: 30px;
+    height: 40px;
+    width: 150px;
+    border: none;
+    color: white;
+    background-color: black;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.story-info-content{
+    font-size:20px;
+}
+}
 @media(min-width: 1400px) {
 .story-wrap {
     margin: 40px;
@@ -238,7 +445,7 @@ export default{
 .story-main-box {
     margin-top: 50px;
     display: flex;
-    width: 1000px;
+    width: 100vw;
     border-bottom: 3px solid rgb(223, 223, 223);
     padding-bottom: 100px;
 }

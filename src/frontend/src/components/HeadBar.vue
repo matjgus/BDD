@@ -51,7 +51,9 @@
         <div v-if="!loginStatus" class="login">
             <router-link to="/login">로그인</router-link>
         </div>
-    
+        <div v-if="loginStatus" class="login">
+            <a id="logout" @click="logoutEnt" @mouseover="hover">로그아웃</a>
+        </div>
     </div>
     <div class="nav_mobile">
             <ul>
