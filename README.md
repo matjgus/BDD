@@ -26,4 +26,10 @@
     2. 헌혈증 기부받기
     3. 후기 등록
 
-## 화면설계
+## 설치파일
+
+#### front
+
+- npm install router
+- npm install axisos
+- npm install hooper
