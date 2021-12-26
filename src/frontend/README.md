@@ -19,6 +19,9 @@ npm run build
 ```
 npm run lint
 ```
+npm install router
+
+nom install hooper
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
