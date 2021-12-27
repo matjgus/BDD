@@ -145,7 +145,7 @@ export default {
 }
 .donation-bill  > div > a {
     font-size : 20px;
-    margin : 40px 0;
+    margin : 35px 0;
     line-height: 32px;
     text-align: center;
     border-radius: 10%;
